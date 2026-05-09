@@ -400,7 +400,10 @@ img,video{max-width:100%;display:block;}
 .lb-nav-prev{left:max(18px,env(safe-area-inset-left));}
 .lb-nav-next{right:max(18px,env(safe-area-inset-right));}
 @media(max-width:768px){
-  .lb-nav{display:none;} /* mobile = swipe natif */
+  /* Flèches plus discrètes sur mobile, mais visibles. Le swipe reste actif en complément. */
+  .lb-nav{width:40px;height:40px;font-size:17px;opacity:.45;}
+  .lb-nav-prev{left:max(10px,env(safe-area-inset-left));}
+  .lb-nav-next{right:max(10px,env(safe-area-inset-right));}
 }
 
 /* ══ RESPONSIVE ══ */
