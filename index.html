@@ -158,24 +158,26 @@ img,video{max-width:100%;display:block;}
 .process-label{font-family:var(--f-mono);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--mustard);margin-bottom:18px;}
 .process-title{font-family:var(--f-display);font-weight:800;font-size:clamp(32px,4.8vw,64px);line-height:.96;letter-spacing:-.025em;color:var(--paper);margin-bottom:48px;}
 .process-title em{font-style:italic;font-weight:700;color:var(--mustard);}
-.process-topbar{display:grid;grid-template-columns:auto 1fr auto;align-items:end;gap:48px;margin-bottom:36px;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,.15);}
+.process-topbar{display:grid;grid-template-columns:auto 1fr;align-items:end;gap:48px;margin-bottom:36px;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,.15);}
 .process-num{font-family:var(--f-display);font-weight:800;font-style:italic;font-size:clamp(64px,9vw,112px);line-height:.85;color:var(--mustard);opacity:.55;user-select:none;}
 .process-stage-info{padding-bottom:6px;}
 .process-title-big{font-family:var(--f-display);font-weight:700;font-style:italic;font-size:clamp(22px,3vw,38px);line-height:1.05;color:var(--paper);margin-bottom:10px;letter-spacing:-.015em;}
 .process-body-txt{font-size:clamp(13px,1.1vw,15px);color:rgba(240,237,229,.75);line-height:1.6;max-width:520px;}
-.process-controls{display:flex;align-items:center;gap:10px;padding-bottom:6px;}
-.p-btn{width:42px;height:42px;border-radius:999px;border:1px solid rgba(255,255,255,.3);background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;color:var(--paper);transition:background .15s,color .15s,border-color .15s;}
-.p-btn:hover{background:var(--mustard);color:var(--ink);border-color:var(--mustard);}
-.p-play{font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;border:1px solid var(--mustard);background:var(--mustard);color:var(--ink);padding:0 20px;height:42px;border-radius:999px;cursor:pointer;transition:background .15s,color .15s;}
-.p-play:hover,.p-play.active{background:transparent;color:var(--mustard);}
 .p-dots{
   display:flex;
+  align-items:center;
   justify-content:center;
-  gap:10px;
+  gap:14px;
   margin-top:28px;
 }
-.p-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.22);cursor:pointer;transition:background .2s,transform .2s;}
+.p-btn{width:36px;height:36px;border-radius:999px;border:1px solid rgba(255,255,255,.3);background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px;color:var(--paper);transition:background .15s,color .15s,border-color .15s;flex-shrink:0;}
+.p-btn:hover{background:var(--mustard);color:var(--ink);border-color:var(--mustard);}
+.p-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.22);cursor:pointer;transition:background .2s,transform .2s;flex-shrink:0;}
 .p-dot.on{background:var(--mustard);transform:scale(1.6);}
+/* Hide arrows on touch devices — swipe is the navigation there */
+@media(max-width:768px){
+  .p-dots .p-btn{display:none;}
+}
 .process-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;align-items:stretch;}
 .process-cell{
   aspect-ratio:9/16;
@@ -398,10 +400,6 @@ img,video{max-width:100%;display:block;}
 @media(max-width:1280px){
   .mosaic-grid{grid-template-columns:repeat(5,1fr);}
 }
-@media(max-width:1100px){
-  .process-topbar{grid-template-columns:auto 1fr;}
-  .process-controls{grid-column:1/-1;margin-top:16px;}
-}
 @media(max-width:1280px){
   .ed-board{grid-template-columns:repeat(4,1fr);}
 }
@@ -431,7 +429,6 @@ img,video{max-width:100%;display:block;}
   .process-strip{grid-template-columns:repeat(3,1fr);}
   .process-strip > *:nth-child(n+4){display:none;}
   .process-topbar{grid-template-columns:1fr;gap:20px;padding-bottom:20px;}
-  .process-controls{flex-wrap:wrap;margin-top:0;}
 
   .hero-cta{padding:14px 26px;font-size:11px;}
   .hero-bar{padding:14px 20px;}
@@ -628,11 +625,6 @@ img,video{max-width:100%;display:block;}
           </div>
         </div>
       </div>
-      <div class="process-controls">
-        <button class="p-btn" id="p-prev" aria-label="Étape précédente">←</button>
-        <button class="p-play" id="p-play">Lancer</button>
-        <button class="p-btn" id="p-next" aria-label="Étape suivante">→</button>
-      </div>
     </div>
 
     <div class="process-strip" id="p-strip">
@@ -659,10 +651,12 @@ img,video{max-width:100%;display:block;}
     </div>
 
     <div class="p-dots">
+      <button class="p-btn" id="p-prev" aria-label="Étape précédente">←</button>
       <div class="p-dot on" data-s="0" role="button" aria-label="Étape 1"></div>
       <div class="p-dot" data-s="1" role="button" aria-label="Étape 2"></div>
       <div class="p-dot" data-s="2" role="button" aria-label="Étape 3"></div>
       <div class="p-dot" data-s="3" role="button" aria-label="Étape 4"></div>
+      <button class="p-btn" id="p-next" aria-label="Étape suivante">→</button>
     </div>
   </div>
 </section>
@@ -988,8 +982,7 @@ const pStages=Array.from(document.querySelectorAll('.process-stage-txt'));
 const pDots=Array.from(document.querySelectorAll('.p-dot'));
 const pCells=Array.from(document.querySelectorAll('#p-strip .process-cell'));
 const pNumEl=document.getElementById('p-num');
-const pPlay=document.getElementById('p-play');
-let pCur=0,pInt,pOn=false;
+let pCur=0,pInt,pOn=false,pUserInteracted=false;
 
 function setP(i){
   i=(i+STEPS)%STEPS;pCur=i;
@@ -1017,13 +1010,48 @@ function setP(i){
     }
   });
 }
-function startP(){clearInterval(pInt);pOn=true;pPlay.textContent='Pause';pPlay.classList.add('active');setP(0);pInt=setInterval(()=>setP(pCur+1),2400);}
-function stopP(){clearInterval(pInt);pOn=false;pPlay.textContent='Lancer';pPlay.classList.remove('active');}
-pPlay.onclick=()=>pOn?stopP():startP();
-document.getElementById('p-prev').onclick=()=>{stopP();setP(pCur-1);};
-document.getElementById('p-next').onclick=()=>{stopP();setP(pCur+1);};
-pDots.forEach(d=>d.onclick=()=>{stopP();setP(parseInt(d.dataset.s));});
+function startP(){clearInterval(pInt);pOn=true;pInt=setInterval(()=>setP(pCur+1),2400);}
+function stopP(){clearInterval(pInt);pOn=false;}
+function pManual(fn){pUserInteracted=true;stopP();fn();}
+
+document.getElementById('p-prev').onclick=()=>pManual(()=>setP(pCur-1));
+document.getElementById('p-next').onclick=()=>pManual(()=>setP(pCur+1));
+pDots.forEach(d=>d.onclick=()=>pManual(()=>setP(parseInt(d.dataset.s))));
 setP(0);
+
+/* Auto-start au scroll : section visible → wait 2s → cycle.
+   Si l'user a déjà interagi manuellement, on ne lance pas. */
+const procSection=document.getElementById('process');
+if(procSection){
+  const procObs=new IntersectionObserver((entries,obs)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        setTimeout(()=>{
+          if(!pUserInteracted)startP();
+        },2000);
+        obs.unobserve(e.target);
+      }
+    });
+  },{threshold:.4});
+  procObs.observe(procSection);
+}
+
+/* Swipe mobile : navigation gauche/droite sur la zone visuels */
+const stripEl=document.getElementById('p-strip');
+if(stripEl){
+  let touchStartX=0,touchStartY=0;
+  stripEl.addEventListener('touchstart',e=>{
+    touchStartX=e.touches[0].clientX;
+    touchStartY=e.touches[0].clientY;
+  },{passive:true});
+  stripEl.addEventListener('touchend',e=>{
+    const dx=e.changedTouches[0].clientX-touchStartX;
+    const dy=e.changedTouches[0].clientY-touchStartY;
+    if(Math.abs(dx)>50 && Math.abs(dx)>Math.abs(dy)){
+      pManual(()=>setP(pCur+(dx<0?1:-1)));
+    }
+  },{passive:true});
+}
 
 /* LIGHTBOX */
 const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lb-img'),lbVid=document.getElementById('lb-vid');
