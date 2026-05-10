@@ -1035,6 +1035,22 @@ setP(0);
    Si l'user a déjà interagi manuellement, on ne lance pas. */
 const procSection=document.getElementById('process');
 if(procSection){
+  /* Preload toutes les images des steps dès que la section approche
+     (évite que slot 4 et 5 ne soient pas chargés à temps lors du cycle) */
+  const procPreload=new IntersectionObserver((entries,obs)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        pV.forEach(stage=>{
+          if(stage.type==='img'){
+            stage.srcs.forEach(src=>{const im=new Image();im.src=src;});
+          }
+        });
+        obs.unobserve(e.target);
+      }
+    });
+  },{rootMargin:'600px'});
+  procPreload.observe(procSection);
+
   const procObs=new IntersectionObserver((entries,obs)=>{
     entries.forEach(e=>{
       if(e.isIntersecting){
