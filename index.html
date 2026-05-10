@@ -1031,32 +1031,49 @@ document.getElementById('p-next').onclick=()=>pManual(()=>setP(pCur+1));
 pDots.forEach(d=>d.onclick=()=>pManual(()=>setP(parseInt(d.dataset.s))));
 setP(0);
 
-/* Auto-start au scroll : section visible → wait 2s → cycle.
+/* Auto-start au scroll :
+   1. Section approche du viewport → preload TOUTES les images du process
+   2. Section visible à 40% → on attend 2s ET que toutes les images soient prêtes
+   3. Lance le cycle uniquement quand les 2 conditions sont remplies
    Si l'user a déjà interagi manuellement, on ne lance pas. */
 const procSection=document.getElementById('process');
 if(procSection){
-  /* Preload toutes les images des steps dès que la section approche
-     (évite que slot 4 et 5 ne soient pas chargés à temps lors du cycle) */
+  /* Étape 1 : preload anticipé dès l'approche de la section */
+  let preloadStarted=false;
+  let preloadPromise=null;
+  function startPreload(){
+    if(preloadStarted)return preloadPromise;
+    preloadStarted=true;
+    /* Ordre prioritaire : wear → imagine → create (create est déjà chargé via DOM) */
+    const allSrcs=[];
+    [pV[1],pV[2],pV[0]].forEach(stage=>{
+      if(stage.type==='img'){stage.srcs.forEach(s=>allSrcs.push(s));}
+    });
+    preloadPromise=Promise.all(allSrcs.map(src=>new Promise(resolve=>{
+      const im=new Image();
+      im.onload=im.onerror=resolve;
+      im.src=src;
+    })));
+    return preloadPromise;
+  }
+
   const procPreload=new IntersectionObserver((entries,obs)=>{
     entries.forEach(e=>{
-      if(e.isIntersecting){
-        pV.forEach(stage=>{
-          if(stage.type==='img'){
-            stage.srcs.forEach(src=>{const im=new Image();im.src=src;});
-          }
-        });
-        obs.unobserve(e.target);
-      }
+      if(e.isIntersecting){startPreload();obs.unobserve(e.target);}
     });
   },{rootMargin:'600px'});
   procPreload.observe(procSection);
 
+  /* Étape 2-3 : auto-start après 2s ET toutes les images chargées */
   const procObs=new IntersectionObserver((entries,obs)=>{
     entries.forEach(e=>{
       if(e.isIntersecting){
-        setTimeout(()=>{
+        Promise.all([
+          new Promise(r=>setTimeout(r,2000)),
+          startPreload()
+        ]).then(()=>{
           if(!pUserInteracted)startP();
-        },2000);
+        });
         obs.unobserve(e.target);
       }
     });
