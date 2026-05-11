@@ -690,8 +690,8 @@ img,video{max-width:100%;display:block;}
       <div class="ed-item"><img src="assets/tennis-01.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
       <div class="ed-item"><img src="assets/tennis-02.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
       <div class="ed-item"><img src="assets/tennis-03.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><img src="assets/tennis-04.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
       <div class="ed-item"><img src="assets/tennis-05.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
+      <div class="ed-item"><img src="assets/tennis-04.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
       <div class="ed-item"><img src="assets/tennis-06.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
       <div class="ed-item"><img src="assets/tennis-07.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
       <div class="ed-item"><img src="assets/tennis-08.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
@@ -1051,7 +1051,7 @@ function setP(i){
     }
   });
 }
-function startP(){clearInterval(pInt);pOn=true;pInt=setInterval(()=>setP(pCur+1),2400);}
+function startP(){clearInterval(pInt);pOn=true;pInt=setInterval(()=>setP(pCur+1),3800);}
 function stopP(){clearInterval(pInt);pOn=false;}
 function pManual(fn){pUserInteracted=true;stopP();fn();}
 
