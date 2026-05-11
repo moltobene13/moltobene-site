@@ -389,6 +389,9 @@ img,video{max-width:100%;display:block;}
 }
 .allora-footer .contact a{color:var(--paper);text-decoration:none;transition:color .2s;}
 .allora-footer .contact a:hover{color:var(--mustard);}
+.allora-footer .contact a.email-cta{color:var(--mustard);font-weight:500;}
+.allora-footer .contact a.email-cta::before{content:"→ ";display:inline-block;margin-right:4px;transition:transform .2s;}
+.allora-footer .contact a.email-cta:hover::before{transform:translateX(3px);}
 
 /* LIGHTBOX */
 .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.96);display:none;align-items:center;justify-content:center;z-index:9500;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
@@ -873,7 +876,7 @@ img,video{max-width:100%;display:block;}
           <li>2 univers de marque</li>
           <li>Droits commerciaux inclus</li>
         </ul>
-        <a href="https://meet.moltobene.ai" target="_blank" rel="noopener" class="pc-cta cta-ol">Démarrer →</a>
+        <a href="mailto:hello@moltobene.ai" class="pc-cta cta-ol">Démarrer →</a>
       </div>
       <div class="pc pc-f">
         <div class="pc-badge">★ Most popular</div>
@@ -901,7 +904,7 @@ img,video{max-width:100%;display:block;}
           <li>Branding &amp; Direction Artistique</li>
           <li>Interlocuteur dédié</li>
         </ul>
-        <a href="https://meet.moltobene.ai" target="_blank" rel="noopener" class="pc-cta cta-olight">Nous contacter →</a>
+        <a href="mailto:hello@moltobene.ai" class="pc-cta cta-olight">Nous contacter →</a>
       </div>
     </div>
   </div>
@@ -918,7 +921,7 @@ img,video{max-width:100%;display:block;}
   </div>
   <div class="allora-footer">
     <div class="contact">Molto Bene Studio</div>
-    <div class="contact"><a href="mailto:hello@moltobene.ai">hello@moltobene.ai</a></div>
+    <div class="contact"><a href="mailto:hello@moltobene.ai" class="email-cta">hello@moltobene.ai</a></div>
     <div class="contact"><a href="tel:+33661685841">+33 6 61 68 58 41</a></div>
   </div>
 </section>
