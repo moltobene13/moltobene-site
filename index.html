@@ -167,7 +167,6 @@ img,video{max-width:100%;display:block;}
 .process-reel{position:relative;height:500vh;}
 .process-pin{position:sticky;top:0;height:100vh;display:flex;align-items:center;padding:64px 32px 100px;overflow:hidden;}
 .process-pin .process-inner{max-width:var(--max-wide);margin:0 auto;width:100%;position:relative;z-index:1;}
-.process-pin>.p-progress{position:absolute;bottom:36px;left:32px;right:32px;max-width:640px;margin:0 auto;z-index:2;}
 .process-label{font-family:var(--f-mono);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--mustard);margin-bottom:14px;}
 .process-title{font-family:var(--f-display);font-weight:800;font-size:clamp(28px,4.2vw,56px);line-height:.96;letter-spacing:-.025em;color:var(--paper);margin-bottom:32px;}
 .process-title em{font-style:italic;font-weight:700;color:var(--mustard);}
@@ -202,11 +201,17 @@ img,video{max-width:100%;display:block;}
 .process-strip .process-cell:nth-child(4) .media-layer{transition-delay:180ms;}
 .process-strip .process-cell:nth-child(5) .media-layer{transition-delay:240ms;}
 
-/* Progress 4 segments — cliquables pour naviguer entre étapes */
+/* Progress 4 segments — tap zone 32px de haut, filet visible 3px au centre */
 .p-progress{display:flex;gap:12px;margin:36px auto 0;max-width:640px;}
-.p-seg{flex:1;height:3px;background:rgba(255,255,255,.22);border-radius:2px;overflow:hidden;position:relative;cursor:pointer;transition:background .2s,transform .2s;padding:8px 0;background-clip:content-box;}
-.p-seg:hover{background:rgba(255,255,255,.38);background-clip:content-box;}
-.p-seg .fill{display:block;height:100%;width:0%;background:var(--mustard);transition:width .2s linear;}
+.p-seg{flex:1;height:32px;cursor:pointer;position:relative;display:flex;align-items:center;}
+.p-seg::before{content:'';width:100%;height:3px;background:rgba(255,255,255,.22);border-radius:2px;transition:background .2s,height .2s;}
+.p-seg:hover::before{background:rgba(255,255,255,.45);height:4px;}
+.p-seg .fill{position:absolute;top:50%;left:0;transform:translateY(-50%);height:3px;width:0%;background:var(--mustard);border-radius:2px;transition:width .2s linear,height .2s;}
+.p-seg:hover .fill{height:4px;}
+/* Desktop : progress flotte en bas du sticky pin */
+@media(min-width:901px){
+  .process-pin>.p-progress{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);width:calc(100% - 64px);max-width:640px;z-index:2;margin:0;}
+}
 
 /* ══ EDITORIAL ══ */
 .ed-s{background:var(--paper);padding:110px 32px 120px;position:relative;overflow:hidden;}
@@ -446,10 +451,11 @@ img,video{max-width:100%;display:block;}
 @media(max-width:900px){
   /* Process : bypass le scroll-pin sur tablet/mobile, auto-cycle prend le relais */
   .process-reel{height:auto;}
-  .process-pin{position:static;height:auto;padding:100px 24px 110px;}
-  .process-num-stack{height:90px;width:160px;}
-  .process-stage-info{min-height:130px;}
-  .process-title{margin-bottom:24px;}
+  .process-pin{position:static;height:auto;padding:80px 24px 80px;display:block;}
+  .process-num-stack{height:78px;width:140px;}
+  .process-stage-info{min-height:96px;}
+  .process-title{margin-bottom:20px;}
+  .process-topbar{margin-bottom:18px;padding-bottom:14px;}
 }
 @media(max-width:768px){
   .mosaic-grid{grid-template-columns:repeat(3,1fr);gap:2px;padding:2px;}
