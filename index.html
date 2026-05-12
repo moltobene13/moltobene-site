@@ -161,55 +161,50 @@ img,video{max-width:100%;display:block;}
 .human-pill .txt{font-family:var(--f-body);font-size:clamp(14px,1.2vw,16px);line-height:1.55;color:var(--ink2);}
 .human-pill .txt strong{color:var(--ink);font-weight:600;}
 
-/* ══ PROCESS — INK BG ══ */
-.process-s{background:var(--ink);padding:100px 32px 120px;position:relative;overflow:hidden;color:var(--paper);}
-.process-s::before{content:'';position:absolute;top:-20%;right:-5%;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(212,170,32,.12) 0%,transparent 70%);pointer-events:none;}
-.process-inner{max-width:var(--max-wide);margin:0 auto;position:relative;z-index:1;}
-.process-label{font-family:var(--f-mono);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--mustard);margin-bottom:18px;}
-.process-title{font-family:var(--f-display);font-weight:800;font-size:clamp(32px,4.8vw,64px);line-height:.96;letter-spacing:-.025em;color:var(--paper);margin-bottom:48px;}
+/* ══ PROCESS — INK BG · cinematic scroll-pinned reel ══ */
+.process-s{background:var(--ink);color:var(--paper);position:relative;overflow:visible;padding:0;}
+.process-s::before{content:'';position:absolute;top:-10%;right:-5%;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(212,170,32,.12) 0%,transparent 70%);pointer-events:none;z-index:0;}
+.process-reel{position:relative;height:500vh;}
+.process-pin{position:sticky;top:0;height:100vh;display:flex;align-items:center;padding:64px 32px;overflow:hidden;}
+.process-pin .process-inner{max-width:var(--max-wide);margin:0 auto;width:100%;position:relative;z-index:1;}
+.process-label{font-family:var(--f-mono);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--mustard);margin-bottom:14px;}
+.process-title{font-family:var(--f-display);font-weight:800;font-size:clamp(28px,4.2vw,56px);line-height:.96;letter-spacing:-.025em;color:var(--paper);margin-bottom:32px;}
 .process-title em{font-style:italic;font-weight:700;color:var(--mustard);}
-.process-topbar{display:grid;grid-template-columns:auto 1fr;align-items:end;gap:48px;margin-bottom:36px;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,.15);}
-.process-num{font-family:var(--f-display);font-weight:800;font-style:italic;font-size:clamp(64px,9vw,112px);line-height:.85;color:var(--mustard);opacity:.55;user-select:none;}
-.process-stage-info{padding-bottom:6px;}
+.process-topbar{display:grid;grid-template-columns:auto 1fr;align-items:end;gap:48px;margin-bottom:24px;padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.15);}
+
+/* Numéro géant — 4 cartes empilées, flip 3D */
+.process-num-stack{position:relative;width:clamp(140px,16vw,200px);height:clamp(72px,10vw,128px);perspective:1000px;transform-style:preserve-3d;user-select:none;}
+.num-card{position:absolute;inset:0;font-family:var(--f-display);font-weight:800;font-style:italic;font-size:clamp(64px,9vw,112px);line-height:.85;color:var(--mustard);opacity:0;transform:translateY(36px) rotateX(55deg);transform-origin:center top;transition:opacity .55s cubic-bezier(.2,.7,.2,1),transform .65s cubic-bezier(.2,.7,.2,1);backface-visibility:hidden;will-change:opacity,transform;}
+.num-card.is-on{opacity:.85;transform:translateY(0) rotateX(0deg);}
+.num-card.is-out{opacity:0;transform:translateY(-36px) rotateX(-55deg);}
+
+/* Stage textes : cross-fade vertical avec blur */
+.process-stage-info{position:relative;min-height:clamp(96px,12vh,150px);padding-bottom:6px;}
+.process-stage-txt{position:absolute;inset:0;opacity:0;transform:translateY(22px);filter:blur(8px);transition:opacity .55s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1),filter .55s ease;pointer-events:none;will-change:opacity,transform,filter;}
+.process-stage-txt.is-on{opacity:1;transform:translateY(0);filter:blur(0);pointer-events:auto;}
+.process-stage-txt.is-out{opacity:0;transform:translateY(-22px);filter:blur(4px);}
 .process-title-big{font-family:var(--f-display);font-weight:700;font-style:italic;font-size:clamp(22px,3vw,38px);line-height:1.05;color:var(--paper);margin-bottom:10px;letter-spacing:-.015em;}
 .process-body-txt{font-size:clamp(13px,1.1vw,15px);color:rgba(240,237,229,.75);line-height:1.6;max-width:520px;}
-.p-dots{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:14px;
-  margin-top:28px;
-}
-.p-btn{width:36px;height:36px;border-radius:999px;border:1px solid rgba(255,255,255,.3);background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px;color:var(--paper);transition:background .15s,color .15s,border-color .15s;flex-shrink:0;}
-.p-btn:hover{background:var(--mustard);color:var(--ink);border-color:var(--mustard);}
-.p-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.22);cursor:pointer;transition:background .2s,transform .2s;flex-shrink:0;}
-.p-dot.on{background:var(--mustard);transform:scale(1.6);}
-/* Hide arrows on touch devices — swipe is the navigation there */
-@media(max-width:768px){
-  .p-dots .p-btn{display:none;}
-}
+
+/* Grille 5 cellules — chaque cellule = 4 media-layers empilés */
 .process-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;align-items:stretch;}
-.process-cell{
-  aspect-ratio:9/16;
-  overflow:hidden;
-  position:relative;
-  border-radius:1px;
-  background:var(--ink2);
-  width:100%;
-  height:auto;
-}
-.process-cell::before{
-  content:'';display:block;padding-bottom:177.778%;
-}
-.process-cell img,.process-cell video{
-  position:absolute;inset:0;
-  width:100% !important;height:100% !important;
-  object-fit:cover;object-position:center center;
-  display:block;cursor:pointer;
-}
-.process-cell .pc-vid{display:none;}
-.process-cell.is-video .pc-img{display:none;}
-.process-cell.is-video .pc-vid{display:block;}
+.process-cell{position:relative;aspect-ratio:9/16;overflow:hidden;border-radius:1px;background:var(--ink2);width:100%;}
+.media-layer{position:absolute;inset:0;opacity:0;transform:scale(1.08) rotate(-1.8deg);filter:blur(12px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1),filter .9s ease;pointer-events:none;will-change:opacity,transform,filter;}
+.media-layer.is-on{opacity:1;transform:scale(1) rotate(0deg);filter:blur(0);pointer-events:auto;}
+.media-layer.is-out{opacity:0;transform:scale(.92) rotate(1.8deg);filter:blur(10px);}
+.media-layer img,.media-layer video{position:absolute;inset:0;width:100% !important;height:100% !important;object-fit:cover;object-position:center center;display:block;cursor:pointer;}
+
+/* Stagger cascade left → right */
+.process-strip .process-cell:nth-child(1) .media-layer{transition-delay:0ms;}
+.process-strip .process-cell:nth-child(2) .media-layer{transition-delay:60ms;}
+.process-strip .process-cell:nth-child(3) .media-layer{transition-delay:120ms;}
+.process-strip .process-cell:nth-child(4) .media-layer{transition-delay:180ms;}
+.process-strip .process-cell:nth-child(5) .media-layer{transition-delay:240ms;}
+
+/* Progress 4 segments */
+.p-progress{display:flex;gap:10px;margin:36px auto 0;max-width:640px;}
+.p-seg{flex:1;height:2px;background:rgba(255,255,255,.14);border-radius:1px;overflow:hidden;position:relative;}
+.p-seg .fill{display:block;height:100%;width:0%;background:var(--mustard);transition:width .2s linear;}
 
 /* ══ EDITORIAL ══ */
 .ed-s{background:var(--paper);padding:110px 32px 120px;position:relative;overflow:hidden;}
@@ -436,7 +431,7 @@ img,video{max-width:100%;display:block;}
 @media(max-width:1024px){
   .mosaic-grid{grid-template-columns:repeat(4,1fr);}
   .ed-board{grid-template-columns:repeat(3,1fr);}
-  .promise-s,.human-s,.process-s,.compare-s,.pricing-s,.ed-s{padding-top:100px;padding-bottom:100px;}
+  .promise-s,.human-s,.compare-s,.pricing-s,.ed-s{padding-top:100px;padding-bottom:100px;}
 }
 @media(max-width:960px){
   .human-layout{grid-template-columns:1fr;gap:40px;}
@@ -446,18 +441,26 @@ img,video{max-width:100%;display:block;}
   .cch.vs,.cr-cell.cv,.ct.tv{display:none;}
   .pricing-grid{grid-template-columns:1fr;}
 }
+@media(max-width:900px){
+  /* Process : bypass le scroll-pin sur tablet/mobile, auto-cycle prend le relais */
+  .process-reel{height:auto;}
+  .process-pin{position:static;height:auto;padding:100px 24px 110px;}
+  .process-num-stack{height:90px;width:160px;}
+  .process-stage-info{min-height:130px;}
+  .process-title{margin-bottom:24px;}
+}
 @media(max-width:768px){
   .mosaic-grid{grid-template-columns:repeat(3,1fr);gap:2px;padding:2px;}
   .ed-board{grid-template-columns:repeat(2,1fr);gap:3px;}
-  .process-strip{grid-template-columns:repeat(4,1fr);}
-  .process-strip > *:nth-child(n+5){display:none;}
-  .promise-s,.human-s,.process-s,.compare-s,.pricing-s,.ed-s{padding:80px 24px;}
+  .promise-s,.human-s,.compare-s,.pricing-s,.ed-s{padding:80px 24px;}
   #nav{padding:12px 20px;}
+}
+@media(max-width:640px){
+  .process-strip{grid-template-columns:repeat(3,1fr);}
+  .process-strip > .process-cell:nth-child(n+4){display:none;}
 }
 @media(max-width:560px){
   .mosaic-grid{grid-template-columns:repeat(2,1fr);}
-  .process-strip{grid-template-columns:repeat(3,1fr);}
-  .process-strip > *:nth-child(n+4){display:none;}
   .process-topbar{grid-template-columns:1fr;gap:20px;padding-bottom:20px;}
 
   .hero-cta{padding:14px 26px;font-size:11px;}
@@ -468,7 +471,7 @@ img,video{max-width:100%;display:block;}
   .nav-brand img{height:26px;}
   .nav-cta{padding:8px 16px;font-size:10px;}
 
-  .promise-s,.human-s,.process-s,.compare-s,.pricing-s,.ed-s{padding:70px 18px;}
+  .promise-s,.human-s,.compare-s,.pricing-s,.ed-s{padding:70px 18px;}
 
   .pc{padding:36px 24px;gap:16px;}
   .pc-price{font-size:clamp(24px,6vw,32px);}
@@ -514,7 +517,7 @@ img,video{max-width:100%;display:block;}
   .human-pill .txt{font-size:14px;}
 }
 @media(max-width:380px){
-  .promise-s,.human-s,.process-s,.compare-s,.pricing-s,.ed-s{padding:60px 16px;}
+  .promise-s,.human-s,.compare-s,.pricing-s,.ed-s{padding:60px 16px;}
   .hero-cta{padding:12px 22px;}
 }
 </style>
@@ -633,66 +636,84 @@ img,video{max-width:100%;display:block;}
   </div>
 </div>
 
-<!-- PROCESS — 4 étapes : Create / Wear / Imagine / Animate -->
+<!-- PROCESS — Cinematic reel scroll-pinned -->
 <section class="process-s reveal" id="process">
-  <div class="process-inner">
-    <div class="process-label">La méthode</div>
-    <h2 class="process-title">Quatre étapes. <em>Votre univers.</em></h2>
+  <div class="process-reel" id="process-reel">
+    <div class="process-pin">
+      <div class="process-inner">
+        <div class="process-label">La méthode</div>
+        <h2 class="process-title">Quatre étapes. <em>Votre univers.</em></h2>
 
-    <div class="process-topbar">
-      <div class="process-num" id="p-num">01</div>
-      <div class="process-stage-info">
-        <div id="p-stages">
-          <div class="process-stage-txt" data-idx="0">
-            <h3 class="process-title-big">Cast your Models</h3>
-            <p class="process-body-txt">Vos mannequins canoniques, propriétaires. Réutilisables à chaque saison.</p>
+        <div class="process-topbar">
+          <div class="process-num-stack" id="p-num-stack" aria-hidden="true">
+            <div class="num-card is-on" data-idx="0">01</div>
+            <div class="num-card" data-idx="1">02</div>
+            <div class="num-card" data-idx="2">03</div>
+            <div class="num-card" data-idx="3">04</div>
           </div>
-          <div class="process-stage-txt" data-idx="1" style="display:none">
-            <h3 class="process-title-big">Dress your Packshots</h3>
-            <p class="process-body-txt">Donnez vie à vos collections, sans shooting traditionnel.</p>
-          </div>
-          <div class="process-stage-txt" data-idx="2" style="display:none">
-            <h3 class="process-title-big">Stage your World</h3>
-            <p class="process-body-txt">Vos univers déclinés. Décors, ambiances, saisons.</p>
-          </div>
-          <div class="process-stage-txt" data-idx="3" style="display:none">
-            <h3 class="process-title-big">Move your Brand</h3>
-            <p class="process-body-txt">Vos images en mouvement. Reels et motion pour les réseaux.</p>
+
+          <div class="process-stage-info">
+            <div id="p-stages">
+              <div class="process-stage-txt is-on" data-idx="0">
+                <h3 class="process-title-big">Cast your Models</h3>
+                <p class="process-body-txt">Vos mannequins canoniques, propriétaires. Réutilisables à chaque saison.</p>
+              </div>
+              <div class="process-stage-txt" data-idx="1">
+                <h3 class="process-title-big">Dress your Packshots</h3>
+                <p class="process-body-txt">Donnez vie à vos collections, sans shooting traditionnel.</p>
+              </div>
+              <div class="process-stage-txt" data-idx="2">
+                <h3 class="process-title-big">Stage your World</h3>
+                <p class="process-body-txt">Vos univers déclinés. Décors, ambiances, saisons.</p>
+              </div>
+              <div class="process-stage-txt" data-idx="3">
+                <h3 class="process-title-big">Move your Brand</h3>
+                <p class="process-body-txt">Vos images en mouvement. Reels et motion pour les réseaux.</p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
 
-    <div class="process-strip" id="p-strip">
-      <div class="process-cell">
-        <img class="pc-img" src="assets/create-model-01-v3.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/>
-        <video class="pc-vid" muted loop playsinline preload="none" data-lightbox="true"></video>
-      </div>
-      <div class="process-cell">
-        <img class="pc-img" src="assets/create-model-02-v2.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/>
-        <video class="pc-vid" muted loop playsinline preload="none" data-lightbox="true"></video>
-      </div>
-      <div class="process-cell">
-        <img class="pc-img" src="assets/create-model-03-v2.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/>
-        <video class="pc-vid" muted loop playsinline preload="none" data-lightbox="true"></video>
-      </div>
-      <div class="process-cell">
-        <img class="pc-img" src="assets/create-model-04-v2.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/>
-        <video class="pc-vid" muted loop playsinline preload="none" data-lightbox="true"></video>
-      </div>
-      <div class="process-cell">
-        <img class="pc-img" src="assets/create-model-05-v2.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/>
-        <video class="pc-vid" muted loop playsinline preload="none" data-lightbox="true"></video>
-      </div>
-    </div>
+        <div class="process-strip" id="p-strip">
+          <div class="process-cell">
+            <div class="media-layer is-on" data-idx="0"><img src="assets/create-model-01-v3.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
+            <div class="media-layer" data-idx="1"><img src="assets/wear-01-v2.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
+            <div class="media-layer" data-idx="2"><img src="assets/imagine-01-v2.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
+            <div class="media-layer" data-idx="3"><video muted loop playsinline preload="none" data-src="assets/animate-roseanna.mp4" data-lightbox="true"></video></div>
+          </div>
+          <div class="process-cell">
+            <div class="media-layer is-on" data-idx="0"><img src="assets/create-model-02-v2.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
+            <div class="media-layer" data-idx="1"><img src="assets/wear-02-v2.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
+            <div class="media-layer" data-idx="2"><img src="assets/imagine-02-v2.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
+            <div class="media-layer" data-idx="3"><video muted loop playsinline preload="none" data-src="assets/ltdc-video.mp4" data-lightbox="true"></video></div>
+          </div>
+          <div class="process-cell">
+            <div class="media-layer is-on" data-idx="0"><img src="assets/create-model-03-v2.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
+            <div class="media-layer" data-idx="1"><img src="assets/wear-03-v3.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
+            <div class="media-layer" data-idx="2"><img src="assets/imagine-03-v3.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
+            <div class="media-layer" data-idx="3"><video muted loop playsinline preload="none" data-src="assets/moodboard-tennis-video.mp4" data-lightbox="true"></video></div>
+          </div>
+          <div class="process-cell">
+            <div class="media-layer is-on" data-idx="0"><img src="assets/create-model-04-v2.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
+            <div class="media-layer" data-idx="1"><img src="assets/wear-04-v2.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
+            <div class="media-layer" data-idx="2"><img src="assets/imagine-04-v2.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
+            <div class="media-layer" data-idx="3"><video muted loop playsinline preload="none" data-src="assets/lb08-gants.mp4" data-lightbox="true"></video></div>
+          </div>
+          <div class="process-cell">
+            <div class="media-layer is-on" data-idx="0"><img src="assets/create-model-05-v2.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
+            <div class="media-layer" data-idx="1"><img src="assets/wear-05-v2.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
+            <div class="media-layer" data-idx="2"><img src="assets/imagine-05-v2.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
+            <div class="media-layer" data-idx="3"><video muted loop playsinline preload="none" data-src="assets/move-av-b6.mp4" data-lightbox="true"></video></div>
+          </div>
+        </div>
 
-    <div class="p-dots">
-      <button class="p-btn" id="p-prev" aria-label="Étape précédente">←</button>
-      <div class="p-dot on" data-s="0" role="button" aria-label="Étape 1"></div>
-      <div class="p-dot" data-s="1" role="button" aria-label="Étape 2"></div>
-      <div class="p-dot" data-s="2" role="button" aria-label="Étape 3"></div>
-      <div class="p-dot" data-s="3" role="button" aria-label="Étape 4"></div>
-      <button class="p-btn" id="p-next" aria-label="Étape suivante">→</button>
+        <div class="p-progress" id="p-progress" role="progressbar" aria-valuemin="0" aria-valuemax="4">
+          <div class="p-seg" data-idx="0"><span class="fill"></span></div>
+          <div class="p-seg" data-idx="1"><span class="fill"></span></div>
+          <div class="p-seg" data-idx="2"><span class="fill"></span></div>
+          <div class="p-seg" data-idx="3"><span class="fill"></span></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1120,121 +1141,99 @@ document.querySelectorAll('.ed-board').forEach(board=>{
   obs.observe(board);
 });
 
-/* ══ PROCESS — 4 étapes : Create / Wear / Imagine / Move (vidéo) ══ */
-const pV=[
-  { type:'img', srcs:['assets/create-model-01-v3.jpg','assets/create-model-02-v2.jpg','assets/create-model-03-v2.jpg','assets/create-model-04-v2.jpg','assets/create-model-05-v2.jpg'] },
-  { type:'img', srcs:['assets/wear-01-v2.jpg','assets/wear-02-v2.jpg','assets/wear-03-v3.jpg','assets/wear-04-v2.jpg','assets/wear-05-v2.jpg'] },
-  { type:'img', srcs:['assets/imagine-01-v2.jpg','assets/imagine-02-v2.jpg','assets/imagine-03-v3.jpg','assets/imagine-04-v2.jpg','assets/imagine-05-v2.jpg'] },
-  { type:'video', srcs:['assets/animate-roseanna.mp4','assets/ltdc-video.mp4','assets/moodboard-tennis-video.mp4','assets/lb08-gants.mp4','assets/move-av-b6.mp4'] }
-];
-const pNums=['01','02','03','04'];
+/* ══ PROCESS — Cinematic scroll-pinned reel ══ */
+const reelEl=document.getElementById('process-reel');
+const procSec=document.getElementById('process');
 const STEPS=4;
 const pStages=Array.from(document.querySelectorAll('.process-stage-txt'));
-const pDots=Array.from(document.querySelectorAll('.p-dot'));
+const numCards=Array.from(document.querySelectorAll('#p-num-stack .num-card'));
 const pCells=Array.from(document.querySelectorAll('#p-strip .process-cell'));
-const pNumEl=document.getElementById('p-num');
-let pCur=0,pInt,pOn=false,pUserInteracted=false;
+const pSegs=Array.from(document.querySelectorAll('#p-progress .p-seg'));
+let pCur=-1;
 
-function setP(i){
-  i=(i+STEPS)%STEPS;pCur=i;
-  pStages.forEach((s,j)=>{s.style.display=j===i?'block':'none';});
-  pDots.forEach((d,j)=>d.classList.toggle('on',j===i));
-  if(pNumEl)pNumEl.textContent=pNums[i];
-
-  const stage=pV[i];
-  pCells.forEach((cell,j)=>{
-    const img=cell.querySelector('.pc-img');
-    const vid=cell.querySelector('.pc-vid');
-    const src=stage.srcs[j];
-    if(stage.type==='video'){
-      cell.classList.add('is-video');
-      const fullUrl=new URL(src,location.href).href;
-      if(vid && vid.src!==fullUrl){
-        vid.src=src;
-        vid.load();
-      }
-      if(vid)vid.play().catch(()=>{});
-    }else{
-      cell.classList.remove('is-video');
-      if(vid){vid.pause();}
-      if(img)img.src=src;
-    }
+function applyStage(i,localFrac){
+  if(i!==pCur){
+    pStages.forEach((s,j)=>{
+      s.classList.toggle('is-on',j===i);
+      s.classList.toggle('is-out',j<i);
+    });
+    numCards.forEach((n,j)=>{
+      n.classList.toggle('is-on',j===i);
+      n.classList.toggle('is-out',j<i);
+    });
+    pCells.forEach(cell=>{
+      const layers=Array.from(cell.querySelectorAll('.media-layer'));
+      layers.forEach((l,j)=>{
+        l.classList.toggle('is-on',j===i);
+        l.classList.toggle('is-out',j<i);
+        const v=l.querySelector('video');
+        if(v){
+          if(j===i){
+            if(v.dataset.src && !v.src){v.src=v.dataset.src;v.load();}
+            v.play().catch(()=>{});
+          }else{
+            v.pause();
+          }
+        }
+      });
+    });
+    pCur=i;
+  }
+  /* segments — passé = full, courant = fraction, futur = 0 */
+  pSegs.forEach((seg,j)=>{
+    const f=seg.querySelector('.fill');if(!f)return;
+    if(j<i)f.style.width='100%';
+    else if(j===i)f.style.width=(Math.max(0,Math.min(1,localFrac))*100).toFixed(1)+'%';
+    else f.style.width='0%';
   });
 }
-function startP(){clearInterval(pInt);pOn=true;pInt=setInterval(()=>setP(pCur+1),3800);}
-function stopP(){clearInterval(pInt);pOn=false;}
-function pManual(fn){pUserInteracted=true;stopP();fn();}
 
-document.getElementById('p-prev').onclick=()=>pManual(()=>setP(pCur-1));
-document.getElementById('p-next').onclick=()=>pManual(()=>setP(pCur+1));
-pDots.forEach(d=>d.onclick=()=>pManual(()=>setP(parseInt(d.dataset.s))));
-setP(0);
+/* Desktop : scroll-driven via .process-reel sticky 500vh */
+const isDesktopReel=window.matchMedia('(min-width:901px)').matches;
 
-/* Auto-start au scroll :
-   1. Section approche du viewport → preload TOUTES les images du process
-   2. Section visible à 40% → on attend 2s ET que toutes les images soient prêtes
-   3. Lance le cycle uniquement quand les 2 conditions sont remplies
-   Si l'user a déjà interagi manuellement, on ne lance pas. */
-const procSection=document.getElementById('process');
-if(procSection){
-  /* Étape 1 : preload anticipé dès l'approche de la section */
-  let preloadStarted=false;
-  let preloadPromise=null;
-  function startPreload(){
-    if(preloadStarted)return preloadPromise;
-    preloadStarted=true;
-    /* Ordre prioritaire : wear → imagine → create (create est déjà chargé via DOM) */
-    const allSrcs=[];
-    [pV[1],pV[2],pV[0]].forEach(stage=>{
-      if(stage.type==='img'){stage.srcs.forEach(s=>allSrcs.push(s));}
+if(reelEl && isDesktopReel){
+  let ticking=false;
+  function onScrollReel(){
+    if(ticking)return;
+    ticking=true;
+    requestAnimationFrame(()=>{
+      const rect=reelEl.getBoundingClientRect();
+      const total=reelEl.offsetHeight-window.innerHeight;
+      if(total<=0){applyStage(0,0);ticking=false;return;}
+      let p=(-rect.top)/total;
+      p=Math.max(0,Math.min(.9999,p));
+      const stageF=p*STEPS;
+      const i=Math.min(STEPS-1,Math.floor(stageF));
+      const local=stageF-i;
+      applyStage(i,local);
+      ticking=false;
     });
-    preloadPromise=Promise.all(allSrcs.map(src=>new Promise(resolve=>{
-      const im=new Image();
-      im.onload=im.onerror=resolve;
-      im.src=src;
-    })));
-    return preloadPromise;
   }
+  window.addEventListener('scroll',onScrollReel,{passive:true});
+  window.addEventListener('resize',onScrollReel,{passive:true});
+  onScrollReel();
+}else{
+  /* Fallback tablet/mobile : auto-cycle simple 3.5s */
+  let mi=0;
+  applyStage(0,1);
+  setInterval(()=>{mi=(mi+1)%STEPS;applyStage(mi,1);},3500);
+}
 
+/* Preload anticipé des médias des stages 2, 3 */
+if(procSec){
+  let preloaded=false;
   const procPreload=new IntersectionObserver((entries,obs)=>{
     entries.forEach(e=>{
-      if(e.isIntersecting){startPreload();obs.unobserve(e.target);}
-    });
-  },{rootMargin:'600px'});
-  procPreload.observe(procSection);
-
-  /* Étape 2-3 : auto-start après 2s ET toutes les images chargées */
-  const procObs=new IntersectionObserver((entries,obs)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){
-        Promise.all([
-          new Promise(r=>setTimeout(r,2000)),
-          startPreload()
-        ]).then(()=>{
-          if(!pUserInteracted)startP();
+      if(e.isIntersecting && !preloaded){
+        preloaded=true;
+        document.querySelectorAll('#p-strip .media-layer:not([data-idx="0"]) img').forEach(im=>{
+          if(im.src){const ghost=new Image();ghost.src=im.src;}
         });
         obs.unobserve(e.target);
       }
     });
-  },{threshold:.4});
-  procObs.observe(procSection);
-}
-
-/* Swipe mobile : navigation gauche/droite sur la zone visuels */
-const stripEl=document.getElementById('p-strip');
-if(stripEl){
-  let touchStartX=0,touchStartY=0;
-  stripEl.addEventListener('touchstart',e=>{
-    touchStartX=e.touches[0].clientX;
-    touchStartY=e.touches[0].clientY;
-  },{passive:true});
-  stripEl.addEventListener('touchend',e=>{
-    const dx=e.changedTouches[0].clientX-touchStartX;
-    const dy=e.changedTouches[0].clientY-touchStartY;
-    if(Math.abs(dx)>50 && Math.abs(dx)>Math.abs(dy)){
-      pManual(()=>setP(pCur+(dx<0?1:-1)));
-    }
-  },{passive:true});
+  },{rootMargin:'600px'});
+  procPreload.observe(procSec);
 }
 
 /* ══ LIGHTBOX — click anywhere to close, swipe/keys to navigate ══ */
