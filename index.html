@@ -132,6 +132,9 @@ img,video{max-width:100%;display:block;}
 .mi img.in,.mi video.in{opacity:1;transform:translateY(0);}
 .mi:hover{z-index:2;}
 .mi:hover img,.mi:hover video{transform:scale(1.04);transition:transform .5s ease;}
+/* Buffer tiles — clones above/below to fill parallax gaps. Always visible, no lightbox. */
+.mi-buffer{pointer-events:none;}
+.mi-buffer img,.mi-buffer video{opacity:1 !important;transform:translateY(0) !important;}
 
 /* Per-item smart-crop overrides */
 .pos-top img,.pos-top video{object-position:center top !important;}
@@ -1011,15 +1014,50 @@ const vidObs=new IntersectionObserver((entries,obs)=>{
 },{rootMargin:'200px'});
 document.querySelectorAll('video[data-src]').forEach(v=>vidObs.observe(v));
 
-/* Mosaic — cascade par colonne + parallax différentiel continu */
+/* Mosaic — cascade par colonne + parallax différentiel continu + buffer rows */
 const mgEl=document.querySelector('.mosaic-grid');
 if(mgEl){
-  /* Cascade entrée */
+  /* Détecte le nombre de colonnes selon le viewport */
+  function mosaicCols(){
+    return getComputedStyle(mgEl).gridTemplateColumns.split(' ').length;
+  }
+
+  /* Étape 1 : Clone des buffer tiles (haut + bas) pour combler les zones noires créées par le parallax */
+  const originals=Array.from(mgEl.querySelectorAll('.mi'));
+  function buildBuffers(){
+    /* Retire les anciens buffers s'il y en a (resize handler) */
+    mgEl.querySelectorAll('.mi-buffer').forEach(b=>b.remove());
+    const cols=mosaicCols();
+    /* Buffer top = clones des cols derniers items (placés AVANT le premier) */
+    const topClones=originals.slice(-cols).map(mi=>{
+      const c=mi.cloneNode(true);
+      c.classList.add('mi-buffer');
+      c.setAttribute('aria-hidden','true');
+      c.querySelectorAll('[data-lightbox]').forEach(el=>el.removeAttribute('data-lightbox'));
+      /* charge directement les videos buffer (pas de lazy) */
+      c.querySelectorAll('video[data-src]').forEach(v=>{const s=v.getAttribute('data-src');v.src=s;v.removeAttribute('data-src');v.load();v.play().catch(()=>{});});
+      return c;
+    });
+    /* Buffer bottom = clones des cols premiers items (placés APRÈS le dernier) */
+    const botClones=originals.slice(0,cols).map(mi=>{
+      const c=mi.cloneNode(true);
+      c.classList.add('mi-buffer');
+      c.setAttribute('aria-hidden','true');
+      c.querySelectorAll('[data-lightbox]').forEach(el=>el.removeAttribute('data-lightbox'));
+      c.querySelectorAll('video[data-src]').forEach(v=>{const s=v.getAttribute('data-src');v.src=s;v.removeAttribute('data-src');v.load();v.play().catch(()=>{});});
+      return c;
+    });
+    topClones.reverse().forEach(b=>mgEl.insertBefore(b,mgEl.firstChild));
+    botClones.forEach(b=>mgEl.appendChild(b));
+  }
+  buildBuffers();
+
+  /* Étape 2 : Cascade entrée — uniquement sur les tiles originaux (les buffers sont déjà visibles via CSS) */
   const mgObs=new IntersectionObserver(entries=>{
     entries.forEach(e=>{
       if(e.isIntersecting){
-        const items=Array.from(e.target.querySelectorAll('.mi'));
-        const cols=getComputedStyle(e.target).gridTemplateColumns.split(' ').length;
+        const items=Array.from(e.target.querySelectorAll('.mi:not(.mi-buffer)'));
+        const cols=mosaicCols();
         items.forEach((mi,i)=>{
           const col=i%cols, row=Math.floor(i/cols);
           const delay=col*90+row*40;
@@ -1032,30 +1070,36 @@ if(mgEl){
   },{threshold:.04});
   mgObs.observe(mgEl);
 
-  /* Parallax différentiel par colonne (desktop only) */
-  if(window.matchMedia('(min-width:680px)').matches){
-    const tiles=Array.from(mgEl.querySelectorAll('.mi'));
-    const cols=5;
-    const speeds=[-0.08,0.04,-0.05,0.06,-0.07];
-    let ticking=false;
-    function onScrollMosaic(){
-      if(ticking) return;
-      ticking=true;
-      requestAnimationFrame(()=>{
-        const rect=mgEl.getBoundingClientRect();
-        const vh=window.innerHeight;
-        const p=((rect.top+rect.height/2)-vh/2)/(vh+rect.height/2);
-        tiles.forEach((mi,i)=>{
-          const col=i%cols;
-          const ty=p*speeds[col]*rect.height;
-          mi.style.transform=`translate3d(0,${ty.toFixed(2)}px,0)`;
-        });
-        ticking=false;
+  /* Étape 3 : Parallax différentiel par colonne — desktop ET mobile */
+  const speeds=[-0.08,0.04,-0.05,0.06,-0.07];
+  let ticking=false;
+  function onScrollMosaic(){
+    if(ticking) return;
+    ticking=true;
+    requestAnimationFrame(()=>{
+      const cols=mosaicCols();
+      const tiles=Array.from(mgEl.querySelectorAll('.mi'));
+      const rect=mgEl.getBoundingClientRect();
+      const vh=window.innerHeight;
+      const p=((rect.top+rect.height/2)-vh/2)/(vh+rect.height/2);
+      tiles.forEach((mi,i)=>{
+        const col=i%cols;
+        const speed=speeds[col%speeds.length];
+        const ty=p*speed*rect.height;
+        mi.style.transform=`translate3d(0,${ty.toFixed(2)}px,0)`;
       });
-    }
-    window.addEventListener('scroll',onScrollMosaic,{passive:true});
-    onScrollMosaic();
+      ticking=false;
+    });
   }
+  window.addEventListener('scroll',onScrollMosaic,{passive:true});
+  onScrollMosaic();
+
+  /* Resize : rebuild les buffers si le nombre de colonnes change (responsive) */
+  let resizeT;
+  window.addEventListener('resize',()=>{
+    clearTimeout(resizeT);
+    resizeT=setTimeout(buildBuffers,150);
+  },{passive:true});
 }
 
 /* Editorial boards */
