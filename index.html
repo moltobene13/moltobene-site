@@ -455,13 +455,15 @@ img,video{max-width:100%;display:block;}
   .pricing-grid{grid-template-columns:1fr;}
 }
 @media(max-width:900px){
-  /* Process mobile : on garde le scroll-pin mais on réduit la hauteur (moins de swipes) */
+  /* Process mobile : pin allégé, content collé en haut, moins de noir */
   .process-reel{height:400vh;}
-  .process-pin{padding:72px 24px 24px;}
+  .process-pin{align-items:flex-start;padding:72px 24px 24px;}
   .process-header{padding:60px 24px 24px;}
   .process-num-stack{height:78px;width:140px;}
   .process-stage-info{min-height:96px;}
-  .process-topbar{margin-bottom:18px;padding-bottom:14px;gap:32px;}
+  .process-topbar{margin-bottom:0;padding-bottom:0;gap:32px;}
+  .process-pin .process-strip{margin-top:20px;}
+  .process-pin .p-scroll-hint{margin-top:24px;}
 }
 @media(max-width:768px){
   .mosaic-grid{grid-template-columns:repeat(3,1fr);gap:2px;padding:2px;}
