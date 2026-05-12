@@ -102,7 +102,7 @@ img,video{max-width:100%;display:block;}
    Tuiles uniformes en aspect-ratio 9:16 (très portrait) :
    - aspect natif des images sources = 9:16 → recadrage quasi nul
    - hauteur préservée → têtes ET pieds visibles ══ */
-.mosaic-s{background:var(--ink);padding:0;}
+.mosaic-s{background:var(--ink);padding:0;overflow:hidden;}
 .mosaic-grid{
   display:grid;
   grid-template-columns:repeat(5,1fr);
@@ -114,6 +114,8 @@ img,video{max-width:100%;display:block;}
   overflow:hidden;
   background:var(--ink2);
   aspect-ratio:9/16;
+  will-change:transform;
+  transition:transform .15s linear;
 }
 .mi img,.mi video{
   position:absolute;inset:0;
@@ -122,11 +124,14 @@ img,video{max-width:100%;display:block;}
   object-position:center center;
   display:block;
   opacity:0;
-  transition:opacity 1s ease,transform .5s ease;
+  transform:translateY(24px);
+  transition:opacity 1.1s cubic-bezier(.2,.7,.2,1),transform 1.1s cubic-bezier(.2,.7,.2,1);
   cursor:pointer;
+  will-change:opacity,transform;
 }
-.mi img.in,.mi video.in{opacity:1;}
-.mi:hover img,.mi:hover video{transform:scale(1.03);}
+.mi img.in,.mi video.in{opacity:1;transform:translateY(0);}
+.mi:hover{z-index:2;}
+.mi:hover img,.mi:hover video{transform:scale(1.04);transition:transform .5s ease;}
 
 /* Per-item smart-crop overrides */
 .pos-top img,.pos-top video{object-position:center top !important;}
@@ -1006,20 +1011,51 @@ const vidObs=new IntersectionObserver((entries,obs)=>{
 },{rootMargin:'200px'});
 document.querySelectorAll('video[data-src]').forEach(v=>vidObs.observe(v));
 
-/* Mosaic fade-in */
+/* Mosaic — cascade par colonne + parallax différentiel continu */
 const mgEl=document.querySelector('.mosaic-grid');
 if(mgEl){
+  /* Cascade entrée */
   const mgObs=new IntersectionObserver(entries=>{
     entries.forEach(e=>{
       if(e.isIntersecting){
-        const mediaEls=Array.from(e.target.querySelectorAll('img,video'));
-        const order=[...Array(mediaEls.length).keys()].sort(()=>Math.random()-.5);
-        mediaEls.forEach((el,i)=>setTimeout(()=>el.classList.add('in'),order[i]*50+Math.random()*80));
+        const items=Array.from(e.target.querySelectorAll('.mi'));
+        const cols=getComputedStyle(e.target).gridTemplateColumns.split(' ').length;
+        items.forEach((mi,i)=>{
+          const col=i%cols, row=Math.floor(i/cols);
+          const delay=col*90+row*40;
+          const el=mi.querySelector('img,video');
+          if(el) setTimeout(()=>el.classList.add('in'),delay);
+        });
         mgObs.unobserve(e.target);
       }
     });
   },{threshold:.04});
   mgObs.observe(mgEl);
+
+  /* Parallax différentiel par colonne (desktop only) */
+  if(window.matchMedia('(min-width:680px)').matches){
+    const tiles=Array.from(mgEl.querySelectorAll('.mi'));
+    const cols=5;
+    const speeds=[-0.08,0.04,-0.05,0.06,-0.07];
+    let ticking=false;
+    function onScrollMosaic(){
+      if(ticking) return;
+      ticking=true;
+      requestAnimationFrame(()=>{
+        const rect=mgEl.getBoundingClientRect();
+        const vh=window.innerHeight;
+        const p=((rect.top+rect.height/2)-vh/2)/(vh+rect.height/2);
+        tiles.forEach((mi,i)=>{
+          const col=i%cols;
+          const ty=p*speeds[col]*rect.height;
+          mi.style.transform=`translate3d(0,${ty.toFixed(2)}px,0)`;
+        });
+        ticking=false;
+      });
+    }
+    window.addEventListener('scroll',onScrollMosaic,{passive:true});
+    onScrollMosaic();
+  }
 }
 
 /* Editorial boards */
