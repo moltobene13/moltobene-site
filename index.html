@@ -201,16 +201,22 @@ img,video{max-width:100%;display:block;}
 .process-strip .process-cell:nth-child(4) .media-layer{transition-delay:180ms;}
 .process-strip .process-cell:nth-child(5) .media-layer{transition-delay:240ms;}
 
-/* Progress 4 segments — tap zone 32px de haut, filet visible 3px au centre */
-.p-progress{display:flex;gap:12px;margin:36px auto 0;max-width:640px;}
-.p-seg{flex:1;height:32px;cursor:pointer;position:relative;display:flex;align-items:center;}
-.p-seg::before{content:'';width:100%;height:3px;background:rgba(255,255,255,.22);border-radius:2px;transition:background .2s,height .2s;}
-.p-seg:hover::before{background:rgba(255,255,255,.45);height:4px;}
-.p-seg .fill{position:absolute;top:50%;left:0;transform:translateY(-50%);height:3px;width:0%;background:var(--mustard);border-radius:2px;transition:width .2s linear,height .2s;}
-.p-seg:hover .fill{height:4px;}
-/* Desktop : progress flotte en bas du sticky pin */
+/* Scroll hint : compteur + flèche clignotante invitant à scroller pour passer à l'étape suivante */
+.p-scroll-hint{display:flex;flex-direction:column;align-items:center;gap:6px;margin:32px auto 0;font-family:var(--f-mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--mustard);transition:opacity .4s ease;}
+.hint-counter{display:block;font-weight:400;color:rgba(240,237,229,.55);}
+.hint-arrow{display:block;font-size:22px;line-height:1;color:var(--mustard);animation:hint-bounce 1.8s cubic-bezier(.45,0,.55,1) infinite;will-change:transform,opacity;}
+.hint-label{display:block;font-size:10px;letter-spacing:.32em;color:rgba(240,237,229,.5);}
+@keyframes hint-bounce{
+  0%,100%{transform:translateY(-3px);opacity:.4;}
+  50%{transform:translateY(6px);opacity:1;}
+}
+/* État "dernière étape atteinte" : la flèche s'éteint */
+.p-scroll-hint.is-done .hint-arrow{animation:none;opacity:.15;transform:none;}
+.p-scroll-hint.is-done .hint-label{opacity:.3;}
+.p-scroll-hint.is-done{opacity:.55;}
+/* Desktop : flotte en bas du sticky pin */
 @media(min-width:901px){
-  .process-pin>.p-progress{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);width:calc(100% - 64px);max-width:640px;z-index:2;margin:0;}
+  .process-pin>.p-scroll-hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:2;margin:0;}
 }
 
 /* ══ EDITORIAL ══ */
@@ -449,13 +455,14 @@ img,video{max-width:100%;display:block;}
   .pricing-grid{grid-template-columns:1fr;}
 }
 @media(max-width:900px){
-  /* Process : bypass le scroll-pin sur tablet/mobile, auto-cycle prend le relais */
-  .process-reel{height:auto;}
-  .process-pin{position:static;height:auto;padding:80px 24px 80px;display:block;}
+  /* Process mobile : on garde le scroll-pin mais on réduit la hauteur (moins de swipes) */
+  .process-reel{height:400vh;}
+  .process-pin{padding:36px 24px;}
   .process-num-stack{height:78px;width:140px;}
   .process-stage-info{min-height:96px;}
   .process-title{margin-bottom:20px;}
   .process-topbar{margin-bottom:18px;padding-bottom:14px;}
+  .p-scroll-hint{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);margin:0;}
 }
 @media(max-width:768px){
   .mosaic-grid{grid-template-columns:repeat(3,1fr);gap:2px;padding:2px;}
@@ -716,11 +723,10 @@ img,video{max-width:100%;display:block;}
         </div>
 
       </div>
-      <div class="p-progress" id="p-progress" role="progressbar" aria-valuemin="0" aria-valuemax="4">
-        <div class="p-seg" data-idx="0" role="button" aria-label="Aller à l'étape 1"><span class="fill"></span></div>
-        <div class="p-seg" data-idx="1" role="button" aria-label="Aller à l'étape 2"><span class="fill"></span></div>
-        <div class="p-seg" data-idx="2" role="button" aria-label="Aller à l'étape 3"><span class="fill"></span></div>
-        <div class="p-seg" data-idx="3" role="button" aria-label="Aller à l'étape 4"><span class="fill"></span></div>
+      <div class="p-scroll-hint" id="p-scroll-hint">
+        <span class="hint-counter" id="p-hint-counter">01 / 04</span>
+        <span class="hint-arrow" aria-hidden="true">↓</span>
+        <span class="hint-label">Scroll</span>
       </div>
     </div>
   </div>
@@ -1156,7 +1162,9 @@ const STEPS=4;
 const pStages=Array.from(document.querySelectorAll('.process-stage-txt'));
 const numCards=Array.from(document.querySelectorAll('#p-num-stack .num-card'));
 const pCells=Array.from(document.querySelectorAll('#p-strip .process-cell'));
-const pSegs=Array.from(document.querySelectorAll('#p-progress .p-seg'));
+const pHintEl=document.getElementById('p-scroll-hint');
+const pHintCounter=document.getElementById('p-hint-counter');
+const STEP_LABELS=['01 / 04','02 / 04','03 / 04','04 / 04'];
 let pCur=-1;
 
 function applyStage(i,localFrac){
@@ -1185,22 +1193,18 @@ function applyStage(i,localFrac){
         }
       });
     });
+    if(pHintCounter)pHintCounter.textContent=STEP_LABELS[i]||STEP_LABELS[0];
     pCur=i;
   }
-  /* segments — passé = full, courant = fraction, futur = 0 */
-  pSegs.forEach((seg,j)=>{
-    const f=seg.querySelector('.fill');if(!f)return;
-    if(j<i)f.style.width='100%';
-    else if(j===i)f.style.width=(Math.max(0,Math.min(1,localFrac))*100).toFixed(1)+'%';
-    else f.style.width='0%';
-  });
+  /* Flèche clignotante : s'éteint quand on entre dans la dernière étape (i === STEPS-1) avec progression >= 50% */
+  if(pHintEl){
+    const done=(i>=STEPS-1 && localFrac>=.5);
+    pHintEl.classList.toggle('is-done',done);
+  }
 }
 
-/* Desktop : scroll-driven via .process-reel sticky 500vh */
-const isDesktopReel=window.matchMedia('(min-width:901px)').matches;
-let mobileIdx=0,mobileInt=null;
-
-if(reelEl && isDesktopReel){
+/* Scroll-driven via .process-reel sticky — desktop ET mobile (pin + release après 4 swipes) */
+if(reelEl){
   let ticking=false;
   function onScrollReel(){
     if(ticking)return;
@@ -1221,30 +1225,8 @@ if(reelEl && isDesktopReel){
   window.addEventListener('scroll',onScrollReel,{passive:true});
   window.addEventListener('resize',onScrollReel,{passive:true});
   onScrollReel();
-}else{
-  /* Fallback tablet/mobile : auto-cycle simple 3.5s */
-  applyStage(0,1);
-  mobileInt=setInterval(()=>{mobileIdx=(mobileIdx+1)%STEPS;applyStage(mobileIdx,1);},3500);
 }
 
-/* Clic sur un segment de la progress-bar : navigue à l'étape correspondante */
-pSegs.forEach((seg,j)=>{
-  seg.addEventListener('click',()=>{
-    if(isDesktopReel && reelEl){
-      /* Desktop : scroll vers la position du stage j */
-      const reelTop=reelEl.offsetTop;
-      const reelTotal=reelEl.offsetHeight-window.innerHeight;
-      const targetP=j/STEPS;
-      const targetY=reelTop+targetP*reelTotal+10;
-      window.scrollTo({top:targetY,behavior:'smooth'});
-    }else{
-      /* Mobile : jump direct, reset le timer pour ne pas zapper immédiatement */
-      mobileIdx=j;
-      applyStage(j,1);
-      if(mobileInt){clearInterval(mobileInt);mobileInt=setInterval(()=>{mobileIdx=(mobileIdx+1)%STEPS;applyStage(mobileIdx,1);},3500);}
-    }
-  });
-});
 
 /* Preload anticipé des médias des stages 2, 3 */
 if(procSec){
