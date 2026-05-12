@@ -373,6 +373,10 @@ img,video{max-width:100%;display:block;}
 .allora-tagline{font-family:var(--f-display);font-style:italic;font-weight:400;font-size:clamp(20px,3vw,38px);color:var(--paper);margin-top:24px;letter-spacing:-.015em;}
 .allora-cta{display:inline-flex;align-items:center;gap:14px;margin-top:48px;font-family:var(--f-mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);background:var(--mustard);padding:20px 42px;border-radius:999px;text-decoration:none;border:1px solid var(--mustard);transition:background .25s,color .25s,transform .25s,border-color .25s;}
 .allora-cta:hover{background:transparent;color:var(--paper);border-color:var(--paper);transform:translateY(-2px);}
+.allora-cta-group{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:48px;}
+.allora-cta-group .allora-cta{margin-top:0;}
+.allora-cta-outline{background:transparent;color:var(--paper);border-color:var(--paper);}
+.allora-cta-outline:hover{background:var(--paper);color:var(--ink);border-color:var(--paper);transform:translateY(-2px);}
 .allora-footer{
   position:absolute;
   bottom:28px;left:0;right:0;
@@ -512,7 +516,7 @@ img,video{max-width:100%;display:block;}
 <!-- NAV -->
 <header id="nav">
   <a href="#hero" class="nav-brand" aria-label="Retour en haut"><img src="assets/logo-molto-bene.png" alt="Molto Bene"/></a>
-  <a href="https://meet.moltobene.ai" target="_blank" rel="noopener" class="nav-cta">Réserver une démo</a>
+  <a href="mailto:hello@moltobene.ai?subject=R%C3%A9server%20une%20d%C3%A9mo%20Molto%20Bene&body=Bonjour%2C%0A%0AJ%27aimerais%20r%C3%A9server%20une%20d%C3%A9mo%20Molto%20Bene.%0A%0AVoici%20mon%20contexte%20%3A%20%5Bmarque%2C%20secteur%2C%20besoins%5D%0A%0AMerci.%0A" class="nav-cta">Réserver une démo</a>
 </header>
 
 <!-- HERO -->
@@ -527,7 +531,7 @@ img,video{max-width:100%;display:block;}
     </h1>
     <p class="hero-tagline">Studio IA × Direction Artistique</p>
     <p class="hero-sub">L'image de mode au-delà du shooting</p>
-    <a href="mailto:hello@moltobene.ai?subject=Audit%20gratuit%20Molto%20Bene&body=Bonjour%20Molto%20Bene%2C%0A%0AJ%27aimerais%20profiter%20de%20votre%20audit%20gratuit.%0A%0AMerci%20de%20joindre%20%C3%A0%20cet%20e-mail%20%3A%0A-%20Un%20packshot%20d%27un%20de%20vos%20produits%0A-%20Le%20lien%20vers%20votre%20site%20ou%20Instagram%0A%0A%C3%80%20tr%C3%A8s%20vite%2C" class="hero-cta">Audit gratuit →</a>
+    <a href="mailto:hello@moltobene.ai?subject=Audit%20gratuit%20Molto%20Bene&body=Bonjour%2C%0A%0AJe%20souhaite%20tester%20un%20audit%20gratuit%20Molto%20Bene.%0A%0AVoici%20le%20packshot%20du%20produit%20%C3%A0%20habiller%20%3A%20%5Bjoindre%20le%20packshot%5D%0A%0AMerci.%0A" class="hero-cta">Audit gratuit →</a>
   </div>
   <div class="hero-bar">
     <div class="hero-tag">Based in Marseille</div>
@@ -690,7 +694,7 @@ img,video{max-width:100%;display:block;}
       <div class="ed-meta">
         Season<b>Spring / Summer</b>
         Mood<b>Heritage Sport</b>
-        References<b>Country Club · Tennis 70's</b>
+        References<b>Sporty &amp; Rich · Tennis 70's</b>
       </div>
     </div>
     <div class="ed-board">
@@ -827,13 +831,13 @@ img,video{max-width:100%;display:block;}
 <!-- COMPARISON -->
 <section class="compare-s reveal">
   <div class="compare-inner">
-    <div class="compare-label">One Shot</div>
-    <h2 class="compare-title">Shooting classique<br><em>vs</em> Molto Bene.</h2>
-    <p class="compare-lead">Une capsule. Deux budgets. Une seule évidence.</p>
+    <div class="compare-label">Le mix</div>
+    <h2 class="compare-title">Shooting classique<br><em>+</em> Shooting IA Molto Bene.</h2>
+    <p class="compare-lead">Deux façons de produire. À séparer ou à mixer selon votre brief, votre budget et vos délais.</p>
     <div class="compare-table">
-      <div class="cch classic">Shooting Classique · 1 jour</div>
-      <div class="cch vs">vs</div>
-      <div class="cch inf">Molto Bene</div>
+      <div class="cch classic">Shooting Classique</div>
+      <div class="cch vs">+</div>
+      <div class="cch inf">Shooting IA · Molto Bene</div>
       <div class="cr-cell cl"><span class="cr-lab">Photographe</span><span class="cr-val vc">2 000 €</span></div>
       <div class="cr-cell cv"></div>
       <div class="cr-cell ci"><span class="cr-lab">Direction artistique</span><span class="cr-val vg">incluse</span></div>
@@ -900,7 +904,7 @@ img,video{max-width:100%;display:block;}
           <li>4 Univers de marque</li>
           <li>Droits commerciaux inclus</li>
         </ul>
-        <a href="https://meet.moltobene.ai" target="_blank" rel="noopener" class="pc-cta cta-gold">Réserver une démo →</a>
+        <a href="mailto:hello@moltobene.ai?subject=Studio%20Cr%C3%A9atif%20Molto%20Bene&body=Bonjour%2C%0A%0AJe%20souhaite%20en%20savoir%20plus%20sur%20la%20formule%20Studio%20Cr%C3%A9atif.%0A%0AVoici%20mon%20contexte%20%3A%20%5Bmarque%2C%20secteur%2C%20besoins%5D%0A%0AMerci.%0A" class="pc-cta cta-gold">Réserver une démo →</a>
       </div>
       <div class="pc pc-d">
         <div class="pc-type">Sur-mesure</div>
@@ -927,8 +931,11 @@ img,video{max-width:100%;display:block;}
   <div class="allora-veil"></div>
   <div class="allora-content">
     <h2 class="allora-title">Allora<span class="qmark">?</span></h2>
-    <p class="allora-tagline">On se parle.</p>
-    <a href="https://meet.moltobene.ai" target="_blank" rel="noopener" class="allora-cta">Réserver une démo →</a>
+    <p class="allora-tagline">Testons. Ou parlons.</p>
+    <div class="allora-cta-group">
+      <a href="mailto:hello@moltobene.ai?subject=Audit%20gratuit%20Molto%20Bene&body=Bonjour%2C%0A%0AJe%20souhaite%20tester%20un%20audit%20gratuit%20Molto%20Bene.%0A%0AVoici%20le%20packshot%20du%20produit%20%C3%A0%20habiller%20%3A%20%5Bjoindre%20le%20packshot%5D%0A%0AMerci.%0A" class="allora-cta">Audit gratuit →</a>
+      <a href="mailto:hello@moltobene.ai?subject=Discussion%20Molto%20Bene&body=Bonjour%2C%0A%0AJ%27aimerais%20discuter%20d%27un%20projet%20avec%20Molto%20Bene.%0A%0AVoici%20mon%20contexte%20%3A%20%5Bmarque%2C%20secteur%2C%20besoins%5D%0A%0AMerci.%0A" class="allora-cta allora-cta-outline">On se parle →</a>
+    </div>
   </div>
   <div class="allora-footer">
     <div class="contact">Molto Bene Studio</div>
