@@ -1022,33 +1022,29 @@ if(mgEl){
     return getComputedStyle(mgEl).gridTemplateColumns.split(' ').length;
   }
 
-  /* Étape 1 : Clone des buffer tiles (haut + bas) pour combler les zones noires créées par le parallax */
-  const originals=Array.from(mgEl.querySelectorAll('.mi'));
+  /* Étape 1 : Buffer tiles (haut + bas) avec visuels DÉDIÉS (pas des clones) — comblent les zones noires créées par le parallax avec du contenu varié */
+  const BUF_TOP=['assets/buf-01.jpg','assets/buf-02.jpg','assets/buf-03.jpg','assets/buf-04.jpg','assets/buf-05.jpg'];
+  const BUF_BOT=['assets/buf-06.jpg','assets/buf-07.jpg','assets/buf-08.jpg','assets/buf-09.jpg','assets/buf-10.jpg'];
+  function makeBufferTile(src){
+    const mi=document.createElement('div');
+    mi.className='mi mi-buffer';
+    mi.setAttribute('aria-hidden','true');
+    const img=document.createElement('img');
+    img.src=src;img.loading='lazy';img.decoding='async';img.alt='';
+    mi.appendChild(img);
+    return mi;
+  }
   function buildBuffers(){
-    /* Retire les anciens buffers s'il y en a (resize handler) */
     mgEl.querySelectorAll('.mi-buffer').forEach(b=>b.remove());
     const cols=mosaicCols();
-    /* Buffer top = clones des cols derniers items (placés AVANT le premier) */
-    const topClones=originals.slice(-cols).map(mi=>{
-      const c=mi.cloneNode(true);
-      c.classList.add('mi-buffer');
-      c.setAttribute('aria-hidden','true');
-      c.querySelectorAll('[data-lightbox]').forEach(el=>el.removeAttribute('data-lightbox'));
-      /* charge directement les videos buffer (pas de lazy) */
-      c.querySelectorAll('video[data-src]').forEach(v=>{const s=v.getAttribute('data-src');v.src=s;v.removeAttribute('data-src');v.load();v.play().catch(()=>{});});
-      return c;
+    /* Top buffer : on prend N visuels et on les place AVANT le premier item */
+    BUF_TOP.slice(0,cols).slice().reverse().forEach(src=>{
+      mgEl.insertBefore(makeBufferTile(src),mgEl.firstChild);
     });
-    /* Buffer bottom = clones des cols premiers items (placés APRÈS le dernier) */
-    const botClones=originals.slice(0,cols).map(mi=>{
-      const c=mi.cloneNode(true);
-      c.classList.add('mi-buffer');
-      c.setAttribute('aria-hidden','true');
-      c.querySelectorAll('[data-lightbox]').forEach(el=>el.removeAttribute('data-lightbox'));
-      c.querySelectorAll('video[data-src]').forEach(v=>{const s=v.getAttribute('data-src');v.src=s;v.removeAttribute('data-src');v.load();v.play().catch(()=>{});});
-      return c;
+    /* Bottom buffer : on prend N visuels et on les place APRÈS le dernier */
+    BUF_BOT.slice(0,cols).forEach(src=>{
+      mgEl.appendChild(makeBufferTile(src));
     });
-    topClones.reverse().forEach(b=>mgEl.insertBefore(b,mgEl.firstChild));
-    botClones.forEach(b=>mgEl.appendChild(b));
   }
   buildBuffers();
 
