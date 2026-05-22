@@ -433,18 +433,27 @@ img,video{max-width:100%;display:block;}
 .allora-footer .contact a.email-cta{color:var(--mustard);font-weight:500;}
 .allora-footer .contact a.email-cta::before{content:"→ ";display:inline-block;margin-right:4px;transition:transform .2s;}
 .allora-footer .contact a.email-cta:hover::before{transform:translateX(3px);}
-.allora-footer .disclaimer{
-  flex-basis:100%;
-  font-family:var(--f-mono);
-  font-size:10px;
-  letter-spacing:.08em;
-  line-height:1.6;
-  color:rgba(240,237,229,.45);
-  text-shadow:0 1px 8px rgba(0,0,0,.6);
-  font-style:italic;
+/* Case disclaimer — note après le dernier use case */
+.case-disclaimer{
+  background:var(--paper);
+  padding:0 32px 90px;
+  position:relative;
+}
+.case-disclaimer-inner{
   max-width:880px;
-  margin:0 auto 6px;
+  margin:0 auto;
+  border-top:1px solid rgba(31,28,24,.12);
+  padding-top:32px;
   text-align:center;
+}
+.case-disclaimer p{
+  font-family:var(--f-mono);
+  font-size:11px;
+  letter-spacing:.12em;
+  line-height:1.7;
+  color:rgba(31,28,24,.55);
+  font-style:italic;
+  margin:0;
 }
 
 /* LIGHTBOX */
@@ -564,7 +573,9 @@ img,video{max-width:100%;display:block;}
     text-align:left;width:100%;
   }
   .allora-footer .contact{font-size:10px;}
-  .allora-footer .disclaimer{font-size:9px;text-align:left;margin:0 0 8px;line-height:1.55;}
+  .case-disclaimer{padding:0 20px 60px;}
+  .case-disclaimer-inner{padding-top:24px;}
+  .case-disclaimer p{font-size:10px;line-height:1.65;letter-spacing:.08em;}
 
   .human-pill{padding:18px 20px;}
   .human-pill .num{font-size:24px;min-width:30px;}
@@ -917,6 +928,13 @@ img,video{max-width:100%;display:block;}
   </div>
 </section>
 
+<!-- CASE DISCLAIMER -->
+<section class="case-disclaimer reveal">
+  <div class="case-disclaimer-inner">
+    <p>Les cas présentés ne sont en aucun cas des commandes clients. Ce sont des interprétations créatives de Molto Bene pour des marques que nous aimons et qui nous inspirent.</p>
+  </div>
+</section>
+
 <!-- COMPARISON -->
 <section class="compare-s reveal">
   <div class="compare-inner">
@@ -1027,7 +1045,6 @@ img,video{max-width:100%;display:block;}
     </div>
   </div>
   <div class="allora-footer">
-    <div class="disclaimer">Les cas présentés ne sont en aucun cas des commandes clients. Ce sont des interprétations créatives de Molto Bene pour des marques que nous aimons et qui nous inspirent.</div>
     <div class="contact">Molto Bene Studio</div>
     <div class="contact"><a href="mailto:hello@moltobene.ai" class="email-cta">hello@moltobene.ai</a></div>
     <div class="contact"><a href="tel:+33661685841">+33 6 61 68 58 41</a></div>
