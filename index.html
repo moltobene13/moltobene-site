@@ -433,6 +433,19 @@ img,video{max-width:100%;display:block;}
 .allora-footer .contact a.email-cta{color:var(--mustard);font-weight:500;}
 .allora-footer .contact a.email-cta::before{content:"→ ";display:inline-block;margin-right:4px;transition:transform .2s;}
 .allora-footer .contact a.email-cta:hover::before{transform:translateX(3px);}
+.allora-footer .disclaimer{
+  flex-basis:100%;
+  font-family:var(--f-mono);
+  font-size:10px;
+  letter-spacing:.08em;
+  line-height:1.6;
+  color:rgba(240,237,229,.45);
+  text-shadow:0 1px 8px rgba(0,0,0,.6);
+  font-style:italic;
+  max-width:880px;
+  margin:0 auto 6px;
+  text-align:center;
+}
 
 /* LIGHTBOX */
 .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.96);display:none;align-items:center;justify-content:center;z-index:9500;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
@@ -551,6 +564,7 @@ img,video{max-width:100%;display:block;}
     text-align:left;width:100%;
   }
   .allora-footer .contact{font-size:10px;}
+  .allora-footer .disclaimer{font-size:9px;text-align:left;margin:0 0 8px;line-height:1.55;}
 
   .human-pill{padding:18px 20px;}
   .human-pill .num{font-size:24px;min-width:30px;}
@@ -1013,6 +1027,7 @@ img,video{max-width:100%;display:block;}
     </div>
   </div>
   <div class="allora-footer">
+    <div class="disclaimer">Les cas présentés ne sont en aucun cas des commandes clients. Ce sont des interprétations créatives de Molto Bene pour des marques que nous aimons et qui nous inspirent.</div>
     <div class="contact">Molto Bene Studio</div>
     <div class="contact"><a href="mailto:hello@moltobene.ai" class="email-cta">hello@moltobene.ai</a></div>
     <div class="contact"><a href="tel:+33661685841">+33 6 61 68 58 41</a></div>
