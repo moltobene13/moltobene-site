@@ -109,24 +109,39 @@ img,video{max-width:100%;display:block;}
 }
 .sc-lede b{font-weight:600;}
 
-/* Hero meta — petite ligne récap façon ed-meta */
+/* Hero meta — chiffres-clés en grand, centrés */
 .sc-hero-meta{
   display:grid;
-  grid-template-columns:repeat(4,auto);
-  gap:48px;
-  margin-top:64px;
-  padding-top:32px;
+  grid-template-columns:repeat(4,1fr);
+  gap:0;
+  margin:80px auto 0;
+  padding-top:48px;
   border-top:1px solid rgba(13,12,11,.12);
-  max-width:900px;
+  max-width:1100px;
+  text-align:center;
 }
+.sc-hero-meta>div{
+  padding:0 16px;
+  border-right:1px solid rgba(13,12,11,.10);
+}
+.sc-hero-meta>div:last-child{border-right:none;}
 .sc-hero-meta dt{
-  font-family:var(--f-mono);font-size:10px;
+  font-family:var(--f-mono);font-size:11px;
   letter-spacing:.22em;text-transform:uppercase;
-  color:rgba(13,12,11,.5);margin-bottom:6px;
+  color:rgba(13,12,11,.5);
+  margin-top:14px;
 }
 .sc-hero-meta dd{
-  font-family:var(--f-display);font-weight:600;
-  font-size:22px;line-height:1.1;color:var(--ink);
+  font-family:var(--f-display);font-weight:700;
+  font-size:clamp(56px,7vw,96px);
+  line-height:.9;color:var(--ink);
+  letter-spacing:-.03em;
+}
+.sc-hero-meta dd .unit{
+  font-style:italic;font-weight:500;
+  color:var(--mustard);
+  font-size:.55em;letter-spacing:-.01em;
+  margin-left:4px;
 }
 
 /* ─── STRIP — preuve visuelle ─── */
@@ -225,120 +240,231 @@ img,video{max-width:100%;display:block;}
 .sc-steps{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:4px;
+  gap:8px;
 }
 .sc-step{
-  background:var(--paper);
-  padding:42px 30px 36px;
+  background:#fff;
   position:relative;
   display:flex;flex-direction:column;
-  min-height:280px;
-  transition:background .3s ease,transform .3s ease;
+  overflow:hidden;
+  transition:transform .35s ease,box-shadow .35s ease;
 }
-.sc-section.alt .sc-step{background:#fff;}
-.sc-step:hover{transform:translateY(-2px);}
-.sc-step::before{
-  content:'';position:absolute;top:0;left:0;right:0;
-  height:3px;background:var(--mustard);
+.sc-step:hover{transform:translateY(-3px);box-shadow:0 18px 36px -18px rgba(13,12,11,.18);}
+.sc-step-media{
+  position:relative;
+  aspect-ratio:4/5;
+  overflow:hidden;
+  background:var(--paper-alt);
 }
-.sc-step .n{
+.sc-step-media img,.sc-step-media video{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center center;
+  transition:transform .6s cubic-bezier(.22,.61,.36,1),filter .35s;
+  filter:saturate(.92);
+}
+.sc-step:hover .sc-step-media img,.sc-step:hover .sc-step-media video{transform:scale(1.04);filter:saturate(1);}
+.sc-step-media::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(13,12,11,0) 55%,rgba(13,12,11,.55) 100%);
+  pointer-events:none;
+}
+.sc-step-num{
+  position:absolute;top:18px;left:20px;z-index:2;
   font-family:var(--f-display);font-style:italic;font-weight:500;
-  font-size:64px;line-height:1;
+  font-size:48px;line-height:1;
   color:var(--mustard);letter-spacing:-.02em;
+  text-shadow:0 2px 16px rgba(0,0,0,.35);
+}
+.sc-step-body{
+  padding:24px 26px 30px;
 }
 .sc-step .t{
   font-family:var(--f-mono);font-weight:700;
   font-size:11px;letter-spacing:.22em;text-transform:uppercase;
-  margin-top:18px;color:var(--ink);
+  color:var(--ink);
 }
 .sc-step .d{
   font-family:var(--f-body);font-size:15px;line-height:1.55;
-  color:rgba(13,12,11,.7);margin-top:14px;
-  flex:1;
+  color:rgba(13,12,11,.72);margin-top:10px;
 }
-.sc-step .d em{font-style:italic;color:var(--mustard);font-weight:500;}
+.sc-step .d em{font-style:italic;color:var(--mustard);font-weight:600;}
 
-/* ─── SECTION 3 — PRICING (sur fond ink) ─── */
+/* ─── SECTION 3 — PRICING (hiérarchie main >> alt) ─── */
 .sc-pricing{
   display:grid;
-  grid-template-columns:1.6fr 1fr;
-  gap:4px;
+  grid-template-columns:2.4fr 1fr;
+  gap:14px;
+  align-items:stretch;
 }
-.sc-price-card{
-  position:relative;
-  padding:48px 44px 44px;
-  display:flex;flex-direction:column;
-}
+
+/* — MAIN : L'offre principale — */
 .sc-price-main{
-  background:linear-gradient(180deg,rgba(212,170,32,.08) 0%,transparent 100%),var(--ink2);
-  border-top:3px solid var(--mustard);
+  position:relative;
+  padding:64px 60px 56px;
+  display:flex;flex-direction:column;
+  background:linear-gradient(180deg,rgba(212,170,32,.10) 0%,rgba(212,170,32,.02) 60%,transparent 100%),var(--ink2);
+  border-top:4px solid var(--mustard);
+  box-shadow:0 30px 60px -30px rgba(212,170,32,.18);
 }
-.sc-price-side{
-  background:transparent;
-  border:1px solid rgba(240,237,229,.18);
+.sc-price-main .rank{
+  position:absolute;top:28px;right:36px;
+  font-family:var(--f-display);font-style:italic;font-weight:500;
+  font-size:120px;line-height:1;
+  color:rgba(212,170,32,.14);letter-spacing:-.04em;
+  pointer-events:none;
 }
-.sc-price-card .tag{
+.sc-price-main .badge{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--f-mono);font-weight:700;
+  font-size:10px;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--ink);background:var(--mustard);
+  padding:7px 14px;border-radius:999px;
+  width:max-content;
+}
+.sc-price-main .badge::before{content:"★";font-size:11px;}
+.sc-price-main .tag{
   font-family:var(--f-mono);font-weight:700;
   font-size:11px;letter-spacing:.28em;text-transform:uppercase;
-  color:var(--mustard);
+  color:var(--mustard);margin-top:24px;
 }
-.sc-price-card .name{
+.sc-price-main .name{
   font-family:var(--f-display);font-weight:600;font-style:italic;
-  font-size:clamp(28px,3.2vw,44px);
-  line-height:1.04;margin-top:14px;
-  color:var(--paper);letter-spacing:-.01em;
+  font-size:clamp(38px,4.4vw,64px);
+  line-height:1.02;margin-top:14px;
+  color:var(--paper);letter-spacing:-.015em;max-width:680px;
 }
-.sc-price-card .price{
-  font-family:var(--f-display);font-weight:700;font-style:normal;
-  font-size:clamp(32px,4vw,56px);
-  line-height:1;margin-top:28px;
-  color:var(--paper);letter-spacing:-.02em;
+.sc-price-main .price{
+  font-family:var(--f-display);font-weight:700;
+  font-size:clamp(48px,5.5vw,80px);
+  line-height:1;margin-top:36px;
+  color:var(--paper);letter-spacing:-.025em;
 }
-.sc-price-card .price .mb-prefix{
-  display:block;font-family:var(--f-mono);font-style:normal;
+.sc-price-main .price .mb-prefix{
+  display:block;font-family:var(--f-mono);
   font-size:11px;letter-spacing:.18em;text-transform:lowercase;
   color:rgba(240,237,229,.5);font-weight:400;
-  margin-bottom:8px;
+  margin-bottom:10px;
 }
-.sc-price-card .price small{
+.sc-price-main .price small{
   font-family:var(--f-body);font-weight:400;
-  font-size:.36em;color:rgba(240,237,229,.6);
-  letter-spacing:.04em;margin-left:6px;
+  font-size:.32em;color:rgba(240,237,229,.6);
+  letter-spacing:.04em;margin-left:8px;
 }
-.sc-price-card .feats{
-  list-style:none;margin-top:32px;padding:0;
-  border-top:1px solid rgba(240,237,229,.12);
-  padding-top:24px;
+.sc-price-main .feats{
+  list-style:none;margin-top:42px;padding-top:30px;
+  border-top:1px solid rgba(240,237,229,.14);
+  display:grid;grid-template-columns:1fr 1fr;gap:6px 28px;
 }
-.sc-price-card .feats li{
-  font-family:var(--f-body);font-size:14px;line-height:1.5;
-  color:rgba(240,237,229,.85);padding:8px 0;padding-left:22px;
+.sc-price-main .feats li{
+  font-family:var(--f-body);font-size:15px;line-height:1.55;
+  color:rgba(240,237,229,.88);padding:8px 0;padding-left:24px;
   position:relative;
 }
-.sc-price-card .feats li::before{
-  content:'✦';position:absolute;left:0;top:9px;
-  color:var(--mustard);font-size:11px;line-height:1;
+.sc-price-main .feats li::before{
+  content:'✦';position:absolute;left:0;top:10px;
+  color:var(--mustard);font-size:13px;line-height:1;
 }
-.sc-price-card .feats li b{color:var(--paper);font-weight:600;}
-.sc-price-card .terms{
+.sc-price-main .feats li b{color:var(--paper);font-weight:600;}
+.sc-price-main .terms{
   font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;
-  color:rgba(240,237,229,.45);line-height:1.6;
-  margin-top:24px;padding-top:18px;
+  color:rgba(240,237,229,.5);line-height:1.65;
+  margin-top:30px;padding-top:22px;
   border-top:1px solid rgba(240,237,229,.08);
+  max-width:640px;
 }
-.sc-price-card .cta{
-  display:inline-flex;align-items:center;justify-content:center;gap:10px;
-  margin-top:auto;
-  font-family:var(--f-mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
-  padding:0 28px;height:46px;border-radius:999px;
+.sc-price-main .cta-row{
+  margin-top:auto;padding-top:36px;
+  display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+}
+.sc-price-main .cta{
+  display:inline-flex;align-items:center;justify-content:center;gap:12px;
+  font-family:var(--f-mono);font-weight:700;
+  font-size:12px;letter-spacing:.24em;text-transform:uppercase;
+  padding:0 38px;height:54px;border-radius:999px;
   text-decoration:none;background:var(--mustard);color:var(--ink);
   border:1px solid var(--mustard);
-  transition:background .25s,color .25s,transform .25s;
+  transition:background .25s,color .25s,transform .25s,border-color .25s;
 }
-.sc-price-card .cta.outline{background:transparent;color:var(--paper);border-color:var(--paper);}
-.sc-price-card .cta:hover{background:transparent;color:var(--paper);border-color:var(--paper);transform:translateY(-2px);}
-.sc-price-card .cta.outline:hover{background:var(--paper);color:var(--ink);border-color:var(--paper);}
-.sc-price-card .pre-cta{margin-top:36px;display:flex;}
+.sc-price-main .cta:hover{background:transparent;color:var(--paper);border-color:var(--paper);transform:translateY(-2px);}
+.sc-price-main .cta-aside{
+  font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:rgba(240,237,229,.5);
+}
+
+/* — SIDE : Alternative discrète — */
+.sc-price-side{
+  position:relative;
+  padding:36px 32px 32px;
+  display:flex;flex-direction:column;
+  background:transparent;
+  border:1px solid rgba(240,237,229,.16);
+  opacity:.92;
+  transition:opacity .3s ease,border-color .3s ease;
+}
+.sc-price-side:hover{opacity:1;border-color:rgba(240,237,229,.28);}
+.sc-price-side .rank{
+  font-family:var(--f-display);font-style:italic;font-weight:500;
+  font-size:14px;letter-spacing:.05em;
+  color:rgba(240,237,229,.35);
+}
+.sc-price-side .rank::after{content:" · alternative";text-transform:uppercase;font-family:var(--f-mono);font-style:normal;font-size:10px;letter-spacing:.22em;margin-left:6px;}
+.sc-price-side .tag{
+  font-family:var(--f-mono);font-weight:700;
+  font-size:10px;letter-spacing:.24em;text-transform:uppercase;
+  color:rgba(240,237,229,.55);margin-top:14px;
+}
+.sc-price-side .name{
+  font-family:var(--f-display);font-weight:500;font-style:italic;
+  font-size:clamp(22px,1.8vw,28px);
+  line-height:1.1;margin-top:10px;
+  color:rgba(240,237,229,.88);letter-spacing:-.005em;
+}
+.sc-price-side .price{
+  font-family:var(--f-display);font-weight:600;
+  font-size:clamp(24px,2.4vw,34px);
+  line-height:1;margin-top:22px;
+  color:rgba(240,237,229,.9);letter-spacing:-.015em;
+}
+.sc-price-side .price .mb-prefix{
+  display:block;font-family:var(--f-mono);font-size:10px;
+  letter-spacing:.18em;text-transform:lowercase;
+  color:rgba(240,237,229,.4);font-weight:400;margin-bottom:6px;
+}
+.sc-price-side .price small{
+  font-family:var(--f-body);font-weight:400;
+  font-size:.42em;color:rgba(240,237,229,.5);
+  letter-spacing:.04em;margin-left:6px;
+}
+.sc-price-side .feats{
+  list-style:none;margin-top:22px;padding-top:18px;
+  border-top:1px solid rgba(240,237,229,.10);
+}
+.sc-price-side .feats li{
+  font-family:var(--f-body);font-size:13px;line-height:1.5;
+  color:rgba(240,237,229,.72);padding:5px 0;padding-left:18px;
+  position:relative;
+}
+.sc-price-side .feats li::before{
+  content:'·';position:absolute;left:0;top:4px;
+  color:var(--mustard);font-size:14px;line-height:1;font-weight:700;
+}
+.sc-price-side .feats li b{color:rgba(240,237,229,.88);font-weight:600;}
+.sc-price-side .terms{
+  font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;
+  color:rgba(240,237,229,.4);line-height:1.55;margin-top:18px;
+}
+.sc-price-side .cta{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  margin-top:auto;
+  font-family:var(--f-mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+  padding:0 22px;height:40px;border-radius:999px;
+  text-decoration:none;background:transparent;color:rgba(240,237,229,.85);
+  border:1px solid rgba(240,237,229,.35);
+  transition:all .25s;
+  width:max-content;
+}
+.sc-price-side .cta:hover{color:var(--ink);background:var(--paper);border-color:var(--paper);}
+.sc-price-side .cta-wrap{margin-top:28px;}
 
 /* ─── ALLORA CLOSER ─── */
 .sc-allora{
@@ -403,41 +529,66 @@ img,video{max-width:100%;display:block;}
 .sc-allora-footer .contact a.email-cta{color:var(--mustard);font-weight:500;}
 
 /* ─── RESPONSIVE ─── */
+@media(max-width:1280px){
+  .sc-price-main .feats{grid-template-columns:1fr;}
+  .sc-price-main{padding:54px 48px 48px;}
+}
 @media(max-width:1024px){
   .sc-strip-inner{grid-template-columns:repeat(4,1fr);}
   .sc-strip-item:nth-child(n+5){display:none;}
-  .sc-hero-meta{grid-template-columns:repeat(2,auto);gap:32px;}
+  .sc-hero-meta{grid-template-columns:repeat(4,1fr);margin-top:60px;padding-top:36px;}
+  .sc-hero-meta>div{padding:0 8px;}
   .sc-steps{grid-template-columns:repeat(2,1fr);}
   .sc-pricing{grid-template-columns:1fr;}
+  .sc-price-main .rank{font-size:88px;top:20px;right:24px;}
+  .sc-price-main{padding:48px 36px;}
   .sc-section{padding:90px 28px;}
 }
 @media(max-width:768px){
   #nav{padding:12px 20px;}
   .nav-cta{padding:0 18px;height:40px;font-size:10px;}
   .sc-back-wrap{padding:80px 20px 0;}
-  .sc-hero{padding:36px 20px 80px;}
+  .sc-hero{padding:36px 20px 70px;}
   .sc-hero::before{width:340px;height:340px;top:-60px;right:-60px;}
   .sc-title{font-size:clamp(36px,11vw,68px);}
-  .sc-lede{font-size:16px;margin-top:30px;}
-  .sc-hero-meta{margin-top:44px;padding-top:24px;gap:22px;}
-  .sc-hero-meta dd{font-size:16px;}
+  .sc-lede{font-size:16px;margin-top:28px;}
+  .sc-hero-meta{margin-top:48px;padding-top:32px;grid-template-columns:repeat(2,1fr);gap:24px 0;}
+  .sc-hero-meta>div{padding:8px 12px;border-bottom:1px solid rgba(13,12,11,.08);}
+  .sc-hero-meta>div:nth-child(2){border-right:none;}
+  .sc-hero-meta>div:nth-child(n+3){border-bottom:none;}
+  .sc-hero-meta dd{font-size:48px;}
+  .sc-hero-meta dt{font-size:10px;margin-top:8px;}
   .sc-strip{padding:0 12px 12px;}
   .sc-strip-inner{grid-template-columns:repeat(2,1fr);gap:3px;}
-  .sc-strip-item:nth-child(n+3){display:none;}
+  .sc-strip-item:nth-child(n+5){display:none;}
   .sc-section{padding:64px 20px;}
   .sc-section-head{margin-bottom:36px;gap:10px;}
   .sc-grid{grid-template-columns:1fr;}
   .sc-grid-item{padding:20px 18px;}
   .sc-grid-item .num{font-size:18px;width:24px;}
   .sc-grid-item .t{font-size:15px;}
-  .sc-steps{grid-template-columns:1fr;gap:3px;}
-  .sc-step{padding:32px 24px;min-height:auto;}
-  .sc-step .n{font-size:48px;}
-  .sc-pricing{gap:14px;}
-  .sc-price-card{padding:32px 26px;}
+  .sc-steps{grid-template-columns:1fr 1fr;gap:6px;}
+  .sc-step-num{font-size:36px;top:12px;left:14px;}
+  .sc-step-body{padding:18px 18px 22px;}
+  .sc-step .d{font-size:13px;}
+  .sc-pricing{gap:18px;}
+  .sc-price-main{padding:36px 24px 32px;border-top-width:3px;}
+  .sc-price-main .rank{display:none;}
+  .sc-price-main .name{font-size:30px;}
+  .sc-price-main .price{font-size:44px;margin-top:24px;}
+  .sc-price-main .feats{margin-top:28px;padding-top:22px;}
+  .sc-price-main .cta-row{padding-top:24px;gap:14px;}
+  .sc-price-main .cta{height:48px;padding:0 28px;font-size:11px;width:100%;justify-content:center;}
+  .sc-price-main .cta-aside{font-size:10px;}
+  .sc-price-side{padding:26px 22px 24px;}
+  .sc-price-side .name{font-size:22px;}
+  .sc-price-side .price{font-size:26px;}
   .sc-allora{padding:60px 24px 120px;min-height:auto;}
   .sc-allora-footer{position:static;padding:36px 20px 8px;flex-direction:column;align-items:flex-start;}
   .sc-allora-footer .contact{font-size:10px;}
+}
+@media(max-width:480px){
+  .sc-steps{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -466,25 +617,25 @@ img,video{max-width:100%;display:block;}
       <h1 class="sc-title">Le studio qui vit avec votre marque, <em>toute l'année.</em></h1>
       <p class="sc-lede">Un partenaire visuel intégré. Une direction artistique <b>dédiée</b>. Un cast-lock qui traverse vos saisons. Vos campagnes, vos drops, vos social, vos éditos — produits en flux, livrés chaque semaine.</p>
       <dl class="sc-hero-meta">
-        <div><dt>Visuels / mois</dt><dd>50</dd></div>
-        <div><dt>Motions / mois</dt><dd>5</dd></div>
-        <div><dt>Univers / trimestre</dt><dd>4</dd></div>
-        <div><dt>Engagement</dt><dd>3 mois</dd></div>
+        <div><dd>50</dd><dt>Visuels / mois</dt></div>
+        <div><dd>5</dd><dt>Motions / mois</dt></div>
+        <div><dd>4</dd><dt>Univers / trimestre</dt></div>
+        <div><dd>3<span class="unit">mois</span></dd><dt>Engagement min.</dt></div>
       </dl>
     </div>
   </section>
 
-  <!-- STRIP — preuve visuelle -->
+  <!-- STRIP — preuve visuelle (mix portrait / lookbook / éditorial / vidéo) -->
   <section class="sc-strip reveal">
     <div class="sc-strip-inner">
-      <div class="sc-strip-item"><img src="assets/tennis-01.jpg" loading="lazy" decoding="async" alt=""/></div>
-      <div class="sc-strip-item"><img src="assets/roseanna-08.jpg" loading="lazy" decoding="async" alt="" style="object-position:center top;"/></div>
-      <div class="sc-strip-item"><img src="assets/ltdc-03.jpg" loading="lazy" decoding="async" alt=""/></div>
-      <div class="sc-strip-item"><img src="assets/av-04.jpg" loading="lazy" decoding="async" alt=""/></div>
-      <div class="sc-strip-item"><img src="assets/lb00-portrait.jpg" loading="lazy" decoding="async" alt=""/></div>
-      <div class="sc-strip-item"><video data-src="assets/use2-video1.mp4" muted loop playsinline preload="none" autoplay></video></div>
+      <div class="sc-strip-item" data-kind="portrait"><img src="assets/tennis-01.jpg" loading="lazy" decoding="async" alt="Portrait"/></div>
+      <div class="sc-strip-item" data-kind="lookbook"><img src="assets/lb01-full-body-v2.jpg" loading="lazy" decoding="async" alt="Lookbook"/></div>
+      <div class="sc-strip-item" data-kind="editorial"><img src="assets/roseanna-01.jpg" loading="lazy" decoding="async" alt="Éditorial"/></div>
+      <div class="sc-strip-item" data-kind="photobook"><img src="assets/ltdc-07-v2.jpg" loading="lazy" decoding="async" alt="Photobook"/></div>
+      <div class="sc-strip-item" data-kind="outdoor"><img src="assets/mosaic-14-v2.jpg" loading="lazy" decoding="async" alt="Outdoor"/></div>
+      <div class="sc-strip-item" data-kind="motion"><video data-src="assets/roseanna-video.mp4" muted loop playsinline preload="none" autoplay></video></div>
     </div>
-    <div class="sc-strip-caption">Échantillon de notre playlist créative · @studiomoltobene</div>
+    <div class="sc-strip-caption">Portrait · lookbook · éditorial · photobook · outdoor · motion — un seul studio</div>
   </section>
 
   <!-- SECTION 1 — INCLUS -->
@@ -564,24 +715,44 @@ img,video{max-width:100%;display:block;}
       </div>
       <div class="sc-steps">
         <div class="sc-step">
-          <div class="n">01</div>
-          <div class="t">Audit DA</div>
-          <div class="d">On lit votre marque, vos saisons, vos points de friction. <em>Offert.</em></div>
+          <div class="sc-step-media">
+            <img src="assets/moodboard-tennis-04.jpg" loading="lazy" decoding="async" alt="Audit DA"/>
+            <span class="sc-step-num">01</span>
+          </div>
+          <div class="sc-step-body">
+            <div class="t">Audit DA</div>
+            <div class="d">On lit votre marque, vos saisons, vos points de friction. <em>Offert.</em></div>
+          </div>
         </div>
         <div class="sc-step">
-          <div class="n">02</div>
-          <div class="t">Cast-lock</div>
-          <div class="d">Votre mannequin canonique. Verrouillé. Décliné saison après saison.</div>
+          <div class="sc-step-media">
+            <img src="assets/lb00-portrait.jpg" loading="lazy" decoding="async" alt="Cast-lock"/>
+            <span class="sc-step-num">02</span>
+          </div>
+          <div class="sc-step-body">
+            <div class="t">Cast-lock</div>
+            <div class="d">Votre mannequin canonique. Verrouillé. Décliné saison après saison.</div>
+          </div>
         </div>
         <div class="sc-step">
-          <div class="n">03</div>
-          <div class="t">Flux hebdo</div>
-          <div class="d">Production continue, livraison chaque semaine, pas de tunnel.</div>
+          <div class="sc-step-media">
+            <img src="assets/mosaic-14-v2.jpg" loading="lazy" decoding="async" alt="Flux hebdo"/>
+            <span class="sc-step-num">03</span>
+          </div>
+          <div class="sc-step-body">
+            <div class="t">Flux hebdo</div>
+            <div class="d">Production continue, livraison chaque semaine, pas de tunnel.</div>
+          </div>
         </div>
         <div class="sc-step">
-          <div class="n">04</div>
-          <div class="t">Review mensuelle</div>
-          <div class="d">On regarde ensemble ce qui performe. On ajuste les univers.</div>
+          <div class="sc-step-media">
+            <img src="assets/roseanna-01.jpg" loading="lazy" decoding="async" alt="Review mensuelle"/>
+            <span class="sc-step-num">04</span>
+          </div>
+          <div class="sc-step-body">
+            <div class="t">Review mensuelle</div>
+            <div class="d">On regarde ensemble ce qui performe. On ajuste les univers.</div>
+          </div>
         </div>
       </div>
     </div>
@@ -595,32 +766,44 @@ img,video{max-width:100%;display:block;}
         <h2 class="sc-section-title">Deux portes <em>d'entrée.</em></h2>
       </div>
       <div class="sc-pricing">
-        <div class="sc-price-card sc-price-main">
+        <!-- 01 — L'OFFRE PRINCIPALE -->
+        <div class="sc-price-main">
+          <span class="rank" aria-hidden="true">01</span>
+          <span class="badge">L'offre principale</span>
           <span class="tag">Studio Créatif</span>
-          <div class="name">L'abonnement créatif.</div>
+          <div class="name">L'abonnement créatif qui vit avec votre marque.</div>
           <div class="price"><span class="mb-prefix">à partir de</span>2 490 €<small>/ mois</small></div>
           <ul class="feats">
-            <li><b>50 visuels</b> + <b>5 motions</b> chaque mois</li>
-            <li><b>4 univers visuels</b> par trimestre</li>
+            <li><b>50 visuels</b> chaque mois</li>
+            <li><b>5 motions</b> social-ready (5 s)</li>
+            <li><b>4 univers visuels</b> / trimestre</li>
             <li><b>1 mannequin canonique</b> propriétaire</li>
             <li><b>Direction artistique dédiée</b></li>
             <li><b>Droits commerciaux worldwide</b></li>
           </ul>
           <p class="terms">Engagement 3 mois minimum, reconductible tacitement. Mannequin canonique supplémentaire : 750 € one-shot. Audit DA initial offert.</p>
-          <div class="pre-cta"><a href="https://meet.moltobene.ai" target="_blank" rel="noopener" class="cta">Réserver une démo →</a></div>
+          <div class="cta-row">
+            <a href="https://meet.moltobene.ai" target="_blank" rel="noopener" class="cta">Réserver une démo →</a>
+            <span class="cta-aside">Audit DA offert · sans engagement</span>
+          </div>
         </div>
-        <div class="sc-price-card sc-price-side">
-          <span class="tag">Pour démarrer</span>
+
+        <!-- 02 — ALTERNATIVE -->
+        <div class="sc-price-side">
+          <span class="rank">02</span>
+          <span class="tag">Pour tester d'abord</span>
           <div class="name">Capsule Discovery.</div>
-          <div class="price"><span class="mb-prefix">à partir de</span>990 €<small>/ capsule</small></div>
+          <div class="price"><span class="mb-prefix">à partir de</span>990 €<small>/ one shot</small></div>
           <ul class="feats">
             <li><b>10 visuels</b> DONT 1 motion</li>
             <li><b>1 mannequin</b> propriétaire</li>
             <li><b>2 univers</b> de marque</li>
-            <li><b>DA dédiée</b> + livré en 7 jours</li>
+            <li><b>Livré en 7 jours</b></li>
           </ul>
-          <p class="terms">Une porte d'entrée pour tester le studio sans engagement long.</p>
-          <div class="pre-cta"><a href="mailto:hello@moltobene.ai?subject=Capsule%20Discovery%20Molto%20Bene&body=Bonjour%2C%0A%0AJe%20souhaite%20d%C3%A9marrer%20une%20Capsule%20Discovery%20Molto%20Bene%20%2810%20visuels%20DONT%201%20motion%29.%0A%0AVoici%20mon%20contexte%20%3A%20%5Bmarque%2C%20secteur%2C%20produit%28s%29%20%C3%A0%20mettre%20en%20valeur%2C%20deadline%5D%0A%0AMerci.%0A" class="cta outline">Démarrer →</a></div>
+          <p class="terms">Sans engagement long. Pour valider l'approche avant l'abonnement.</p>
+          <div class="cta-wrap">
+            <a href="mailto:hello@moltobene.ai?subject=Capsule%20Discovery%20Molto%20Bene&body=Bonjour%2C%0A%0AJe%20souhaite%20d%C3%A9marrer%20une%20Capsule%20Discovery%20Molto%20Bene%20%2810%20visuels%20DONT%201%20motion%29.%0A%0AVoici%20mon%20contexte%20%3A%20%5Bmarque%2C%20secteur%2C%20produit%28s%29%20%C3%A0%20mettre%20en%20valeur%2C%20deadline%5D%0A%0AMerci.%0A" class="cta">Démarrer la capsule →</a>
+          </div>
         </div>
       </div>
     </div>
