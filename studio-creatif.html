@@ -3,32 +3,32 @@
 <meta charset="UTF-8"/>
 <title>Studio Créatif — Molto Bene · Le studio qui vit avec votre marque</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
-<meta name="description" content="Un partenaire visuel intégré pour votre marque mode. 50 visuels et 8 motions par mois, DA dédiée, cast-lock, livraison hebdomadaire. À partir de 2 490 €/mois."/>
-<meta name="theme-color" content="#D4AA20"/>
+<meta name="description" content="Un partenaire visuel intégré pour votre marque mode. 50 visuels et 5 motions par mois, DA dédiée, cast-lock, livraison hebdomadaire. À partir de 2 490 €/mois."/>
+<meta name="theme-color" content="#0D0C0B"/>
 
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://moltobene.ai/studio-creatif.html" />
 <meta property="og:title" content="Studio Créatif — Molto Bene" />
-<meta property="og:description" content="Un partenaire visuel intégré pour votre marque mode. 50 visuels et 8 motions par mois, DA dédiée, cast-lock, livraison hebdomadaire. À partir de 2 490 €/mois." />
+<meta property="og:description" content="Le studio qui vit avec votre marque, toute l'année. 50 visuels et 5 motions par mois, DA dédiée, cast-lock, livraison hebdomadaire." />
 <meta property="og:image" content="https://moltobene.ai/assets/og-cover.jpg" />
 <meta property="og:site_name" content="Molto Bene" />
 <meta property="og:locale" content="fr_FR" />
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Studio Créatif — Molto Bene" />
-<meta name="twitter:description" content="Un partenaire visuel intégré pour votre marque mode. 50 visuels et 8 motions par mois, DA dédiée, cast-lock, livraison hebdomadaire." />
+<meta name="twitter:description" content="Le studio qui vit avec votre marque, toute l'année. 50 visuels et 5 motions par mois." />
 <meta name="twitter:image" content="https://moltobene.ai/assets/og-cover.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="image" href="assets/logo-molto-bene.png">
-<link rel="preload" as="image" href="assets/etoile.png">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --paper:#F0EDE5;--paper-alt:#E8E4DB;--cream:#F5F1E8;
-  --ink:#0D0C0B;--ink2:#111111;
+  --paper:#F0EDE5;--paper-alt:#E8E4DB;
+  --ink:#0D0C0B;--ink2:#1A1714;
+  --muted:#6B6560;
   --mustard:#D4AA20;
   --f-display:'Fraunces',Georgia,serif;
   --f-mono:'Courier Prime','Courier New',monospace;
@@ -38,11 +38,11 @@
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:clip;}
-body{background:var(--cream);color:var(--ink2);font-family:var(--f-body);overflow-x:clip;width:100%;-webkit-font-smoothing:antialiased;}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);overflow-x:clip;width:100%;-webkit-font-smoothing:antialiased;}
 img,video{max-width:100%;display:block;}
 
 /* GRAIN */
-#grain{position:fixed;inset:-50%;width:200%;height:200%;pointer-events:none;z-index:9000;opacity:.06;
+#grain{position:fixed;inset:-50%;width:200%;height:200%;pointer-events:none;z-index:9000;opacity:.08;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   animation:grain-a .35s steps(1) infinite;mix-blend-mode:overlay;}
 @keyframes grain-a{
@@ -57,7 +57,7 @@ img,video{max-width:100%;display:block;}
   *{transition-duration:.01ms !important;animation-duration:.01ms !important;}
 }
 
-/* NAV — sticky comme le reste du site */
+/* NAV */
 #nav{position:fixed;top:0;left:0;right:0;z-index:8000;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;background:rgba(13,12,11,.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06);}
 .nav-brand{display:flex;align-items:center;height:24px;text-decoration:none;}
 .nav-brand img{height:24px;width:auto;}
@@ -67,260 +67,377 @@ img,video{max-width:100%;display:block;}
 .reveal{opacity:0;transform:translateY(36px);transition:opacity .9s cubic-bezier(.22,.61,.36,1),transform .9s cubic-bezier(.22,.61,.36,1);}
 .reveal.in{opacity:1;transform:none;}
 
-/* Back link */
-.sc-back-wrap{background:var(--cream);padding:96px 32px 0;}
+/* ─── BACK LINK ─── */
+.sc-back-wrap{background:var(--paper);padding:96px 32px 0;}
 .sc-back-inner{max-width:var(--max-wide);margin:0 auto;}
 .sc-back{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(13,12,11,.55);text-decoration:none;padding:8px 0;transition:color .2s,gap .2s;}
 .sc-back::before{content:"←";display:inline-block;font-size:14px;line-height:1;}
 .sc-back:hover{color:var(--mustard);gap:14px;}
 
-/* HERO moutarde */
+/* ─── HERO ─── */
 .sc-hero{
-  background:var(--mustard);
-  color:#fff;
-  padding:80px 6vw 110px;
+  background:var(--paper);
+  padding:48px 32px 120px;
   position:relative;
   overflow:hidden;
-  margin-top:24px;
 }
-.sc-hero .etoile-bg{
-  position:absolute;
-  right:-9vw;top:-8vw;
-  width:50vw;max-width:720px;min-width:380px;
-  opacity:.10;
-  transform:rotate(-8deg);
+.sc-hero::before{
+  content:'';position:absolute;
+  top:-80px;right:-80px;
+  width:520px;height:520px;border-radius:50%;
+  background:radial-gradient(circle,rgba(212,170,32,.18) 0%,transparent 70%);
   pointer-events:none;
-  user-select:none;
 }
-.sc-hero-inner{position:relative;z-index:2;max-width:var(--max-wide);margin:0 auto;}
-.sc-brand-row{display:flex;align-items:center;gap:18px;margin-bottom:42px;}
-.sc-brand-row .logo-blanc{height:34px;width:auto;}
-.sc-brand-sub{font-family:var(--f-body);font-weight:500;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.92);}
-.sc-eyebrow{font-family:var(--f-body);font-weight:500;font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#fff;}
-.sc-punch{
-  font-family:var(--f-display);
-  font-style:italic;font-weight:400;
-  font-size:clamp(40px,7vw,108px);
-  line-height:1.02;
-  color:#fff;
-  margin-top:20px;
-  max-width:1100px;
-  letter-spacing:-.015em;
+.sc-hero-inner{position:relative;z-index:1;max-width:var(--max-wide);margin:0 auto;}
+.sc-tag{
+  font-family:var(--f-mono);font-size:11px;
+  letter-spacing:.32em;text-transform:uppercase;
+  color:var(--mustard);display:block;margin-bottom:22px;
 }
-.sc-punch .accent{color:var(--ink2);font-weight:600;}
-.sc-sub{
+.sc-title{
+  font-family:var(--f-display);font-weight:700;
+  font-size:clamp(44px,7.5vw,128px);
+  line-height:.94;letter-spacing:-.03em;
+  color:var(--ink);max-width:1100px;
+}
+.sc-title em{font-style:italic;font-weight:600;color:var(--mustard);}
+.sc-lede{
   font-family:var(--f-body);font-weight:400;
-  font-size:clamp(16px,1.4vw,20px);
-  line-height:1.55;
-  color:#fff;
-  margin-top:32px;
-  max-width:720px;
+  font-size:clamp(17px,1.4vw,22px);
+  line-height:1.55;color:var(--ink);
+  margin-top:44px;max-width:720px;
 }
+.sc-lede b{font-weight:600;}
 
-/* BODY common */
-.sc-body{padding:96px 6vw 0;background:var(--cream);}
-.sc-section{max-width:var(--max-wide);margin:0 auto 110px;}
-.sc-section-label{font-family:var(--f-body);font-weight:700;font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--mustard);}
-.sc-section-title{
-  font-family:var(--f-display);
-  font-style:italic;font-weight:500;
-  font-size:clamp(28px,4vw,52px);
-  line-height:1.08;
-  color:var(--ink2);
-  margin-top:14px;
+/* Hero meta — petite ligne récap façon ed-meta */
+.sc-hero-meta{
+  display:grid;
+  grid-template-columns:repeat(4,auto);
+  gap:48px;
+  margin-top:64px;
+  padding-top:32px;
+  border-top:1px solid rgba(13,12,11,.12);
   max-width:900px;
-  letter-spacing:-.01em;
+}
+.sc-hero-meta dt{
+  font-family:var(--f-mono);font-size:10px;
+  letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(13,12,11,.5);margin-bottom:6px;
+}
+.sc-hero-meta dd{
+  font-family:var(--f-display);font-weight:600;
+  font-size:22px;line-height:1.1;color:var(--ink);
 }
 
-/* SECTION 1 — grid items */
+/* ─── STRIP — preuve visuelle ─── */
+.sc-strip{
+  background:var(--paper);
+  padding:0 32px 20px;
+}
+.sc-strip-inner{
+  max-width:var(--max-wide);margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:4px;
+}
+.sc-strip-item{
+  aspect-ratio:9/16;
+  overflow:hidden;
+  background:var(--paper-alt);
+  position:relative;
+}
+.sc-strip-item img,.sc-strip-item video{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center center;
+  transition:transform .5s ease;
+}
+.sc-strip-item:hover img,.sc-strip-item:hover video{transform:scale(1.04);}
+.sc-strip-caption{
+  max-width:var(--max-wide);margin:18px auto 0;
+  font-family:var(--f-mono);font-size:10px;
+  letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(13,12,11,.45);
+  text-align:right;
+}
+
+/* ─── SECTION TEMPLATE ─── */
+.sc-section{padding:110px 32px;position:relative;overflow:hidden;}
+.sc-section.alt{background:var(--paper-alt);}
+.sc-section.dark{background:var(--ink);color:var(--paper);}
+.sc-section-inner{max-width:var(--max-wide);margin:0 auto;position:relative;z-index:1;}
+.sc-section-head{
+  display:grid;grid-template-columns:1fr;gap:14px;
+  margin-bottom:64px;padding-bottom:28px;
+  border-bottom:1px solid rgba(13,12,11,.12);
+  align-items:end;
+}
+.sc-section.dark .sc-section-head{border-bottom-color:rgba(240,237,229,.12);}
+.sc-section-label{
+  font-family:var(--f-mono);font-size:11px;
+  letter-spacing:.32em;text-transform:uppercase;
+  color:var(--mustard);
+}
+.sc-section-title{
+  font-family:var(--f-display);font-weight:700;
+  font-size:clamp(34px,5.5vw,72px);
+  line-height:.98;letter-spacing:-.025em;
+  color:inherit;max-width:1100px;
+}
+.sc-section-title em{font-style:italic;font-weight:600;color:var(--mustard);}
+
+/* ─── SECTION 1 — INCLUS ─── */
 .sc-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:18px 60px;
-  margin-top:48px;
+  gap:0;
+  border-top:1px solid rgba(13,12,11,.12);
+  border-left:1px solid rgba(13,12,11,.12);
 }
-.sc-item{
-  font-family:var(--f-body);
-  font-size:16px;line-height:1.5;
-  color:#333;
-  padding-left:30px;position:relative;
+.sc-grid-item{
+  padding:28px 24px;
+  border-right:1px solid rgba(13,12,11,.12);
+  border-bottom:1px solid rgba(13,12,11,.12);
+  display:flex;gap:18px;align-items:flex-start;
+  position:relative;background:transparent;
+  transition:background .3s ease;
 }
-.sc-item::before{
-  content:'✦';
-  position:absolute;left:0;top:1px;
+.sc-grid-item:hover{background:rgba(212,170,32,.05);}
+.sc-grid-item .num{
+  font-family:var(--f-display);font-style:italic;font-weight:500;
+  font-size:24px;line-height:1;
   color:var(--mustard);
-  font-size:18px;line-height:1;
+  flex-shrink:0;width:32px;
 }
-.sc-item b{font-weight:700;color:var(--ink2);}
+.sc-grid-item .body{flex:1;}
+.sc-grid-item .t{
+  font-family:var(--f-body);font-weight:700;
+  font-size:17px;line-height:1.2;color:var(--ink);
+  letter-spacing:-.005em;
+}
+.sc-grid-item .d{
+  font-family:var(--f-body);font-weight:400;
+  font-size:14px;line-height:1.5;
+  color:rgba(13,12,11,.65);
+  margin-top:6px;
+}
 
-/* SECTION 2 — 4 cards mécanique */
+/* ─── SECTION 2 — MÉCANIQUE ─── */
 .sc-steps{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:20px;
-  margin-top:48px;
+  gap:4px;
 }
 .sc-step{
-  padding:32px 28px;
-  background:#fff;
-  border-left:3px solid var(--mustard);
-  box-shadow:0 2px 14px rgba(13,12,11,.04);
+  background:var(--paper);
+  padding:42px 30px 36px;
+  position:relative;
+  display:flex;flex-direction:column;
+  min-height:280px;
+  transition:background .3s ease,transform .3s ease;
+}
+.sc-section.alt .sc-step{background:#fff;}
+.sc-step:hover{transform:translateY(-2px);}
+.sc-step::before{
+  content:'';position:absolute;top:0;left:0;right:0;
+  height:3px;background:var(--mustard);
 }
 .sc-step .n{
-  font-family:var(--f-display);
-  font-style:italic;font-weight:500;
-  font-size:42px;color:var(--mustard);
-  line-height:1;letter-spacing:-.01em;
+  font-family:var(--f-display);font-style:italic;font-weight:500;
+  font-size:64px;line-height:1;
+  color:var(--mustard);letter-spacing:-.02em;
 }
 .sc-step .t{
-  font-family:var(--f-body);font-weight:700;
-  font-size:12px;letter-spacing:.18em;
-  text-transform:uppercase;
-  margin-top:14px;color:var(--ink2);
+  font-family:var(--f-mono);font-weight:700;
+  font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+  margin-top:18px;color:var(--ink);
 }
 .sc-step .d{
-  font-family:var(--f-body);
-  font-size:14px;line-height:1.5;
-  color:#444;
-  margin-top:10px;
+  font-family:var(--f-body);font-size:15px;line-height:1.55;
+  color:rgba(13,12,11,.7);margin-top:14px;
+  flex:1;
 }
+.sc-step .d em{font-style:italic;color:var(--mustard);font-weight:500;}
 
-/* SECTION 3 — pricing blocks */
-.sc-priceblock{
+/* ─── SECTION 3 — PRICING (sur fond ink) ─── */
+.sc-pricing{
   display:grid;
-  grid-template-columns:1.55fr 1fr;
-  gap:20px;
-  margin-top:48px;
-  align-items:stretch;
+  grid-template-columns:1.6fr 1fr;
+  gap:4px;
+}
+.sc-price-card{
+  position:relative;
+  padding:48px 44px 44px;
+  display:flex;flex-direction:column;
 }
 .sc-price-main{
-  background:var(--ink2);
-  color:#fff;
-  padding:42px 42px 36px;
+  background:linear-gradient(180deg,rgba(212,170,32,.08) 0%,transparent 100%),var(--ink2);
+  border-top:3px solid var(--mustard);
 }
-.sc-price-main .tag{font-family:var(--f-body);font-weight:700;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--mustard);}
-.sc-price-main .name{font-family:var(--f-display);font-style:italic;font-weight:500;font-size:clamp(28px,3vw,42px);line-height:1.05;margin-top:8px;color:#fff;letter-spacing:-.005em;}
-.sc-price-main .name small{font-family:var(--f-body);font-style:normal;font-weight:400;font-size:.45em;color:#cfcfcf;margin-left:8px;letter-spacing:.04em;}
-.sc-price-main .terms{font-family:var(--f-body);font-size:14px;line-height:1.6;color:#cfcfcf;margin-top:22px;max-width:520px;}
-
 .sc-price-side{
   background:transparent;
-  border:1px solid var(--ink2);
-  padding:36px 32px;
-  display:flex;flex-direction:column;justify-content:center;
+  border:1px solid rgba(240,237,229,.18);
 }
-.sc-price-side .tag{font-family:var(--f-body);font-weight:700;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink2);}
-.sc-price-side .name{font-family:var(--f-display);font-style:italic;font-weight:500;font-size:clamp(22px,2vw,28px);line-height:1.1;margin-top:8px;color:var(--ink2);}
-.sc-price-side .body-mini{font-family:var(--f-body);font-size:14px;line-height:1.55;color:#333;margin-top:18px;}
-.sc-price-side .body-mini b{color:var(--ink2);font-weight:700;}
-
-/* SLOT TÉMOIGNAGE */
-.sc-testimonial{
-  background:var(--cream);
-  padding:80px 6vw 60px;
-  text-align:center;
+.sc-price-card .tag{
+  font-family:var(--f-mono);font-weight:700;
+  font-size:11px;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--mustard);
 }
-.sc-testimonial-inner{
-  max-width:760px;margin:0 auto;
-  padding:48px 32px;
-  border-top:1px solid rgba(13,12,11,.12);
-  border-bottom:1px solid rgba(13,12,11,.12);
+.sc-price-card .name{
+  font-family:var(--f-display);font-weight:600;font-style:italic;
+  font-size:clamp(28px,3.2vw,44px);
+  line-height:1.04;margin-top:14px;
+  color:var(--paper);letter-spacing:-.01em;
 }
-.sc-testimonial .placeholder{
-  font-family:var(--f-mono);font-size:11px;
-  letter-spacing:.28em;text-transform:uppercase;
-  color:rgba(13,12,11,.4);
-  font-style:italic;
+.sc-price-card .price{
+  font-family:var(--f-display);font-weight:700;font-style:normal;
+  font-size:clamp(32px,4vw,56px);
+  line-height:1;margin-top:28px;
+  color:var(--paper);letter-spacing:-.02em;
 }
-
-/* CTA final — bandeau noir pied */
-.sc-cta{
-  background:var(--ink2);
-  color:#fff;
-  padding:64px 6vw;
-  display:flex;align-items:center;justify-content:space-between;
-  gap:36px;flex-wrap:wrap;
+.sc-price-card .price .mb-prefix{
+  display:block;font-family:var(--f-mono);font-style:normal;
+  font-size:11px;letter-spacing:.18em;text-transform:lowercase;
+  color:rgba(240,237,229,.5);font-weight:400;
+  margin-bottom:8px;
 }
-.sc-cta-left{flex:1;min-width:280px;}
-.sc-cta-signature{
-  font-family:var(--f-display);font-style:italic;font-weight:400;
-  font-size:clamp(22px,2.4vw,32px);
-  line-height:1.2;color:#fff;
+.sc-price-card .price small{
+  font-family:var(--f-body);font-weight:400;
+  font-size:.36em;color:rgba(240,237,229,.6);
+  letter-spacing:.04em;margin-left:6px;
 }
-.sc-cta-coords{
-  font-family:var(--f-mono);
-  font-size:11px;letter-spacing:.14em;
-  color:rgba(255,255,255,.55);
-  margin-top:14px;
+.sc-price-card .feats{
+  list-style:none;margin-top:32px;padding:0;
+  border-top:1px solid rgba(240,237,229,.12);
+  padding-top:24px;
 }
-.sc-cta-coords a{color:rgba(255,255,255,.7);text-decoration:none;transition:color .2s;}
-.sc-cta-coords a:hover{color:var(--mustard);}
-.sc-cta-right{display:flex;align-items:center;gap:24px;}
-.sc-cta-btn{
-  display:inline-flex;align-items:center;gap:10px;
-  font-family:var(--f-body);font-weight:700;
-  font-size:13px;letter-spacing:.18em;text-transform:uppercase;
-  padding:0 32px;height:52px;border-radius:999px;
-  background:var(--mustard);color:var(--ink2);
-  text-decoration:none;
+.sc-price-card .feats li{
+  font-family:var(--f-body);font-size:14px;line-height:1.5;
+  color:rgba(240,237,229,.85);padding:8px 0;padding-left:22px;
+  position:relative;
+}
+.sc-price-card .feats li::before{
+  content:'✦';position:absolute;left:0;top:9px;
+  color:var(--mustard);font-size:11px;line-height:1;
+}
+.sc-price-card .feats li b{color:var(--paper);font-weight:600;}
+.sc-price-card .terms{
+  font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;
+  color:rgba(240,237,229,.45);line-height:1.6;
+  margin-top:24px;padding-top:18px;
+  border-top:1px solid rgba(240,237,229,.08);
+}
+.sc-price-card .cta{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  margin-top:auto;
+  font-family:var(--f-mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+  padding:0 28px;height:46px;border-radius:999px;
+  text-decoration:none;background:var(--mustard);color:var(--ink);
   border:1px solid var(--mustard);
+  transition:background .25s,color .25s,transform .25s;
+}
+.sc-price-card .cta.outline{background:transparent;color:var(--paper);border-color:var(--paper);}
+.sc-price-card .cta:hover{background:transparent;color:var(--paper);border-color:var(--paper);transform:translateY(-2px);}
+.sc-price-card .cta.outline:hover{background:var(--paper);color:var(--ink);border-color:var(--paper);}
+.sc-price-card .pre-cta{margin-top:36px;display:flex;}
+
+/* ─── ALLORA CLOSER ─── */
+.sc-allora{
+  position:relative;
+  min-height:80vh;min-height:80svh;
+  overflow:hidden;
+  background:var(--ink);
+  display:flex;align-items:center;justify-content:center;
+  padding:80px 6vw 140px;
+}
+.sc-allora-video{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;object-position:center center;
+  filter:brightness(.35) saturate(.85);
+}
+.sc-allora-veil{
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse at center,transparent 0%,rgba(13,12,11,.55) 100%);
+  z-index:1;
+}
+.sc-allora-content{position:relative;z-index:2;text-align:center;max-width:1100px;width:100%;}
+.sc-allora-title{
+  font-family:var(--f-display);font-weight:700;
+  font-size:clamp(56px,11vw,168px);
+  line-height:.95;letter-spacing:-.03em;
+  color:var(--paper);
+}
+.sc-allora-title .qmark{color:var(--mustard);display:inline-block;font-style:italic;}
+.sc-allora-tagline{
+  font-family:var(--f-display);font-style:italic;font-weight:400;
+  font-size:clamp(20px,3vw,38px);
+  color:var(--paper);margin-top:24px;letter-spacing:-.015em;
+}
+.sc-allora-cta-group{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:48px;}
+.sc-allora-cta{
+  display:inline-flex;align-items:center;gap:14px;
+  font-family:var(--f-mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--ink);background:var(--mustard);
+  padding:0 42px;height:48px;border-radius:999px;
+  text-decoration:none;border:1px solid var(--mustard);
   transition:background .25s,color .25s,transform .25s,border-color .25s;
 }
-.sc-cta-btn:hover{background:transparent;color:#fff;border-color:#fff;transform:translateY(-2px);}
-.sc-cta-star{width:34px;height:auto;opacity:.95;}
+.sc-allora-cta:hover{background:transparent;color:var(--paper);border-color:var(--paper);transform:translateY(-2px);}
+.sc-allora-cta.outline{background:transparent;color:var(--paper);border-color:var(--paper);}
+.sc-allora-cta.outline:hover{background:var(--paper);color:var(--ink);border-color:var(--paper);}
 
-/* FOOTER mini */
-.sc-foot{
-  background:var(--ink2);
-  border-top:1px solid rgba(240,237,229,.08);
-  padding:24px 6vw;
-  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;
+.sc-allora-footer{
+  position:absolute;
+  bottom:28px;left:0;right:0;
+  z-index:2;padding:0 6vw;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;
 }
-.sc-foot .meta{
-  font-family:var(--f-mono);font-size:10px;
-  letter-spacing:.2em;text-transform:uppercase;
-  color:rgba(240,237,229,.5);
+.sc-allora-footer .contact{
+  font-family:var(--f-mono);font-size:11px;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(240,237,229,.65);
+  text-shadow:0 1px 8px rgba(0,0,0,.6);
 }
-.sc-foot a{color:rgba(240,237,229,.8);text-decoration:none;}
-.sc-foot a:hover{color:var(--mustard);}
+.sc-allora-footer .contact a{color:var(--paper);text-decoration:none;transition:color .2s;}
+.sc-allora-footer .contact a:hover{color:var(--mustard);}
+.sc-allora-footer .contact a.email-cta{color:var(--mustard);font-weight:500;}
 
-/* RESPONSIVE */
+/* ─── RESPONSIVE ─── */
 @media(max-width:1024px){
-  .sc-grid{gap:14px 36px;}
+  .sc-strip-inner{grid-template-columns:repeat(4,1fr);}
+  .sc-strip-item:nth-child(n+5){display:none;}
+  .sc-hero-meta{grid-template-columns:repeat(2,auto);gap:32px;}
   .sc-steps{grid-template-columns:repeat(2,1fr);}
-  .sc-priceblock{grid-template-columns:1fr;}
-  .sc-section{margin-bottom:80px;}
-  .sc-hero{padding:64px 6vw 84px;}
+  .sc-pricing{grid-template-columns:1fr;}
+  .sc-section{padding:90px 28px;}
 }
 @media(max-width:768px){
   #nav{padding:12px 20px;}
   .nav-cta{padding:0 18px;height:40px;font-size:10px;}
   .sc-back-wrap{padding:80px 20px 0;}
-  .sc-back{font-size:10px;}
-  .sc-hero{padding:48px 24px 64px;margin-top:18px;}
-  .sc-hero .etoile-bg{width:80vw;right:-15vw;top:-12vw;}
-  .sc-brand-row{margin-bottom:32px;}
-  .sc-brand-row .logo-blanc{height:26px;}
-  .sc-brand-sub{font-size:10px;}
-  .sc-punch{font-size:clamp(32px,9vw,52px);margin-top:14px;}
-  .sc-sub{font-size:15px;margin-top:24px;}
-  .sc-body{padding:64px 24px 0;}
-  .sc-section{margin-bottom:60px;}
-  .sc-section-title{font-size:clamp(24px,5.5vw,32px);}
-  .sc-grid{grid-template-columns:1fr;gap:14px;margin-top:32px;}
-  .sc-steps{grid-template-columns:1fr;gap:14px;margin-top:32px;}
-  .sc-step{padding:24px 22px;}
-  .sc-priceblock{margin-top:32px;}
-  .sc-price-main{padding:30px 26px;}
-  .sc-price-side{padding:26px 24px;}
-  .sc-price-main .name{font-size:28px;}
-  .sc-testimonial{padding:60px 24px 40px;}
-  .sc-testimonial-inner{padding:36px 20px;}
-  .sc-cta{padding:48px 24px;flex-direction:column;align-items:flex-start;gap:28px;}
-  .sc-cta-right{width:100%;justify-content:space-between;}
-  .sc-cta-btn{flex:1;justify-content:center;font-size:11px;}
-  .sc-cta-signature{font-size:22px;}
-  .sc-foot{padding:20px 24px;}
+  .sc-hero{padding:36px 20px 80px;}
+  .sc-hero::before{width:340px;height:340px;top:-60px;right:-60px;}
+  .sc-title{font-size:clamp(36px,11vw,68px);}
+  .sc-lede{font-size:16px;margin-top:30px;}
+  .sc-hero-meta{margin-top:44px;padding-top:24px;gap:22px;}
+  .sc-hero-meta dd{font-size:16px;}
+  .sc-strip{padding:0 12px 12px;}
+  .sc-strip-inner{grid-template-columns:repeat(2,1fr);gap:3px;}
+  .sc-strip-item:nth-child(n+3){display:none;}
+  .sc-section{padding:64px 20px;}
+  .sc-section-head{margin-bottom:36px;gap:10px;}
+  .sc-grid{grid-template-columns:1fr;}
+  .sc-grid-item{padding:20px 18px;}
+  .sc-grid-item .num{font-size:18px;width:24px;}
+  .sc-grid-item .t{font-size:15px;}
+  .sc-steps{grid-template-columns:1fr;gap:3px;}
+  .sc-step{padding:32px 24px;min-height:auto;}
+  .sc-step .n{font-size:48px;}
+  .sc-pricing{gap:14px;}
+  .sc-price-card{padding:32px 26px;}
+  .sc-allora{padding:60px 24px 120px;min-height:auto;}
+  .sc-allora-footer{position:static;padding:36px 20px 8px;flex-direction:column;align-items:flex-start;}
+  .sc-allora-footer .contact{font-size:10px;}
 }
 </style>
 </head>
@@ -334,45 +451,117 @@ img,video{max-width:100%;display:block;}
 </header>
 
 <main>
+
+  <!-- BACK -->
   <div class="sc-back-wrap">
     <div class="sc-back-inner">
       <a href="index.html#pricing" class="sc-back">Retour aux formules</a>
     </div>
   </div>
 
-  <!-- HERO MOUTARDE -->
+  <!-- HERO -->
   <section class="sc-hero reveal">
-    <img src="assets/etoile.png" class="etoile-bg" alt="" aria-hidden="true"/>
     <div class="sc-hero-inner">
-      <div class="sc-eyebrow">Studio Créatif — l'abonnement</div>
-      <h1 class="sc-punch">Le studio qui vit avec votre marque, <span class="accent">toute l'année.</span></h1>
-      <p class="sc-sub">Un partenaire visuel intégré. Une direction artistique dédiée. Un cast-lock qui traverse vos saisons. Vos campagnes, vos drops, vos social, vos éditos — produits en flux, livrés chaque semaine.</p>
+      <span class="sc-tag">Studio Créatif — l'abonnement</span>
+      <h1 class="sc-title">Le studio qui vit avec votre marque, <em>toute l'année.</em></h1>
+      <p class="sc-lede">Un partenaire visuel intégré. Une direction artistique <b>dédiée</b>. Un cast-lock qui traverse vos saisons. Vos campagnes, vos drops, vos social, vos éditos — produits en flux, livrés chaque semaine.</p>
+      <dl class="sc-hero-meta">
+        <div><dt>Visuels / mois</dt><dd>50</dd></div>
+        <div><dt>Motions / mois</dt><dd>5</dd></div>
+        <div><dt>Univers / trimestre</dt><dd>4</dd></div>
+        <div><dt>Engagement</dt><dd>3 mois</dd></div>
+      </dl>
     </div>
   </section>
 
-  <!-- BODY -->
-  <div class="sc-body">
+  <!-- STRIP — preuve visuelle -->
+  <section class="sc-strip reveal">
+    <div class="sc-strip-inner">
+      <div class="sc-strip-item"><img src="assets/tennis-01.jpg" loading="lazy" decoding="async" alt=""/></div>
+      <div class="sc-strip-item"><img src="assets/roseanna-08.jpg" loading="lazy" decoding="async" alt="" style="object-position:center top;"/></div>
+      <div class="sc-strip-item"><img src="assets/ltdc-03.jpg" loading="lazy" decoding="async" alt=""/></div>
+      <div class="sc-strip-item"><img src="assets/av-04.jpg" loading="lazy" decoding="async" alt=""/></div>
+      <div class="sc-strip-item"><img src="assets/lb00-portrait.jpg" loading="lazy" decoding="async" alt=""/></div>
+      <div class="sc-strip-item"><video data-src="assets/use2-video1.mp4" muted loop playsinline preload="none" autoplay></video></div>
+    </div>
+    <div class="sc-strip-caption">Échantillon de notre playlist créative · @studiomoltobene</div>
+  </section>
 
-    <!-- SECTION 1 — INCLUS -->
-    <section class="sc-section reveal">
-      <div class="sc-section-label">Ce qui est inclus chaque mois</div>
-      <h2 class="sc-section-title">Tout ce dont votre marque a besoin pour <em>exister visuellement.</em></h2>
-      <div class="sc-grid">
-        <div class="sc-item"><b>50 visuels mode &amp; lifestyle</b> livrés en flux hebdo</div>
-        <div class="sc-item"><b>5 motions</b> social-ready (5&nbsp;s)</div>
-        <div class="sc-item"><b>4 univers visuels</b> déclinés par trimestre</div>
-        <div class="sc-item"><b>1 mannequin canonique</b> propriétaire inclus</div>
-        <div class="sc-item"><b>Direction artistique dédiée</b> — pas un compte client, une équipe</div>
-        <div class="sc-item"><b>2 itérations par visuel</b> — vous validez, on ajuste</div>
-        <div class="sc-item"><b>1 call brief / semaine</b> + 1 review stratégique / mois</div>
-        <div class="sc-item"><b>Droits commerciaux worldwide</b> · print &amp; digital</div>
+  <!-- SECTION 1 — INCLUS -->
+  <section class="sc-section alt reveal">
+    <div class="sc-section-inner">
+      <div class="sc-section-head">
+        <span class="sc-section-label">Ce qui est inclus chaque mois</span>
+        <h2 class="sc-section-title">Tout ce qu'il faut pour que votre marque <em>existe en images.</em></h2>
       </div>
-    </section>
+      <div class="sc-grid">
+        <div class="sc-grid-item">
+          <span class="num">01</span>
+          <div class="body">
+            <div class="t">50 visuels mode &amp; lifestyle</div>
+            <div class="d">Livrés en flux hebdomadaire, prêts à diffuser.</div>
+          </div>
+        </div>
+        <div class="sc-grid-item">
+          <span class="num">02</span>
+          <div class="body">
+            <div class="t">5 motions social-ready</div>
+            <div class="d">Formats 5 s, optimisés pour Instagram, TikTok, Reels.</div>
+          </div>
+        </div>
+        <div class="sc-grid-item">
+          <span class="num">03</span>
+          <div class="body">
+            <div class="t">4 univers visuels / trimestre</div>
+            <div class="d">Déclinés saison après saison, cohérents avec votre ADN.</div>
+          </div>
+        </div>
+        <div class="sc-grid-item">
+          <span class="num">04</span>
+          <div class="body">
+            <div class="t">1 mannequin canonique</div>
+            <div class="d">Propriétaire, inclus, verrouillé pour votre marque.</div>
+          </div>
+        </div>
+        <div class="sc-grid-item">
+          <span class="num">05</span>
+          <div class="body">
+            <div class="t">Direction artistique dédiée</div>
+            <div class="d">Pas un compte client — une équipe qui vit avec vous.</div>
+          </div>
+        </div>
+        <div class="sc-grid-item">
+          <span class="num">06</span>
+          <div class="body">
+            <div class="t">2 itérations par visuel</div>
+            <div class="d">Vous validez, on ajuste. Jusqu'au visuel juste.</div>
+          </div>
+        </div>
+        <div class="sc-grid-item">
+          <span class="num">07</span>
+          <div class="body">
+            <div class="t">1 call brief / semaine + 1 review / mois</div>
+            <div class="d">Rythme régulier, pilotage stratégique mensuel.</div>
+          </div>
+        </div>
+        <div class="sc-grid-item">
+          <span class="num">08</span>
+          <div class="body">
+            <div class="t">Droits commerciaux worldwide</div>
+            <div class="d">Print &amp; digital, sans restriction.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- SECTION 2 — MÉCANIQUE -->
-    <section class="sc-section reveal">
-      <div class="sc-section-label">La mécanique</div>
-      <h2 class="sc-section-title">Une production qui ne s'arrête <em>jamais.</em></h2>
+  <!-- SECTION 2 — MÉCANIQUE -->
+  <section class="sc-section reveal">
+    <div class="sc-section-inner">
+      <div class="sc-section-head">
+        <span class="sc-section-label">La mécanique</span>
+        <h2 class="sc-section-title">Une production qui ne <em>s'arrête jamais.</em></h2>
+      </div>
       <div class="sc-steps">
         <div class="sc-step">
           <div class="n">01</div>
@@ -395,61 +584,91 @@ img,video{max-width:100%;display:block;}
           <div class="d">On regarde ensemble ce qui performe. On ajuste les univers.</div>
         </div>
       </div>
-    </section>
-
-    <!-- SECTION 3 — PRICING -->
-    <section class="sc-section reveal">
-      <div class="sc-section-label">L'engagement</div>
-      <h2 class="sc-section-title">Deux portes <em>d'entrée.</em></h2>
-      <div class="sc-priceblock">
-        <div class="sc-price-main">
-          <div class="tag">Studio Créatif</div>
-          <div class="name">À partir de 2 490 €<small>/ mois</small></div>
-          <p class="terms">Engagement 3 mois minimum, reconductible tacitement. Mannequin canonique supplémentaire&nbsp;: 750&nbsp;€ one-shot. Audit DA initial offert.</p>
-        </div>
-        <div class="sc-price-side">
-          <div class="tag">Pour démarrer</div>
-          <div class="name">Capsule Discovery</div>
-          <p class="body-mini">Une porte d'entrée à <b>990&nbsp;€</b>&nbsp;: 1 mannequin propriétaire, 10 visuels DONT 1 motion, 2 univers, DA dédiée — livré en 7 jours.</p>
-        </div>
-      </div>
-    </section>
-
-  </div>
-
-  <!-- SLOT TÉMOIGNAGE -->
-  <section class="sc-testimonial reveal">
-    <div class="sc-testimonial-inner">
-      <p class="placeholder">[ Témoignage client à venir ]</p>
     </div>
   </section>
 
-  <!-- CTA FINAL bandeau noir -->
-  <section class="sc-cta reveal">
-    <div class="sc-cta-left">
-      <div class="sc-cta-signature">Imaginé par l'humain. <em>Mis en scène par l'IA.</em></div>
-      <div class="sc-cta-coords">
-        <a href="https://moltobene.ai">moltobene.ai</a> · <a href="https://meet.moltobene.ai" target="_blank" rel="noopener">meet.moltobene.ai</a> · <a href="mailto:studio@moltobene.ai">studio@moltobene.ai</a>
+  <!-- SECTION 3 — PRICING -->
+  <section class="sc-section dark reveal">
+    <div class="sc-section-inner">
+      <div class="sc-section-head">
+        <span class="sc-section-label">L'engagement</span>
+        <h2 class="sc-section-title">Deux portes <em>d'entrée.</em></h2>
       </div>
-    </div>
-    <div class="sc-cta-right">
-      <a href="https://meet.moltobene.ai" target="_blank" rel="noopener" class="sc-cta-btn">Réserver une démo →</a>
-      <img src="assets/etoile.png" class="sc-cta-star" alt="" aria-hidden="true"/>
+      <div class="sc-pricing">
+        <div class="sc-price-card sc-price-main">
+          <span class="tag">Studio Créatif</span>
+          <div class="name">L'abonnement créatif.</div>
+          <div class="price"><span class="mb-prefix">à partir de</span>2 490 €<small>/ mois</small></div>
+          <ul class="feats">
+            <li><b>50 visuels</b> + <b>5 motions</b> chaque mois</li>
+            <li><b>4 univers visuels</b> par trimestre</li>
+            <li><b>1 mannequin canonique</b> propriétaire</li>
+            <li><b>Direction artistique dédiée</b></li>
+            <li><b>Droits commerciaux worldwide</b></li>
+          </ul>
+          <p class="terms">Engagement 3 mois minimum, reconductible tacitement. Mannequin canonique supplémentaire : 750 € one-shot. Audit DA initial offert.</p>
+          <div class="pre-cta"><a href="https://meet.moltobene.ai" target="_blank" rel="noopener" class="cta">Réserver une démo →</a></div>
+        </div>
+        <div class="sc-price-card sc-price-side">
+          <span class="tag">Pour démarrer</span>
+          <div class="name">Capsule Discovery.</div>
+          <div class="price"><span class="mb-prefix">à partir de</span>990 €<small>/ capsule</small></div>
+          <ul class="feats">
+            <li><b>10 visuels</b> DONT 1 motion</li>
+            <li><b>1 mannequin</b> propriétaire</li>
+            <li><b>2 univers</b> de marque</li>
+            <li><b>DA dédiée</b> + livré en 7 jours</li>
+          </ul>
+          <p class="terms">Une porte d'entrée pour tester le studio sans engagement long.</p>
+          <div class="pre-cta"><a href="mailto:hello@moltobene.ai?subject=Capsule%20Discovery%20Molto%20Bene&body=Bonjour%2C%0A%0AJe%20souhaite%20d%C3%A9marrer%20une%20Capsule%20Discovery%20Molto%20Bene%20%2810%20visuels%20DONT%201%20motion%29.%0A%0AVoici%20mon%20contexte%20%3A%20%5Bmarque%2C%20secteur%2C%20produit%28s%29%20%C3%A0%20mettre%20en%20valeur%2C%20deadline%5D%0A%0AMerci.%0A" class="cta outline">Démarrer →</a></div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="sc-foot">
-    <div class="meta">Molto Bene Studio · Marseille</div>
-    <div class="meta">
-      <a href="https://www.linkedin.com/company/moltobenestudio" target="_blank" rel="noopener noreferrer">LinkedIn</a> · <a href="https://www.instagram.com/studiomoltobene" target="_blank" rel="noopener noreferrer">Instagram</a>
+  <!-- ALLORA CLOSER -->
+  <section class="sc-allora reveal">
+    <video class="sc-allora-video" data-src="assets/use1-video1.mp4" muted loop playsinline preload="none" autoplay></video>
+    <div class="sc-allora-veil"></div>
+    <div class="sc-allora-content">
+      <h2 class="sc-allora-title">Allora<span class="qmark">?</span></h2>
+      <p class="sc-allora-tagline">Testons. Ou parlons.</p>
+      <div class="sc-allora-cta-group">
+        <a href="mailto:hello@moltobene.ai?subject=Audit%20DA%20Studio%20Cr%C3%A9atif&body=Bonjour%2C%0A%0AJe%20souhaite%20un%20audit%20DA%20offert%20pour%20le%20Studio%20Cr%C3%A9atif.%0A%0AVoici%20mon%20contexte%20%3A%20%5Bmarque%2C%20secteur%2C%20produits%2C%20deadlines%5D%0A%0AMerci.%0A" class="sc-allora-cta">Audit DA offert →</a>
+        <a href="https://meet.moltobene.ai" target="_blank" rel="noopener" class="sc-allora-cta outline">On se parle →</a>
+      </div>
     </div>
-  </footer>
+    <div class="sc-allora-footer">
+      <div class="contact">Molto Bene Studio</div>
+      <div class="contact"><a href="mailto:hello@moltobene.ai" class="email-cta">hello@moltobene.ai</a></div>
+      <div class="contact"><a href="tel:+33661685841">+33 6 61 68 58 41</a></div>
+      <div class="contact"><a href="https://www.linkedin.com/company/moltobenestudio" target="_blank" rel="noopener noreferrer">LinkedIn</a> · <a href="https://www.instagram.com/studiomoltobene" target="_blank" rel="noopener noreferrer">Instagram</a></div>
+    </div>
+  </section>
+
 </main>
 
 <script>
 const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:.06});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* Lazy-load videos */
+const vidObs=new IntersectionObserver((entries,obs)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const v=e.target;
+      const src=v.getAttribute('data-src');
+      if(src && !v.src){
+        v.src=src;
+        v.load();
+        v.play().catch(()=>{});
+        v.removeAttribute('data-src');
+      }
+      obs.unobserve(v);
+    }
+  });
+},{rootMargin:'200px'});
+document.querySelectorAll('video[data-src]').forEach(v=>vidObs.observe(v));
 </script>
 
 </body></html>
