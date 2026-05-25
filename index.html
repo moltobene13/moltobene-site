@@ -433,27 +433,84 @@ img,video{max-width:100%;display:block;}
 .allora-footer .contact a.email-cta{color:var(--mustard);font-weight:500;}
 .allora-footer .contact a.email-cta::before{content:"→ ";display:inline-block;margin-right:4px;transition:transform .2s;}
 .allora-footer .contact a.email-cta:hover::before{transform:translateX(3px);}
-/* Case disclaimer — note après le dernier use case */
-.case-disclaimer{
-  background:var(--paper);
-  padding:0 32px 90px;
+/* USE CASES MOSAIC */
+.cases-s{background:var(--paper);padding:110px 32px 120px;position:relative;overflow:hidden;}
+.cases-s::before{content:'';position:absolute;top:8%;right:-60px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(212,170,32,.12) 0%,transparent 70%);pointer-events:none;}
+.cases-inner{max-width:var(--max-wide);margin:0 auto;position:relative;z-index:1;}
+.cases-header{margin-bottom:56px;text-align:center;}
+.cases-label{font-family:var(--f-mono);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--mustard);margin-bottom:18px;display:block;}
+.cases-title{font-family:var(--f-display);font-weight:700;font-size:clamp(36px,6.2vw,86px);line-height:.96;letter-spacing:-.03em;color:var(--ink);}
+.cases-title em{font-style:italic;font-weight:600;color:var(--mustard);}
+.cases-lead{font-family:var(--f-mono);font-size:11px;letter-spacing:.22em;color:rgba(13,12,11,.5);margin-top:20px;text-transform:uppercase;}
+
+.cases-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:8px;
+}
+.case-thumb{
   position:relative;
+  display:block;
+  aspect-ratio:4/5;
+  overflow:hidden;
+  background:var(--paper-alt);
+  text-decoration:none;
+  color:var(--paper);
+  border-radius:1px;
+  cursor:pointer;
 }
-.case-disclaimer-inner{
-  max-width:880px;
-  margin:0 auto;
-  border-top:1px solid rgba(31,28,24,.12);
-  padding-top:32px;
+.case-thumb img{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;object-position:center center;
+  transition:transform .6s cubic-bezier(.22,.61,.36,1),filter .35s;
+}
+.case-thumb-veil{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(13,12,11,0) 35%,rgba(13,12,11,.55) 70%,rgba(13,12,11,.9) 100%);
+  opacity:0;
+  transition:opacity .35s ease;
+  z-index:1;
+}
+.case-thumb-meta{
+  position:absolute;
+  left:22px;right:22px;bottom:22px;
+  z-index:2;
+  opacity:0;
+  transform:translateY(8px);
+  transition:opacity .35s ease,transform .35s ease;
+}
+.case-thumb-tag{
+  font-family:var(--f-mono);font-size:10px;
+  letter-spacing:.28em;text-transform:uppercase;
+  color:var(--mustard);
+  display:block;margin-bottom:8px;
+}
+.case-thumb-name{
+  font-family:var(--f-display);font-weight:600;
+  font-size:clamp(18px,1.7vw,26px);
+  line-height:1.05;letter-spacing:-.01em;
+  color:var(--paper);
+  display:block;
+}
+.case-thumb-name em{font-style:italic;font-weight:600;color:var(--mustard);}
+.case-thumb:hover img{transform:scale(1.06);filter:brightness(.8);}
+.case-thumb:hover .case-thumb-veil{opacity:1;}
+.case-thumb:hover .case-thumb-meta{opacity:1;transform:none;}
+.case-thumb:focus-visible{outline:2px solid var(--mustard);outline-offset:3px;}
+
+.cases-disclaimer{
+  max-width:760px;
+  margin:48px auto 0;
+  padding-top:28px;
+  border-top:1px solid rgba(13,12,11,.12);
   text-align:center;
-}
-.case-disclaimer p{
   font-family:var(--f-mono);
   font-size:11px;
   letter-spacing:.12em;
   line-height:1.7;
-  color:rgba(31,28,24,.55);
+  color:rgba(13,12,11,.55);
   font-style:italic;
-  margin:0;
 }
 
 /* LIGHTBOX */
@@ -484,7 +541,8 @@ img,video{max-width:100%;display:block;}
 @media(max-width:1024px){
   .mosaic-grid{grid-template-columns:repeat(4,1fr);}
   .ed-board{grid-template-columns:repeat(3,1fr);}
-  .promise-s,.human-s,.compare-s,.pricing-s,.ed-s{padding-top:100px;padding-bottom:100px;}
+  .promise-s,.human-s,.compare-s,.pricing-s,.ed-s,.cases-s{padding-top:100px;padding-bottom:100px;}
+  .cases-grid{grid-template-columns:repeat(3,1fr);gap:6px;}
 }
 @media(max-width:960px){
   .human-layout{grid-template-columns:1fr;gap:40px;}
@@ -573,9 +631,16 @@ img,video{max-width:100%;display:block;}
     text-align:left;width:100%;
   }
   .allora-footer .contact{font-size:10px;}
-  .case-disclaimer{padding:0 20px 60px;}
-  .case-disclaimer-inner{padding-top:24px;}
-  .case-disclaimer p{font-size:10px;line-height:1.65;letter-spacing:.08em;}
+  .cases-s{padding:80px 20px;}
+  .cases-header{margin-bottom:36px;}
+  .cases-grid{grid-template-columns:repeat(2,1fr);gap:6px;}
+  .case-thumb{aspect-ratio:3/4;}
+  /* Sur tactile, on affiche le voile + métas en permanence */
+  .case-thumb-veil{opacity:.7;}
+  .case-thumb-meta{opacity:1;transform:none;left:14px;right:14px;bottom:14px;}
+  .case-thumb-name{font-size:16px;}
+  .case-thumb-tag{font-size:9px;letter-spacing:.22em;margin-bottom:5px;}
+  .cases-disclaimer{margin-top:32px;padding-top:22px;font-size:10px;line-height:1.6;letter-spacing:.08em;}
 
   .human-pill{padding:18px 20px;}
   .human-pill .num{font-size:24px;min-width:30px;}
@@ -783,155 +848,59 @@ img,video{max-width:100%;display:block;}
   </div>
 </section>
 
-<!-- CASE 01 — TENNIS -->
-<section class="ed-s reveal">
-  <div class="ed-inner">
-    <div class="ed-header">
-      <div>
-        <span class="ed-tag">Case 01</span>
-        <h2 class="ed-title">Molto Bene <em>× Poivre Blanc Tennis.</em></h2>
-      </div>
-      <div class="ed-meta">
-        Season<b>Spring / Summer</b>
-        Mood<b>Heritage Sport</b>
-        References<b>Country Club · Tennis 70's</b>
-      </div>
+<!-- USE CASES MOSAIC -->
+<section class="cases-s reveal" id="cases">
+  <div class="cases-inner">
+    <div class="cases-header">
+      <span class="cases-label">Use Cases</span>
+      <h2 class="cases-title">Cinq marques. <em>Cinq directions.</em></h2>
+      <p class="cases-lead">Cliquez sur une vignette pour entrer dans le cas.</p>
     </div>
-    <div class="ed-board">
-      <div class="ed-item"><img src="assets/tennis-01.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><img src="assets/tennis-02.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><img src="assets/tennis-03.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><img src="assets/tennis-05.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><img src="assets/tennis-04.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><img src="assets/tennis-06.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><img src="assets/tennis-07.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><img src="assets/tennis-08.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><img src="assets/tennis-09.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><video data-src="assets/tennis-video.mp4" muted loop playsinline preload="none" data-lightbox="true"></video></div>
+    <div class="cases-grid">
+      <a class="case-thumb" href="case/poivre-blanc-tennis.html" aria-label="Voir le cas Poivre Blanc Tennis">
+        <img src="assets/tennis-01.jpg" loading="lazy" decoding="async" alt="Molto Bene x Poivre Blanc Tennis"/>
+        <div class="case-thumb-veil"></div>
+        <div class="case-thumb-meta">
+          <span class="case-thumb-tag">Case 01</span>
+          <span class="case-thumb-name">Poivre Blanc <em>Tennis</em></span>
+        </div>
+      </a>
+      <a class="case-thumb" href="case/poivre-blanc-ski.html" aria-label="Voir le cas Poivre Blanc Ski">
+        <img src="assets/lb00-portrait.jpg" loading="lazy" decoding="async" alt="Molto Bene x Poivre Blanc Ski"/>
+        <div class="case-thumb-veil"></div>
+        <div class="case-thumb-meta">
+          <span class="case-thumb-tag">Case 02</span>
+          <span class="case-thumb-name">Poivre Blanc <em>Ski</em></span>
+        </div>
+      </a>
+      <a class="case-thumb" href="case/le-temps-des-cerises.html" aria-label="Voir le cas Le Temps des Cerises">
+        <img src="assets/ltdc-01.jpg" loading="lazy" decoding="async" alt="Molto Bene x Le Temps des Cerises"/>
+        <div class="case-thumb-veil"></div>
+        <div class="case-thumb-meta">
+          <span class="case-thumb-tag">Case 03</span>
+          <span class="case-thumb-name">Le Temps <em>des Cerises</em></span>
+        </div>
+      </a>
+      <a class="case-thumb" href="case/roseanna.html" aria-label="Voir le cas Roseanna">
+        <img src="assets/roseanna-01.jpg" loading="lazy" decoding="async" alt="Molto Bene x Roseanna"/>
+        <div class="case-thumb-veil"></div>
+        <div class="case-thumb-meta">
+          <span class="case-thumb-tag">Case 04</span>
+          <span class="case-thumb-name"><em>Roseanna</em></span>
+        </div>
+      </a>
+      <a class="case-thumb" href="case/american-vintage.html" aria-label="Voir le cas American Vintage">
+        <img src="assets/av-01.jpg" loading="lazy" decoding="async" alt="Molto Bene x American Vintage"/>
+        <div class="case-thumb-veil"></div>
+        <div class="case-thumb-meta">
+          <span class="case-thumb-tag">Case 05</span>
+          <span class="case-thumb-name">American <em>Vintage</em></span>
+        </div>
+      </a>
     </div>
-  </div>
-</section>
-
-<!-- CASE 02 — SKI -->
-<section class="ed-s bg-white reveal">
-  <div class="ed-inner">
-    <div class="ed-header">
-      <div>
-        <span class="ed-tag">Case 02</span>
-        <h2 class="ed-title">Molto Bene <em>× Poivre Blanc Ski.</em></h2>
-      </div>
-      <div class="ed-meta">
-        Season<b>Fall / Winter</b>
-        Mood<b>Sport Chic</b>
-        References<b>Alpes · Powder · Bandana</b>
-      </div>
+    <div class="cases-disclaimer">
+      Les cas présentés ne sont en aucun cas des commandes clients. Ce sont des interprétations créatives pour des marques que nous aimons et qui nous inspirent.
     </div>
-    <div class="ed-board">
-      <div class="ed-item"><img src="assets/lb00-portrait.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><img src="assets/lb01-full-body-v2.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><img src="assets/lb02-profil.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><img src="assets/lb03-back.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><img src="assets/lb10-closeup-doudoune.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><img src="assets/pb01-indoor.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><img src="assets/pb01-outdoor.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><img src="assets/pb06-outdoor-poudreuse.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><img src="assets/pb04-outdoor-portrait.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><video data-src="assets/lb04-head-wink.mp4" muted loop playsinline preload="none" data-lightbox="true"></video></div>
-    </div>
-  </div>
-</section>
-
-<!-- CASE 03 — LE TEMPS DES CERISES -->
-<section class="ed-s reveal">
-  <div class="ed-inner">
-    <div class="ed-header">
-      <div>
-        <span class="ed-tag">Case 03</span>
-        <h2 class="ed-title">Molto Bene <em>× Le Temps des Cerises.</em></h2>
-      </div>
-      <div class="ed-meta">
-        Season<b>Spring / Summer</b>
-        Mood<b>Rock Couture</b>
-        References<b>Denim · Studio · Attitude</b>
-      </div>
-    </div>
-    <div class="ed-board">
-      <div class="ed-item"><img src="assets/ltdc-01.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><img src="assets/ltdc-07-v2.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><img src="assets/ltdc-02-v2.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><img src="assets/ltdc-05-v2.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><img src="assets/ltdc-03.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><img src="assets/ltdc-04.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><img src="assets/ltdc-06.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><img src="assets/ltdc-08.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><img src="assets/ltdc-09.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><video data-src="assets/ltdc-video.mp4" muted loop playsinline preload="none" data-lightbox="true"></video></div>
-    </div>
-  </div>
-</section>
-
-<!-- CASE 04 — ROSEANNA -->
-<section class="ed-s bg-white reveal">
-  <div class="ed-inner">
-    <div class="ed-header">
-      <div>
-        <span class="ed-tag">Case 04</span>
-        <h2 class="ed-title">Molto Bene <em>× Roseanna.</em></h2>
-      </div>
-      <div class="ed-meta">
-        Season<b>Spring / Summer</b>
-        Mood<b>Effortless French</b>
-        References<b>Garage · Stripes · Studio</b>
-      </div>
-    </div>
-    <div class="ed-board">
-      <div class="ed-item"><img src="assets/roseanna-01.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><img src="assets/roseanna-02.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><img src="assets/roseanna-03.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><img src="assets/roseanna-04.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><img src="assets/roseanna-05.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><img src="assets/roseanna-06.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><img src="assets/roseanna-07.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><img src="assets/roseanna-08.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><img src="assets/roseanna-09.png" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><video data-src="assets/roseanna-video.mp4" muted loop playsinline preload="none" data-lightbox="true"></video></div>
-    </div>
-  </div>
-</section>
-
-<!-- CASE 05 — AMERICAN VINTAGE -->
-<section class="ed-s reveal">
-  <div class="ed-inner">
-    <div class="ed-header">
-      <div>
-        <span class="ed-tag">Case 05</span>
-        <h2 class="ed-title">Molto Bene <em>× American Vintage.</em></h2>
-      </div>
-      <div class="ed-meta">
-        Season<b>Spring / Summer</b>
-        Mood<b>American Casual</b>
-        References<b>Studio · Diner · Cotton</b>
-      </div>
-    </div>
-    <div class="ed-board">
-      <div class="ed-item"><img src="assets/av-01.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><img src="assets/av-02.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><img src="assets/av-03.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><img src="assets/av-04.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><img src="assets/av-05.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><img src="assets/av-06.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><img src="assets/av-07.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><img src="assets/av-08.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><img src="assets/av-09.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-      <div class="ed-item"><video data-src="assets/av-video.mp4" muted loop playsinline preload="none" data-lightbox="true"></video></div>
-    </div>
-  </div>
-</section>
-
-<!-- CASE DISCLAIMER -->
-<section class="case-disclaimer reveal">
-  <div class="case-disclaimer-inner">
-    <p>Les cas présentés ne sont en aucun cas des commandes clients. Ce sont des interprétations créatives pour des marques que nous aimons et qui nous inspirent.</p>
   </div>
 </section>
 
