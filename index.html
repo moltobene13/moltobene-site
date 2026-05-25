@@ -1,4 +1,4 @@
-<!-- redeploy: 1778532278 -->
+<!-- redeploy: 1779719250 -->
 <!DOCTYPE html>
 <html lang="fr"><head>
 <meta charset="UTF-8"/>
@@ -381,25 +381,30 @@ img,video{max-width:100%;display:block;}
 .cta-gold:hover{background:var(--ink);color:var(--mustard);}
 
 /* CTA Pulse — sheen doré + halo, pousse au clic */
-.cta-pulse{position:relative;overflow:hidden;isolation:isolate;animation:cta-glow 2.8s ease-in-out infinite;}
-.cta-pulse::after{
+.cta-pulse{
+  position:relative;
+  overflow:hidden;
+  animation:cta-glow 2.6s ease-in-out infinite;
+}
+.cta-pulse>.cta-label{position:relative;z-index:2;display:inline-flex;align-items:center;gap:6px;}
+.cta-pulse::before{
   content:'';position:absolute;
-  top:0;bottom:0;left:-70%;width:50%;
-  background:linear-gradient(105deg,transparent 20%,rgba(212,170,32,.55) 50%,transparent 80%);
-  transform:skewX(-18deg);
-  animation:cta-sheen 3.6s cubic-bezier(.22,.61,.36,1) infinite;
-  pointer-events:none;z-index:-1;
+  inset:0;z-index:1;
+  background:linear-gradient(105deg,transparent 30%,rgba(212,170,32,.70) 50%,transparent 70%);
+  transform:translateX(-110%);
+  animation:cta-sheen 3.4s cubic-bezier(.22,.61,.36,1) infinite;
+  pointer-events:none;
 }
 @keyframes cta-glow{
   0%,100%{box-shadow:0 0 0 0 rgba(212,170,32,0);}
-  50%{box-shadow:0 0 0 7px rgba(212,170,32,.22);}
+  50%{box-shadow:0 0 0 10px rgba(212,170,32,.28);}
 }
 @keyframes cta-sheen{
-  0%,12%{left:-70%;}
-  55%,100%{left:160%;}
+  0%,15%{transform:translateX(-110%);}
+  65%,100%{transform:translateX(110%);}
 }
-.cta-pulse:hover{animation:none;box-shadow:none;}
-.cta-pulse:hover::after{animation:none;left:160%;}
+.cta-pulse:hover{animation:none;box-shadow:0 0 0 0 transparent;}
+.cta-pulse:hover::before{animation:none;transform:translateX(110%);}
 .cta-olight{border:1px solid rgba(240,237,229,.25);color:var(--paper);}
 .cta-olight:hover{background:var(--paper);color:var(--ink);}
 .pc-badge{font-family:var(--f-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(13,12,11,.7);margin-bottom:-10px;}
@@ -1001,7 +1006,7 @@ img,video{max-width:100%;display:block;}
           <li>4 Univers de marque</li>
           <li>Droits commerciaux inclus</li>
         </ul>
-        <a href="studio-creatif.html" class="pc-cta cta-gold cta-pulse">En savoir plus →</a>
+        <a href="studio-creatif.html" class="pc-cta cta-gold cta-pulse"><span class="cta-label">En savoir plus →</span></a>
       </div>
       <div class="pc pc-d">
         <div class="pc-type">Sur-mesure</div>
