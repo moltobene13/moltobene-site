@@ -379,6 +379,27 @@ img,video{max-width:100%;display:block;}
 .cta-ol:hover{background:var(--ink);color:var(--paper);}
 .cta-gold{border:1px solid var(--ink);background:transparent;color:var(--ink);}
 .cta-gold:hover{background:var(--ink);color:var(--mustard);}
+
+/* CTA Pulse — sheen doré + halo, pousse au clic */
+.cta-pulse{position:relative;overflow:hidden;isolation:isolate;animation:cta-glow 2.8s ease-in-out infinite;}
+.cta-pulse::after{
+  content:'';position:absolute;
+  top:0;bottom:0;left:-70%;width:50%;
+  background:linear-gradient(105deg,transparent 20%,rgba(212,170,32,.55) 50%,transparent 80%);
+  transform:skewX(-18deg);
+  animation:cta-sheen 3.6s cubic-bezier(.22,.61,.36,1) infinite;
+  pointer-events:none;z-index:-1;
+}
+@keyframes cta-glow{
+  0%,100%{box-shadow:0 0 0 0 rgba(212,170,32,0);}
+  50%{box-shadow:0 0 0 7px rgba(212,170,32,.22);}
+}
+@keyframes cta-sheen{
+  0%,12%{left:-70%;}
+  55%,100%{left:160%;}
+}
+.cta-pulse:hover{animation:none;box-shadow:none;}
+.cta-pulse:hover::after{animation:none;left:160%;}
 .cta-olight{border:1px solid rgba(240,237,229,.25);color:var(--paper);}
 .cta-olight:hover{background:var(--paper);color:var(--ink);}
 .pc-badge{font-family:var(--f-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(13,12,11,.7);margin-bottom:-10px;}
@@ -980,7 +1001,7 @@ img,video{max-width:100%;display:block;}
           <li>4 Univers de marque</li>
           <li>Droits commerciaux inclus</li>
         </ul>
-        <a href="studio-creatif.html" class="pc-cta cta-gold">En savoir plus →</a>
+        <a href="studio-creatif.html" class="pc-cta cta-gold cta-pulse">En savoir plus →</a>
       </div>
       <div class="pc pc-d">
         <div class="pc-type">Sur-mesure</div>
