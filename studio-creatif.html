@@ -365,6 +365,29 @@ img,video{max-width:100%;display:block;}
   color:var(--mustard);font-size:13px;line-height:1;
 }
 .sc-price-main .feats li b{color:var(--paper);font-weight:600;}
+.sc-price-main .feats li.highlight{
+  grid-column:1 / -1;
+  border:1px solid var(--mustard);
+  border-radius:6px;
+  background:linear-gradient(90deg,rgba(212,170,32,.10) 0%,rgba(212,170,32,.02) 60%,transparent 100%);
+  padding:14px 18px 14px 38px;
+  margin:2px 0 6px;
+  position:relative;
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+}
+.sc-price-main .feats li.highlight::before{
+  content:'✦';
+  left:18px;top:50%;transform:translateY(-50%);
+  color:var(--mustard);
+  font-size:16px;line-height:1;
+}
+.sc-price-main .feats li.highlight .hl-pill{
+  font-family:var(--f-mono);font-weight:700;
+  font-size:9px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--ink);background:var(--mustard);
+  padding:4px 10px;border-radius:999px;
+  margin-left:auto;
+}
 .sc-price-main .terms{
   font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;
   color:rgba(240,237,229,.5);line-height:1.65;
@@ -774,7 +797,7 @@ img,video{max-width:100%;display:block;}
           <div class="name">L'abonnement créatif qui vit avec votre marque.</div>
           <div class="price"><span class="mb-prefix">à partir de</span>2 490 €<small>/ mois</small></div>
           <ul class="feats">
-            <li><b>50 visuels</b> chaque mois</li>
+            <li class="highlight"><b>50 visuels</b> chaque mois<span class="hl-pill">Le cœur de l'offre</span></li>
             <li><b>5 motions</b> social-ready (5 s)</li>
             <li><b>4 univers visuels</b> / trimestre</li>
             <li><b>1 mannequin canonique</b> propriétaire</li>
@@ -796,7 +819,7 @@ img,video{max-width:100%;display:block;}
           <div class="price"><span class="mb-prefix">à partir de</span>990 €<small>/ one shot</small></div>
           <ul class="feats">
             <li><b>10 visuels</b> DONT 1 motion</li>
-            <li><b>1 mannequin</b> propriétaire</li>
+            <li><b>1 mannequin</b> propriétaire Molto Bene</li>
             <li><b>2 univers</b> de marque</li>
             <li><b>Livré en 7 jours</b></li>
           </ul>
