@@ -1,4 +1,4 @@
-<!-- redeploy: 1779719250 -->
+<!-- redeploy: 1779719693 -->
 <!DOCTYPE html>
 <html lang="fr"><head>
 <meta charset="UTF-8"/>
@@ -380,28 +380,29 @@ img,video{max-width:100%;display:block;}
 .cta-gold{border:1px solid var(--ink);background:transparent;color:var(--ink);}
 .cta-gold:hover{background:var(--ink);color:var(--mustard);}
 
-/* CTA Pulse — sheen doré + halo, pousse au clic */
+/* CTA Pulse — halo INK + sheen PAPER (la card .pc-f a un fond mustard,
+   donc on signe avec contraste ink + reflet clair). Pousse au clic. */
 .cta-pulse{
   position:relative;
   overflow:hidden;
-  animation:cta-glow 2.6s ease-in-out infinite;
+  animation:cta-glow 2.4s ease-in-out infinite;
 }
 .cta-pulse>.cta-label{position:relative;z-index:2;display:inline-flex;align-items:center;gap:6px;}
 .cta-pulse::before{
   content:'';position:absolute;
   inset:0;z-index:1;
-  background:linear-gradient(105deg,transparent 30%,rgba(212,170,32,.70) 50%,transparent 70%);
+  background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.75) 50%,transparent 70%);
   transform:translateX(-110%);
-  animation:cta-sheen 3.4s cubic-bezier(.22,.61,.36,1) infinite;
+  animation:cta-sheen 3.2s cubic-bezier(.22,.61,.36,1) infinite;
   pointer-events:none;
 }
 @keyframes cta-glow{
-  0%,100%{box-shadow:0 0 0 0 rgba(212,170,32,0);}
-  50%{box-shadow:0 0 0 10px rgba(212,170,32,.28);}
+  0%,100%{box-shadow:0 0 0 0 rgba(13,12,11,0);}
+  50%{box-shadow:0 0 0 9px rgba(13,12,11,.18);}
 }
 @keyframes cta-sheen{
   0%,15%{transform:translateX(-110%);}
-  65%,100%{transform:translateX(110%);}
+  60%,100%{transform:translateX(110%);}
 }
 .cta-pulse:hover{animation:none;box-shadow:0 0 0 0 transparent;}
 .cta-pulse:hover::before{animation:none;transform:translateX(110%);}
