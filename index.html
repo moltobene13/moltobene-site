@@ -117,8 +117,11 @@ img,video{max-width:100%;display:block;}
 .promise-headline{position:relative;z-index:1;}
 .promise-line{display:block;font-family:var(--f-display);font-weight:800;font-size:clamp(48px,10vw,148px);line-height:.92;letter-spacing:-.035em;color:var(--ink);}
 .promise-line.italic{font-style:italic;color:var(--mustard);}
-.promise-sub{margin-top:36px;font-family:var(--f-body);font-size:clamp(15px,1.4vw,18px);color:var(--ink2);max-width:580px;margin-left:auto;margin-right:auto;line-height:1.7;position:relative;z-index:1;}
-.promise-lead{display:inline-block;color:var(--mustard);font-family:var(--f-display);font-weight:700;font-style:italic;font-size:1.1em;letter-spacing:-.01em;}
+.promise-lead{display:block;max-width:min(940px,92vw);margin:64px auto 0;color:var(--mustard);font-family:var(--f-display);font-weight:700;font-style:italic;font-size:clamp(21px,2.3vw,32px);line-height:1.18;letter-spacing:-.015em;position:relative;z-index:1;}
+.promise-sub{margin-top:34px;font-family:var(--f-body);font-size:clamp(15px,1.35vw,18px);color:var(--ink2);max-width:min(760px,92vw);margin-left:auto;margin-right:auto;line-height:1.75;position:relative;z-index:1;}
+.promise-sub p{margin:0;}
+.promise-sub p + p{margin-top:26px;}
+.promise-accent{font-family:var(--f-display);font-style:italic;font-size:1.22em;line-height:1.3;color:var(--ink);}
 
 /* ══ MOSAIC — 5 colonnes desktop / 4 tablette / 3 mobile / 2 small mobile.
    Tuiles uniformes en aspect-ratio 9:16 (très portrait) :
@@ -169,17 +172,17 @@ img,video{max-width:100%;display:block;}
 
 .human-s{background:var(--paper);padding:140px 32px;position:relative;overflow:hidden;color:var(--ink);}
 .human-s::before{content:'';position:absolute;top:-20%;right:-10%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(212,170,32,.08) 0%,transparent 70%);pointer-events:none;}
-.human-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative;z-index:1;max-width:var(--max);margin:0 auto;}
+.human-layout{display:grid;grid-template-columns:1.05fr .95fr;gap:72px;align-items:stretch;position:relative;z-index:1;max-width:var(--max);margin:0 auto;}
 .human-label{font-family:var(--f-mono);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--mustard);margin-bottom:22px;}
 .human-title-stack{font-family:var(--f-display);font-weight:800;font-size:clamp(36px,6vw,84px);line-height:.96;letter-spacing:-.025em;color:var(--ink);}
 .human-title-stack .row{display:block;}
 .human-title-stack .row.italic{font-style:italic;font-weight:600;color:var(--mustard);}
-.human-body{margin-top:28px;max-width:440px;color:var(--ink2);font-size:clamp(15px,1.3vw,17px);line-height:1.7;}
+.human-body{margin-top:28px;max-width:none;color:var(--ink2);font-size:clamp(15px,1.3vw,17px);line-height:1.7;}
 .human-body strong{color:var(--ink);font-weight:700;}
-.human-pills{display:flex;flex-direction:column;gap:14px;}
-.human-pill{background:var(--paper);border:1px solid rgba(13,12,11,.09);padding:22px 26px;border-radius:2px;display:flex;align-items:baseline;gap:20px;transition:border-color .25s,background .25s,transform .25s;}
-.human-pill:hover{border-color:var(--mustard);background:var(--paper-alt);transform:translateX(4px);}
-.human-pill .num{font-family:var(--f-display);font-weight:800;font-size:28px;color:var(--mustard);min-width:36px;}
+.human-pills{display:flex;flex-direction:column;justify-content:center;gap:18px;}
+.human-pill{background:#FAF8F2;border:1px solid rgba(13,12,11,.07);border-left:2px solid var(--mustard);padding:26px 30px;border-radius:3px;display:flex;align-items:baseline;gap:22px;box-shadow:0 1px 2px rgba(13,12,11,.03);transition:border-color .25s,background .25s,transform .25s,box-shadow .25s;}
+.human-pill:hover{border-color:var(--mustard);background:var(--paper-alt);transform:translateX(4px);box-shadow:0 8px 24px rgba(13,12,11,.07);}
+.human-pill .num{font-family:var(--f-display);font-weight:800;font-size:30px;color:var(--mustard);min-width:38px;line-height:1;}
 .human-pill .txt{font-family:var(--f-body);font-size:clamp(14px,1.2vw,16px);line-height:1.55;color:var(--ink2);}
 .human-pill .txt strong{color:var(--ink);font-weight:600;}
 
@@ -339,7 +342,7 @@ img,video{max-width:100%;display:block;}
 .pc{padding:44px 32px;display:flex;flex-direction:column;gap:20px;}
 .pc.pc-l{background:var(--paper);}
 .pc.pc-f{background:var(--mustard);position:relative;overflow:hidden;}
-.pc.pc-f::before{content:'';position:absolute;top:-30%;right:-30%;width:70%;height:70%;border-radius:50%;background:radial-gradient(circle,rgba(13,12,11,.12) 0%,transparent 70%);pointer-events:none;}
+.pc.pc-f::before{content:'';position:absolute;top:-30%;right:-30%;width:70%;height:70%;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.32) 0%,transparent 70%);pointer-events:none;}
 .pc.pc-d{background:var(--ink2);}
 .pc>*{position:relative;z-index:1;}
 .pc-type{font-family:var(--f-mono);font-size:10px;letter-spacing:.28em;text-transform:uppercase;}
@@ -369,6 +372,16 @@ img,video{max-width:100%;display:block;}
 .pc-l .pc-div{background:rgba(13,12,11,.1);}
 .pc-f .pc-div{background:rgba(13,12,11,.2);}
 .pc-d .pc-div{background:rgba(255,255,255,.1);}
+.pc-pitch{
+  font-family:var(--f-display);
+  font-style:italic;
+  font-size:clamp(15px,1.3vw,17px);
+  line-height:1.45;
+  color:var(--ink);
+  margin:18px 0 22px;
+  opacity:.88;
+}
+.pc-d .pc-pitch{color:var(--paper);opacity:.9;}
 .pc-feats{list-style:none;display:flex;flex-direction:column;gap:10px;flex:1;}
 .pc-feats li{font-size:14px;line-height:1.5;display:flex;gap:10px;align-items:baseline;}
 .pc-feats li::before{content:'—';flex-shrink:0;font-family:var(--f-mono);}
@@ -412,7 +425,7 @@ img,video{max-width:100%;display:block;}
 .cta-pulse:hover::before{animation:none;transform:translateX(110%);}
 .cta-olight{border:1px solid rgba(240,237,229,.25);color:var(--paper);}
 .cta-olight:hover{background:var(--paper);color:var(--ink);}
-.pc-badge{font-family:var(--f-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(13,12,11,.7);margin-bottom:-10px;}
+.pc-badge{position:absolute;top:18px;right:24px;font-family:var(--f-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(13,12,11,.7);margin:0;}
 
 /* ALLORA */
 .allora-s{position:relative;min-height:100vh;min-height:100svh;overflow:hidden;background:var(--ink);display:flex;align-items:center;justify-content:center;padding:80px 6vw 180px;}
@@ -703,7 +716,7 @@ img,video{max-width:100%;display:block;}
       <img src="assets/logo-molto-bene.png" alt="Molto Bene" fetchpriority="high"/>
     </h1>
     <p class="hero-tagline">Studio IA × Direction Artistique</p>
-    <p class="hero-sub">L'image de marque au-delà du shooting</p>
+    <p class="hero-sub">Voyez votre prochaine collection. Avant de la produire.</p>
     <a href="mailto:hello@moltobene.ai?subject=Audit%20gratuit%20Molto%20Bene&body=Bonjour%2C%0A%0AJe%20souhaite%20tester%20un%20audit%20gratuit%20Molto%20Bene.%0A%0AVoici%20le%20packshot%20du%20produit%20%C3%A0%20habiller%20%3A%20%5Bjoindre%20le%20packshot%5D%0A%0AMerci.%0A" class="hero-cta">Audit gratuit →</a>
   </div>
   <div class="hero-bar">
@@ -724,16 +737,18 @@ img,video{max-width:100%;display:block;}
 <!-- PROMISE -->
 <section class="promise-s reveal">
   <div class="promise-headline">
-    <span class="promise-line">L'image de marque</span>
-    <span class="promise-line"> au-delà </span>
-    <span class="promise-line italic">du shooting.</span>
+    <span class="promise-line">L'image de mode</span>
+    <span class="promise-line"> que la photographie </span>
+    <span class="promise-line italic">ne peut pas produire.</span>
   </div>
-  <p class="promise-sub">
-    <strong class="promise-lead">Une production plus agile, plus rapide, mieux maîtrisée.</strong><br>
-    En complément de vos shootings, créez davantage de contenus sans les contraintes d'une production classique.
-    <br><br>
-    Vous optimisez votre budget et investissez là où l'impact est réel : communication, visibilité, influence et croissance.
-  </p>
+  <p class="promise-lead">Avant l'échantillon. Avant le shooting. Avant même la production.</p>
+  <div class="promise-sub">
+    <p>Nous donnons vie à vos collections lorsqu'elles n'existent encore que sous forme d'intention.</p>
+    <p>Des capsules incarnées avant fabrication. Des univers visuels impossibles à mettre en scène dans le réel. Des variations saisonnières cohérentes, guidées par une direction artistique humaine à chaque étape.</p>
+    <p class="promise-accent">Vous ne décidez plus sur des moodboards.<br>Vous arbitrez sur des images.</p>
+    <p>Vous identifiez ce qui crée du désir, ce qui raconte la marque, ce qui mérite d'être produit.</p>
+    <p>Et vous réservez vos budgets de shooting là où ils ont le plus d'impact : les campagnes iconiques, la communication, la désirabilité et la croissance.</p>
+  </div>
 </section>
 
 <!-- MOSAIC — 5 col desktop / 4 tablette / 3 mobile / 2 small mobile, ratio 9:16 -->
@@ -761,25 +776,25 @@ img,video{max-width:100%;display:block;}
 <section class="human-s bg-white reveal">
   <div class="human-layout">
     <div>
-      <div class="human-label">Qui nous sommes</div>
+      <div class="human-label">Notre parti pris</div>
       <h2 class="human-title-stack">
-        <span class="row">L'humain</span>
-        <span class="row italic">au cœur de chaque image</span>
+        <span class="row">Avant les outils, il y a une vision.</span>
+        <span class="row italic">Avant les images, un regard.</span>
       </h2>
-      <p class="human-body">Une équipe créative issue du retail mode, qui comprend vos enjeux, vos timings et vos impératifs de marque.<br/><br/>Chez Molto Bene, nous parlons votre langage : image, désirabilité, lancement, performance. Résultat : des visuels pensés pour être diffusés, désirés et performants.</p>
+      <p class="human-body">Nous venons du retail mode. Nous avons vu des budgets shooting exploser, des productions s'alourdir, et des images perdre parfois ce qui fait leur force : l'intention.<br/><br/>Alors nous avons créé un studio IA.<br/><br/>Pas pour remplacer la création.<br/>Pour la remettre au bon endroit.<br/><br/>Ici, la direction artistique ne s'automatise pas. Elle se tient. Elle traverse chaque décision, chaque image, chaque série.<br/><br/>Nous construisons aussi des modèles propriétaires, pensés comme des actifs de marque, capables d'évoluer saison après saison.<br/><br/>Et autour de ça, une idée simple :<br/><strong>L'IA ne décide pas. Elle exécute.</strong></p>
     </div>
     <div class="human-pills">
       <div class="human-pill">
         <span class="num">01</span>
-        <span class="txt"><strong>Studio.</strong> Une équipe. Pas une plateforme.</span>
+        <span class="txt"><strong>Studio.</strong> Une équipe courte, des échanges directs, des décisions rapides. Pas d'intermédiaires inutiles, juste du mouvement.</span>
       </div>
       <div class="human-pill">
         <span class="num">02</span>
-        <span class="txt"><strong>Humain.</strong> La direction artistique reste humaine.</span>
+        <span class="txt"><strong>Humain.</strong> Un regard créatif qui guide tout. Une cohérence qui ne se délègue pas.</span>
       </div>
       <div class="human-pill">
         <span class="num">03</span>
-        <span class="txt"><strong>IA.</strong> Au service de la production, pas l'inverse.</span>
+        <span class="txt"><strong>IA.</strong> Un prolongement de production. Pour accélérer, explorer, et ouvrir des terrains que la photo seule ne peut pas couvrir.</span>
       </div>
     </div>
   </div>
@@ -818,19 +833,19 @@ img,video{max-width:100%;display:block;}
             <div id="p-stages">
               <div class="process-stage-txt is-on" data-idx="0">
                 <h3 class="process-title-big">Cast your Models</h3>
-                <p class="process-body-txt">Vos mannequins canoniques, propriétaires. Réutilisables à chaque saison.</p>
+                <p class="process-body-txt">Vos mannequins canoniques. Propriétaires. Tenus saison après saison.</p>
               </div>
               <div class="process-stage-txt" data-idx="1">
                 <h3 class="process-title-big">Dress your Packshots</h3>
-                <p class="process-body-txt">Donnez vie à vos collections, sans shooting traditionnel.</p>
+                <p class="process-body-txt">Vos collections incarnées. Du packshot brut au visuel signature.</p>
               </div>
               <div class="process-stage-txt" data-idx="2">
                 <h3 class="process-title-big">Stage your World</h3>
-                <p class="process-body-txt">Vos univers déclinés. Décors, ambiances, saisons.</p>
+                <p class="process-body-txt">Vos univers composés. Décors, lumières, saisons, ambiances.</p>
               </div>
               <div class="process-stage-txt" data-idx="3">
                 <h3 class="process-title-big">Move your Brand</h3>
-                <p class="process-body-txt">Vos images en mouvement. Reels et motion pour les réseaux.</p>
+                <p class="process-body-txt">Vos images en mouvement. Reels et motion taillés pour les réseaux.</p>
               </div>
             </div>
           </div>
@@ -883,9 +898,9 @@ img,video{max-width:100%;display:block;}
 <section class="cases-s reveal" id="cases">
   <div class="cases-inner">
     <div class="cases-header">
-      <span class="cases-label">Use Cases</span>
-      <h2 class="cases-title">Notre playlist <em>créative.</em></h2>
-      <p class="cases-lead">Cliquez sur une vignette et laissez-vous convaincre.</p>
+      <span class="cases-label">Laboratoire MB</span>
+      <h2 class="cases-title">Nos <em>explorations.</em></h2>
+      <p class="cases-lead">Capsules imaginées pour des maisons qu'on admire. R&amp;D créatives, jamais des commandes — des terrains où nous testons l'écriture du studio.</p>
     </div>
     <div class="cases-grid">
       <a class="case-thumb" href="case/american-vintage.html" aria-label="Voir le cas American Vintage">
@@ -937,9 +952,6 @@ img,video{max-width:100%;display:block;}
         </div>
       </a>
     </div>
-    <div class="cases-disclaimer">
-      Les cas présentés ne sont en aucun cas des commandes clients. Ce sont des interprétations créatives pour des marques que nous aimons et qui nous inspirent.
-    </div>
   </div>
 </section>
 
@@ -984,7 +996,7 @@ img,video{max-width:100%;display:block;}
       <div class="ct tv"></div>
       <div class="ct ti"><div class="ct-lbl">Molto Bene One Shot</div><div class="ct-amt"><span class="mb-prefix">à partir de</span>4 990 €</div></div>
     </div>
-    <p style="margin-top:20px;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:rgba(255,255,255,.28)">* Tarifs indicatifs pour une capsule de 80 visuels.</p>
+    <p style="margin-top:20px;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:rgba(255,255,255,.28)">* Tarifs indicatifs, hors frais spécifiques. À séparer ou à mixer selon votre brief, votre budget et vos délais.</p>
   </div>
 </section>
 
@@ -996,42 +1008,48 @@ img,video{max-width:100%;display:block;}
     <h2 class="pricing-title">Choisissez <em>votre rythme.</em></h2>
     <div class="pricing-grid">
       <div class="pc pc-l">
-        <div class="pc-type">One Shot</div>
+        <div class="pc-type">Tester</div>
         <div class="pc-name">Capsule Discovery</div>
         <div class="pc-price"><span class="mb-prefix">à partir de</span>990 €<small>/ capsule</small></div>
         <div class="pc-div"></div>
+        <p class="pc-pitch">Voir votre prochaine capsule avant de la produire. Vous tranchez sur du concret. Vous économisez une prod à blanc.</p>
         <ul class="pc-feats">
-          <li>10 visuels DONT 1 motion</li>
+          <li>10 visuels dont 1 motion</li>
           <li>Direction artistique incluse</li>
           <li>2 univers de marque</li>
           <li>Droits commerciaux inclus</li>
+          <li>Livraison 5 – 7 jours</li>
         </ul>
-        <a href="mailto:hello@moltobene.ai?subject=Capsule%20Discovery%20Molto%20Bene&body=Bonjour%2C%0A%0AJe%20souhaite%20d%C3%A9marrer%20une%20Capsule%20Discovery%20Molto%20Bene%20%2810%20visuels%20DONT%201%20motion%29.%0A%0AVoici%20mon%20contexte%20%3A%20%5Bmarque%2C%20secteur%2C%20produit%28s%29%20%C3%A0%20mettre%20en%20valeur%2C%20deadline%5D%0A%0AMerci.%0A" class="pc-cta cta-ol">Démarrer →</a>
+        <a href="mailto:hello@moltobene.ai?subject=Capsule%20Discovery%20Molto%20Bene&body=Bonjour%2C%0A%0AJe%20souhaite%20d%C3%A9marrer%20une%20Capsule%20Discovery%20Molto%20Bene%20%2810%20visuels%20dont%201%20motion%29.%0A%0AVoici%20mon%20contexte%20%3A%20%5Bmarque%2C%20secteur%2C%20produit%28s%29%20%C3%A0%20mettre%20en%20valeur%2C%20deadline%5D%0A%0AMerci.%0A" class="pc-cta cta-ol">Démarrer →</a>
       </div>
       <div class="pc pc-f">
         <div class="pc-badge">★ Most popular</div>
+        <div class="pc-type">Imaginer</div>
         <div class="pc-name">Studio Créatif</div>
         <div class="pc-price"><span class="mb-prefix">à partir de</span>2 490 €<small>/ mois</small></div>
         <div class="pc-div"></div>
+        <p class="pc-pitch">Installer la signature de votre marque dans la durée. Vos contenus sortent au rythme du marché, pas du planning shooting.</p>
         <ul class="pc-feats">
           <li>50 visuels / mois</li>
-          <li>Direction artistique incluse</li>
-          <li>4 Univers de marque</li>
+          <li>Direction artistique tenue</li>
+          <li>4 univers de marque</li>
           <li>Droits commerciaux inclus</li>
+          <li>Cast verrouillé saison après saison</li>
         </ul>
         <a href="studio-creatif.html" class="pc-cta cta-gold cta-pulse"><span class="cta-label">En savoir plus →</span></a>
       </div>
       <div class="pc pc-d">
-        <div class="pc-type">Sur-mesure</div>
+        <div class="pc-type">Décliner</div>
         <div class="pc-name">Partenaire Créatif</div>
         <div class="pc-price">Sur devis</div>
         <div class="pc-div"></div>
+        <p class="pc-pitch">Faire de Molto Bene votre studio image. Une équipe alignée sur votre roadmap, un interlocuteur dédié.</p>
         <ul class="pc-feats">
-          <li>Production en continue</li>
+          <li>Production en continu</li>
           <li>Stratégie de contenu globale</li>
           <li>Films de marque</li>
           <li>Social natif (IG, TikTok, LinkedIn)</li>
-          <li>Branding &amp; Direction Artistique</li>
+          <li>Branding &amp; direction artistique</li>
           <li>Interlocuteur dédié</li>
         </ul>
         <a href="mailto:hello@moltobene.ai?subject=Partenaire%20Cr%C3%A9atif%20Molto%20Bene&body=Bonjour%2C%0A%0AJ%27aimerais%20explorer%20un%20partenariat%20cr%C3%A9atif%20sur%20la%20dur%C3%A9e%20avec%20Molto%20Bene.%0A%0AVoici%20mon%20contexte%20%3A%20%5Bmarque%2C%20secteur%2C%20ambitions%2C%20calendrier%5D%0A%0AMerci.%0A" class="pc-cta cta-olight">Nous contacter →</a>
