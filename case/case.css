@@ -78,6 +78,21 @@ img,video{max-width:100%;display:block;}
 .ed-item{aspect-ratio:9/16;overflow:hidden;position:relative;border-radius:1px;display:block;background:var(--paper-alt);width:100%;height:auto;min-height:0;}
 .ed-item img,.ed-item video{position:absolute;inset:0;width:100% !important;height:100% !important;object-fit:cover;object-position:center center;display:block;cursor:pointer;transition:transform .35s ease;}
 .ed-item:hover img,.ed-item:hover video{transform:scale(1.02);}
+/* Largeur des visuels adaptée au nombre de visuels (desktop) — rangées équilibrées, pas de "trou".
+   Quantity queries : on cible une board ayant EXACTEMENT N items (le Nᵉ est aussi :last-child).
+   Défaut = 5 colonnes (cas à 5 ou 10 visuels). Tablette/mobile : voir media queries plus bas. */
+@media(min-width:1025px){
+  .ed-board:has(.ed-item:nth-child(1):last-child){grid-template-columns:repeat(1,1fr);}
+  .ed-board:has(.ed-item:nth-child(2):last-child){grid-template-columns:repeat(2,1fr);}
+  .ed-board:has(.ed-item:nth-child(3):last-child){grid-template-columns:repeat(3,1fr);}
+  .ed-board:has(.ed-item:nth-child(4):last-child){grid-template-columns:repeat(4,1fr);}
+  .ed-board:has(.ed-item:nth-child(6):last-child){grid-template-columns:repeat(3,1fr);}
+  .ed-board:has(.ed-item:nth-child(7):last-child){grid-template-columns:repeat(4,1fr);}
+  .ed-board:has(.ed-item:nth-child(8):last-child){grid-template-columns:repeat(4,1fr);}
+  .ed-board:has(.ed-item:nth-child(9):last-child){grid-template-columns:repeat(3,1fr);}
+  .ed-board:has(.ed-item:nth-child(11):last-child){grid-template-columns:repeat(4,1fr);}
+  .ed-board:has(.ed-item:nth-child(12):last-child){grid-template-columns:repeat(4,1fr);}
+}
 
 /* Marquage IA — AI Act Art.50 (badge discret, identique à l'accueil) */
 .ia-mark{position:absolute;top:8px;right:8px;z-index:3;display:inline-flex;align-items:center;gap:2px;font-family:var(--f-mono);font-size:6px;font-weight:700;letter-spacing:.12em;line-height:1;color:var(--paper);background:rgba(13,12,11,.55);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);padding:2px 4px;border-radius:2px;border:1px solid rgba(240,237,229,.22);pointer-events:none;user-select:none;opacity:.1;}
