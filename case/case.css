@@ -80,7 +80,7 @@ img,video{max-width:100%;display:block;}
 .ed-item:hover img,.ed-item:hover video{transform:scale(1.02);}
 
 /* Marquage IA — AI Act Art.50 (badge discret, identique à l'accueil) */
-.ia-mark{position:absolute;top:8px;right:8px;z-index:3;display:inline-flex;align-items:center;gap:2px;font-family:var(--f-mono);font-size:6px;font-weight:700;letter-spacing:.12em;line-height:1;color:var(--paper);background:rgba(13,12,11,.55);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);padding:2px 4px;border-radius:2px;border:1px solid rgba(240,237,229,.22);pointer-events:none;user-select:none;opacity:.18;}
+.ia-mark{position:absolute;top:8px;right:8px;z-index:3;display:inline-flex;align-items:center;gap:2px;font-family:var(--f-mono);font-size:6px;font-weight:700;letter-spacing:.12em;line-height:1;color:var(--paper);background:rgba(13,12,11,.55);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);padding:2px 4px;border-radius:2px;border:1px solid rgba(240,237,229,.22);pointer-events:none;user-select:none;opacity:.1;}
 .ia-mark::before{content:'';width:5px;height:5px;flex:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23F0EDE5' d='M12 0C13 7 17 11 24 12C17 13 13 17 12 24C11 17 7 13 0 12C7 11 11 7 12 0Z'/%3E%3C/svg%3E") center/contain no-repeat;}
 
 /* MORE CASES — strip horizontal des autres use cases (sous le ed-board, avant la CTA) */
