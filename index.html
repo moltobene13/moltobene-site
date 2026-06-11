@@ -1,4 +1,4 @@
-<!-- redeploy: 1779719693 -->
+<!-- redeploy: 1781188637 -->
 <!DOCTYPE html>
 <html lang="fr"><head>
 <meta charset="UTF-8"/>
@@ -565,6 +565,31 @@ img,video{max-width:100%;display:block;}
   font-style:italic;
 }
 
+/* ══ CADRE DE CONFIANCE ══ */
+.trust-s{background:var(--paper);padding:120px 32px;position:relative;overflow:hidden;}
+.trust-s::before{content:'';position:absolute;bottom:-14%;right:-80px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(212,170,32,.10) 0%,transparent 70%);pointer-events:none;}
+.trust-inner{max-width:var(--max);margin:0 auto;position:relative;z-index:1;}
+.trust-header{margin-bottom:52px;max-width:760px;}
+.trust-eyebrow{font-family:var(--f-mono);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--mustard);margin-bottom:22px;display:block;}
+.trust-title{font-family:var(--f-display);font-weight:800;font-size:clamp(34px,5vw,68px);line-height:.98;letter-spacing:-.025em;color:var(--ink);}
+.trust-title em{font-style:italic;font-weight:700;color:var(--mustard);}
+.trust-lead{font-size:clamp(15px,1.4vw,18px);color:var(--ink2);margin-top:22px;max-width:600px;line-height:1.7;}
+.trust-lead em{font-style:italic;font-weight:600;color:var(--ink);}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:8px;}
+.trust-card{background:#FAF8F2;border:1px solid rgba(13,12,11,.07);border-top:2px solid var(--mustard);padding:32px 26px;display:flex;flex-direction:column;gap:14px;border-radius:3px;box-shadow:0 1px 2px rgba(13,12,11,.03);transition:background .25s,transform .25s,box-shadow .25s,border-color .25s;}
+.trust-card:hover{background:var(--paper-alt);transform:translateY(-4px);box-shadow:0 14px 32px rgba(13,12,11,.08);}
+.trust-card-num{font-family:var(--f-mono);font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:rgba(13,12,11,.4);}
+.trust-card-title{font-family:var(--f-display);font-weight:700;font-style:italic;font-size:clamp(19px,1.5vw,23px);line-height:1.12;letter-spacing:-.01em;color:var(--ink);}
+.trust-card-body{font-family:var(--f-body);font-size:clamp(14px,1.05vw,15px);line-height:1.62;color:var(--ink2);}
+.trust-card-body strong{color:var(--ink);font-weight:600;}
+
+/* Marquage AI Act (Art. 50, applicable 02/08/2026) — mention « IA » lisible sur les visuels générés */
+.ia-mark{position:absolute;top:10px;right:10px;z-index:3;font-family:var(--f-mono);font-size:9px;font-weight:700;letter-spacing:.18em;line-height:1;color:var(--paper);background:rgba(13,12,11,.55);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);padding:5px 8px;border-radius:3px;border:1px solid rgba(240,237,229,.22);pointer-events:none;user-select:none;}
+
+@media(max-width:1024px){.trust-s{padding:100px 28px;}}
+@media(max-width:900px){.trust-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.trust-grid{grid-template-columns:1fr;}.trust-s{padding:72px 18px;}.trust-card{padding:26px 22px;}}
+
 /* LIGHTBOX */
 .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.96);display:none;align-items:center;justify-content:center;z-index:9500;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
 .lightbox.open{display:flex;}
@@ -923,6 +948,7 @@ img,video{max-width:100%;display:block;}
     <div class="cases-grid">
       <a class="case-thumb" href="case/american-vintage.html" aria-label="Voir le cas American Vintage">
         <img src="assets/av-04.jpg" loading="lazy" decoding="async" alt="Molto Bene x American Vintage"/>
+        <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
         <div class="case-thumb-veil"></div>
         <div class="case-thumb-meta">
           <span class="case-thumb-tag">Case 01</span>
@@ -931,6 +957,7 @@ img,video{max-width:100%;display:block;}
       </a>
       <a class="case-thumb" href="case/roseanna.html" aria-label="Voir le cas Roseanna">
         <img src="assets/roseanna-08.jpg" loading="lazy" decoding="async" alt="Molto Bene x Roseanna" style="object-position:center top;"/>
+        <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
         <div class="case-thumb-veil"></div>
         <div class="case-thumb-meta">
           <span class="case-thumb-tag">Case 02</span>
@@ -939,6 +966,7 @@ img,video{max-width:100%;display:block;}
       </a>
       <a class="case-thumb" href="case/poivre-blanc-tennis.html" aria-label="Voir le cas Poivre Blanc Tennis">
         <img src="assets/tennis-01.jpg" loading="lazy" decoding="async" alt="Molto Bene x Poivre Blanc Tennis"/>
+        <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
         <div class="case-thumb-veil"></div>
         <div class="case-thumb-meta">
           <span class="case-thumb-tag">Case 03</span>
@@ -947,6 +975,7 @@ img,video{max-width:100%;display:block;}
       </a>
       <a class="case-thumb" href="case/le-temps-des-cerises.html" aria-label="Voir le cas Le Temps des Cerises">
         <img src="assets/ltdc-03.jpg" loading="lazy" decoding="async" alt="Molto Bene x Le Temps des Cerises"/>
+        <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
         <div class="case-thumb-veil"></div>
         <div class="case-thumb-meta">
           <span class="case-thumb-tag">Case 04</span>
@@ -955,6 +984,7 @@ img,video{max-width:100%;display:block;}
       </a>
       <a class="case-thumb" href="case/poivre-blanc-ski.html" aria-label="Voir le cas Poivre Blanc Ski">
         <img src="assets/lb00-portrait.jpg" loading="lazy" decoding="async" alt="Molto Bene x Poivre Blanc Ski"/>
+        <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
         <div class="case-thumb-veil"></div>
         <div class="case-thumb-meta">
           <span class="case-thumb-tag">Case 05</span>
@@ -963,6 +993,7 @@ img,video{max-width:100%;display:block;}
       </a>
       <a class="case-thumb" href="case/sun-valley.html" aria-label="Voir le cas Sun Valley">
         <img src="assets/sun-valley-l3-hero.jpg" loading="lazy" decoding="async" alt="Molto Bene x Sun Valley"/>
+        <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
         <div class="case-thumb-veil"></div>
         <div class="case-thumb-meta">
           <span class="case-thumb-tag">Case 06</span>
@@ -1079,6 +1110,39 @@ img,video{max-width:100%;display:block;}
         </ul>
         <a href="mailto:hello@moltobene.ai?subject=Partenaire%20Cr%C3%A9atif%20Molto%20Bene&body=Bonjour%2C%0A%0AJ%27aimerais%20explorer%20un%20partenariat%20cr%C3%A9atif%20sur%20la%20dur%C3%A9e%20avec%20Molto%20Bene.%0A%0AVoici%20mon%20contexte%20%3A%20%5Bmarque%2C%20secteur%2C%20ambitions%2C%20calendrier%5D%0A%0AMerci.%0A" class="pc-cta cta-olight">Nous contacter →</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- CADRE DE CONFIANCE -->
+<section class="trust-s reveal" id="confiance">
+  <div class="trust-inner">
+    <div class="trust-header">
+      <span class="trust-eyebrow">Transparence &amp; propriété</span>
+      <h2 class="trust-title">Un cadre clair.</h2>
+      <p class="trust-lead">Une image de marque ne supporte <em>aucune zone d'ombre.</em></p>
+    </div>
+    <div class="trust-grid">
+      <article class="trust-card">
+        <span class="trust-card-num">01</span>
+        <h3 class="trust-card-title">L'IA assumée, et conforme.</h3>
+        <p class="trust-card-body">Nous ne cachons pas l'IA : nous la signons. Dès le 2 août 2026, l'AI Act impose de marquer les visuels générés par IA. Nous l'intégrons par défaut, et nous vous aidons à le formuler avec justesse — sans casser le désir.</p>
+      </article>
+      <article class="trust-card">
+        <span class="trust-card-num">02</span>
+        <h3 class="trust-card-title">Vos visuels vous appartiennent.</h3>
+        <p class="trust-card-body">Les images et vidéos produites vous sont cédées : usage commercial illimité, sur tous vos supports. Nous ne conservons que l'ADN numérique — le modèle qui garantit que votre casting reste identique d'une saison à l'autre.</p>
+      </article>
+      <article class="trust-card">
+        <span class="trust-card-num">03</span>
+        <h3 class="trust-card-title">La continuité, saison après saison.</h3>
+        <p class="trust-card-body">Votre casting reste le même d'une campagne à l'autre : même visage, même univers. Là où un shooting repart de zéro, nous tenons une cohérence. C'est notre cast-lock.</p>
+      </article>
+      <article class="trust-card">
+        <span class="trust-card-num">04</span>
+        <h3 class="trust-card-title">Des mannequins fictifs.</h3>
+        <p class="trust-card-body">Nos mannequins sont entièrement générés par nos soins : aucune photographie de personne réelle, aucun droit à l'image tiers. Nous refusons la standardisation — morphologies et carnations variées, par choix de direction.</p>
+      </article>
     </div>
   </div>
 </section>
