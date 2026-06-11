@@ -78,6 +78,9 @@ img,video{max-width:100%;display:block;}
 .ed-item img,.ed-item video{position:absolute;inset:0;width:100% !important;height:100% !important;object-fit:cover;object-position:center center;display:block;cursor:pointer;transition:transform .35s ease;}
 .ed-item:hover img,.ed-item:hover video{transform:scale(1.02);}
 
+/* Marquage IA — AI Act Art.50 (badge discret, identique à l'accueil) */
+.ia-mark{position:absolute;top:10px;right:10px;z-index:3;font-family:var(--f-mono);font-size:9px;font-weight:700;letter-spacing:.18em;line-height:1;color:var(--paper);background:rgba(13,12,11,.55);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);padding:5px 8px;border-radius:3px;border:1px solid rgba(240,237,229,.22);pointer-events:none;user-select:none;}
+
 /* MORE CASES — strip horizontal des autres use cases (sous le ed-board, avant la CTA) */
 .more-cases{
   background:var(--paper-alt);

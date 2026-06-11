@@ -171,6 +171,8 @@ img,video{max-width:100%;display:block;}
   transition:transform .5s ease;
 }
 .sc-strip-item:hover img,.sc-strip-item:hover video{transform:scale(1.04);}
+/* Marquage IA — AI Act Art.50 (badge discret, identique à l'accueil) */
+.ia-mark{position:absolute;top:10px;right:10px;z-index:3;font-family:var(--f-mono);font-size:9px;font-weight:700;letter-spacing:.18em;line-height:1;color:var(--paper);background:rgba(13,12,11,.55);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);padding:5px 8px;border-radius:3px;border:1px solid rgba(240,237,229,.22);pointer-events:none;user-select:none;}
 .sc-strip-caption{
   max-width:var(--max-wide);margin:18px auto 0;
   font-family:var(--f-mono);font-size:10px;
@@ -658,12 +660,12 @@ img,video{max-width:100%;display:block;}
   <!-- STRIP — preuve visuelle (mix portrait / lookbook / éditorial / vidéo) -->
   <section class="sc-strip reveal">
     <div class="sc-strip-inner">
-      <div class="sc-strip-item" data-kind="portrait"><img src="assets/tennis-01.jpg" loading="lazy" decoding="async" alt="Portrait"/></div>
-      <div class="sc-strip-item" data-kind="lookbook"><img src="assets/av-01.jpg" loading="lazy" decoding="async" alt="Lookbook"/></div>
-      <div class="sc-strip-item" data-kind="editorial"><img src="assets/roseanna-01.jpg" loading="lazy" decoding="async" alt="Éditorial"/></div>
-      <div class="sc-strip-item" data-kind="photobook"><img src="assets/ltdc-07-v2.jpg" loading="lazy" decoding="async" alt="Photobook"/></div>
-      <div class="sc-strip-item" data-kind="outdoor"><img src="assets/mosaic-14-v2.jpg" loading="lazy" decoding="async" alt="Outdoor"/></div>
-      <div class="sc-strip-item" data-kind="motion"><video data-src="assets/roseanna-video.mp4" muted loop playsinline preload="none" autoplay></video></div>
+      <div class="sc-strip-item" data-kind="portrait"><img src="assets/tennis-01.jpg" loading="lazy" decoding="async" alt="Portrait"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div>
+      <div class="sc-strip-item" data-kind="lookbook"><img src="assets/av-01.jpg" loading="lazy" decoding="async" alt="Lookbook"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div>
+      <div class="sc-strip-item" data-kind="editorial"><img src="assets/roseanna-01.jpg" loading="lazy" decoding="async" alt="Éditorial"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div>
+      <div class="sc-strip-item" data-kind="photobook"><img src="assets/ltdc-07-v2.jpg" loading="lazy" decoding="async" alt="Photobook"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div>
+      <div class="sc-strip-item" data-kind="outdoor"><img src="assets/mosaic-14-v2.jpg" loading="lazy" decoding="async" alt="Outdoor"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div>
+      <div class="sc-strip-item" data-kind="motion"><video data-src="assets/roseanna-video.mp4" muted loop playsinline preload="none" autoplay></video><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div>
     </div>
     <div class="sc-strip-caption">Portrait · lookbook · éditorial · photobook · outdoor · motion — un seul studio</div>
   </section>
@@ -747,6 +749,7 @@ img,video{max-width:100%;display:block;}
         <div class="sc-step">
           <div class="sc-step-media">
             <img src="assets/moodboard-tennis-04.jpg" loading="lazy" decoding="async" alt="Audit DA"/>
+            <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
             <span class="sc-step-num">01</span>
           </div>
           <div class="sc-step-body">
@@ -757,6 +760,7 @@ img,video{max-width:100%;display:block;}
         <div class="sc-step">
           <div class="sc-step-media">
             <img src="assets/lb00-portrait.jpg" loading="lazy" decoding="async" alt="Cast-lock"/>
+            <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
             <span class="sc-step-num">02</span>
           </div>
           <div class="sc-step-body">
@@ -767,6 +771,7 @@ img,video{max-width:100%;display:block;}
         <div class="sc-step">
           <div class="sc-step-media">
             <img src="assets/ltdc-08.jpg" loading="lazy" decoding="async" alt="Flux hebdo" style="object-position:center top;"/>
+            <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
             <span class="sc-step-num">03</span>
           </div>
           <div class="sc-step-body">
@@ -777,6 +782,7 @@ img,video{max-width:100%;display:block;}
         <div class="sc-step">
           <div class="sc-step-media">
             <img src="assets/roseanna-01.jpg" loading="lazy" decoding="async" alt="Review mensuelle"/>
+            <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
             <span class="sc-step-num">04</span>
           </div>
           <div class="sc-step-body">
@@ -842,6 +848,7 @@ img,video{max-width:100%;display:block;}
   <!-- ALLORA CLOSER -->
   <section class="sc-allora reveal">
     <video class="sc-allora-video" data-src="assets/use1-video1.mp4" muted loop playsinline preload="none" autoplay></video>
+    <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
     <div class="sc-allora-veil"></div>
     <div class="sc-allora-content">
       <h2 class="sc-allora-title">Allora<span class="qmark">?</span></h2>
