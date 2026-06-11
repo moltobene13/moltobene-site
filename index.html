@@ -1,4 +1,4 @@
-<!-- redeploy: 1781191678 -->
+<!-- redeploy: 1781195262 -->
 <!DOCTYPE html>
 <html lang="fr"><head>
 <meta charset="UTF-8"/>
@@ -585,7 +585,8 @@ img,video{max-width:100%;display:block;}
 .trust-card-body strong{color:var(--ink);font-weight:600;}
 
 /* Marquage AI Act (Art. 50, applicable 02/08/2026) — mention « IA » lisible sur les visuels générés */
-.ia-mark{position:absolute;top:10px;right:10px;z-index:3;font-family:var(--f-mono);font-size:9px;font-weight:700;letter-spacing:.18em;line-height:1;color:var(--paper);background:rgba(13,12,11,.55);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);padding:5px 8px;border-radius:3px;border:1px solid rgba(240,237,229,.22);pointer-events:none;user-select:none;}
+.ia-mark{position:absolute;top:10px;right:10px;z-index:3;display:inline-flex;align-items:center;gap:4px;font-family:var(--f-mono);font-size:9px;font-weight:700;letter-spacing:.18em;line-height:1;color:var(--paper);background:rgba(13,12,11,.55);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);padding:5px 7px;border-radius:3px;border:1px solid rgba(240,237,229,.22);pointer-events:none;user-select:none;}
+.ia-mark::before{content:'';width:8px;height:8px;flex:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23F0EDE5' d='M12 0C13 7 17 11 24 12C17 13 13 17 12 24C11 17 7 13 0 12C7 11 11 7 12 0Z'/%3E%3C/svg%3E") center/contain no-repeat;}
 
 @media(max-width:1024px){.trust-s{padding:100px 28px;}}
 @media(max-width:900px){.trust-grid{grid-template-columns:repeat(2,1fr);}}
