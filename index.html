@@ -112,10 +112,8 @@ section[id]{scroll-margin-top:84px;}
 .hero-cta:hover{background:transparent;color:var(--paper);border-color:var(--paper);transform:translateY(-2px);}
 .hero-bar{position:absolute;bottom:0;left:0;right:0;z-index:3;padding:18px 6vw;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(240,237,229,.1);}
 .hero-tag{font-family:var(--f-mono);font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:rgba(240,237,229,.55);}
-.hero-scroll{position:absolute;left:50%;bottom:64px;transform:translateX(-50%);z-index:4;color:rgba(240,237,229,.7);font-size:26px;line-height:1;text-decoration:none;animation:heroScrollBounce 1.8s ease-in-out infinite;transition:color .2s;}
-.hero-scroll:hover{color:var(--mustard);}
-@keyframes heroScrollBounce{0%,100%{transform:translate(-50%,0);opacity:.65;}50%{transform:translate(-50%,7px);opacity:1;}}
-@media(prefers-reduced-motion:reduce){.hero-scroll{animation:none;}}
+.hero-scroll{position:absolute;left:50%;bottom:64px;transform:translateX(-50%);z-index:4;text-decoration:none;}
+.hero-scroll:hover .hint-arrow{opacity:1;}
 
 .ticker{overflow:hidden;padding:14px 0;border-top:1px solid;border-bottom:1px solid;}
 .ticker.t-dark{background:var(--ink);border-color:rgba(255,255,255,.07);}
@@ -781,7 +779,10 @@ section[id]{scroll-margin-top:84px;}
     <p class="hero-sub">Voyez votre prochaine collection. Avant de la produire.</p>
     <a href="mailto:hello@moltobene.ai?subject=Audit%20gratuit%20Molto%20Bene&body=Bonjour%2C%0A%0AJe%20souhaite%20tester%20un%20audit%20gratuit%20Molto%20Bene.%0A%0AVoici%20le%20packshot%20du%20produit%20%C3%A0%20habiller%20%3A%20%5Bjoindre%20le%20packshot%5D%0A%0AMerci.%0A" class="hero-cta">Audit gratuit →</a>
   </div>
-  <a href="#process" class="hero-scroll" aria-label="Défiler vers le bas">↓</a>
+  <a href="#process" class="hero-scroll p-scroll-hint" aria-label="Défiler vers le bas">
+    <span class="hint-arrow" aria-hidden="true">↓</span>
+    <span class="hint-label">Scroll</span>
+  </a>
   <div class="hero-bar">
     <div class="hero-tag">Based in Marseille</div>
   </div>
