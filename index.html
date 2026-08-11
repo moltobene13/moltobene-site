@@ -609,6 +609,44 @@ section[id]{scroll-margin-top:84px;}
 @media(max-width:900px){.trust-grid{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:560px){.trust-grid{grid-template-columns:1fr;}.trust-s{padding:72px 18px;}.trust-card{padding:26px 22px;}}
 
+/* ══ NOS MODÈLES, casting maison + modèle sur-mesure ══ */
+.models-s{background:var(--paper);padding:clamp(88px,11vw,140px) 32px;position:relative;overflow:hidden;}
+.models-s::before{content:'';position:absolute;top:-24%;right:-12%;width:56%;height:150%;background:radial-gradient(circle,rgba(212,170,32,.07) 0%,transparent 62%);pointer-events:none;}
+.models-inner{max-width:var(--max);margin:0 auto;position:relative;z-index:1;}
+.models-header{max-width:840px;margin:0 auto clamp(46px,6vw,64px);text-align:center;}
+.models-eyebrow{font-family:var(--f-mono);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--mustard);display:block;margin-bottom:22px;}
+.models-title{font-family:var(--f-display);font-weight:800;font-size:clamp(34px,5.4vw,72px);line-height:.98;letter-spacing:-.028em;color:var(--ink);}
+.models-title em{font-style:italic;font-weight:700;color:var(--mustard);}
+.models-lead{margin:26px auto 0;max-width:660px;font-family:var(--f-body);font-size:clamp(15px,1.4vw,18px);line-height:1.72;color:var(--ink2);}
+.models-lead strong{color:var(--ink);font-weight:600;}
+
+.models-board{display:flex;flex-wrap:wrap;justify-content:center;gap:18px;}
+.model-card{display:flex;flex-direction:column;flex:0 0 calc((100% - 54px)/4);max-width:calc((100% - 54px)/4);text-decoration:none;color:inherit;}
+.model-shot{position:relative;overflow:hidden;aspect-ratio:9/16;background:var(--paper-alt);border-radius:3px;cursor:pointer;box-shadow:0 1px 2px rgba(13,12,11,.05);}
+.model-shot img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.22,.61,.36,1);}
+.model-card:hover .model-shot img{transform:scale(1.05);}
+.model-shot .ia-mark{opacity:.16;}
+.model-view{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:26px 12px 12px;font-family:var(--f-mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--paper);background:linear-gradient(to top,rgba(13,12,11,.62),transparent);opacity:0;transform:translateY(6px);transition:opacity .3s,transform .3s;pointer-events:none;}
+.model-card:hover .model-view,.model-card:focus-visible .model-view{opacity:1;transform:none;}
+.model-meta{padding:13px 2px 0;}
+.model-name{font-family:var(--f-display);font-weight:600;font-size:clamp(16px,1.3vw,20px);letter-spacing:-.012em;color:var(--ink);line-height:1;transition:color .2s;}
+.model-card:hover .model-name{color:var(--mustard);}
+.model-tag{display:block;margin-top:7px;font-family:var(--f-mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);}
+
+.models-custom{margin-top:clamp(58px,7vw,92px);position:relative;overflow:hidden;background:var(--ink);color:var(--paper);border-radius:5px;padding:clamp(46px,6.4vw,78px) clamp(28px,5vw,60px);text-align:center;}
+.models-custom::before{content:'';position:absolute;bottom:-40%;left:-8%;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(212,170,32,.16) 0%,transparent 70%);pointer-events:none;}
+.mc-inner{position:relative;z-index:1;max-width:620px;margin:0 auto;}
+.mc-eyebrow{font-family:var(--f-mono);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--mustard);display:block;margin-bottom:20px;}
+.mc-title{font-family:var(--f-display);font-weight:800;font-size:clamp(28px,3.6vw,46px);line-height:1.02;letter-spacing:-.02em;color:var(--paper);}
+.mc-title em{font-style:italic;font-weight:700;color:var(--mustard);}
+.mc-body{margin:22px auto 0;font-family:var(--f-body);font-size:clamp(14px,1.25vw,17px);line-height:1.72;color:rgba(240,237,229,.82);}
+.mc-body strong{color:var(--paper);font-weight:600;}
+.mc-cta{display:inline-flex;align-items:center;gap:12px;margin-top:34px;font-family:var(--f-mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;padding:0 32px;height:46px;border-radius:999px;text-decoration:none;background:var(--mustard);color:var(--ink);border:1px solid var(--mustard);transition:background .25s,color .25s,transform .25s;}
+.mc-cta:hover{background:transparent;color:var(--paper);border-color:var(--paper);transform:translateY(-2px);}
+
+@media(max-width:900px){.models-board{gap:14px;}.model-card{flex-basis:calc((100% - 14px)/2);max-width:calc((100% - 14px)/2);}}
+@media(max-width:560px){.models-board{gap:10px;}.model-card{flex-basis:calc((100% - 10px)/2);max-width:calc((100% - 10px)/2);}.model-meta{padding-top:10px;}}
+
 /* LIGHTBOX */
 .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.96);display:none;align-items:center;justify-content:center;z-index:9500;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
 .lightbox.open{display:flex;}
@@ -759,6 +797,7 @@ section[id]{scroll-margin-top:84px;}
       <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-haspopup="true">Menu <span class="nav-caret">▾</span></button>
       <div class="nav-drop" role="menu">
         <a href="#process" role="menuitem">Méthode</a>
+        <a href="#modeles" role="menuitem">Nos modèles</a>
         <a href="#cases" role="menuitem">Réalisations</a>
         <!-- Tarifs masqués temporairement <a href="#pricing" role="menuitem">Tarifs</a> -->
         <a href="#confiance" role="menuitem">Confiance</a>
@@ -962,6 +1001,85 @@ section[id]{scroll-margin-top:84px;}
           <span class="hint-arrow" aria-hidden="true">↓</span>
           <span class="hint-label">Scroll</span>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOS MODÈLES -->
+<section class="models-s reveal" id="modeles">
+  <div class="models-inner">
+    <div class="models-header">
+      <span class="models-eyebrow">Notre casting</span>
+      <h2 class="models-title">Des visages qui n'existent pas.<br/><em>Et qui n'appartiennent qu'à vous.</em></h2>
+      <p class="models-lead">Un casting de mannequins numériques, nés dans notre studio. Cohérents d'une campagne à l'autre, disponibles en un clic — <strong>sans agence, sans planning, sans droits à renégocier.</strong></p>
+    </div>
+
+    <div class="models-board">
+      <a class="model-card reveal" style="transition-delay:.03s" href="modele/sienna.html" aria-label="Voir le book de Sienna">
+        <div class="model-shot"><img src="assets/model-sienna.jpg" loading="lazy" decoding="async" alt="Sienna, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-meta"><span class="model-name">Sienna</span><span class="model-tag">Douceur sable</span></div>
+      </a>
+      <a class="model-card reveal" style="transition-delay:.06s" href="modele/idris.html" aria-label="Voir le book de Idris">
+        <div class="model-shot"><img src="assets/model-idris.jpg" loading="lazy" decoding="async" alt="Idris, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-meta"><span class="model-name">Idris</span><span class="model-tag">Regard franc</span></div>
+      </a>
+      <a class="model-card reveal" style="transition-delay:.09s" href="modele/astrid.html" aria-label="Voir le book de Astrid">
+        <div class="model-shot"><img src="assets/model-astrid.jpg" loading="lazy" decoding="async" alt="Astrid, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-meta"><span class="model-name">Astrid</span><span class="model-tag">Feu vénitien</span></div>
+      </a>
+      <a class="model-card reveal" style="transition-delay:.12s" href="modele/colin.html" aria-label="Voir le book de Colin">
+        <div class="model-shot"><img src="assets/model-colin.jpg" loading="lazy" decoding="async" alt="Colin, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-meta"><span class="model-name">Colin</span><span class="model-tag">Ligne classique</span></div>
+      </a>
+      <a class="model-card reveal" style="transition-delay:.15s" href="modele/naomi.html" aria-label="Voir le book de Naomi">
+        <div class="model-shot"><img src="assets/model-naomi.jpg" loading="lazy" decoding="async" alt="Naomi, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-meta"><span class="model-name">Naomi</span><span class="model-tag">Grâce solaire</span></div>
+      </a>
+      <a class="model-card reveal" style="transition-delay:.18s" href="modele/lars.html" aria-label="Voir le book de Lars">
+        <div class="model-shot"><img src="assets/model-lars.jpg" loading="lazy" decoding="async" alt="Lars, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-meta"><span class="model-name">Lars</span><span class="model-tag">Blond solaire</span></div>
+      </a>
+      <a class="model-card reveal" style="transition-delay:.21s" href="modele/aria.html" aria-label="Voir le book de Aria">
+        <div class="model-shot"><img src="assets/model-aria.jpg" loading="lazy" decoding="async" alt="Aria, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-meta"><span class="model-name">Aria</span><span class="model-tag">Brune ambrée</span></div>
+      </a>
+      <a class="model-card reveal" style="transition-delay:.24s" href="modele/mike.html" aria-label="Voir le book de Mike">
+        <div class="model-shot"><img src="assets/model-mike.jpg" loading="lazy" decoding="async" alt="Mike, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-meta"><span class="model-name">Mike</span><span class="model-tag">Présence nette</span></div>
+      </a>
+      <a class="model-card reveal" style="transition-delay:.27s" href="modele/sara.html" aria-label="Voir le book de Sara">
+        <div class="model-shot"><img src="assets/model-sara.jpg" loading="lazy" decoding="async" alt="Sara, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-meta"><span class="model-name">Sara</span><span class="model-tag">Braise latine</span></div>
+      </a>
+      <a class="model-card reveal" style="transition-delay:.30s" href="modele/freja.html" aria-label="Voir le book de Freja">
+        <div class="model-shot"><img src="assets/model-freja.jpg" loading="lazy" decoding="async" alt="Freja, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-meta"><span class="model-name">Freja</span><span class="model-tag">Blond polaire</span></div>
+      </a>
+      <a class="model-card reveal" style="transition-delay:.33s" href="modele/maria.html" aria-label="Voir le book de Maria">
+        <div class="model-shot"><img src="assets/model-maria.jpg" loading="lazy" decoding="async" alt="Maria, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-meta"><span class="model-name">Maria</span><span class="model-tag">Allure libre</span></div>
+      </a>
+      <a class="model-card reveal" style="transition-delay:.36s" href="modele/olia.html" aria-label="Voir le book de Olia">
+        <div class="model-shot"><img src="assets/model-olia.jpg" loading="lazy" decoding="async" alt="Olia, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-meta"><span class="model-name">Olia</span><span class="model-tag">Trait pur</span></div>
+      </a>
+      <a class="model-card reveal" style="transition-delay:.39s" href="modele/milena.html" aria-label="Voir le book de Milena">
+        <div class="model-shot"><img src="assets/model-milena.jpg" loading="lazy" decoding="async" alt="Milena, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-meta"><span class="model-name">Milena</span><span class="model-tag">Brune intense</span></div>
+      </a>
+      <a class="model-card reveal" style="transition-delay:.42s" href="modele/sophia.html" aria-label="Voir le book de Sophia">
+        <div class="model-shot"><img src="assets/model-sophia.jpg" loading="lazy" decoding="async" alt="Sophia, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-meta"><span class="model-name">Sophia</span><span class="model-tag">Carré graphique</span></div>
+      </a>
+    </div>
+
+    <div class="models-custom reveal">
+      <div class="mc-inner">
+        <span class="mc-eyebrow">Sur-mesure</span>
+        <h2 class="mc-title">Ou créons <em>la vôtre.</em></h2>
+        <p class="mc-body">Une égérie propriétaire, entraînée pour votre marque. Un seul visage décliné à l'infini — packshots, éditos, réseaux. Il ne vieillit pas, ne renégocie pas ses droits, ne tourne pas pour la concurrence. <strong>Il devient un actif de votre marque.</strong></p>
+        <a href="mailto:hello@moltobene.ai?subject=Mod%C3%A8le%20sur-mesure%20-%20Molto%20Bene" class="mc-cta">Créer mon modèle →</a>
       </div>
     </div>
   </div>
