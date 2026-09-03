@@ -514,10 +514,12 @@ section[id]{scroll-margin-top:84px;}
 .cases-lead{font-family:var(--f-mono);font-size:11px;letter-spacing:.22em;color:rgba(13,12,11,.5);margin-top:20px;text-transform:uppercase;}
 
 .cases-grid{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
   gap:8px;
 }
+.case-thumb{flex:0 0 calc((100% - 32px)/5);max-width:calc((100% - 32px)/5);}
 .case-thumb{
   position:relative;
   display:block;
@@ -698,7 +700,7 @@ section[id]{scroll-margin-top:84px;}
   .mosaic-grid{grid-template-columns:repeat(4,1fr);}
   .ed-board{grid-template-columns:repeat(3,1fr);}
   .promise-s,.human-s,.compare-s,.pricing-s,.ed-s,.cases-s{padding-top:100px;padding-bottom:100px;}
-  .cases-grid{grid-template-columns:repeat(3,1fr);gap:6px;}
+  .cases-grid{gap:6px;}.case-thumb{flex-basis:calc((100% - 12px)/3);max-width:calc((100% - 12px)/3);}
 }
 @media(max-width:960px){
   .human-layout{grid-template-columns:1fr;gap:40px;}
@@ -789,7 +791,7 @@ section[id]{scroll-margin-top:84px;}
   .allora-footer .contact{font-size:10px;}
   .cases-s{padding:80px 20px;}
   .cases-header{margin-bottom:36px;}
-  .cases-grid{grid-template-columns:repeat(2,1fr);gap:6px;}
+  .cases-grid{gap:6px;}.case-thumb{flex-basis:calc((100% - 6px)/2);max-width:calc((100% - 6px)/2);}
   .case-thumb{aspect-ratio:3/4;}
   /* Sur tactile, on affiche le voile + métas en permanence */
   .case-thumb-veil{opacity:.7;}
@@ -1122,17 +1124,97 @@ section[id]{scroll-margin-top:84px;}
 <section class="cases-s reveal" id="cases">
   <div class="cases-inner">
     <div class="cases-header">
-      <span class="cases-label">Laboratoire MB</span>
-      <h2 class="cases-title">Nos <em>explorations.</em></h2>
-      <p class="cases-lead">Capsules imaginées pour des maisons qu'on admire. R&amp;D créatives, jamais des commandes, des terrains où nous testons l'écriture du studio.</p>
+      <h2 class="cases-title">Nos <em>réalisations.</em></h2>
+      <p class="cases-lead">Commandes de marques et explorations libres, pour des maisons qu'on admire. La même écriture, la même exigence.</p>
     </div>
     <div class="cases-grid">
+      <a class="case-thumb" href="case/paris-basketball.html" aria-label="Voir le cas Paris Basketball">
+        <img src="assets/parisbasket-12.jpg" loading="lazy" decoding="async" alt="Molto Bene x Paris Basketball"/>
+        <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
+        <div class="case-thumb-veil"></div>
+        <div class="case-thumb-meta">
+          <span class="case-thumb-tag">Campagne</span>
+          <span class="case-thumb-name">Paris <em>Basketball</em></span>
+        </div>
+      </a>
+      <a class="case-thumb" href="case/zeus-dione.html" aria-label="Voir le cas Zeus & Dione">
+        <img src="assets/zeusdione-02.jpg" loading="lazy" decoding="async" alt="Molto Bene x Zeus & Dione"/>
+        <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
+        <div class="case-thumb-veil"></div>
+        <div class="case-thumb-meta">
+          <span class="case-thumb-tag">Campagne</span>
+          <span class="case-thumb-name">Zeus <em>&amp; Dione</em></span>
+        </div>
+      </a>
+      <a class="case-thumb" href="case/paris-basketball-campagne.html" aria-label="Voir le cas Paris Basketball Campagne">
+        <img src="assets/pbbcampagne-01.jpg" loading="lazy" decoding="async" alt="Molto Bene x Paris Basketball"/>
+        <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
+        <div class="case-thumb-veil"></div>
+        <div class="case-thumb-meta">
+          <span class="case-thumb-tag">Campagne</span>
+          <span class="case-thumb-name">Paris Basketball <em>Campagne</em></span>
+        </div>
+      </a>
+      <a class="case-thumb" href="case/poivre-blanc-vieux-port.html" aria-label="Voir le cas Poivre Blanc Vieux-Port">
+        <img src="assets/pbvieuxport-01.jpg" loading="lazy" decoding="async" alt="Molto Bene x Poivre Blanc Vieux-Port"/>
+        <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
+        <div class="case-thumb-veil"></div>
+        <div class="case-thumb-meta">
+          <span class="case-thumb-tag">Campagne</span>
+          <span class="case-thumb-name">Poivre Blanc <em>Vieux-Port</em></span>
+        </div>
+      </a>
+      <a class="case-thumb" href="case/poivre-blanc-wimbledon.html" aria-label="Voir le cas Poivre Blanc Wimbledon">
+        <img src="assets/pbwimbledon-01.jpg" loading="lazy" decoding="async" alt="Molto Bene x Poivre Blanc Wimbledon"/>
+        <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
+        <div class="case-thumb-veil"></div>
+        <div class="case-thumb-meta">
+          <span class="case-thumb-tag">Campagne</span>
+          <span class="case-thumb-name">Poivre Blanc <em>Wimbledon</em></span>
+        </div>
+      </a>
+      <a class="case-thumb" href="case/indies.html" aria-label="Voir le cas Indies">
+        <img src="assets/indies-07.jpg" loading="lazy" decoding="async" alt="Molto Bene x Indies"/>
+        <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
+        <div class="case-thumb-veil"></div>
+        <div class="case-thumb-meta">
+          <span class="case-thumb-tag">Campagne</span>
+          <span class="case-thumb-name"><em>Indies</em></span>
+        </div>
+      </a>
+      <a class="case-thumb" href="case/eres.html" aria-label="Voir le cas Eres">
+        <img src="assets/eres-07.jpg" loading="lazy" decoding="async" alt="Molto Bene x Eres"/>
+        <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
+        <div class="case-thumb-veil"></div>
+        <div class="case-thumb-meta">
+          <span class="case-thumb-tag">Campagne</span>
+          <span class="case-thumb-name"><em>Eres</em></span>
+        </div>
+      </a>
+      <a class="case-thumb" href="case/poivre-blanc-vintage.html" aria-label="Voir le cas Poivre Blanc Vintage">
+        <img src="assets/pbvintage-06.jpg" loading="lazy" decoding="async" alt="Molto Bene x Poivre Blanc Vintage"/>
+        <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
+        <div class="case-thumb-veil"></div>
+        <div class="case-thumb-meta">
+          <span class="case-thumb-tag">Campagne</span>
+          <span class="case-thumb-name">Poivre Blanc <em>Vintage</em></span>
+        </div>
+      </a>
+      <a class="case-thumb" href="case/adidas.html" aria-label="Voir le cas Adidas">
+        <img src="assets/adidas-01.jpg" loading="lazy" decoding="async" alt="Molto Bene x Adidas"/>
+        <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
+        <div class="case-thumb-veil"></div>
+        <div class="case-thumb-meta">
+          <span class="case-thumb-tag">Campagne</span>
+          <span class="case-thumb-name"><em>Adidas</em></span>
+        </div>
+      </a>
       <a class="case-thumb" href="case/american-vintage.html" aria-label="Voir le cas American Vintage">
         <img src="assets/av-04.jpg" loading="lazy" decoding="async" alt="Molto Bene x American Vintage"/>
         <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
         <div class="case-thumb-veil"></div>
         <div class="case-thumb-meta">
-          <span class="case-thumb-tag">R&amp;D</span>
+          <span class="case-thumb-tag">Campagne</span>
           <span class="case-thumb-name">American <em>Vintage</em></span>
         </div>
       </a>
@@ -1150,7 +1232,7 @@ section[id]{scroll-margin-top:84px;}
         <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
         <div class="case-thumb-veil"></div>
         <div class="case-thumb-meta">
-          <span class="case-thumb-tag">R&amp;D</span>
+          <span class="case-thumb-tag">Campagne</span>
           <span class="case-thumb-name"><em>Roseanna</em></span>
         </div>
       </a>
@@ -1168,7 +1250,7 @@ section[id]{scroll-margin-top:84px;}
         <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
         <div class="case-thumb-veil"></div>
         <div class="case-thumb-meta">
-          <span class="case-thumb-tag">R&amp;D</span>
+          <span class="case-thumb-tag">Campagne</span>
           <span class="case-thumb-name">Poivre Blanc <em>Tennis</em></span>
         </div>
       </a>
@@ -1186,25 +1268,25 @@ section[id]{scroll-margin-top:84px;}
         <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
         <div class="case-thumb-veil"></div>
         <div class="case-thumb-meta">
-          <span class="case-thumb-tag">R&amp;D</span>
+          <span class="case-thumb-tag">Campagne</span>
           <span class="case-thumb-name">Le Temps <em>des Cerises</em></span>
         </div>
       </a>
       <a class="case-thumb" href="case/poivre-blanc-ski.html" aria-label="Voir le cas Poivre Blanc Ski">
-        <img src="assets/lb00-portrait.jpg" loading="lazy" decoding="async" alt="Molto Bene x Poivre Blanc Ski"/>
+        <img src="assets/pb01-outdoor.jpg" loading="lazy" decoding="async" alt="Molto Bene x Poivre Blanc Ski"/>
         <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
         <div class="case-thumb-veil"></div>
         <div class="case-thumb-meta">
-          <span class="case-thumb-tag">R&amp;D</span>
+          <span class="case-thumb-tag">Campagne</span>
           <span class="case-thumb-name">Poivre Blanc <em>Ski</em></span>
         </div>
       </a>
       <a class="case-thumb" href="case/sun-valley.html" aria-label="Voir le cas Sun Valley">
-        <img src="assets/sun-valley-l3-hero.jpg" loading="lazy" decoding="async" alt="Molto Bene x Sun Valley"/>
+        <img src="assets/sun-valley-pb-landrover-v2.jpg" loading="lazy" decoding="async" alt="Molto Bene x Sun Valley"/>
         <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
         <div class="case-thumb-veil"></div>
         <div class="case-thumb-meta">
-          <span class="case-thumb-tag">R&amp;D</span>
+          <span class="case-thumb-tag">Campagne</span>
           <span class="case-thumb-name">Sun <em>Valley</em></span>
         </div>
       </a>
@@ -1213,7 +1295,7 @@ section[id]{scroll-margin-top:84px;}
         <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
         <div class="case-thumb-veil"></div>
         <div class="case-thumb-meta">
-          <span class="case-thumb-tag">R&amp;D</span>
+          <span class="case-thumb-tag">Campagne</span>
           <span class="case-thumb-name"><em>Jott</em></span>
         </div>
       </a>
