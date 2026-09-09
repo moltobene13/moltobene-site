@@ -638,8 +638,8 @@ section[id]{scroll-margin-top:84px;}
 
 /* Bloc sur-mesure, occupe les 2 dernières cases de la grille (cases 3-4 de la dernière ligne) */
 .models-custom{
-  flex:0 0 calc((100% - 54px)*0.75 + 36px);
-  max-width:calc((100% - 54px)*0.75 + 36px);
+  flex:0 0 calc((100% - 54px)/2 + 18px);
+  max-width:calc((100% - 54px)/2 + 18px);
   position:relative;overflow:hidden;
   background:#fff;color:var(--ink);
   border:1px solid rgba(13,12,11,.08);
@@ -1049,71 +1049,75 @@ section[id]{scroll-margin-top:84px;}
     </div>
 
     <div class="models-board">
-      <a class="model-card reveal" style="transition-delay:.03s" href="modele/freja.html" aria-label="Voir le book de Freja">
-        <div class="model-shot"><img src="assets/model-freja.jpg" loading="lazy" decoding="async" alt="Freja, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
-        <div class="model-meta"><span class="model-name">Freja</span><span class="model-tag">Blond polaire</span></div>
-      </a>
-      <a class="model-card reveal" style="transition-delay:.06s" href="modele/maria.html" aria-label="Voir le book de Maria">
-        <div class="model-shot"><img src="assets/model-maria.jpg" loading="lazy" decoding="async" alt="Maria, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
-        <div class="model-meta"><span class="model-name">Maria</span><span class="model-tag">Allure libre</span></div>
-      </a>
-      <a class="model-card reveal" style="transition-delay:.09s" href="modele/lars.html" aria-label="Voir le book de Lars">
-        <div class="model-shot"><img src="assets/model-lars.jpg" loading="lazy" decoding="async" alt="Lars, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
-        <div class="model-meta"><span class="model-name">Lars</span><span class="model-tag">Blond solaire</span></div>
-      </a>
-      <a class="model-card reveal" style="transition-delay:.12s" href="modele/milena.html" aria-label="Voir le book de Milena">
+      <a class="model-card reveal" style="transition-delay:.03s" href="modele/milena.html" aria-label="Voir le book de Milena">
         <div class="model-shot"><img src="assets/model-milena.jpg" loading="lazy" decoding="async" alt="Milena, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
         <div class="model-meta"><span class="model-name">Milena</span><span class="model-tag">Brune intense</span></div>
       </a>
-      <a class="model-card reveal" style="transition-delay:.15s" href="modele/sara.html" aria-label="Voir le book de Sara">
-        <div class="model-shot"><img src="assets/model-sara.jpg" loading="lazy" decoding="async" alt="Sara, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
-        <div class="model-meta"><span class="model-name">Sara</span><span class="model-tag">Braise latine</span></div>
-      </a>
-      <a class="model-card reveal" style="transition-delay:.18s" href="modele/mike.html" aria-label="Voir le book de Mike">
-        <div class="model-shot"><img src="assets/model-mike.jpg" loading="lazy" decoding="async" alt="Mike, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
-        <div class="model-meta"><span class="model-name">Mike</span><span class="model-tag">Présence nette</span></div>
-      </a>
-      <a class="model-card reveal" style="transition-delay:.21s" href="modele/naomi.html" aria-label="Voir le book de Naomi">
-        <div class="model-shot"><img src="assets/model-naomi.jpg" loading="lazy" decoding="async" alt="Naomi, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
-        <div class="model-meta"><span class="model-name">Naomi</span><span class="model-tag">Grâce solaire</span></div>
-      </a>
-      <a class="model-card reveal" style="transition-delay:.24s" href="modele/colin.html" aria-label="Voir le book de Colin">
+      <a class="model-card reveal" style="transition-delay:.06s" href="modele/colin.html" aria-label="Voir le book de Colin">
         <div class="model-shot"><img src="assets/model-colin.jpg" loading="lazy" decoding="async" alt="Colin, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
         <div class="model-meta"><span class="model-name">Colin</span><span class="model-tag">Ligne classique</span></div>
       </a>
-      <a class="model-card reveal" style="transition-delay:.27s" href="modele/ezra.html" aria-label="Voir le book de Ezra">
-        <div class="model-shot"><img src="assets/model-ezra.jpg" loading="lazy" decoding="async" alt="Ezra, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
-        <div class="model-meta"><span class="model-name">Ezra</span><span class="model-tag">Taches de son</span></div>
+      <a class="model-card reveal" style="transition-delay:.09s" href="modele/freja.html" aria-label="Voir le book de Freja">
+        <div class="model-shot"><img src="assets/model-freja.jpg" loading="lazy" decoding="async" alt="Freja, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-meta"><span class="model-name">Freja</span><span class="model-tag">Blond polaire</span></div>
       </a>
-      <a class="model-card reveal" style="transition-delay:.30s" href="modele/astrid.html" aria-label="Voir le book de Astrid">
+      <a class="model-card reveal" style="transition-delay:.12s" href="modele/sara.html" aria-label="Voir le book de Sara">
+        <div class="model-shot"><img src="assets/model-sara.jpg" loading="lazy" decoding="async" alt="Sara, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-meta"><span class="model-name">Sara</span><span class="model-tag">Braise latine</span></div>
+      </a>
+      <a class="model-card reveal" style="transition-delay:.15s" href="modele/lars.html" aria-label="Voir le book de Lars">
+        <div class="model-shot"><img src="assets/model-lars.jpg" loading="lazy" decoding="async" alt="Lars, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-meta"><span class="model-name">Lars</span><span class="model-tag">Blond solaire</span></div>
+      </a>
+      <a class="model-card reveal" style="transition-delay:.18s" href="modele/astrid.html" aria-label="Voir le book de Astrid">
         <div class="model-shot"><img src="assets/model-astrid.jpg" loading="lazy" decoding="async" alt="Astrid, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
         <div class="model-meta"><span class="model-name">Astrid</span><span class="model-tag">Feu vénitien</span></div>
       </a>
-      <a class="model-card reveal" style="transition-delay:.33s" href="modele/nate.html" aria-label="Voir le book de Nate">
-        <div class="model-shot"><img src="assets/model-nate.jpg" loading="lazy" decoding="async" alt="Nate, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
-        <div class="model-meta"><span class="model-name">Nate</span><span class="model-tag">Mèche indocile</span></div>
-      </a>
-      <a class="model-card reveal" style="transition-delay:.36s" href="modele/olia.html" aria-label="Voir le book de Olia">
-        <div class="model-shot"><img src="assets/model-olia.jpg" loading="lazy" decoding="async" alt="Olia, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
-        <div class="model-meta"><span class="model-name">Olia</span><span class="model-tag">Trait pur</span></div>
-      </a>
-      <a class="model-card reveal" style="transition-delay:.39s" href="modele/aria.html" aria-label="Voir le book de Aria">
-        <div class="model-shot"><img src="assets/model-aria.jpg" loading="lazy" decoding="async" alt="Aria, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
-        <div class="model-meta"><span class="model-name">Aria</span><span class="model-tag">Brune ambrée</span></div>
-      </a>
-      <a class="model-card reveal" style="transition-delay:.42s" href="modele/idris.html" aria-label="Voir le book de Idris">
+      <a class="model-card reveal" style="transition-delay:.21s" href="modele/idris.html" aria-label="Voir le book de Idris">
         <div class="model-shot"><img src="assets/model-idris.jpg" loading="lazy" decoding="async" alt="Idris, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
         <div class="model-meta"><span class="model-name">Idris</span><span class="model-tag">Regard franc</span></div>
       </a>
-      <a class="model-card reveal" style="transition-delay:.45s" href="modele/sophia.html" aria-label="Voir le book de Sophia">
-        <div class="model-shot"><img src="assets/model-sophia.jpg" loading="lazy" decoding="async" alt="Sophia, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
-        <div class="model-meta"><span class="model-name">Sophia</span><span class="model-tag">Carré graphique</span></div>
-      </a>
-      <a class="model-card reveal" style="transition-delay:.48s" href="modele/sienna.html" aria-label="Voir le book de Sienna">
+      <a class="model-card reveal" style="transition-delay:.24s" href="modele/sienna.html" aria-label="Voir le book de Sienna">
         <div class="model-shot"><img src="assets/model-sienna.jpg" loading="lazy" decoding="async" alt="Sienna, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
         <div class="model-meta"><span class="model-name">Sienna</span><span class="model-tag">Douceur sable</span></div>
       </a>
-      <a class="model-card reveal" style="transition-delay:.51s" href="modele/pescador.html" aria-label="Voir le book de Pescador">
+      <a class="model-card reveal" style="transition-delay:.27s" href="modele/aria.html" aria-label="Voir le book de Aria">
+        <div class="model-shot"><img src="assets/model-aria.jpg" loading="lazy" decoding="async" alt="Aria, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-meta"><span class="model-name">Aria</span><span class="model-tag">Brune ambrée</span></div>
+      </a>
+      <a class="model-card reveal" style="transition-delay:.30s" href="modele/jalen-imani.html" aria-label="Voir le book de Jalen &amp; Imani">
+        <div class="model-shot"><img src="assets/model-jalen-imani.jpg" loading="lazy" decoding="async" alt="Jalen &amp; Imani, duo de mannequins numériques Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-meta"><span class="model-name">Jalen &amp; Imani</span><span class="model-tag">Duo tressé</span></div>
+      </a>
+      <a class="model-card reveal" style="transition-delay:.33s" href="modele/sophia.html" aria-label="Voir le book de Sophia">
+        <div class="model-shot"><img src="assets/model-sophia.jpg" loading="lazy" decoding="async" alt="Sophia, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-meta"><span class="model-name">Sophia</span><span class="model-tag">Carré graphique</span></div>
+      </a>
+      <a class="model-card reveal" style="transition-delay:.36s" href="modele/mike.html" aria-label="Voir le book de Mike">
+        <div class="model-shot"><img src="assets/model-mike.jpg" loading="lazy" decoding="async" alt="Mike, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-meta"><span class="model-name">Mike</span><span class="model-tag">Présence nette</span></div>
+      </a>
+      <a class="model-card reveal" style="transition-delay:.39s" href="modele/ezra.html" aria-label="Voir le book de Ezra">
+        <div class="model-shot"><img src="assets/model-ezra.jpg" loading="lazy" decoding="async" alt="Ezra, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-meta"><span class="model-name">Ezra</span><span class="model-tag">Taches de son</span></div>
+      </a>
+      <a class="model-card reveal" style="transition-delay:.42s" href="modele/olia.html" aria-label="Voir le book de Olia">
+        <div class="model-shot"><img src="assets/model-olia.jpg" loading="lazy" decoding="async" alt="Olia, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-meta"><span class="model-name">Olia</span><span class="model-tag">Trait pur</span></div>
+      </a>
+      <a class="model-card reveal" style="transition-delay:.45s" href="modele/nate.html" aria-label="Voir le book de Nate">
+        <div class="model-shot"><img src="assets/model-nate.jpg" loading="lazy" decoding="async" alt="Nate, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-meta"><span class="model-name">Nate</span><span class="model-tag">Mèche indocile</span></div>
+      </a>
+      <a class="model-card reveal" style="transition-delay:.48s" href="modele/maria.html" aria-label="Voir le book de Maria">
+        <div class="model-shot"><img src="assets/model-maria.jpg" loading="lazy" decoding="async" alt="Maria, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-meta"><span class="model-name">Maria</span><span class="model-tag">Allure libre</span></div>
+      </a>
+      <a class="model-card reveal" style="transition-delay:.51s" href="modele/naomi.html" aria-label="Voir le book de Naomi">
+        <div class="model-shot"><img src="assets/model-naomi.jpg" loading="lazy" decoding="async" alt="Naomi, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-meta"><span class="model-name">Naomi</span><span class="model-tag">Grâce solaire</span></div>
+      </a>
+      <a class="model-card reveal" style="transition-delay:.54s" href="modele/pescador.html" aria-label="Voir le book de Pescador">
         <div class="model-shot"><img src="assets/model-pescador-portrait.jpg" loading="lazy" decoding="async" alt="Pescador, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
         <div class="model-meta"><span class="model-name">Pescador</span><span class="model-tag">Sel et poivre</span></div>
       </a>
