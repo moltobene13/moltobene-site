@@ -1,8 +1,26 @@
-# Static assets — cache 1 year (filenames don't change without content change)
+# ── Visuels ────────────────────────────────────────────────────────────────
+# NE PAS remettre `immutable` ni un max-age long ici.
+# Les règles de ce fichier s'appliquent d'après le CHEMIN demandé, pas d'après
+# le statut de la réponse. Quand un visuel n'existe pas encore, l'hébergeur
+# renvoie index.html en 200 — et cette réponse héritait du cache d'un an.
+# Résultat : une page HTML figée pendant un an à la place de l'image, sans
+# moyen de purger depuis le dépôt. C'est arrivé trois fois le 08/09/2026
+# (model-pescador, idris/camp/shot-01, mike/camp/shot-01), chaque fois parce
+# qu'une requête avait touché l'URL avant la fin du déploiement.
+#
+# 1 jour de cache ferme, puis 7 jours servis en arrière-plan pendant la
+# revalidation : les performances restent bonnes et toute erreur se répare
+# d'elle-même en 24 h au lieu d'un an.
+# Ça corrige aussi un second défaut : `immutable` empêchait les visiteurs
+# déjà venus de voir un visuel remplacé sous le même nom de fichier.
 /assets/*
-  Cache-Control: public, max-age=31536000, immutable
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
 
-# Security headers — applied to all responses
+# La page d'erreur ne doit jamais être mise en cache
+/404.html
+  Cache-Control: no-store
+
+# ── Sécurité — appliqué à toutes les réponses ──────────────────────────────
 /*
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff

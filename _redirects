@@ -1,0 +1,4 @@
+# Un visuel absent doit renvoyer une vraie 404, pas index.html en 200.
+# Les fichiers réellement présents sont servis avant toute règle de ce
+# fichier : cette ligne ne concerne donc que les chemins introuvables.
+/assets/*   /404.html   404
