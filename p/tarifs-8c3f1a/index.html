@@ -305,13 +305,14 @@ main{max-width:none;padding:0}
           <tr><th scope="row">50 crédits</th><td class="r"><b>2 500 €</b><br>+ 3 crédits offerts<span class="valid">valables 8 mois</span></td><td class="f"><b>1 875 €</b><span class="tname">Agence</span><span class="valid f">report 2 mois</span></td></tr>
           <tr><th scope="row">100 crédits</th><td class="r"><b>5 000 €</b><br>+ 10 crédits offerts<span class="valid">valables 12 mois</span></td><td class="f"><b>3 500 €</b><span class="tname">Partenaire</span><span class="valid f">report 3 mois, mannequin exclusif inclus</span></td></tr>
           <tr class="grp"><th scope="rowgroup" colspan="3">Suppléments <a class="more inline" href="#supplements">En savoir plus</a></th></tr>
-          <tr><th scope="row">Stylisme</th><td class="r">+1 crédit par tenue, seulement si nous la composons</td><td class="f">inclus</td></tr>
+          <tr><th scope="row">Stylisme</th><td class="r">inclus</td><td class="f">inclus</td></tr>
           <tr><th scope="row">Mannequin de la bibliothèque</th><td class="r">+2 crédits</td><td class="f">inclus</td></tr>
           <tr><th scope="row">Mise en place de votre marque</th><td class="r">+5 crédits</td><td class="f">offerte</td></tr>
           <tr><th scope="row">Mannequin exclusif</th><td class="r">+10 crédits</td><td class="f">+10 crédits, un inclus en Partenaire</td></tr>
           <tr><th scope="row">Mannequin supplémentaire dans le cadre</th><td class="r">+1 crédit par visuel</td><td class="f">+1 crédit par visuel</td></tr>
           <tr><th scope="row">Pièce complexe</th><td class="r">+1 crédit par visuel</td><td class="f">+1 crédit par visuel</td></tr>
           <tr><th scope="row">Retouches supplémentaires</th><td class="r">1 aller-retour compris, puis +1 crédit par aller-retour</td><td class="f">1 aller-retour compris, puis +1 crédit par aller-retour</td></tr>
+          <tr><th scope="row">Crédits au-delà du forfait</th><td class="r">Packs ou 50 € à l'unité</td><td class="f">Au tarif du crédit de votre forfait : 45, 40, 37,50 ou 35 €</td></tr>
           <tr class="grp"><th scope="rowgroup" colspan="3">Conditions</th></tr>
           <tr><th scope="row">Validité des crédits</th><td class="r">2, 4, 8 ou 12 mois selon le pack</td><td class="f">Vos crédits non utilisés sont reportés (1 à 3 mois selon le forfait). Vous pouvez en consommer jusqu'à deux fois votre forfait par mois.<a class="more" href="#report">En savoir plus</a></td></tr>
           <tr><th scope="row">Délai de livraison</th><td class="r">5 à 7 jours ouvrés</td><td class="f">3 jours ouvrés</td></tr>
@@ -336,18 +337,19 @@ main{max-width:none;padding:0}
 <div class="band b-alt"><div class="in">
 <section aria-labelledby="t4">
     <h2 id="t4">Comparez <em>sur votre projet.</em></h2>
-    <p class="sub">Exemple préréglé : 15 visuels produit et 2 visuels scène, avec 7 tenues stylisées et 1 mannequin de la bibliothèque, produits sur une saison de 12 mois.</p>
+    <p class="sub">Exemple préréglé : 15 visuels produit et 2 visuels scène, avec le stylisme inclus et 1 mannequin de la bibliothèque, comparés sur 3 mois, la durée d\u2019engagement du forfait.</p>
     <div class="calc">
       <div class="inputs">
-        <div class="field"><label for="p">Visuels produit<small>1 crédit</small></label><div class="step"><button type="button" data-t="p" data-d="-1" aria-label="Retirer un visuel produit">−</button><input id="p" type="number" min="0" value="15" inputmode="numeric"><button type="button" data-t="p" data-d="1" aria-label="Ajouter un visuel produit">+</button></div></div>
-        <div class="field"><label for="t">Visuels tenue ou scène<small>2 crédits</small></label><div class="step"><button type="button" data-t="t" data-d="-1" aria-label="Retirer un visuel tenue ou scène">−</button><input id="t" type="number" min="0" value="2" inputmode="numeric"><button type="button" data-t="t" data-d="1" aria-label="Ajouter un visuel tenue ou scène">+</button></div></div>
+        <div class="field"><label for="p">Nombre de produits<small>1 crédit par pose</small></label><div class="step"><button type="button" data-t="p" data-d="-1" aria-label="Retirer un produit">−</button><input id="p" type="number" min="0" value="15" inputmode="numeric"><button type="button" data-t="p" data-d="1" aria-label="Ajouter un produit">+</button></div></div>
+        <div class="field"><label for="po">Nombre de poses par produit<small>chaque pose compte pour 1 visuel produit</small></label><div class="step"><button type="button" data-t="po" data-d="-1" aria-label="Moins de poses par produit">−</button><input id="po" type="number" min="1" value="1" inputmode="numeric"><button type="button" data-t="po" data-d="1" aria-label="Plus de poses par produit">+</button></div></div>
+        <div class="field"><label for="t">Visuels multi-produit<small>2 crédits</small></label><div class="step"><button type="button" data-t="t" data-d="-1" aria-label="Retirer un visuel multi-produit">−</button><input id="t" type="number" min="0" value="2" inputmode="numeric"><button type="button" data-t="t" data-d="1" aria-label="Ajouter un visuel multi-produit">+</button></div></div>
         <div class="field"><label for="cx">Visuels avec pièce complexe<small>+1 crédit chacun, dans les deux formules</small></label><div class="step"><button type="button" data-t="cx" data-d="-1" aria-label="Retirer un visuel avec pièce complexe">−</button><input id="cx" type="number" min="0" value="0" inputmode="numeric"><button type="button" data-t="cx" data-d="1" aria-label="Ajouter un visuel avec pièce complexe">+</button></div></div>
         <div class="field"><label for="ex">Visuels avec mannequin supplémentaire<small>+1 crédit chacun, dans les deux formules</small></label><div class="step"><button type="button" data-t="ex" data-d="-1" aria-label="Retirer un visuel avec second mannequin">−</button><input id="ex" type="number" min="0" value="0" inputmode="numeric"><button type="button" data-t="ex" data-d="1" aria-label="Ajouter un visuel avec second mannequin">+</button></div></div>
-        <div class="field"><label for="l">Tenues à composer par nous<small>+1 crédit en recharge, 0 si vous les fournissez</small></label><div class="step"><button type="button" data-t="l" data-d="-1" aria-label="Retirer une tenue">−</button><input id="l" type="number" min="0" value="7" inputmode="numeric"><button type="button" data-t="l" data-d="1" aria-label="Ajouter une tenue">+</button></div></div>
+        
         <div class="field"><label for="m">Mannequins de la bibliothèque<small>première apparition, +2 crédits en recharge</small></label><div class="step"><button type="button" data-t="m" data-d="-1" aria-label="Retirer un mannequin de la bibliothèque">−</button><input id="m" type="number" min="0" value="1" inputmode="numeric"><button type="button" data-t="m" data-d="1" aria-label="Ajouter un mannequin de la bibliothèque">+</button></div></div>
         <div class="field"><label for="x">Mannequins exclusifs<small>+10 crédits dans les deux formules</small></label><div class="step"><button type="button" data-t="x" data-d="-1" aria-label="Retirer un mannequin exclusif">−</button><input id="x" type="number" min="0" value="0" inputmode="numeric"><button type="button" data-t="x" data-d="1" aria-label="Ajouter un mannequin exclusif">+</button></div></div>
         <div class="field"><label for="k">Première commande pour cette marque<small>mise en place, +5 crédits en recharge</small></label><input id="k" type="checkbox"></div>
-        <div class="field"><label for="mo">Production étalée sur<small>mois, de 1 à 12</small></label><div class="step"><button type="button" data-t="mo" data-d="-1" aria-label="Moins de mois">−</button><input id="mo" type="number" min="1" max="12" value="12" inputmode="numeric"><button type="button" data-t="mo" data-d="1" aria-label="Plus de mois">+</button></div></div>
+        
       </div>
       <div class="results" aria-live="polite">
         <div class="res r"><h3>Recharge</h3><p class="cr" id="rc"></p><p class="muted">crédits utilisés</p><p class="eur" id="re"></p><p class="muted" id="rd"></p></div>
@@ -363,7 +365,7 @@ main{max-width:none;padding:0}
     <h2 id="t-sup">Les suppléments, <em>en détail.</em></h2>
     <p class="sub">Ce que couvre chaque supplément du tableau.</p>
     <dl class="expl">
-      <div><dt>Stylisme</dt><dd>Nous composons la tenue autour de vos pièces : vêtements et accessoires complémentaires, cohérence avec votre univers. Une tenue sert pour tous les visuels où elle apparaît. Si vous fournissez vous-même la tenue complète, aucun supplément.</dd></div>
+      <div><dt>Stylisme</dt><dd>Nous composons la tenue autour de vos pièces : vêtements et accessoires complémentaires, cohérence avec votre univers. Inclus dans toutes les formules, recharge comme forfait. Une tenue sert pour tous les visuels où elle apparaît. Si vous fournissez vous-même la tenue complète, nous la respectons à l\u2019identique.</dd></div>
       <div><dt>Mannequin de la bibliothèque</dt><dd>Choisi dans notre casting. À sa première apparition pour votre marque, nous calons son visage et sa carnation pour qu'il reste identique d'un visuel à l'autre.</dd></div>
       <div><dt>Mise en place de votre marque</dt><dd>Une seule fois, au démarrage : étude de votre charte, réglage de vos logos, de vos couleurs et du fond, pour que chaque visuel soit fidèle à votre marque.</dd></div>
       <div><dt>Mannequin exclusif</dt><dd>Un visage créé pour vous et réservé à votre marque : personne d'autre ne pourra l'utiliser. Création, réglages et validation compris.</dd></div>
@@ -473,8 +475,8 @@ main{max-width:none;padding:0}
   var ENG=3;
   var TIERS=[[10,450,'Essentiel'],[25,1000,'Studio'],[50,1875,'Agence'],[100,3500,'Partenaire']];
   function projet(){
-    var p=num('p'),t=num('t'),cx=num('cx'),ex=num('ex'),l=num('l'),m=num('m'),x=num('x'),k=$('k').checked,M=Math.min(12,Math.max(1,num('mo')));
-    var F=p+2*t+cx+ex+10*x, R=F+l+2*m+(k?5:0);
+    var p=num('p')*Math.max(1,num('po')),t=num('t'),cx=num('cx'),ex=num('ex'),m=num('m'),x=num('x'),k=$('k').checked,M=3;
+    var F=p+2*t+cx+ex+10*x, R=F+2*m+(k?5:0);
     var v=$('v'),fl=$('fl');
     $('rc').textContent=R;
     var best=buy(R,M); $('re').textContent=R?fmt(best.cost):fmt(0); $('rd').textContent=best.label;
@@ -482,32 +484,28 @@ main{max-width:none;padding:0}
       $('fc').textContent=0;$('fe').textContent=fmt(0);$('fd').textContent='';fl.innerHTML='';
       v.textContent='Réglez votre projet pour voir la comparaison.';return;
     }
-    var T=null,need=F;
+    var bt=null;
     for(var i=0;i<TIERS.length;i++){
-      need=F-((i===3&&x>0)?10:0);
-      if(TIERS[i][0]*M>=need){T=TIERS[i];break}
+      var Ti=TIERS[i],nd=F-((i===3&&x>0)?10:0),Ni=Math.max(M,ENG),inc=Ti[0]*Ni,ex=Math.max(0,nd-inc),un=Ti[1]/Ti[0],co=Ni*Ti[1]+ex*un;
+      if(!bt||co<bt.co) bt={T:Ti,need:nd,N:Ni,incl:inc,extra:ex,unit:un,co:co};
     }
-    var RC=best.cost;
-    if(!T){
-      $('fc').textContent=F;$('fh2').textContent='Forfait';$('fe').textContent='Sur devis';$('fd').textContent='volume au-delà du forfait Partenaire sur cette durée';fl.innerHTML='';
-      v.innerHTML='Ce volume dépasse le forfait Partenaire sur '+pl(M,'mois')+' : <b>sur devis</b>. En recharge : '+fmt(RC)+'.';return;
-    }
-    var N=Math.max(M,ENG), tot=N*T[1], incl=N*T[0];
+    var T=bt.T,need=bt.need,N=bt.N,incl=bt.incl,extra=bt.extra,tot=Math.round(bt.co),RC=best.cost;
+    var us=(bt.unit%1?bt.unit.toFixed(2).replace('.',','):bt.unit)+'\u00a0€';
     $('fc').textContent=need;
     $('fh2').textContent='Forfait '+T[2];
     $('fe').textContent=fmt(tot);
     $('fd').textContent=(M<ENG?'pour l\u2019engagement de '+ENG+' mois':'sur '+N+' mois, reconduit chaque mois');
-    fl.innerHTML='<li><span>Par mois</span><span>'+fmt(T[1])+'</span></li><li><span>Crédits inclus sur '+N+' mois</span><span>'+incl+'</span></li><li><span>Dont perdus, non utilisés par ce projet</span><span>'+(incl-need)+'</span></li>';
+    fl.innerHTML='<li><span>Par mois</span><span>'+fmt(T[1])+'</span></li><li><span>Crédits inclus sur '+N+' mois</span><span>'+incl+'</span></li>'+(extra>0?'<li><span>Crédits au-delà du forfait ('+extra+' à '+us+')</span><span>'+fmt(extra*bt.unit)+'</span></li>':'<li><span>Dont perdus, non utilisés par ce projet</span><span>'+(incl-need)+'</span></li>');
     if(tot>=RC){
       v.innerHTML='Pour ce projet, la <b>recharge est plus avantageuse</b> : '+fmt(RC)+' contre '+fmt(tot)+' pour les '+N+' mois du forfait '+T[2]+'. Le forfait devient intéressant si vous produisez régulièrement, à partir d\u2019environ '+T[0]+' crédits par mois.';
     }else{
-      v.innerHTML='En forfait '+T[2]+', vous payez <b>'+fmt(tot)+'</b> sur '+N+' mois contre '+fmt(RC)+' en recharge, soit <b>'+fmt(RC-tot)+' d\u2019économie</b>.'+(incl>need?' '+pl(incl-need,'crédit')+' inclus non utilisé'+(incl-need>1?'s':'')+(incl-need>1?' seraient perdus':' serait perdu')+' à '+(incl-need>1?'leur':'son')+' expiration.':'');
+      v.innerHTML='En forfait '+T[2]+', vous payez <b>'+fmt(tot)+'</b> sur '+N+' mois contre '+fmt(RC)+' en recharge, soit <b>'+fmt(RC-tot)+' d\u2019économie</b>.'+(extra>0?' Les '+pl(extra,'crédit')+' au-delà du forfait sont facturés au tarif du forfait, '+us+' le crédit.':(incl>need?' '+pl(incl-need,'crédit')+' inclus non utilisé'+(incl-need>1?'s':'')+(incl-need>1?' seraient perdus':' serait perdu')+' à '+(incl-need>1?'leur':'son')+' expiration.':''));
     }
   }
   document.querySelectorAll('[data-t]').forEach(function(btn){
-    btn.addEventListener('click',function(){$(btn.dataset.t).value=Math.max(0,num(btn.dataset.t)+parseInt(btn.dataset.d,10));projet()});
+    btn.addEventListener('click',function(){$(btn.dataset.t).value=Math.max(btn.dataset.t==='po'?1:0,num(btn.dataset.t)+parseInt(btn.dataset.d,10));projet()});
   });
-  ['p','t','cx','ex','l','m','x','mo'].forEach(function(id){$(id).addEventListener('input',projet)});
+  ['p','po','t','cx','ex','m','x'].forEach(function(id){$(id).addEventListener('input',projet)});
   $('k').addEventListener('change',projet);
 
   budget(); projet();
