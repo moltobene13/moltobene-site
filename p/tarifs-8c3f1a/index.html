@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="fr">
-<head>
-<meta name="robots" content="noindex, nofollow, noarchive">
+<head><meta name="robots" content="noindex, nofollow, noarchive">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Molto Bene — Tarifs</title>
@@ -312,7 +311,7 @@ main{max-width:none;padding:0}
           <tr><th scope="row">Mannequin supplémentaire dans le cadre</th><td class="r">+1 crédit par visuel</td><td class="f">+1 crédit par visuel</td></tr>
           <tr><th scope="row">Pièce complexe</th><td class="r">+1 crédit par visuel</td><td class="f">+1 crédit par visuel</td></tr>
           <tr><th scope="row">Retouches supplémentaires</th><td class="r">1 aller-retour compris, puis +1 crédit par aller-retour</td><td class="f">1 aller-retour compris, puis +1 crédit par aller-retour</td></tr>
-          <tr><th scope="row">Crédits au-delà du forfait</th><td class="r">Packs ou 50 € à l'unité</td><td class="f">Au tarif du crédit de votre forfait : 45, 40, 37,50 ou 35 €</td></tr>
+          <tr><th scope="row">Crédits au-delà du forfait</th><td class="r">Packs ou 50 € à l'unité</td><td class="f">Jusqu'à 20 % de crédits en plus au tarif de votre forfait (45, 40, 37,50 ou 35 €), puis 50 € le crédit</td></tr>
           <tr class="grp"><th scope="rowgroup" colspan="3">Conditions</th></tr>
           <tr><th scope="row">Validité des crédits</th><td class="r">2, 4, 8 ou 12 mois selon le pack</td><td class="f">Vos crédits non utilisés sont reportés (1 à 3 mois selon le forfait). Vous pouvez en consommer jusqu'à deux fois votre forfait par mois.<a class="more" href="#report">En savoir plus</a></td></tr>
           <tr><th scope="row">Délai de livraison</th><td class="r">5 à 7 jours ouvrés</td><td class="f">3 jours ouvrés</td></tr>
@@ -486,8 +485,8 @@ main{max-width:none;padding:0}
     }
     var bt=null;
     for(var i=0;i<TIERS.length;i++){
-      var Ti=TIERS[i],nd=F-((i===3&&x>0)?10:0),Ni=Math.max(M,ENG),inc=Ti[0]*Ni,ex=Math.max(0,nd-inc),un=Ti[1]/Ti[0],co=Ni*Ti[1]+ex*un;
-      if(!bt||co<bt.co) bt={T:Ti,need:nd,N:Ni,incl:inc,extra:ex,unit:un,co:co};
+      var Ti=TIERS[i],nd=F-((i===3&&x>0)?10:0),Ni=Math.max(M,ENG),inc=Ti[0]*Ni,ex=Math.max(0,nd-inc),un=Ti[1]/Ti[0],cap=Math.floor(0.2*inc),ex1=Math.min(ex,cap),ex2=ex-ex1,co=Ni*Ti[1]+ex1*un+ex2*50;
+      if(!bt||co<bt.co) bt={T:Ti,need:nd,N:Ni,incl:inc,extra:ex,ex1:ex1,ex2:ex2,unit:un,co:co};
     }
     var T=bt.T,need=bt.need,N=bt.N,incl=bt.incl,extra=bt.extra,tot=Math.round(bt.co),RC=best.cost;
     var us=(bt.unit%1?bt.unit.toFixed(2).replace('.',','):bt.unit)+'\u00a0€';
@@ -495,11 +494,11 @@ main{max-width:none;padding:0}
     $('fh2').textContent='Forfait '+T[2];
     $('fe').textContent=fmt(tot);
     $('fd').textContent=(M<ENG?'pour l\u2019engagement de '+ENG+' mois':'sur '+N+' mois, reconduit chaque mois');
-    fl.innerHTML='<li><span>Par mois</span><span>'+fmt(T[1])+'</span></li><li><span>Crédits inclus sur '+N+' mois</span><span>'+incl+'</span></li>'+(extra>0?'<li><span>Crédits au-delà du forfait ('+extra+' à '+us+')</span><span>'+fmt(extra*bt.unit)+'</span></li>':'<li><span>Dont perdus, non utilisés par ce projet</span><span>'+(incl-need)+'</span></li>');
+    fl.innerHTML='<li><span>Par mois</span><span>'+fmt(T[1])+'</span></li><li><span>Crédits inclus sur '+N+' mois</span><span>'+incl+'</span></li>'+(extra>0?(bt.ex1>0?'<li><span>Crédits au-delà du forfait ('+bt.ex1+' à '+us+')</span><span>'+fmt(bt.ex1*bt.unit)+'</span></li>':'')+(bt.ex2>0?'<li><span>Crédits au-delà de la limite de 20 % ('+bt.ex2+' à 50 €)</span><span>'+fmt(bt.ex2*50)+'</span></li>':''):'<li><span>Dont perdus, non utilisés par ce projet</span><span>'+(incl-need)+'</span></li>');
     if(tot>=RC){
       v.innerHTML='Pour ce projet, la <b>recharge est plus avantageuse</b> : '+fmt(RC)+' contre '+fmt(tot)+' pour les '+N+' mois du forfait '+T[2]+'. Le forfait devient intéressant si vous produisez régulièrement, à partir d\u2019environ '+T[0]+' crédits par mois.';
     }else{
-      v.innerHTML='En forfait '+T[2]+', vous payez <b>'+fmt(tot)+'</b> sur '+N+' mois contre '+fmt(RC)+' en recharge, soit <b>'+fmt(RC-tot)+' d\u2019économie</b>.'+(extra>0?' Les '+pl(extra,'crédit')+' au-delà du forfait sont facturés au tarif du forfait, '+us+' le crédit.':(incl>need?' '+pl(incl-need,'crédit')+' inclus non utilisé'+(incl-need>1?'s':'')+(incl-need>1?' seraient perdus':' serait perdu')+' à '+(incl-need>1?'leur':'son')+' expiration.':''));
+      v.innerHTML='En forfait '+T[2]+', vous payez <b>'+fmt(tot)+'</b> sur '+N+' mois contre '+fmt(RC)+' en recharge, soit <b>'+fmt(RC-tot)+' d\u2019économie</b>.'+(extra>0?(bt.ex2>0?' Les '+pl(bt.ex1,'crédit')+' au-delà du forfait sont facturés '+us+' (limite de 20 % des crédits inclus), les '+bt.ex2+' suivants 50 €.':' Les '+pl(extra,'crédit')+' au-delà du forfait sont facturés au tarif du forfait, '+us+' le crédit.'):(incl>need?' '+pl(incl-need,'crédit')+' inclus non utilisé'+(incl-need>1?'s':'')+(incl-need>1?' seraient perdus':' serait perdu')+' à '+(incl-need>1?'leur':'son')+' expiration.':''));
     }
   }
   document.querySelectorAll('[data-t]').forEach(function(btn){
