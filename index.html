@@ -475,6 +475,66 @@ section[id]{scroll-margin-top:84px;}
 .pg-btn.pg-out:hover{background:var(--ink);color:var(--paper);}
 @media(max-width:700px){.pg-types{grid-template-columns:1fr;}.pg-table th,.pg-table td{padding:12px 12px;}}
 
+/* Simulateurs de la grille (15/10/2026) */
+.ps{--ps-ink:#0D0C0B;--ps-soft:#5F5953;--ps-rule:#C9C2B3;--ps-acc:#7A5C06;--ps-tint:#E8D58A;--ps-cy:#3B3632;--ps-cyt:#D5CFC0;margin-top:64px;color:var(--ps-ink);font-family:var(--f-body);}
+.ps .pg-h{margin-top:0;}
+.ps-calc{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;margin-top:22px;}
+.ps-inputs{display:flex;flex-direction:column;}
+.ps-field{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:12px 0;border-bottom:1px solid var(--ps-rule);}
+.ps-field label,.ps-field>span{font-size:16px;}
+.ps-field small{display:block;color:var(--ps-soft);font-size:13px;}
+.ps-step{display:flex;align-items:center;gap:6px;flex-shrink:0;}
+.ps-step button{width:36px;height:36px;border:1.5px solid var(--ps-ink);background:transparent;color:var(--ps-ink);font:inherit;font-size:20px;line-height:1;border-radius:50%;cursor:pointer;padding:0;}
+.ps-step input{width:52px;text-align:center;font-family:var(--f-display);font-weight:700;font-size:22px;background:transparent;color:var(--ps-ink);border:none;-moz-appearance:textfield;padding:0;}
+.ps-step input::-webkit-outer-spin-button,.ps-step input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;}
+.ps button:focus-visible,.ps input:focus-visible{outline:2px solid var(--ps-acc);outline-offset:2px;}
+.ps-field input[type=checkbox]{-webkit-appearance:none;appearance:none;width:22px;height:22px;background:transparent;border:1.5px solid var(--ps-ink);border-radius:3px;position:relative;cursor:pointer;flex-shrink:0;padding:0;}
+.ps-field input[type=checkbox]:checked::after{content:"";position:absolute;left:6px;top:2px;width:6px;height:11px;border:solid var(--ps-ink);border-width:0 2px 2px 0;transform:rotate(45deg);}
+.ps-field.ps-budget{max-width:420px;margin-bottom:16px;margin-top:22px;border-bottom:none;padding-left:0;}
+.ps-bval{display:inline-block;min-width:128px;text-align:center;font-family:var(--f-display);font-weight:700;font-size:22px;}
+.ps-muted{margin:0;color:var(--ps-soft);font-size:14px;}
+.ps-what{border-top:2px solid var(--ps-ink);padding:12px 0 8px;}
+.ps-opts{list-style:none;padding:0;margin:6px 0 0;}
+.ps-opts li{font-size:19px;padding:10px 0;border-top:1px solid var(--ps-rule);}
+.ps-opts b{font-family:var(--f-display);font-weight:800;font-size:26px;}
+.ps-opts .ps-or{display:inline-block;min-width:30px;color:var(--ps-soft);font-style:italic;}
+.ps-opts .ps-rest{display:block;font-size:13px;color:var(--ps-soft);margin-left:30px;}
+.ps-opts.ps-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin:6px 0 0;}
+.ps-opts.ps-row li{border-top:none;padding:6px 10px 10px 0;font-size:16px;line-height:1.25;}
+.ps-opts.ps-row li+li{border-left:1px solid var(--ps-rule);padding-left:12px;}
+.ps-opts.ps-row .ps-or{display:inline;min-width:0;margin-right:6px;font-size:14px;}
+.ps-opts.ps-row b{font-size:34px;}
+.ps-opts.ps-row .ps-lab{display:block;min-height:1.25em;}
+.ps-opts.ps-row .ps-rest{display:block;margin:2px 0 0;font-size:12px;min-height:2.6em;}
+.ps-duo{display:grid;grid-template-columns:1fr 1fr;}
+.ps-out{padding:20px 18px;}
+.ps-out.ps-r{background:var(--ps-cyt);} .ps-out.ps-f{background:var(--ps-tint);}
+.ps-out h3{margin:0 0 4px;font-family:var(--f-display);font-size:22px;font-weight:800;}
+.ps-out.ps-r h3,.ps-out.ps-r .ps-cr{color:var(--ps-cy);} .ps-out.ps-f h3,.ps-out.ps-f .ps-cr{color:var(--ps-acc);}
+.ps-out .ps-cr{font-family:var(--f-display);font-weight:800;font-size:48px;line-height:1;margin:6px 0 4px;}
+.ps-out .ps-save{margin:14px 0 0;padding-top:12px;border-top:2px solid var(--ps-acc);font-size:15px;}
+.ps-out .ps-save b{color:var(--ps-acc);font-family:var(--f-display);font-size:20px;}
+.ps-out .ps-save:empty{display:none;}
+.ps-note{color:var(--ps-soft);font-size:14px;margin:12px 0 0;}
+.ps-results{display:grid;grid-template-columns:1fr 1fr;}
+.ps-res{padding:18px 16px;}
+.ps-res.ps-r{background:var(--ps-cyt);} .ps-res.ps-f{background:var(--ps-tint);}
+.ps-res h3{margin:0;font-family:var(--f-display);font-size:20px;font-weight:800;}
+.ps-res.ps-r h3{color:var(--ps-cy);} .ps-res.ps-f h3{color:var(--ps-acc);}
+.ps-res .ps-cr{font-family:var(--f-display);font-weight:800;font-size:56px;line-height:1;margin:10px 0 0;}
+.ps-res .ps-eur{font-family:var(--f-display);font-weight:700;font-size:24px;margin:12px 0 0;}
+.ps-res ul{list-style:none;padding:0;margin:6px 0 0;font-size:14px;}
+.ps-res li{display:flex;justify-content:space-between;gap:8px;padding:2px 0;}
+.ps-verdict{grid-column:1/-1;padding:16px;border-top:2px solid var(--ps-ink);font-size:17px;margin:0;}
+.ps-verdict b{color:var(--ps-acc);}
+@media(max-width:700px){
+  .ps-calc{grid-template-columns:1fr;gap:20px;}
+  .ps-res{padding:14px 10px;} .ps-res .ps-cr{font-size:44px;}
+  .ps-duo .ps-out{padding:14px 10px;} .ps-duo .ps-out h3{font-size:18px;} .ps-duo .ps-out .ps-cr{font-size:34px;line-height:1.05;}
+  .ps-duo .ps-muted{font-size:12px;} .ps-duo .ps-save{font-size:13px;}
+  .ps-opts.ps-row b{font-size:26px;} .ps-opts.ps-row li{font-size:13px;padding-right:6px;} .ps-opts.ps-row li+li{padding-left:8px;} .ps-opts.ps-row .ps-or{font-size:12px;} .ps-opts.ps-row .ps-rest{font-size:11px;}
+}
+
 /* ═══ PRICING V2 — GRILLE D'OFFRES (figée 01/07/2026) — compacte ═══ */
 .gv-hint{display:none;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;color:rgba(13,12,11,.42);margin-top:24px;}
 .gv-scroll{margin-top:10px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin;padding-bottom:4px;}
@@ -1536,6 +1596,39 @@ section[id]{scroll-margin-top:84px;}
       </table>
     </div>
 
+    <div class="ps">
+    <h3 class="pg-h">Votre volume : <em>ce que vous payez.</em></h3>
+    <p class="pg-sub">Choisissez un nombre de crédits : vous voyez ce qu'ils permettent de produire, puis leur prix en recharge et en forfait.</p>
+    <div class="ps-field ps-budget"><span>Nombre de crédits</span><div class="ps-step"><button type="button" id="pg-bm" aria-label="Moins de crédits">−</button><output id="pg-b" class="ps-bval" aria-live="polite"></output><button type="button" id="pg-bp" aria-label="Plus de crédits">+</button></div></div>
+    <div class="ps-what" aria-live="polite"><p class="ps-muted">Avec ce volume, vous obtenez</p><ul class="ps-opts ps-row" id="pg-wl"></ul></div>
+    <div class="ps-duo" aria-live="polite">
+      <div class="ps-out ps-r"><h3>Recharge</h3><p class="ps-muted" id="pg-rh"></p><p class="ps-cr" id="pg-rcr"></p><p class="ps-muted" id="pg-rb"></p></div>
+      <div class="ps-out ps-f"><h3>Forfait mensuel</h3><p class="ps-muted" id="pg-fh"></p><p class="ps-cr" id="pg-fcr"></p><p class="ps-muted" id="pg-fb"></p><p class="ps-save" id="pg-fsave"></p></div>
+    </div>
+    <p class="ps-note">Le mix compte 2 visuels produit pour 1 visuel scène.</p>
+  </div>
+<div class="ps">
+    <h3 class="pg-h">Comparez <em>sur votre projet.</em></h3>
+    <p class="pg-sub">Exemple préréglé : 20 produits en 3 poses, 6 visuels multi-produit, 6 visuels avec pièce complexe et une première commande, comparés sur 3 mois, la durée d’engagement du forfait.</p>
+    <div class="ps-calc">
+      <div class="ps-inputs">
+        <div class="ps-field"><label for="pg-p">Nombre de produits<small>1 crédit par pose</small></label><div class="ps-step"><button type="button" data-t="p" data-d="-1" aria-label="Retirer un produit">−</button><input id="pg-p" type="number" min="0" value="20" inputmode="numeric"><button type="button" data-t="p" data-d="1" aria-label="Ajouter un produit">+</button></div></div>
+        <div class="ps-field"><label for="pg-po">Nombre de poses par produit<small>chaque pose compte pour 1 visuel produit</small></label><div class="ps-step"><button type="button" data-t="po" data-d="-1" aria-label="Moins de poses par produit">−</button><input id="pg-po" type="number" min="1" value="3" inputmode="numeric"><button type="button" data-t="po" data-d="1" aria-label="Plus de poses par produit">+</button></div></div>
+        <div class="ps-field"><label for="pg-t">Visuels multi-produit<small>2 crédits</small></label><div class="ps-step"><button type="button" data-t="t" data-d="-1" aria-label="Retirer un visuel multi-produit">−</button><input id="pg-t" type="number" min="0" value="6" inputmode="numeric"><button type="button" data-t="t" data-d="1" aria-label="Ajouter un visuel multi-produit">+</button></div></div>
+        <div class="ps-field"><label for="pg-cx">Visuels avec pièce complexe<small>+1 crédit chacun, dans les deux formules</small></label><div class="ps-step"><button type="button" data-t="cx" data-d="-1" aria-label="Retirer un visuel avec pièce complexe">−</button><input id="pg-cx" type="number" min="0" value="6" inputmode="numeric"><button type="button" data-t="cx" data-d="1" aria-label="Ajouter un visuel avec pièce complexe">+</button></div></div>
+        <div class="ps-field"><label for="pg-ex">Visuels avec mannequin supplémentaire<small>+1 crédit chacun, dans les deux formules</small></label><div class="ps-step"><button type="button" data-t="ex" data-d="-1" aria-label="Retirer un visuel avec second mannequin">−</button><input id="pg-ex" type="number" min="0" value="0" inputmode="numeric"><button type="button" data-t="ex" data-d="1" aria-label="Ajouter un visuel avec second mannequin">+</button></div></div>
+        
+        <div class="ps-field"><label for="pg-x">Mannequins exclusifs<small>+10 crédits dans les deux formules</small></label><div class="ps-step"><button type="button" data-t="x" data-d="-1" aria-label="Retirer un mannequin exclusif">−</button><input id="pg-x" type="number" min="0" value="0" inputmode="numeric"><button type="button" data-t="x" data-d="1" aria-label="Ajouter un mannequin exclusif">+</button></div></div>
+        <div class="ps-field"><label for="pg-k">Première commande pour cette marque</label><input id="pg-k" type="checkbox" checked></div>
+        
+      </div>
+      <div class="ps-results" aria-live="polite">
+        <div class="ps-res ps-r"><h3>Recharge</h3><p class="ps-cr" id="pg-rc"></p><p class="ps-muted">crédits utilisés</p><p class="ps-eur" id="pg-re"></p><p class="ps-muted" id="pg-rd"></p></div>
+        <div class="ps-res ps-f"><h3 id="pg-fh2">Forfait</h3><p class="ps-cr" id="pg-fc"></p><p class="ps-muted">crédits utilisés</p><p class="ps-eur" id="pg-fe"></p><p class="ps-muted" id="pg-fd">engagement de 3 mois</p><ul id="pg-fl"></ul></div>
+        <p class="ps-verdict" id="pg-v"></p>
+      </div>
+    </div>
+  </div>
     <ul class="pg-good">
       <li>Le nombre de crédits de chaque visuel est validé avec vous avant la production.</li>
       <li>Les visuels sont générés en 2K. La 4K est possible sur demande, sans crédit supplémentaire. Tous les formats (4:5, 9:16, 1:1) sont inclus.</li>
@@ -1544,11 +1637,110 @@ section[id]{scroll-margin-top:84px;}
     </ul>
 
     <div class="pg-cta">
-      <a href="p/tarifs-8c3f1a/" class="pg-btn">Simuler mon projet →</a>
-      <a href="mailto:hello@moltobene.ai?subject=Tarifs%20-%20Molto%20Bene" class="pg-btn pg-out">On se parle →</a>
+      <a href="mailto:hello@moltobene.ai?subject=Tarifs%20-%20Molto%20Bene" class="pg-btn">On se parle →</a>
     </div>
   </div>
 </section>
+<script>
+(function(){
+  var fmt=function(n){return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,'\u00a0')+'\u00a0€'};
+  var $=function(id){return document.getElementById('pg-'+id)};
+  function num(id){var x=parseInt($(id).value,10);return isNaN(x)||x<0?0:x}
+  var pl=function(n,w){return n+' '+w+(n>1?'s':'')};
+
+  /* volume */
+  var LEV=[[10,500,0,2,'Essentiel',450,1],[25,1250,1,4,'Studio',1000,1],[50,2500,3,8,'Agence',1875,2],[100,5000,10,12,'Partenaire',3500,3],null];
+  var li=0;
+  var pc=function(v){return (Math.round(v*100)/100).toFixed(v%1?2:0).replace('.',',')+'\u00a0€'};
+  function what(tot){
+    var camp=Math.floor(tot/2), sets=Math.floor(tot/4), r3=tot-sets*4;
+    var cell=function(or,n,lab,sub){return '<li>'+(or?'<span class="ps-or">ou</span>':'')+'<b>'+n+'</b><span class="ps-lab">'+lab+'</span>'+(sub?'<span class="ps-rest">'+sub+'</span>':'')+'</li>'};
+    $('wl').innerHTML=cell(false,tot,tot>1?'visuels produit':'visuel produit')+cell(true,camp,camp>1?'visuels scène':'visuel scène')+cell(true,sets*3+r3,'en mix',(sets*2+r3)+' produit + '+sets+' scène');
+  }
+  function budget(){
+    var L=LEV[li];
+    if(!L){
+      $('b').textContent='plus de 100';
+      $('wl').innerHTML='<li>Un volume sur mesure</li>';
+      ['rcr','fcr'].forEach(function(id){$(id).textContent='Sur devis'});
+      $('rh').textContent='Au-delà du pack 100'; $('fh').textContent='Au-delà du forfait Partenaire';
+      $('rb').textContent='Nous construisons une offre avec vous.'; $('fb').textContent='Nous construisons une offre avec vous.';
+      $('fsave').textContent=''; return;
+    }
+    $('b').textContent=pl(L[0],'crédit');
+    what(L[0]);
+    $('rh').textContent='Pack '+L[0];
+    $('rcr').textContent=fmt(L[1]);
+    $('rb').textContent='en une fois. Soit '+pc(L[1]/(L[0]+L[2]))+' le crédit'+(L[2]?', avec '+pl(L[2],'crédit')+' offert'+(L[2]>1?'s':''):'')+'. Valables '+L[3]+' mois.';
+    $('fh').textContent='Forfait '+L[4];
+    $('fcr').textContent=fmt(L[5]);
+    $('fb').textContent='par mois. Soit '+pc(L[5]/L[0])+' le crédit, '+(L[4]==='Partenaire'?'stylisme, mannequins et un mannequin exclusif inclus':'stylisme et mannequins de la bibliothèque inclus')+'. '+(L[6]?'Report '+L[6]+' mois.':'Sans report.');
+    var eco=L[1]-L[5];
+    $('fsave').innerHTML='Économie : <b>'+fmt(eco)+'</b> par mois, soit '+Math.round(eco/L[1]*100)+' % de moins qu\'en recharge.';
+  }
+  $('bm').addEventListener('click',function(){li=Math.max(0,li-1);budget()});
+  $('bp').addEventListener('click',function(){li=Math.min(LEV.length-1,li+1);budget()});
+
+  /* recharge la moins chère pour au moins n crédits */
+  var PACKS=[[1,50,null,0,9999,1],[26,1250,'pack 25',1,4,25],[53,2500,'pack 50',3,8,50],[110,5000,'pack 100',10,12,100]];
+  /* recharge la moins chère pour n crédits consommés régulièrement sur M mois : un pack ne sert que pendant sa validité */
+  function buy(n,M){
+    if(n<=0) return {cost:0,label:''};
+    var r=n/M;
+    var U=PACKS.map(function(k){return Math.max(1,Math.min(k[0],Math.floor(r*k[4]+1e-9)))});
+    var C=[0],W=[null];
+    for(var i=1;i<=n;i++){C[i]=Infinity;
+      PACKS.forEach(function(k,j){var prev=Math.max(0,i-U[j]);if(C[prev]+k[1]<C[i]){C[i]=C[prev]+k[1];W[i]=j}})}
+    var cnt=[0,0,0,0], i=n; while(i>0){var j=W[i];cnt[j]++;i=Math.max(0,i-U[j])}
+    var parts=[], bon=0, got=0;
+    for(var j=3;j>=1;j--) if(cnt[j]){parts.push((cnt[j]>1?cnt[j]+' × ':'')+PACKS[j][2]);bon+=cnt[j]*Math.max(0,U[j]-PACKS[j][5]);got+=cnt[j]*U[j]}
+    if(cnt[0]){parts.push(pl(cnt[0],'crédit')+' à l\'unité');got+=cnt[0]}
+    var lab=parts.join(' + ');
+    if(M>1&&(cnt[1]+cnt[2]+cnt[3])>1) lab+=', achetés au fil des mois selon leur durée de validité';
+    if(bon) lab+=', dont '+pl(bon,'crédit')+' offert'+(bon>1?'s':'');
+    if(got>n) lab+=', '+pl(got-n,'crédit')+' en réserve';
+    return {cost:C[n],label:lab};
+  }
+  /* projet : le forfait engage ENG mois, on compare le coût réel */
+  var ENG=3;
+  var TIERS=[[10,450,'Essentiel'],[25,1000,'Studio'],[50,1875,'Agence'],[100,3500,'Partenaire']];
+  function projet(){
+    var p=num('p')*Math.max(1,num('po')),t=num('t'),cx=num('cx'),ex=num('ex'),x=num('x'),k=$('k').checked,M=3;
+    var F=p+2*t+cx+ex+10*x, R=F+(k?1:0);
+    var v=$('v'),fl=$('fl');
+    $('rc').textContent=R;
+    var best=buy(R,M); $('re').textContent=R?fmt(best.cost):fmt(0); $('rd').textContent=best.label;
+    if(F===0){
+      $('fc').textContent=0;$('fe').textContent=fmt(0);$('fd').textContent='';fl.innerHTML='';
+      v.textContent='Réglez votre projet pour voir la comparaison.';return;
+    }
+    var bt=null;
+    for(var i=0;i<TIERS.length;i++){
+      var Ti=TIERS[i],nd=F-((i===3&&x>0)?10:0),Ni=Math.max(M,ENG),inc=Ti[0]*Ni,ex=Math.max(0,nd-inc),un=Ti[1]/Ti[0],cap=Math.floor(0.2*inc),ex1=Math.min(ex,cap),ex2=ex-ex1,co=Ni*Ti[1]+ex1*un+ex2*50;
+      if(!bt||co<bt.co) bt={T:Ti,need:nd,N:Ni,incl:inc,extra:ex,ex1:ex1,ex2:ex2,unit:un,co:co};
+    }
+    var T=bt.T,need=bt.need,N=bt.N,incl=bt.incl,extra=bt.extra,tot=Math.round(bt.co),RC=best.cost;
+    var us=(bt.unit%1?bt.unit.toFixed(2).replace('.',','):bt.unit)+'\u00a0€';
+    $('fc').textContent=need;
+    $('fh2').textContent='Forfait '+T[2];
+    $('fe').textContent=fmt(tot);
+    $('fd').textContent=(M<ENG?'pour l\u2019engagement de '+ENG+' mois':'sur '+N+' mois, reconduit chaque mois');
+    fl.innerHTML='<li><span>Par mois</span><span>'+fmt(T[1])+'</span></li><li><span>Crédits inclus sur '+N+' mois</span><span>'+incl+'</span></li>'+(extra>0?(bt.ex1>0?'<li><span>Crédits au-delà du forfait ('+bt.ex1+' à '+us+')</span><span>'+fmt(bt.ex1*bt.unit)+'</span></li>':'')+(bt.ex2>0?'<li><span>Crédits au-delà de la limite de 20 % ('+bt.ex2+' à 50 €)</span><span>'+fmt(bt.ex2*50)+'</span></li>':''):'<li><span>Dont perdus, non utilisés par ce projet</span><span>'+(incl-need)+'</span></li>');
+    if(tot>=RC){
+      v.innerHTML='Pour ce projet, la <b>recharge est plus avantageuse</b> : '+fmt(RC)+' contre '+fmt(tot)+' pour les '+N+' mois du forfait '+T[2]+'. Le forfait devient intéressant si vous produisez régulièrement, à partir d\u2019environ '+T[0]+' crédits par mois.';
+    }else{
+      v.innerHTML='En forfait '+T[2]+', vous payez <b>'+fmt(tot)+'</b> sur '+N+' mois contre '+fmt(RC)+' en recharge, soit <b>'+fmt(RC-tot)+' d\u2019économie</b>.'+(extra>0?(bt.ex2>0?' Les '+pl(bt.ex1,'crédit')+' au-delà du forfait sont facturés '+us+' (limite de 20 % des crédits inclus), les '+bt.ex2+' suivants 50 €.':' Les '+pl(extra,'crédit')+' au-delà du forfait sont facturés au tarif du forfait, '+us+' le crédit.'):(incl>need?' '+pl(incl-need,'crédit')+' inclus non utilisé'+(incl-need>1?'s':'')+(incl-need>1?' seraient perdus':' serait perdu')+' à '+(incl-need>1?'leur':'son')+' expiration.':''));
+    }
+  }
+  document.querySelectorAll('[data-t]').forEach(function(btn){
+    btn.addEventListener('click',function(){$(btn.dataset.t).value=Math.max(btn.dataset.t==='po'?1:0,num(btn.dataset.t)+parseInt(btn.dataset.d,10));projet()});
+  });
+  ['p','po','t','cx','ex','x'].forEach(function(id){$(id).addEventListener('input',projet)});
+  $('k').addEventListener('change',projet);
+
+  budget(); projet();
+})();
+</script>
 
 <!-- CADRE DE CONFIANCE -->
 <section class="trust-s reveal" id="confiance">
