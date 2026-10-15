@@ -440,6 +440,41 @@ section[id]{scroll-margin-top:84px;}
   60%,100%{transform:translateX(110%);}
 }
 
+/* ═══ TARIFS — NOUVELLE GRILLE EN CRÉDITS (15/10/2026) ═══ */
+.pg-lead{margin:18px 0 0;font-family:var(--f-body);font-size:clamp(15px,1.4vw,18px);line-height:1.6;color:var(--ink2);max-width:640px;}
+.pg-types{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:40px;}
+.pg-type{background:#fff;border:1px solid rgba(13,12,11,.08);border-top:2px solid var(--mustard);border-radius:3px;padding:30px 28px;display:flex;flex-direction:column;gap:10px;}
+.pg-c{font-family:var(--f-display);font-weight:800;font-size:clamp(40px,4.4vw,60px);line-height:1;color:var(--ink);}
+.pg-c small{font-family:var(--f-mono);font-weight:400;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--mustard);margin-left:10px;}
+.pg-type h3{font-family:var(--f-display);font-weight:700;font-size:22px;color:var(--ink);}
+.pg-type p{font-family:var(--f-body);font-size:15px;line-height:1.6;color:var(--ink2);}
+.pg-tp{margin-top:auto;padding-top:8px;color:var(--muted)!important;}
+.pg-tp b{font-family:var(--f-display);font-size:24px;color:var(--ink);margin-right:6px;}
+.pg-h{font-family:var(--f-display);font-weight:800;font-size:clamp(26px,3vw,40px);line-height:1;letter-spacing:-.02em;color:var(--ink);margin-top:64px;}
+.pg-h em{font-style:italic;color:var(--mustard);}
+.pg-sub{margin-top:10px;font-family:var(--f-body);font-size:15px;color:var(--muted);}
+.pg-wrap{margin-top:22px;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.pg-table{width:100%;min-width:640px;border-collapse:collapse;font-family:var(--f-body);font-size:15px;color:var(--ink2);}
+.pg-table th,.pg-table td{padding:14px 16px;text-align:left;vertical-align:top;border-bottom:1px solid rgba(13,12,11,.1);line-height:1.5;}
+.pg-table thead th{font-family:var(--f-display);font-weight:700;font-size:20px;color:var(--ink);border-bottom:2px solid var(--ink);vertical-align:bottom;}
+.pg-table thead small{display:block;margin-top:4px;font-family:var(--f-body);font-weight:400;font-size:13px;color:var(--muted);}
+.pg-table tbody th{font-weight:600;color:var(--ink);width:26%;}
+.pg-table .pg-f{background:rgba(212,170,32,.09);}
+.pg-table b{font-family:var(--f-display);font-size:19px;color:var(--ink);}
+.pg-price{font-family:var(--f-display);font-weight:700;font-size:22px;color:var(--ink);}
+.pg-v{display:block;margin-top:3px;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--muted);}
+.pg-tn{display:block;margin-top:3px;font-family:var(--f-mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--mustard);}
+.pg-table .pg-grp th{padding-top:32px;font-family:var(--f-mono);font-weight:400;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--mustard);border-bottom:1px solid var(--mustard);width:auto;}
+.pg-good{margin:36px 0 0;padding:0;list-style:none;display:grid;gap:10px;max-width:760px;}
+.pg-good li{position:relative;padding-left:22px;font-family:var(--f-body);font-size:15px;line-height:1.6;color:var(--ink2);}
+.pg-good li::before{content:'✦';position:absolute;left:0;color:var(--mustard);font-size:12px;top:3px;}
+.pg-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:40px;}
+.pg-btn{display:inline-block;padding:15px 26px;background:var(--ink);color:var(--paper);border:1px solid var(--ink);font-family:var(--f-mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:background .2s,color .2s;}
+.pg-btn:hover{background:transparent;color:var(--ink);}
+.pg-btn.pg-out{background:transparent;color:var(--ink);}
+.pg-btn.pg-out:hover{background:var(--ink);color:var(--paper);}
+@media(max-width:700px){.pg-types{grid-template-columns:1fr;}.pg-table th,.pg-table td{padding:12px 12px;}}
+
 /* ═══ PRICING V2 — GRILLE D'OFFRES (figée 01/07/2026) — compacte ═══ */
 .gv-hint{display:none;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;color:rgba(13,12,11,.42);margin-top:24px;}
 .gv-scroll{margin-top:10px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin;padding-bottom:4px;}
@@ -1458,156 +1493,59 @@ section[id]{scroll-margin-top:84px;}
   </div>
 </section>
 
-<!-- PRICING — Grille d'offres v2 (figée 01/07/2026) -->
+<!-- PRICING — Nouvelle grille en crédits (15/10/2026) -->
 <section class="pricing-s reveal" id="pricing">
   <div class="pricing-inner">
-    <div class="pricing-label">Nos formules</div>
+    <div class="pricing-label">Nos tarifs</div>
     <div class="pricing-hr"></div>
-    <h2 class="pricing-title">Choisissez <em>votre rythme.</em></h2>
-    <p class="gv-hint">↔ Faites défiler le tableau horizontalement</p>
-    <div class="gv-scroll">
-      <div class="grid-v2">
+    <h2 class="pricing-title">1 crédit = 1 visuel <em>à partir de 35&nbsp;€.</em></h2>
+    <p class="pg-lead">50&nbsp;€ à l'unité, jusqu'à 30&nbsp;% de moins avec un forfait mensuel. Vous payez en crédits.</p>
 
-        <!-- ── En-têtes d'offre ── -->
-        <div class="gv-corner"><span class="gv-corner-lbl">✦ Formules</span></div>
-        <div class="gv-head">
-          <span class="gv-badge is-ghost">✦ Recommandé</span>
-          <div class="gv-name">Test</div>
-          <div class="gv-base">Découvrir le studio</div>
-          <div class="gv-price">249 €</div>
-        </div>
-        <div class="gv-head">
-          <span class="gv-badge is-ghost">✦ Recommandé</span>
-          <div class="gv-name">Drop</div>
-          <div class="gv-base">Une sortie, un moment fort</div>
-          <div class="gv-price">499 €</div>
-        </div>
-        <div class="gv-head">
-          <span class="gv-badge is-ghost">✦ Recommandé</span>
-          <div class="gv-name">Capsule</div>
-          <div class="gv-base">Quelques pièces sublimées</div>
-          <div class="gv-price">999 €</div>
-        </div>
-        <div class="gv-head">
-          <span class="gv-badge is-ghost">✦ Recommandé</span>
-          <div class="gv-name">Collection</div>
-          <div class="gv-base">Votre gamme entière</div>
-          <div class="gv-price">1 690 €</div>
-        </div>
-        <div class="gv-head is-studio">
-          <span class="gv-badge">✦ Recommandé</span>
-          <div class="gv-name">Studio Créatif</div>
-          <div class="gv-base">Une marque active en continu</div>
-          <div class="gv-price">1 499 €<small>/mois</small></div>
-        </div>
-
-        <!-- ── Produits ── -->
-        <div class="gv-rlabel">Produits</div>
-        <div class="gv-cell">1</div>
-        <div class="gv-cell">3</div>
-        <div class="gv-cell">5</div>
-        <div class="gv-cell">10</div>
-        <div class="gv-cell is-studio"><span class="gv-opt">à convenance</span></div>
-
-        <!-- ── Visuels livrés ── -->
-        <div class="gv-rlabel">Visuels livrés</div>
-        <div class="gv-cell">4</div>
-        <div class="gv-cell">9</div>
-        <div class="gv-cell">25</div>
-        <div class="gv-cell">50</div>
-        <div class="gv-cell is-studio">40<small>/ mois</small></div>
-
-        <!-- ── Décors / univers ── -->
-        <div class="gv-rlabel">Décors / univers</div>
-        <div class="gv-cell">1</div>
-        <div class="gv-cell">2</div>
-        <div class="gv-cell">3</div>
-        <div class="gv-cell">5</div>
-        <div class="gv-cell is-studio">illimités</div>
-
-        <!-- ── Vidéo produit ── -->
-        <div class="gv-rlabel">Vidéo produit</div>
-        <div class="gv-cell"><span class="gv-no">—</span></div>
-        <div class="gv-cell">1</div>
-        <div class="gv-cell">2</div>
-        <div class="gv-cell">4</div>
-        <div class="gv-cell is-studio">incluses</div>
-
-        <!-- ── Lookbook ── -->
-        <div class="gv-rlabel">Lookbook <small>face · profil · dos</small></div>
-        <div class="gv-cell"><span class="gv-yes">✦</span></div>
-        <div class="gv-cell"><span class="gv-yes">✦</span></div>
-        <div class="gv-cell"><span class="gv-yes">✦</span></div>
-        <div class="gv-cell"><span class="gv-yes">✦</span></div>
-        <div class="gv-cell is-studio"><span class="gv-yes">✦</span></div>
-
-        <!-- ── Photobook ── -->
-        <div class="gv-rlabel">Photobook <small>univers extérieur</small></div>
-        <div class="gv-cell"><span class="gv-yes">✦</span></div>
-        <div class="gv-cell"><span class="gv-yes">✦</span></div>
-        <div class="gv-cell"><span class="gv-yes">✦</span></div>
-        <div class="gv-cell"><span class="gv-yes">✦</span></div>
-        <div class="gv-cell is-studio"><span class="gv-yes">✦</span></div>
-
-        <!-- ── Close up ── -->
-        <div class="gv-rlabel">Close up</div>
-        <div class="gv-cell"><span class="gv-no">—</span></div>
-        <div class="gv-cell"><span class="gv-no">—</span></div>
-        <div class="gv-cell"><span class="gv-yes">✦</span></div>
-        <div class="gv-cell"><span class="gv-yes">✦</span></div>
-        <div class="gv-cell is-studio"><span class="gv-yes">✦</span></div>
-
-        <!-- ── Mannequin exclusif ── -->
-        <div class="gv-rlabel">Mannequin exclusif</div>
-        <div class="gv-cell"><span class="gv-no">—</span></div>
-        <div class="gv-cell"><span class="gv-no">—</span></div>
-        <div class="gv-cell"><span class="gv-opt">option</span></div>
-        <div class="gv-cell"><span class="gv-opt">option</span></div>
-        <div class="gv-cell is-studio">inclus</div>
-
-        <!-- ── Délai ── -->
-        <div class="gv-rlabel">Délai</div>
-        <div class="gv-cell">48 h</div>
-        <div class="gv-cell">72 h</div>
-        <div class="gv-cell">5–7 j</div>
-        <div class="gv-cell">10–12 j</div>
-        <div class="gv-cell is-studio">en continu</div>
-
-        <!-- ── CTA ── -->
-        <div class="gv-cta-cell gv-cta-blank" style="position:sticky;left:0;z-index:2;"></div>
-        <div class="gv-cta-cell"><a href="mailto:hello@moltobene.ai?subject=Offre%20Test%20-%20Molto%20Bene" class="gv-cta">Démarrer →</a></div>
-        <div class="gv-cta-cell"><a href="mailto:hello@moltobene.ai?subject=Offre%20Drop%20-%20Molto%20Bene" class="gv-cta">Démarrer →</a></div>
-        <div class="gv-cta-cell"><a href="mailto:hello@moltobene.ai?subject=Offre%20Capsule%20-%20Molto%20Bene" class="gv-cta">Démarrer →</a></div>
-        <div class="gv-cta-cell"><a href="mailto:hello@moltobene.ai?subject=Offre%20Collection%20-%20Molto%20Bene" class="gv-cta">Démarrer →</a></div>
-        <div class="gv-cta-cell is-studio"><a href="mailto:hello@moltobene.ai?subject=Studio%20Cr%C3%A9atif%20-%20Molto%20Bene" class="gv-cta is-studio">Choisir →</a></div>
-
-      </div>
+    <div class="pg-types">
+      <article class="pg-type"><span class="pg-c">1<small>crédit</small></span><h3>Produit</h3><p>Un mannequin, une pièce, fond studio.</p><p class="pg-tp"><b>50&nbsp;€</b> dès 35&nbsp;€ en forfait</p></article>
+      <article class="pg-type"><span class="pg-c">2<small>crédits</small></span><h3>Tenue &amp; scène</h3><p>Une tenue complète avec plusieurs pièces fidèles à l'original, ou une scène avec un décor extérieur ou un second mannequin dans le même cadre (+1 crédit).</p><p class="pg-tp"><b>100&nbsp;€</b> dès 70&nbsp;€ en forfait</p></article>
     </div>
 
-    <!-- ── Options à la carte ── -->
-    <div class="gv-opt-title">Options à la carte</div>
-    <div class="gv-options">
-      <div class="gv-opt-card">
-        <div class="gv-opt-line"><span class="gv-opt-name">Mannequin exclusif</span><span class="gv-opt-price">699 €</span></div>
-        <p class="gv-opt-desc">Cast réservé à votre marque, inclus dans le Studio.</p>
-      </div>
-      <div class="gv-opt-card">
-        <div class="gv-opt-line"><span class="gv-opt-name">Produit en plus</span><span class="gv-opt-price">199 €</span></div>
-        <p class="gv-opt-desc">Équivalent au Test : 1 produit, 4 visuels.</p>
-      </div>
-      <div class="gv-opt-card">
-        <div class="gv-opt-line"><span class="gv-opt-name">Vidéo produit</span><span class="gv-opt-price">Sur devis</span></div>
-        <p class="gv-opt-desc">Motion additionnel, selon format et durée.</p>
-      </div>
+    <h3 class="pg-h">Deux façons <em>de payer.</em></h3>
+    <p class="pg-sub">Même nombre de crédits sur chaque ligne : comparez directement.</p>
+    <div class="pg-wrap">
+      <table class="pg-table">
+        <thead><tr>
+          <th scope="col"></th>
+          <th scope="col">Recharge<small>Vous payez quand vous en avez besoin</small></th>
+          <th scope="col" class="pg-f">Forfait mensuel<small>Vous vous engagez 3 mois, vous payez moins</small></th>
+        </tr></thead>
+        <tbody>
+          <tr><th scope="row">Prix du crédit</th><td><span class="pg-price">50&nbsp;€</span></td><td class="pg-f"><span class="pg-price">45 à 35&nbsp;€</span></td></tr>
+          <tr><th scope="row">10 crédits</th><td><b>500&nbsp;€</b><span class="pg-v">valables 2 mois</span></td><td class="pg-f"><b>450&nbsp;€</b><span class="pg-tn">Essentiel</span><span class="pg-v">report 1 mois</span></td></tr>
+          <tr><th scope="row">25 crédits</th><td><b>1&nbsp;250&nbsp;€</b><br>+ 1 crédit offert<span class="pg-v">valables 4 mois</span></td><td class="pg-f"><b>1&nbsp;000&nbsp;€</b><span class="pg-tn">Studio</span><span class="pg-v">report 1 mois</span></td></tr>
+          <tr><th scope="row">50 crédits</th><td><b>2&nbsp;500&nbsp;€</b><br>+ 3 crédits offerts<span class="pg-v">valables 8 mois</span></td><td class="pg-f"><b>1&nbsp;875&nbsp;€</b><span class="pg-tn">Agence</span><span class="pg-v">report 2 mois</span></td></tr>
+          <tr><th scope="row">100 crédits</th><td><b>5&nbsp;000&nbsp;€</b><br>+ 10 crédits offerts<span class="pg-v">valables 12 mois</span></td><td class="pg-f"><b>3&nbsp;500&nbsp;€</b><span class="pg-tn">Partenaire</span><span class="pg-v">report 3 mois, mannequin exclusif inclus</span></td></tr>
+          <tr class="pg-grp"><th scope="rowgroup" colspan="3">Suppléments</th></tr>
+          <tr><th scope="row">Stylisme</th><td>inclus</td><td class="pg-f">inclus</td></tr>
+          <tr><th scope="row">Première commande pour votre marque</th><td>+1 crédit</td><td class="pg-f">offerte</td></tr>
+          <tr><th scope="row">Mannequin exclusif</th><td>+10 crédits</td><td class="pg-f">+10 crédits, un inclus en Partenaire</td></tr>
+          <tr><th scope="row">Mannequin supplémentaire dans le cadre</th><td>+1 crédit par visuel</td><td class="pg-f">+1 crédit par visuel</td></tr>
+          <tr><th scope="row">Pièce complexe</th><td>+1 crédit par visuel</td><td class="pg-f">+1 crédit par visuel</td></tr>
+          <tr><th scope="row">Retouches supplémentaires</th><td>1 aller-retour compris, puis +1 crédit par aller-retour</td><td class="pg-f">1 aller-retour compris, puis +1 crédit par aller-retour</td></tr>
+          <tr><th scope="row">Crédits au-delà du forfait</th><td>Packs ou 50&nbsp;€ à l'unité</td><td class="pg-f">Jusqu'à 20&nbsp;% de crédits en plus au tarif de votre forfait (45, 40, 37,50 ou 35&nbsp;€), puis 50&nbsp;€ le crédit</td></tr>
+          <tr class="pg-grp"><th scope="rowgroup" colspan="3">Conditions</th></tr>
+          <tr><th scope="row">Validité des crédits</th><td>2, 4, 8 ou 12 mois selon le pack</td><td class="pg-f">Vos crédits non utilisés sont reportés (1 à 3 mois selon le forfait). Vous pouvez en consommer jusqu'à deux fois votre forfait par mois.</td></tr>
+          <tr><th scope="row">Délai de livraison</th><td>5 à 7 jours ouvrés</td><td class="pg-f">3 jours ouvrés</td></tr>
+        </tbody>
+      </table>
     </div>
 
-    <!-- ── Au-delà de la grille ── -->
-    <div class="gv-beyond">
-      <div class="gv-beyond-txt">
-        <div class="gv-beyond-name"><span class="gv-star">✦</span>Partenaire Créatif</div>
-        <p class="gv-beyond-desc">Accompagnement sur mesure : stratégie, films de marque, direction artistique globale, interlocuteur dédié.</p>
-      </div>
-      <a href="mailto:hello@moltobene.ai?subject=Partenaire%20Cr%C3%A9atif%20-%20Molto%20Bene" class="gv-beyond-cta">Sur devis →</a>
+    <ul class="pg-good">
+      <li>Le nombre de crédits de chaque visuel est validé avec vous avant la production.</li>
+      <li>Les visuels sont générés en 2K. La 4K est possible sur demande, sans crédit supplémentaire. Tous les formats (4:5, 9:16, 1:1) sont inclus.</li>
+      <li>Forfait : engagement de 3 mois, puis reconduction chaque mois. Résiliation à tout moment après les 3 mois, avec un mois de préavis.</li>
+      <li>La vidéo est sur devis. Tous les prix sont hors taxes.</li>
+    </ul>
+
+    <div class="pg-cta">
+      <a href="p/tarifs-8c3f1a/" class="pg-btn">Simuler mon projet →</a>
+      <a href="mailto:hello@moltobene.ai?subject=Tarifs%20-%20Molto%20Bene" class="pg-btn pg-out">On se parle →</a>
     </div>
   </div>
 </section>
