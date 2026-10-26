@@ -1110,11 +1110,11 @@ section,.promise-s,.human-s,.process-s,.models-s,.cases-s,.compare-s,.pricing-s,
 
 /* ══ MOSAÏQUE : défilement naturel, vignettes qui enchaînent plusieurs visuels ══ */
 .mosaic-s{overflow:hidden !important;height:auto !important;padding:0 !important;}
-.mosaic-stage{display:grid;grid-template-columns:repeat(var(--cols),1fr);gap:3px;padding:3px;background:#000;}
-.mt{position:relative;overflow:hidden;background:#0b0b0c;aspect-ratio:9/16;will-change:transform;}
+.mosaic-stage{display:grid;grid-template-columns:repeat(var(--cols),1fr);gap:0;padding:0;background:#000;}
+.mt{position:relative;overflow:hidden;background:#0b0b0c;aspect-ratio:9/16;}
 .mi-layer{position:absolute;inset:0;opacity:0;transition:opacity .9s cubic-bezier(.2,.7,.2,1);pointer-events:none;}
 .mi-layer.on{opacity:1;pointer-events:auto;}
-.mi-layer img,.mi-layer video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;cursor:pointer;opacity:1;transform:none;}
+.mi-layer img,.mi-layer video{position:absolute;left:0;top:-7%;width:100%;height:114%;object-fit:cover;display:block;cursor:pointer;opacity:1;transform:translate3d(0,var(--py,0px),0);will-change:transform;}
 .mi-layer .ia-mark{top:6px;right:6px;}
 
 /* ══ TYPO — rythme calme, échelle unifiée (poids 700, interlettrage -0.02em, plafond 88px) ══ */
@@ -1136,6 +1136,63 @@ body{font-size:17px;}
 .process-topbar{padding-bottom:36px !important;margin-bottom:0 !important;}
 .process-pin .process-strip{margin-top:12px !important;}
 .process-topbar .process-body-txt,.process-topbar p{line-height:1.4 !important;}
+
+/* ── Parallax bands (fin de page) : 1 image plein cadre, sans marge ── */
+.ticker.t-light .ticker-track{animation-duration:48s;}
+.px-band{position:relative;display:block;height:clamp(380px,78vh,820px);padding:0 !important;margin:0;overflow:hidden;background:#000 !important;}
+.px-img{position:absolute;left:0;top:-16%;width:100%;height:132%;object-fit:cover;object-position:center 2%;will-change:transform;display:block;}
+.px-band.px-a{height:auto;display:grid;grid-template-columns:repeat(5,1fr);gap:0;padding:0 !important;margin:0;background:#000 !important;overflow:hidden;}
+.px-a .px-fr{margin:0;aspect-ratio:1/1;overflow:hidden;background:#000;}
+.px-a .px-fr img{display:block;width:100%;height:100%;object-fit:contain;}
+@media(max-width:700px){.px-band.px-a{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;}.px-a .px-fr{flex:0 0 78vw;scroll-snap-align:start;}}
+
+
+/* Instagram */
+.ig-s{background:#000 !important;padding:90px 0 0;}
+.ig-head{max-width:1180px;margin:0 auto;padding:0 32px 44px;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:18px 32px;}
+.ig-label{width:100%;font-family:var(--f-mono);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#E5BA20;}
+.ig-title{font-family:var(--f-display);font-weight:700;font-size:clamp(34px,5vw,64px);line-height:1.04;letter-spacing:-.02em;color:#fff;margin:0;}
+.ig-title em{font-style:italic;color:#E5BA20;-webkit-text-fill-color:#E5BA20;background:none;}
+.ig-cta{font-family:var(--f-body);font-size:15px;color:#000;background:#f5f5f7;padding:14px 22px;border-radius:3px;text-decoration:none;white-space:nowrap;}
+.ig-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:0;}
+.ig-t{display:block;aspect-ratio:4/5;overflow:hidden;background:#0b0b0c;}
+.ig-t img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1);}
+.ig-t:hover img{transform:scale(1.04);}
+@media(max-width:900px){.ig-grid{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:600px){.ig-head{padding:0 18px 32px;}.ig-s{padding-top:70px;}}
+/* Carhartt derrière le comparatif, parallaxe */
+.cmp-wrap{position:relative;background:#000;}
+.cmp-cta{position:relative;}
+.compare-title em,.cmp-wrap .compare-title em{background:none !important;-webkit-background-clip:border-box !important;background-clip:border-box !important;color:#E5BA20 !important;-webkit-text-fill-color:#E5BA20 !important;text-shadow:none !important;}
+.cmp-wrap .cmp-plan *,.cmp-wrap .cmp-plan-tag,.cmp-wrap .cmp-gift,.cmp-wrap .cmp-cta-kicker{text-shadow:none !important;}
+.cmp-bg{position:absolute;top:0;bottom:-28px;left:50%;width:100vw;margin-left:-50vw;overflow:hidden;z-index:-1;}
+.cmp-cta>*:not(.cmp-bg){position:relative;z-index:1;}
+.cmp-bg::after{content:'';position:absolute;inset:0;background:none;pointer-events:none;}
+.cmp-bg .px-img{object-position:50% 85%;}
+.cmp-wrap .compare-s{background:transparent !important;z-index:1;}
+.cmp-wrap .compare-s p,.cmp-wrap .compare-s h2,.cmp-wrap .cmp-cta-title{text-shadow:0 1px 10px rgba(0,0,0,.85);}
+.cmp-wrap .compare-s p{color:rgba(255,255,255,.88) !important;}
+.cmp-wrap .cmp-plan{background:rgba(0,0,0,.16) !important;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);}
+.cmp-wrap .cmp-plan.feat{background:rgba(0,0,0,.2) !important;}
+.compare-s{padding-bottom:28px !important;}
+.px-band.px-c{height:auto;min-height:0;margin-top:-22vw;position:relative;z-index:1;overflow:visible;padding:0 !important;background:transparent !important;}
+.compare-s{position:relative;z-index:2;}
+.compare-s.reveal{opacity:1 !important;transform:none !important;transition:none !important;}
+.px-c .px-img{position:relative;top:0;left:0;width:100%;height:auto;display:block;transform:none !important;}
+@media(max-width:700px){}
+@media(max-width:700px){.px-band{height:clamp(420px,72vh,640px);}}
+@media(prefers-reduced-motion:reduce){.px-img{transform:none !important}}
+
+/* ── Manifeste : visuel de fond ── */
+.manifesto-band{min-height:clamp(520px,86vh,860px);display:flex !important;align-items:center;justify-content:center;background:#000 !important;}
+.manifesto-band::before{display:none !important;}
+.manifesto-band::after{content:'';position:absolute;inset:0;z-index:0;background:linear-gradient(rgba(0,0,0,.62),rgba(0,0,0,.48) 50%,rgba(0,0,0,.62));pointer-events:none;}
+.manifesto-band .manifesto-band-inner{z-index:2;}
+.manifesto-band .manifesto-band-title,.manifesto-band .manifesto-band-title *:not(em){color:#fff !important;-webkit-text-fill-color:#fff !important;}
+.manifesto-band .manifesto-band-title em{color:#E5BA20 !important;-webkit-text-fill-color:#E5BA20 !important;}
+.manifesto-band .manifesto-band-eyebrow{color:#fff !important;opacity:.95 !important;-webkit-text-fill-color:#fff !important;}
+.mf-bg{object-position:72% 40% !important;}
+@media(max-width:700px){.mf-bg{object-position:80% 40% !important;}}
 </style>
 </head>
 <body>
@@ -1188,10 +1245,7 @@ body{font-size:17px;}
 <!-- TICKER dark -->
 <div class="ticker t-dark">
   <div class="ticker-track">
-    <span>Molto Bene</span><span class="star">✦</span><span>Packshots portés</span><span class="star">✦</span>
-    <span>Campagnes impossibles</span><span class="star">✦</span><span>Drops &amp; capsules</span><span class="star">✦</span>
-    <span>Clubs &amp; marques</span><span class="star">✦</span><span>Images &amp; Vidéos</span><span class="star">✦</span>
-    <span>Molto Bene</span><span class="star">✦</span><span>Studio IA × Direction Artistique</span><span class="star">✦</span>
+    <span>Molto Bene</span><span class="star">✦</span><span>Packshots portés</span><span class="star">✦</span><span>Campagnes impossibles</span><span class="star">✦</span><span>Drops &amp; capsules</span><span class="star">✦</span><span>Clubs &amp; marques</span><span class="star">✦</span><span>Images &amp; Vidéos</span><span class="star">✦</span><span>Molto Bene</span><span class="star">✦</span><span>Studio IA × Direction Artistique</span><span class="star">✦</span><span>Molto Bene</span><span class="star">✦</span><span>Packshots portés</span><span class="star">✦</span><span>Campagnes impossibles</span><span class="star">✦</span><span>Drops &amp; capsules</span><span class="star">✦</span><span>Clubs &amp; marques</span><span class="star">✦</span><span>Images &amp; Vidéos</span><span class="star">✦</span><span>Molto Bene</span><span class="star">✦</span><span>Studio IA × Direction Artistique</span><span class="star">✦</span><span>Molto Bene</span><span class="star">✦</span><span>Packshots portés</span><span class="star">✦</span><span>Campagnes impossibles</span><span class="star">✦</span><span>Drops &amp; capsules</span><span class="star">✦</span><span>Clubs &amp; marques</span><span class="star">✦</span><span>Images &amp; Vidéos</span><span class="star">✦</span><span>Molto Bene</span><span class="star">✦</span><span>Studio IA × Direction Artistique</span><span class="star">✦</span><span>Molto Bene</span><span class="star">✦</span><span>Packshots portés</span><span class="star">✦</span><span>Campagnes impossibles</span><span class="star">✦</span><span>Drops &amp; capsules</span><span class="star">✦</span><span>Clubs &amp; marques</span><span class="star">✦</span><span>Images &amp; Vidéos</span><span class="star">✦</span><span>Molto Bene</span><span class="star">✦</span><span>Studio IA × Direction Artistique</span><span class="star">✦</span>
   </div>
 </div>
 
@@ -1213,25 +1267,25 @@ body{font-size:17px;}
 <!-- MOSAIC, 5 col desktop / 4 tablette / 3 mobile / 2 small mobile, ratio 9:16 -->
 <section class="mosaic-s">
   <div class="mosaic-grid" id="mosaic-grid">
-    <div class="mi"><img src="assets/palace-nike-02.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-    <div class="mi"><img src="assets/pb03-outdoor.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-    <div class="mi"><img src="assets/mosaic-01.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-    <div class="mi"><img src="assets/mosaic-12.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-    <div class="mi"><img src="assets/carhartt-01.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-    <div class="mi"><img src="assets/mosaic-14-v2.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-    <div class="mi"><img src="assets/mosaic-15-v2.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
+    <div class="mi"><img src="assets/palace-nike-02.jpg" data-lightbox="true" decoding="async" alt=""/></div>
+    <div class="mi"><img src="assets/pb03-outdoor.jpg" data-lightbox="true" decoding="async" alt=""/></div>
+    <div class="mi"><img src="assets/mosaic-01.jpg" data-lightbox="true" decoding="async" alt=""/></div>
+    <div class="mi"><img src="assets/mosaic-12.jpg" data-lightbox="true" decoding="async" alt=""/></div>
+    <div class="mi"><img src="assets/carhartt-01.jpg" data-lightbox="true" decoding="async" alt=""/></div>
+    <div class="mi"><img src="assets/mosaic-14-v2.jpg" data-lightbox="true" decoding="async" alt=""/></div>
+    <div class="mi"><img src="assets/mosaic-15-v2.jpg" data-lightbox="true" decoding="async" alt=""/></div>
     <div class="mi"><video data-src="assets/use2-video2.mp4" muted loop playsinline preload="none" data-lightbox="true"></video><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div>
-    <div class="mi"><img src="assets/rolls-supreme-01.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-    <div class="mi"><img src="assets/mosaic-06.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
+    <div class="mi"><img src="assets/rolls-supreme-01.jpg" data-lightbox="true" decoding="async" alt=""/></div>
+    <div class="mi"><img src="assets/mosaic-06.jpg" data-lightbox="true" decoding="async" alt=""/></div>
 	<div class="mi"><video data-src="assets/use1-video1.mp4" muted loop playsinline preload="none" data-lightbox="true"></video><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div>
-    <div class="mi"><img src="assets/mosaic-11.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-    <div class="mi"><img src="assets/palace-nike-06.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-	<div class="mi"><img src="assets/mosaic-07.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-    <div class="mi"><img src="assets/mosaic-10.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-    <div class="mi"><img src="assets/mosaic-13.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-    <div class="mi"><img src="assets/carhartt-02.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-    <div class="mi"><img src="assets/mosaic-03.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-    <div class="mi"><img src="assets/mosaic-17.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
+    <div class="mi"><img src="assets/mosaic-11.jpg" data-lightbox="true" decoding="async" alt=""/></div>
+    <div class="mi"><img src="assets/palace-nike-06.jpg" data-lightbox="true" decoding="async" alt=""/></div>
+	<div class="mi"><img src="assets/mosaic-07.jpg" data-lightbox="true" decoding="async" alt=""/></div>
+    <div class="mi"><img src="assets/mosaic-10.jpg" data-lightbox="true" decoding="async" alt=""/></div>
+    <div class="mi"><img src="assets/mosaic-13.jpg" data-lightbox="true" decoding="async" alt=""/></div>
+    <div class="mi"><img src="assets/carhartt-02.jpg" data-lightbox="true" decoding="async" alt=""/></div>
+    <div class="mi"><img src="assets/mosaic-03.jpg" data-lightbox="true" decoding="async" alt=""/></div>
+    <div class="mi"><img src="assets/mosaic-17.jpg" data-lightbox="true" decoding="async" alt=""/></div>
     <div class="mi"><video data-src="assets/moodboard-tennis-video.mp4" muted loop playsinline preload="none" data-lightbox="true"></video><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div>
   </div>
 </section>
@@ -1271,12 +1325,9 @@ body{font-size:17px;}
 <!-- TICKER light -->
 <div class="ticker t-light">
   <div class="ticker-track">
-    <span>Ads</span><span class="star">✦</span><span>LookBook</span><span class="star">✦</span>
-    <span>PhotoBook</span><span class="star">✦</span><span>Social Media</span><span class="star">✦</span>
-    <span>Films de marque</span><span class="star">✦</span><span>E-commerce</span><span class="star">✦</span>
-    <span>Ads</span><span class="star">✦</span><span>LookBook</span><span class="star">✦</span>
-    <span>PhotoBook</span><span class="star">✦</span><span>Social Media</span><span class="star">✦</span>
-    <span>Films de marque</span><span class="star">✦</span><span>E-commerce</span><span class="star">✦</span>
+    <span>Ads</span><span class="star">✦</span><span>LookBook</span><span class="star">✦</span><span>PhotoBook</span><span class="star">✦</span><span>Social Media</span><span class="star">✦</span><span>Films de marque</span><span class="star">✦</span><span>E-commerce</span><span class="star">✦</span><span>Ads</span><span class="star">✦</span><span>LookBook</span><span class="star">✦</span><span>PhotoBook</span><span class="star">✦</span><span>Social Media</span><span class="star">✦</span><span>Films de marque</span><span class="star">✦</span><span>E-commerce</span><span class="star">✦</span><span>Ads</span><span class="star">✦</span><span>LookBook</span><span class="star">✦</span><span>PhotoBook</span><span class="star">✦</span><span>Social Media</span><span class="star">✦</span><span>Films de marque</span><span class="star">✦</span><span>E-commerce</span><span class="star">✦</span><span>Ads</span><span class="star">✦</span><span>LookBook</span><span class="star">✦</span><span>PhotoBook</span><span class="star">✦</span><span>Social Media</span><span class="star">✦</span><span>Films de marque</span><span class="star">✦</span><span>E-commerce</span><span class="star">✦</span>
+  
+    <span>Ads</span><span class="star">✦</span><span>LookBook</span><span class="star">✦</span><span>PhotoBook</span><span class="star">✦</span><span>Social Media</span><span class="star">✦</span><span>Films de marque</span><span class="star">✦</span><span>E-commerce</span><span class="star">✦</span><span>Ads</span><span class="star">✦</span><span>LookBook</span><span class="star">✦</span><span>PhotoBook</span><span class="star">✦</span><span>Social Media</span><span class="star">✦</span><span>Films de marque</span><span class="star">✦</span><span>E-commerce</span><span class="star">✦</span><span>Ads</span><span class="star">✦</span><span>LookBook</span><span class="star">✦</span><span>PhotoBook</span><span class="star">✦</span><span>Social Media</span><span class="star">✦</span><span>Films de marque</span><span class="star">✦</span><span>E-commerce</span><span class="star">✦</span><span>Ads</span><span class="star">✦</span><span>LookBook</span><span class="star">✦</span><span>PhotoBook</span><span class="star">✦</span><span>Social Media</span><span class="star">✦</span><span>Films de marque</span><span class="star">✦</span><span>E-commerce</span><span class="star">✦</span>
   </div>
 </div>
 
@@ -1321,37 +1372,37 @@ body{font-size:17px;}
 
         <div class="process-strip" id="p-strip">
           <div class="process-cell">
-            <div class="media-layer is-on" data-idx="0"><img src="assets/create-model-01-v3.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-            <div class="media-layer" data-idx="1"><img src="assets/wear-01-v2.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-            <div class="media-layer" data-idx="2"><img src="assets/imagine-01-v2.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
+            <div class="media-layer is-on" data-idx="0"><img src="assets/create-model-01-v3.jpg" data-lightbox="true" decoding="async" alt=""/></div>
+            <div class="media-layer" data-idx="1"><img src="assets/wear-01-v2.jpg" data-lightbox="true" decoding="async" alt=""/></div>
+            <div class="media-layer" data-idx="2"><img src="assets/imagine-01-v2.jpg" data-lightbox="true" decoding="async" alt=""/></div>
             <div class="media-layer" data-idx="3"><video muted loop playsinline preload="none" data-src="assets/animate-roseanna.mp4" data-lightbox="true"></video></div>
             <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
           </div>
           <div class="process-cell">
-            <div class="media-layer is-on" data-idx="0"><img src="assets/create-model-02-v2.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-            <div class="media-layer" data-idx="1"><img src="assets/wear-02-v2.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-            <div class="media-layer" data-idx="2"><img src="assets/imagine-02-v2.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
+            <div class="media-layer is-on" data-idx="0"><img src="assets/create-model-02-v2.jpg" data-lightbox="true" decoding="async" alt=""/></div>
+            <div class="media-layer" data-idx="1"><img src="assets/wear-02-v2.jpg" data-lightbox="true" decoding="async" alt=""/></div>
+            <div class="media-layer" data-idx="2"><img src="assets/imagine-02-v2.jpg" data-lightbox="true" decoding="async" alt=""/></div>
             <div class="media-layer" data-idx="3"><video muted loop playsinline preload="none" data-src="assets/ltdc-video.mp4" data-lightbox="true"></video></div>
             <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
           </div>
           <div class="process-cell">
-            <div class="media-layer is-on" data-idx="0"><img src="assets/create-model-03-v2.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-            <div class="media-layer" data-idx="1"><img src="assets/wear-03-v3.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-            <div class="media-layer" data-idx="2"><img src="assets/imagine-03-v3.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
+            <div class="media-layer is-on" data-idx="0"><img src="assets/create-model-03-v2.jpg" data-lightbox="true" decoding="async" alt=""/></div>
+            <div class="media-layer" data-idx="1"><img src="assets/wear-03-v3.jpg" data-lightbox="true" decoding="async" alt=""/></div>
+            <div class="media-layer" data-idx="2"><img src="assets/imagine-03-v3.jpg" data-lightbox="true" decoding="async" alt=""/></div>
             <div class="media-layer" data-idx="3"><video muted loop playsinline preload="none" data-src="assets/moodboard-tennis-video.mp4" data-lightbox="true"></video></div>
             <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
           </div>
           <div class="process-cell">
-            <div class="media-layer is-on" data-idx="0"><img src="assets/create-model-04-v2.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-            <div class="media-layer" data-idx="1"><img src="assets/wear-04-v2.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-            <div class="media-layer" data-idx="2"><img src="assets/imagine-04-v2.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
+            <div class="media-layer is-on" data-idx="0"><img src="assets/create-model-04-v2.jpg" data-lightbox="true" decoding="async" alt=""/></div>
+            <div class="media-layer" data-idx="1"><img src="assets/wear-04-v2.jpg" data-lightbox="true" decoding="async" alt=""/></div>
+            <div class="media-layer" data-idx="2"><img src="assets/imagine-04-v2.jpg" data-lightbox="true" decoding="async" alt=""/></div>
             <div class="media-layer" data-idx="3"><video muted loop playsinline preload="none" data-src="assets/lb08-gants.mp4" data-lightbox="true"></video></div>
             <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
           </div>
           <div class="process-cell">
-            <div class="media-layer is-on" data-idx="0"><img src="assets/create-model-05-v2.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-            <div class="media-layer" data-idx="1"><img src="assets/wear-05-v2.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
-            <div class="media-layer" data-idx="2"><img src="assets/imagine-05-v2.jpg" data-lightbox="true" loading="lazy" decoding="async" alt=""/></div>
+            <div class="media-layer is-on" data-idx="0"><img src="assets/create-model-05-v2.jpg" data-lightbox="true" decoding="async" alt=""/></div>
+            <div class="media-layer" data-idx="1"><img src="assets/wear-05-v2.jpg" data-lightbox="true" decoding="async" alt=""/></div>
+            <div class="media-layer" data-idx="2"><img src="assets/imagine-05-v2.jpg" data-lightbox="true" decoding="async" alt=""/></div>
             <div class="media-layer" data-idx="3"><video muted loop playsinline preload="none" data-src="assets/move-av-b6.mp4" data-lightbox="true"></video></div>
             <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
           </div>
@@ -1378,110 +1429,110 @@ body{font-size:17px;}
 
     <div class="cat-row" role="group" aria-label="Catégories de modèles">
       <button type="button" class="cat-tile" data-cat="femme" aria-expanded="false" aria-controls="models-board">
-        <span class="cat-shot"><img src="assets/model-freja.jpg" loading="lazy" decoding="async" alt="Mannequins numériques femmes Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></span>
+        <span class="cat-shot"><img src="assets/model-freja.jpg" decoding="async" alt="Mannequins numériques femmes Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></span>
         <span class="cat-meta"><span class="cat-name">Femmes</span><span class="cat-count"><b>11</b> modèles</span></span>
       </button>
       <button type="button" class="cat-tile" data-cat="enfant" aria-expanded="false" aria-controls="models-board">
-        <span class="cat-shot"><img src="assets/model-lou.jpg" loading="lazy" decoding="async" alt="Mannequins numériques enfants Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></span>
+        <span class="cat-shot"><img src="assets/model-lou.jpg" decoding="async" alt="Mannequins numériques enfants Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></span>
         <span class="cat-meta"><span class="cat-name">Enfants</span><span class="cat-count"><b>4</b> modèles</span></span>
       </button>
       <button type="button" class="cat-tile" data-cat="homme" aria-expanded="false" aria-controls="models-board">
-        <span class="cat-shot"><img src="assets/model-mike.jpg" loading="lazy" decoding="async" alt="Mannequins numériques hommes Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></span>
+        <span class="cat-shot"><img src="assets/model-mike.jpg" decoding="async" alt="Mannequins numériques hommes Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></span>
         <span class="cat-meta"><span class="cat-name">Hommes</span><span class="cat-count"><b>9</b> modèles</span></span>
       </button>
     </div>
 
     <div class="models-board" id="models-board" hidden>
       <a class="model-card" data-cat="femme" href="modele/milena.html" aria-label="Voir le book de Milena">
-        <div class="model-shot"><img src="assets/model-milena.jpg" loading="lazy" decoding="async" alt="Milena, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-shot"><img src="assets/model-milena.jpg" decoding="async" alt="Milena, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
         <div class="model-meta"><span class="model-name">Milena</span><span class="model-tag">Brune intense</span></div>
       </a>
       <a class="model-card" data-cat="homme" href="modele/colin.html" aria-label="Voir le book de Colin">
-        <div class="model-shot"><img src="assets/model-colin.jpg" loading="lazy" decoding="async" alt="Colin, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-shot"><img src="assets/model-colin.jpg" decoding="async" alt="Colin, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
         <div class="model-meta"><span class="model-name">Colin</span><span class="model-tag">Ligne classique</span></div>
       </a>
       <a class="model-card" data-cat="femme" href="modele/freja.html" aria-label="Voir le book de Freja">
-        <div class="model-shot"><img src="assets/model-freja.jpg" loading="lazy" decoding="async" alt="Freja, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-shot"><img src="assets/model-freja.jpg" decoding="async" alt="Freja, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
         <div class="model-meta"><span class="model-name">Freja</span><span class="model-tag">Blond polaire</span></div>
       </a>
       <a class="model-card" data-cat="femme" href="modele/sara.html" aria-label="Voir le book de Sara">
-        <div class="model-shot"><img src="assets/model-sara.jpg" loading="lazy" decoding="async" alt="Sara, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-shot"><img src="assets/model-sara.jpg" decoding="async" alt="Sara, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
         <div class="model-meta"><span class="model-name">Sara</span><span class="model-tag">Braise latine</span></div>
       </a>
       <a class="model-card" data-cat="homme" href="modele/lars.html" aria-label="Voir le book de Lars">
-        <div class="model-shot"><img src="assets/model-lars.jpg" loading="lazy" decoding="async" alt="Lars, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-shot"><img src="assets/model-lars.jpg" decoding="async" alt="Lars, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
         <div class="model-meta"><span class="model-name">Lars</span><span class="model-tag">Blond solaire</span></div>
       </a>
       <a class="model-card" data-cat="femme" href="modele/astrid.html" aria-label="Voir le book de Astrid">
-        <div class="model-shot"><img src="assets/model-astrid.jpg" loading="lazy" decoding="async" alt="Astrid, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-shot"><img src="assets/model-astrid.jpg" decoding="async" alt="Astrid, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
         <div class="model-meta"><span class="model-name">Astrid</span><span class="model-tag">Feu vénitien</span></div>
       </a>
       <a class="model-card" data-cat="homme" href="modele/idris.html" aria-label="Voir le book de Idris">
-        <div class="model-shot"><img src="assets/model-idris.jpg" loading="lazy" decoding="async" alt="Idris, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-shot"><img src="assets/model-idris.jpg" decoding="async" alt="Idris, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
         <div class="model-meta"><span class="model-name">Idris</span><span class="model-tag">Regard franc</span></div>
       </a>
       <a class="model-card" data-cat="femme" href="modele/sienna.html" aria-label="Voir le book de Sienna">
-        <div class="model-shot"><img src="assets/model-sienna.jpg" loading="lazy" decoding="async" alt="Sienna, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-shot"><img src="assets/model-sienna.jpg" decoding="async" alt="Sienna, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
         <div class="model-meta"><span class="model-name">Sienna</span><span class="model-tag">Douceur sable</span></div>
       </a>
       <a class="model-card" data-cat="femme" href="modele/aria.html" aria-label="Voir le book de Aria">
-        <div class="model-shot"><img src="assets/model-aria.jpg" loading="lazy" decoding="async" alt="Aria, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-shot"><img src="assets/model-aria.jpg" decoding="async" alt="Aria, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
         <div class="model-meta"><span class="model-name">Aria</span><span class="model-tag">Brune ambrée</span></div>
       </a>
       <a class="model-card" data-cat="femme homme" href="modele/jalen-imani.html" aria-label="Voir le book de Jalen &amp; Imani">
-        <div class="model-shot"><img src="assets/model-jalen-imani.jpg" loading="lazy" decoding="async" alt="Jalen &amp; Imani, duo de mannequins numériques Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-shot"><img src="assets/model-jalen-imani.jpg" decoding="async" alt="Jalen &amp; Imani, duo de mannequins numériques Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
         <div class="model-meta"><span class="model-name">Jalen &amp; Imani</span><span class="model-tag">Duo tressé</span></div>
       </a>
       <a class="model-card" data-cat="femme" href="modele/sophia.html" aria-label="Voir le book de Sophia">
-        <div class="model-shot"><img src="assets/model-sophia.jpg" loading="lazy" decoding="async" alt="Sophia, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-shot"><img src="assets/model-sophia.jpg" decoding="async" alt="Sophia, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
         <div class="model-meta"><span class="model-name">Sophia</span><span class="model-tag">Carré graphique</span></div>
       </a>
       <a class="model-card" data-cat="homme" href="modele/mike.html" aria-label="Voir le book de Mike">
-        <div class="model-shot"><img src="assets/model-mike.jpg" loading="lazy" decoding="async" alt="Mike, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-shot"><img src="assets/model-mike.jpg" decoding="async" alt="Mike, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
         <div class="model-meta"><span class="model-name">Mike</span><span class="model-tag">Présence nette</span></div>
       </a>
       <a class="model-card" data-cat="homme" href="modele/ezra.html" aria-label="Voir le book de Ezra">
-        <div class="model-shot"><img src="assets/model-ezra.jpg" loading="lazy" decoding="async" alt="Ezra, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-shot"><img src="assets/model-ezra.jpg" decoding="async" alt="Ezra, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
         <div class="model-meta"><span class="model-name">Ezra</span><span class="model-tag">Taches de son</span></div>
       </a>
       <a class="model-card" data-cat="femme" href="modele/olia.html" aria-label="Voir le book de Olia">
-        <div class="model-shot"><img src="assets/model-olia.jpg" loading="lazy" decoding="async" alt="Olia, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-shot"><img src="assets/model-olia.jpg" decoding="async" alt="Olia, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
         <div class="model-meta"><span class="model-name">Olia</span><span class="model-tag">Trait pur</span></div>
       </a>
       <a class="model-card" data-cat="homme" href="modele/nate.html" aria-label="Voir le book de Nate">
-        <div class="model-shot"><img src="assets/model-nate.jpg" loading="lazy" decoding="async" alt="Nate, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-shot"><img src="assets/model-nate.jpg" decoding="async" alt="Nate, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
         <div class="model-meta"><span class="model-name">Nate</span><span class="model-tag">Mèche indocile</span></div>
       </a>
       <a class="model-card" data-cat="femme" href="modele/maria.html" aria-label="Voir le book de Maria">
-        <div class="model-shot"><img src="assets/model-maria.jpg" loading="lazy" decoding="async" alt="Maria, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-shot"><img src="assets/model-maria.jpg" decoding="async" alt="Maria, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
         <div class="model-meta"><span class="model-name">Maria</span><span class="model-tag">Allure libre</span></div>
       </a>
       <a class="model-card" data-cat="femme" href="modele/naomi.html" aria-label="Voir le book de Naomi">
-        <div class="model-shot"><img src="assets/model-naomi.jpg" loading="lazy" decoding="async" alt="Naomi, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-shot"><img src="assets/model-naomi.jpg" decoding="async" alt="Naomi, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
         <div class="model-meta"><span class="model-name">Naomi</span><span class="model-tag">Grâce solaire</span></div>
       </a>
       <a class="model-card" data-cat="homme" href="modele/pescador.html" aria-label="Voir le book de Pescador">
-        <div class="model-shot"><img src="assets/model-pescador-portrait.jpg" loading="lazy" decoding="async" alt="Pescador, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-shot"><img src="assets/model-pescador-portrait.jpg" decoding="async" alt="Pescador, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
         <div class="model-meta"><span class="model-name">Pescador</span><span class="model-tag">Sel et poivre</span></div>
       </a>
       <a class="model-card" data-cat="homme" href="modele/paul.html" aria-label="Voir le book de Paul">
-        <div class="model-shot"><img src="assets/model-paul.jpg" loading="lazy" decoding="async" alt="Paul, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-shot"><img src="assets/model-paul.jpg" decoding="async" alt="Paul, mannequin numérique Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
         <div class="model-meta"><span class="model-name">Paul</span><span class="model-tag">Lunettes écaille</span></div>
       </a>
       <a class="model-card" data-cat="enfant" href="modele/lou.html" aria-label="Voir le book de Lou">
-        <div class="model-shot"><img src="assets/model-lou.jpg" loading="lazy" decoding="async" alt="Lou, mannequin numérique enfant Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-shot"><img src="assets/model-lou.jpg" decoding="async" alt="Lou, mannequin numérique enfant Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
         <div class="model-meta"><span class="model-name">Lou</span><span class="model-tag">Rire solaire</span></div>
       </a>
       <a class="model-card" data-cat="enfant" href="modele/gabin.html" aria-label="Voir le book de Gabin">
-        <div class="model-shot"><img src="assets/model-gabin.jpg" loading="lazy" decoding="async" alt="Gabin, mannequin numérique enfant Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-shot"><img src="assets/model-gabin.jpg" decoding="async" alt="Gabin, mannequin numérique enfant Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
         <div class="model-meta"><span class="model-name">Gabin</span><span class="model-tag">Regard vif</span></div>
       </a>
       <a class="model-card" data-cat="enfant" href="modele/raya.html" aria-label="Voir le book de Raya">
-        <div class="model-shot"><img src="assets/model-raya.jpg" loading="lazy" decoding="async" alt="Raya, mannequin numérique enfant Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-shot"><img src="assets/model-raya.jpg" decoding="async" alt="Raya, mannequin numérique enfant Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
         <div class="model-meta"><span class="model-name">Raya</span><span class="model-tag">Calme assurée</span></div>
       </a>
       <a class="model-card" data-cat="enfant" href="modele/matteo.html" aria-label="Voir le book de Matteo">
-        <div class="model-shot"><img src="assets/model-matteo.jpg" loading="lazy" decoding="async" alt="Matteo, mannequin numérique enfant Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
+        <div class="model-shot"><img src="assets/model-matteo.jpg" decoding="async" alt="Matteo, mannequin numérique enfant Molto Bene"/><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="model-view">Voir le book →</span></div>
         <div class="model-meta"><span class="model-name">Matteo</span><span class="model-tag">Rire franc</span></div>
       </a>
     </div>
@@ -1499,6 +1550,7 @@ body{font-size:17px;}
 
 <!-- MANIFESTE -->
 <section class="manifesto-band reveal">
+  <img class="px-img mf-bg" data-k="0.08" src="assets/px-sienna.jpg" alt="">
   <div class="manifesto-band-inner">
     <p class="manifesto-band-eyebrow">Notre manifeste</p>
     <h2 class="manifesto-band-title">
@@ -1518,7 +1570,7 @@ body{font-size:17px;}
     </div>
     <div class="cases-grid">
       <a class="case-thumb" href="case/dfco.html" aria-label="Voir le cas DFCO">
-        <img src="assets/dfco-01.jpg" loading="lazy" decoding="async" alt="Molto Bene, coupe-vent DFCO" style="object-position:50% 0"/>
+        <img src="assets/dfco-01.jpg" decoding="async" alt="Molto Bene, coupe-vent DFCO" style="object-position:50% 0"/>
         <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
         <div class="case-thumb-veil"></div>
         <div class="case-thumb-meta">
@@ -1527,7 +1579,7 @@ body{font-size:17px;}
         </div>
       </a>
       <a class="case-thumb" href="case/mpg.html" aria-label="Voir le cas MPG">
-        <img src="assets/mpg-03.jpg" loading="lazy" decoding="async" alt="Molto Bene, capsule MPG" style="object-position:50% 25%"/>
+        <img src="assets/mpg-03.jpg" decoding="async" alt="Molto Bene, capsule MPG" style="object-position:50% 25%"/>
         <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
         <div class="case-thumb-veil"></div>
         <div class="case-thumb-meta">
@@ -1536,7 +1588,7 @@ body{font-size:17px;}
         </div>
       </a>
       <a class="case-thumb" href="case/paris-basketball.html" aria-label="Voir le cas Paris Basketball">
-        <img src="assets/parisbasket-05.jpg" loading="lazy" decoding="async" alt="Molto Bene x Paris Basketball"/>
+        <img src="assets/parisbasket-05.jpg" decoding="async" alt="Molto Bene x Paris Basketball"/>
         <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
         <div class="case-thumb-veil"></div>
         <div class="case-thumb-meta">
@@ -1545,7 +1597,7 @@ body{font-size:17px;}
         </div>
       </a>
       <a class="case-thumb" href="case/zeus-dione.html" aria-label="Voir le cas Zeus & Dione">
-        <img src="assets/zeusdione-02.jpg" loading="lazy" decoding="async" alt="Molto Bene x Zeus & Dione"/>
+        <img src="assets/zeusdione-02.jpg" decoding="async" alt="Molto Bene x Zeus & Dione"/>
         <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
         <div class="case-thumb-veil"></div>
         <div class="case-thumb-meta">
@@ -1554,7 +1606,7 @@ body{font-size:17px;}
         </div>
       </a>
       <a class="case-thumb" href="case/paris-basketball-campagne.html" aria-label="Voir le cas Paris Basketball">
-        <img src="assets/pbbcampagne-01.jpg" loading="lazy" decoding="async" alt="Molto Bene x Paris Basketball"/>
+        <img src="assets/pbbcampagne-01.jpg" decoding="async" alt="Molto Bene x Paris Basketball"/>
         <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
         <div class="case-thumb-veil"></div>
         <div class="case-thumb-meta">
@@ -1563,7 +1615,7 @@ body{font-size:17px;}
         </div>
       </a>
       <a class="case-thumb" href="case/poivre-blanc-vieux-port.html" aria-label="Voir le cas Poivre Blanc Vieux-Port">
-        <img src="assets/pbvieuxport-01.jpg" loading="lazy" decoding="async" alt="Molto Bene x Poivre Blanc Vieux-Port"/>
+        <img src="assets/pbvieuxport-01.jpg" decoding="async" alt="Molto Bene x Poivre Blanc Vieux-Port"/>
         <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
         <div class="case-thumb-veil"></div>
         <div class="case-thumb-meta">
@@ -1572,7 +1624,7 @@ body{font-size:17px;}
         </div>
       </a>
       <a class="case-thumb" href="case/poivre-blanc-wimbledon.html" aria-label="Voir le cas Poivre Blanc Wimbledon">
-        <img src="assets/pbwimbledon-01.jpg" loading="lazy" decoding="async" alt="Molto Bene x Poivre Blanc Wimbledon"/>
+        <img src="assets/pbwimbledon-01.jpg" decoding="async" alt="Molto Bene x Poivre Blanc Wimbledon"/>
         <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
         <div class="case-thumb-veil"></div>
         <div class="case-thumb-meta">
@@ -1581,7 +1633,7 @@ body{font-size:17px;}
         </div>
       </a>
       <a class="case-thumb" href="case/indies.html" aria-label="Voir le cas Indies">
-        <img src="assets/indies-07.jpg" loading="lazy" decoding="async" alt="Molto Bene x Indies"/>
+        <img src="assets/indies-07.jpg" decoding="async" alt="Molto Bene x Indies"/>
         <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
         <div class="case-thumb-veil"></div>
         <div class="case-thumb-meta">
@@ -1590,7 +1642,7 @@ body{font-size:17px;}
         </div>
       </a>
       <a class="case-thumb" href="case/eres.html" aria-label="Voir le cas Eres">
-        <img src="assets/eres-07.jpg" loading="lazy" decoding="async" alt="Molto Bene x Eres"/>
+        <img src="assets/eres-07.jpg" decoding="async" alt="Molto Bene x Eres"/>
         <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
         <div class="case-thumb-veil"></div>
         <div class="case-thumb-meta">
@@ -1599,7 +1651,7 @@ body{font-size:17px;}
         </div>
       </a>
       <a class="case-thumb" href="case/poivre-blanc-vintage.html" aria-label="Voir le cas Poivre Blanc Vintage">
-        <img src="assets/pbvintage-06.jpg" loading="lazy" decoding="async" alt="Molto Bene x Poivre Blanc Vintage"/>
+        <img src="assets/pbvintage-06.jpg" decoding="async" alt="Molto Bene x Poivre Blanc Vintage"/>
         <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
         <div class="case-thumb-veil"></div>
         <div class="case-thumb-meta">
@@ -1608,7 +1660,7 @@ body{font-size:17px;}
         </div>
       </a>
       <a class="case-thumb" href="case/adidas.html" aria-label="Voir le cas Adidas">
-        <img src="assets/adidas-01.jpg" loading="lazy" decoding="async" alt="Molto Bene x Adidas"/>
+        <img src="assets/adidas-01.jpg" decoding="async" alt="Molto Bene x Adidas"/>
         <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
         <div class="case-thumb-veil"></div>
         <div class="case-thumb-meta">
@@ -1617,7 +1669,7 @@ body{font-size:17px;}
         </div>
       </a>
       <a class="case-thumb" href="case/american-vintage.html" aria-label="Voir le cas American Vintage">
-        <img src="assets/av-04.jpg" loading="lazy" decoding="async" alt="Molto Bene x American Vintage"/>
+        <img src="assets/av-04.jpg" decoding="async" alt="Molto Bene x American Vintage"/>
         <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
         <div class="case-thumb-veil"></div>
         <div class="case-thumb-meta">
@@ -1626,7 +1678,7 @@ body{font-size:17px;}
         </div>
       </a>
       <a class="case-thumb" href="case/nike-palace.html" aria-label="Voir le cas Nike × Palace">
-        <img src="assets/palace-nike-cover.jpg" loading="lazy" decoding="async" alt="Molto Bene, co-branding Nike × Palace"/>
+        <img src="assets/palace-nike-cover.jpg" decoding="async" alt="Molto Bene, co-branding Nike × Palace"/>
         <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
         <div class="case-thumb-veil"></div>
         <div class="case-thumb-meta">
@@ -1635,7 +1687,7 @@ body{font-size:17px;}
         </div>
       </a>
       <a class="case-thumb" href="case/roseanna.html" aria-label="Voir le cas Roseanna">
-        <img src="assets/roseanna-08.jpg" loading="lazy" decoding="async" alt="Molto Bene x Roseanna" style="object-position:center top;"/>
+        <img src="assets/roseanna-08.jpg" decoding="async" alt="Molto Bene x Roseanna" style="object-position:center top;"/>
         <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
         <div class="case-thumb-veil"></div>
         <div class="case-thumb-meta">
@@ -1644,7 +1696,7 @@ body{font-size:17px;}
         </div>
       </a>
       <a class="case-thumb" href="case/lacoste-prada.html" aria-label="Voir le cas Lacoste × Prada">
-        <img src="assets/lacoste-prada-cover.jpg" loading="lazy" decoding="async" alt="Molto Bene, co-branding Lacoste × Prada"/>
+        <img src="assets/lacoste-prada-cover.jpg" decoding="async" alt="Molto Bene, co-branding Lacoste × Prada"/>
         <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
         <div class="case-thumb-veil"></div>
         <div class="case-thumb-meta">
@@ -1653,7 +1705,7 @@ body{font-size:17px;}
         </div>
       </a>
       <a class="case-thumb" href="case/poivre-blanc-tennis.html" aria-label="Voir le cas Poivre Blanc Tennis">
-        <img src="assets/tennis-01.jpg" loading="lazy" decoding="async" alt="Molto Bene x Poivre Blanc Tennis"/>
+        <img src="assets/tennis-01.jpg" decoding="async" alt="Molto Bene x Poivre Blanc Tennis"/>
         <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
         <div class="case-thumb-veil"></div>
         <div class="case-thumb-meta">
@@ -1662,7 +1714,7 @@ body{font-size:17px;}
         </div>
       </a>
       <a class="case-thumb" href="case/rolls-royce-supreme.html" aria-label="Voir le cas Rolls-Royce × Supreme">
-        <img src="assets/rolls-supreme.jpg" loading="lazy" decoding="async" alt="Molto Bene, co-branding Rolls-Royce × Supreme"/>
+        <img src="assets/rolls-supreme.jpg" decoding="async" alt="Molto Bene, co-branding Rolls-Royce × Supreme"/>
         <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
         <div class="case-thumb-veil"></div>
         <div class="case-thumb-meta">
@@ -1671,7 +1723,7 @@ body{font-size:17px;}
         </div>
       </a>
       <a class="case-thumb" href="case/le-temps-des-cerises.html" aria-label="Voir le cas Le Temps des Cerises">
-        <img src="assets/ltdc-03.jpg" loading="lazy" decoding="async" alt="Molto Bene x Le Temps des Cerises"/>
+        <img src="assets/ltdc-03.jpg" decoding="async" alt="Molto Bene x Le Temps des Cerises"/>
         <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
         <div class="case-thumb-veil"></div>
         <div class="case-thumb-meta">
@@ -1680,7 +1732,7 @@ body{font-size:17px;}
         </div>
       </a>
       <a class="case-thumb" href="case/poivre-blanc-ski.html" aria-label="Voir le cas Poivre Blanc Ski">
-        <img src="assets/pb01-outdoor.jpg" loading="lazy" decoding="async" alt="Molto Bene x Poivre Blanc Ski"/>
+        <img src="assets/pb01-outdoor.jpg" decoding="async" alt="Molto Bene x Poivre Blanc Ski"/>
         <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
         <div class="case-thumb-veil"></div>
         <div class="case-thumb-meta">
@@ -1689,7 +1741,7 @@ body{font-size:17px;}
         </div>
       </a>
       <a class="case-thumb" href="case/sun-valley.html" aria-label="Voir le cas Sun Valley">
-        <img src="assets/sun-valley-pb-landrover-v2.jpg" loading="lazy" decoding="async" alt="Molto Bene x Sun Valley"/>
+        <img src="assets/sun-valley-pb-landrover-v2.jpg" decoding="async" alt="Molto Bene x Sun Valley"/>
         <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
         <div class="case-thumb-veil"></div>
         <div class="case-thumb-meta">
@@ -1698,7 +1750,7 @@ body{font-size:17px;}
         </div>
       </a>
       <a class="case-thumb" href="case/jott.html" aria-label="Voir le cas Jott">
-        <img src="assets/jott-cover.jpg" loading="lazy" decoding="async" alt="Molto Bene, capsule Jott"/>
+        <img src="assets/jott-cover.jpg" decoding="async" alt="Molto Bene, capsule Jott"/>
         <span class="ia-mark" aria-label="Visuel généré par IA">IA</span>
         <div class="case-thumb-veil"></div>
         <div class="case-thumb-meta">
@@ -1710,12 +1762,16 @@ body{font-size:17px;}
   </div>
 </section>
 
+
+<!-- PARALLAX A -->
+<section class="px-band px-a" aria-hidden="true"><figure class="px-fr"><img src="assets/px-freja-1.jpg" alt="" loading="lazy"></figure><figure class="px-fr"><img src="assets/px-freja-2.jpg" alt="" loading="lazy"></figure><figure class="px-fr"><img src="assets/px-freja-3.jpg" alt="" loading="lazy"></figure><figure class="px-fr"><img src="assets/px-freja-4.jpg" alt="" loading="lazy"></figure><figure class="px-fr"><img src="assets/px-freja-5.jpg" alt="" loading="lazy"></figure></section>
 <!-- COMPARISON -->
-<section class="compare-s reveal" id="comparatif">
+<div class="cmp-wrap"><section class="compare-s reveal" id="comparatif">
   <div class="compare-inner">
     <div class="compare-label">Le comparatif</div>
     <h2 class="compare-title">Même budget.<br><em>Trois fois plus d'images.</em></h2>
     <p class="compare-lead">Une marque concentre sa production image sur 1 ou 2 campagnes hero par an. Entre les deux, des drops, des capsules, des territoires entiers restent en moodboard, faute de budget pour les shooter. Molto Bene s'installe dans cet entre-deux : une production en flux, au volume dont vous avez besoin.</p>
+    
     <div class="compare-table">
       <div class="cch classic">Un shooting classique</div>
       <div class="cch vs">→</div>
@@ -1755,7 +1811,7 @@ body{font-size:17px;}
     </div>
     <p class="cmp-note">Exemple pour un budget annuel de 30 000 €, en forfait mensuel, visuels produit.</p>
 
-    <div class="cmp-cta">
+    <div class="cmp-cta"><div class="cmp-bg" aria-hidden="true"><img class="px-img" data-k="0.22" src="assets/px-lune.jpg" alt=""></div>
       <span class="cmp-cta-kicker">Crédits &amp; forfaits</span>
       <h3 class="cmp-cta-title">1 crédit = 1 visuel<em>*</em></h3>
       <p class="cmp-cta-body">50 € le crédit à l'unité, jusqu'à 30 % de moins avec un forfait. Plus vous produisez, moins chaque visuel vous coûte.</p>
@@ -1791,7 +1847,8 @@ body{font-size:17px;}
       <a class="cmp-link" href="https://meet.moltobene.ai" target="_blank" rel="noopener">En savoir plus</a>
     </div>
   </div>
-</section>
+</section></div>
+
 
 <!-- CADRE DE CONFIANCE -->
 <section class="trust-s reveal" id="confiance">
@@ -1824,6 +1881,17 @@ body{font-size:17px;}
       </article>
     </div>
   </div>
+</section>
+
+
+<!-- INSTAGRAM -->
+<section class="ig-s" id="instagram">
+  <div class="ig-head">
+    <div class="ig-label">Instagram</div>
+    <h2 class="ig-title">Le studio, <em>au quotidien.</em></h2>
+    <a class="ig-cta" href="https://www.instagram.com/studiomoltobene" target="_blank" rel="noopener noreferrer">Suivre @studiomoltobene →</a>
+  </div>
+  <div class="ig-grid"><a class="ig-t" href="https://www.instagram.com/studiomoltobene" target="_blank" rel="noopener noreferrer" aria-label="Voir @studiomoltobene sur Instagram"><img src="assets/mosaic-14-v2.jpg" alt="" loading="lazy" decoding="async"></a><a class="ig-t" href="https://www.instagram.com/studiomoltobene" target="_blank" rel="noopener noreferrer" aria-label="Voir @studiomoltobene sur Instagram"><img src="assets/mosaic-12.jpg" alt="" loading="lazy" decoding="async"></a><a class="ig-t" href="https://www.instagram.com/studiomoltobene" target="_blank" rel="noopener noreferrer" aria-label="Voir @studiomoltobene sur Instagram"><img src="assets/mosaic-06.jpg" alt="" loading="lazy" decoding="async"></a><a class="ig-t" href="https://www.instagram.com/studiomoltobene" target="_blank" rel="noopener noreferrer" aria-label="Voir @studiomoltobene sur Instagram"><img src="assets/mosaic-11.jpg" alt="" loading="lazy" decoding="async"></a><a class="ig-t" href="https://www.instagram.com/studiomoltobene" target="_blank" rel="noopener noreferrer" aria-label="Voir @studiomoltobene sur Instagram"><img src="assets/mosaic-01.jpg" alt="" loading="lazy" decoding="async"></a><a class="ig-t" href="https://www.instagram.com/studiomoltobene" target="_blank" rel="noopener noreferrer" aria-label="Voir @studiomoltobene sur Instagram"><img src="assets/mosaic-15-v2.jpg" alt="" loading="lazy" decoding="async"></a></div>
 </section>
 
 <!-- ALLORA -->
@@ -1963,8 +2031,10 @@ if(mgEl){
     const sr=stage.getBoundingClientRect();
     const p=((sr.top+sr.height/2)-vh/2)/(vh+sr.height/2);
     tiles.forEach(tl=>{
-      const ty=p*SPEEDS[tl.col%SPEEDS.length]*sr.height;
-      tl.el.style.transform=`translate3d(0,${ty.toFixed(1)}px,0)`;
+      const th=tl.el.offsetHeight;
+      let ty=p*SPEEDS[tl.col%SPEEDS.length]*sr.height;
+      const mx=th*0.065; ty=Math.max(-mx,Math.min(mx,ty));
+      tl.el.style.setProperty('--py',ty.toFixed(1)+'px');
       const r=tl.el.getBoundingClientRect();
       const f=(r.top+r.height/2)/vh;               /* 1 = bas de l'écran, 0 = haut */
       const L=tl.layers.length;
@@ -2223,6 +2293,20 @@ lb.addEventListener('click',e=>{
     var wasClosed=board.hidden;open(b.dataset.cat);
     if(wasClosed){var y=board.getBoundingClientRect().top+window.pageYOffset-90;if(board.getBoundingClientRect().top>window.innerHeight*0.6)window.scrollTo({top:y,behavior:'smooth'});}
   });});
+})();
+</script>
+<script>
+(function(){
+  var imgs=[].slice.call(document.querySelectorAll('.px-img'));if(!imgs.length)return;
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var tk=false;
+  function run(){tk=false;var vh=innerHeight;
+    imgs.forEach(function(im){var f=im.parentNode,r=f.getBoundingClientRect();
+      if(r.bottom<-50||r.top>vh+50)return;
+      var p=(r.top+r.height/2-vh/2)/(vh/2+r.height/2); p=Math.max(-1,Math.min(1,p));
+      im.style.transform='translate3d(0,'+(p*-(im.dataset.k?+im.dataset.k:0.15)*r.height).toFixed(1)+'px,0)';});}
+  function q(){if(!tk){tk=true;requestAnimationFrame(run);}}
+  addEventListener('scroll',q,{passive:true});addEventListener('resize',q);run();
 })();
 </script>
 </body>
