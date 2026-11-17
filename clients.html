@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Clients & réalisations · Molto Bene</title>
+<meta name="description" content="Index des réalisations Molto Bene : commandes de marques (Paris FC, DFCO, MPG, Paris Basketball, Poivre Blanc) et explorations R&amp;D. Tous les visuels sont générés par IA et signés comme tels.">
+<meta name="theme-color" content="#0A0A09">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://moltobene.ai/clients.html">
+<meta property="og:title" content="Clients & réalisations · Molto Bene">
+<meta property="og:description" content="Index des réalisations Molto Bene : commandes de marques (Paris FC, DFCO, MPG, Paris Basketball, Poivre Blanc) et explorations R&amp;D. Tous les visuels sont générés par IA et signés comme tels.">
+<meta property="og:image" content="https://moltobene.ai/assets/og-cover.jpg">
+<meta property="og:site_name" content="Molto Bene">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Clients & réalisations · Molto Bene">
+<meta name="twitter:description" content="Index des réalisations Molto Bene : commandes de marques (Paris FC, DFCO, MPG, Paris Basketball, Poivre Blanc) et explorations R&amp;D. Tous les visuels sont générés par IA et signés comme tels.">
+<meta name="twitter:image" content="https://moltobene.ai/assets/og-cover.jpg">
+<link rel="canonical" href="https://moltobene.ai/clients.html">
+<link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/mb/mb.css?v=6">
+<style>
+body{background:var(--paper);color:var(--ink)}
+.nav{border-color:var(--line-ink);background:rgba(238,234,226,.6);color:var(--ink)}
+.nav > *{border-color:var(--line-ink)}
+.nav .brand img{filter:invert(1)}
+.nav .lnk sup{color:#8a857c}
+
+/* en-tête */
+.ph{padding:150px var(--gut) 40px;display:grid;grid-template-columns:1fr minmax(240px,340px);align-items:end;gap:30px}
+.ph h1{font-size:clamp(80px,17vw,340px);line-height:.76;letter-spacing:-.05em;display:flex;align-items:flex-start}
+.ph h1 sup{font-family:var(--f-mono);font-size:clamp(14px,1.4vw,22px);letter-spacing:0;font-weight:400;margin:.4em 0 0 .3em}
+.ph .intro{font-family:var(--f-serif);font-style:italic;font-size:clamp(22px,2vw,32px);line-height:1.08;padding-bottom:1.2vw}
+
+/* barre de filtres */
+.fbar{position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;gap:20px;padding:14px var(--gut);background:rgba(238,234,226,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--ink);border-bottom:1px solid var(--line-ink)}
+.fbar .g{display:flex;gap:6px;flex-wrap:wrap}
+.chip{height:34px;padding:0 14px;border:1px solid var(--line-ink);font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:inline-flex;align-items:center;gap:8px;transition:all .3s}
+.chip i{font-style:normal;color:#8a857c}
+.chip:hover{border-color:var(--ink)}
+.chip.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chip.on i{color:var(--mustard)}
+
+/* vue LISTE */
+.list{padding:0 var(--gut)}
+.head-row,.row{display:grid;grid-template-columns:60px 1.6fr 1fr 1fr 1.2fr 70px 30px;gap:20px;align-items:center}
+.head-row{padding:22px 0 10px;color:#8a857c}
+.row{position:relative;padding:18px 0;border-top:1px solid var(--line-ink);isolation:isolate;transition:color .4s}
+.row::before{content:'';position:absolute;inset:0 calc(var(--gut) * -1);background:var(--ink);z-index:-1;transform:scaleY(0);transform-origin:bottom;transition:transform .5s var(--ease)}
+.row:hover{color:var(--paper)}
+.row:hover::before{transform:scaleY(1)}
+.row .nm{font-size:clamp(28px,3.4vw,58px);line-height:.95}
+.row .nm .serif{color:inherit}
+.row:hover .nm .serif{color:var(--mustard)}
+.row .arrow{transition:transform .5s var(--ease)}
+.row:hover .arrow{transform:translateX(6px) rotate(-45deg);color:var(--mustard)}
+.tag{display:inline-block;padding:3px 7px;border:1px solid currentColor;font-size:9px;letter-spacing:.14em;margin-right:6px}
+.tag.cl{background:var(--mustard);border-color:var(--mustard);color:var(--ink)}
+.row.hide{display:none}
+@media(max-width:900px){.ph{grid-template-columns:1fr}.head-row{display:none}.row{grid-template-columns:40px 1fr 30px}.row .c3,.row .c4,.row .c5,.row .c6{display:none}}
+
+/* aperçu flottant : mini-diaporama */
+.peek{position:fixed;left:0;top:0;z-index:60;width:min(280px,22vw);aspect-ratio:4/5;pointer-events:none;overflow:hidden;clip-path:inset(50% 50% 50% 50%);transition:clip-path .5s var(--ease)}
+.peek.on{clip-path:inset(0 0 0 0)}
+.peek img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.peek .ct{position:absolute;left:8px;bottom:8px;z-index:3;font-family:var(--f-mono);font-size:10px;color:#fff;letter-spacing:.1em;mix-blend-mode:difference}
+
+/* vue GRILLE */
+/* 4 colonnes indépendantes, décalées, qui glissent à des vitesses différentes au scroll */
+.grid{display:none;padding:40px var(--gut) 0;gap:clamp(12px,1.6vw,26px);align-items:flex-start}
+.show-grid .grid{display:flex}
+.show-grid .list{display:none}
+.gcol{flex:1;min-width:0;display:flex;flex-direction:column;gap:clamp(28px,3vw,52px);will-change:transform}
+.gcol:nth-child(2){padding-top:14vh}
+.gcol:nth-child(3){padding-top:5vh}
+.gcol:nth-child(4){padding-top:20vh}
+.card{display:block;position:relative}
+.card .media{aspect-ratio:3/4;background:#d8d3c8}
+.card .media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease),opacity .45s}
+.card .media img.s{opacity:0}
+.card .media img.s.on{opacity:1}
+.card:hover .media img{transform:scale(1.035)}
+.card .media .go{position:absolute;left:0;right:0;bottom:0;z-index:3;display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:var(--mustard);color:var(--ink);font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;transform:translateY(101%);transition:transform .5s var(--ease)}
+.card:hover .media .go{transform:none}
+.card .media .bars{position:absolute;left:10px;right:10px;top:10px;z-index:3;display:flex;gap:3px;opacity:0;transition:opacity .3s}
+.card:hover .media .bars{opacity:1}
+.card .media .bars i{flex:1;height:2px;background:rgba(255,255,255,.35)}
+.card .media .bars i.on{background:#fff}
+.card .cap{padding:12px 0 0;display:grid;grid-template-columns:auto 1fr;column-gap:12px;row-gap:6px;align-items:baseline}
+.card .cap .n{color:#8a857c}
+.card .cap b{font-family:var(--f-wide);font-variation-settings:"wdth" 125;font-weight:800;text-transform:uppercase;font-size:clamp(17px,1.5vw,26px);line-height:.95;letter-spacing:-.02em}
+.card .cap b .serif{font-family:var(--f-serif);font-variation-settings:normal;font-weight:400;text-transform:none;font-style:italic;letter-spacing:0;font-size:1.12em}
+.card:hover .cap b .serif{color:var(--mustard)}
+.card .cap .meta{grid-column:2;display:flex;flex-wrap:wrap;gap:4px 10px;color:#8a857c;font-size:10px}
+.card.hide{display:none}
+@media(max-width:900px){.gcol:nth-child(n){padding-top:0}.gcol:nth-child(even){padding-top:60px}}
+
+.disc{margin:50px var(--gut) 0;padding:18px 0;border-top:1px solid var(--line-ink);color:#8a857c;display:flex;gap:14px;max-width:80ch;line-height:1.6}
+.disc b{color:var(--ink);font-weight:700}
+
+/* mur des clients */
+.wall{background:var(--ink);color:var(--paper);margin-top:120px;padding:130px var(--gut)}
+.wall .names{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);margin-top:40px}
+.wall .names a{display:flex;justify-content:space-between;align-items:center;padding:26px 0;border-bottom:1px solid var(--line);font-size:clamp(34px,5vw,90px);transition:padding .5s var(--ease),color .3s}
+.wall .names a:nth-child(odd){border-right:1px solid var(--line);padding-right:30px}
+.wall .names a:nth-child(even){padding-left:30px}
+.wall .names a:hover{color:var(--mustard)}
+.wall .names a span.mono{font-size:11px;color:var(--muted);white-space:nowrap;margin-left:16px}
+@media(max-width:700px){.wall .names{grid-template-columns:1fr}.wall .names a:nth-child(n){border-right:0;padding-left:0;padding-right:0;font-size:clamp(24px,7.4vw,40px);min-width:0}}
+</style>
+</head>
+<body data-page="clients" class="show-grid">
+
+<section class="ph">
+  <h1 class="wide" data-fit><span class="line-mask"><span>Index</span></span><sup id="tot">(21)</sup></h1>
+  <p class="intro fade">Commandes de marques et explorations libres, pour des clubs et des maisons qu'on admire. La même écriture, la même exigence.</p>
+</section>
+
+<div class="idx-wrap">
+<div class="fbar">
+  <div class="g" id="filters"></div>
+  <div class="g">
+    <button class="chip" data-v="list">Liste</button>
+    <button class="chip on" data-v="grid">Grille</button>
+  </div>
+</div>
+
+<main id="main">
+  <div class="list">
+    <div class="head-row mono"><span>N°</span><span>Projet</span><span>Statut</span><span>Saison</span><span>Mood</span><span>Visuels</span><span></span></div>
+    <div id="rows"></div>
+  </div>
+  <div class="grid" id="grid"></div>
+</main>
+</div>
+
+<p class="disc mono"><span class="mustard">✦</span><span><b>Clients</b> = commandes réelles, livrées. <b>R&amp;D</b> = explorations libres du studio : les marques citées n'ont pas commandé ces images et les co-brandings sont fictifs. Tous les visuels sont générés par IA et signés comme tels (AI Act, art. 50).</span></p>
+
+<section class="wall">
+  <div class="eyebrow">Ils nous ont confié leurs pièces</div>
+  <div class="names wide" id="wall"></div>
+</section>
+
+<div class="peek" id="peek"></div>
+
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="/assets/mb/site-data.js?v=14"></script>
+<script src="/assets/mb/mb.js?v=7"></script>
+<script>
+const $=s=>document.querySelector(s);
+const C=MB.cases.map((c,i)=>({...c,n:i+1,client:c.meta.Status==='Client',season:c.meta['Saison']||c.meta['Season']||c.meta['Concept']||'·',mood:c.meta.Mood||'·',imgs:c.media.filter(m=>m[0]==='img').map(m=>m[1])}));
+$('#tot').textContent=`(${C.length})`;
+
+/* nom : 1er mot large, suite en serif italique */
+const fmt=n=>{const p=n.split(' '); if(p.length===1) return n; return p.slice(0,-1).join(' ')+' <span class="serif">'+p.slice(-1)+'</span>';};
+
+$('#rows').innerHTML=C.map(c=>`<a class="row" href="/case/${c.slug}.html" data-k="${c.client?'client':'rd'}" data-slug="${c.slug}">
+  <span class="mono">${String(c.n).padStart(2,'0')}</span>
+  <span class="nm wide">${fmt(c.name)}</span>
+  <span class="mono c3"><span class="tag ${c.client?'cl':''}">${c.client?'Client':'R&D'}</span>${c.tag}</span>
+  <span class="mono c4">${c.season}</span>
+  <span class="mono c5">${c.mood}</span>
+  <span class="mono c6">${String(c.media.length).padStart(2,'0')}</span>
+  <span class="arrow">→</span></a>`).join('');
+
+/* ── vue GRILLE : colonnes décalées, toutes les images en 3:4, légende complète ── */
+let curF='all';
+const card=c=>{const im=c.imgs.slice(0,5);
+  return `<a class="card fade" href="/case/${c.slug}.html" data-slug="${c.slug}" data-cursor="Ouvrir">
+  <div class="media"><img src="${A}${c.cover}" alt="${c.name}" loading="lazy">${IA}
+    ${im.length>1?`<span class="bars">${im.map((_,j)=>`<i class="${j?'':'on'}"></i>`).join('')}</span>`:''}
+    <span class="go"><span>${c.tag} · ${String(c.media.length).padStart(2,'0')} visuels</span><span>Voir →</span></span></div>
+  <div class="cap"><span class="mono n">${String(c.n).padStart(2,'0')}</span><b>${fmt(c.name)}</b>
+    <span class="mono meta"><span class="tag ${c.client?'cl':''}">${c.client?'Client':'R&D'}</span><span>${c.season}</span></span></div></a>`;};
+const ncols=()=>innerWidth<=900?2:innerWidth<=1200?3:4;
+let lastN=0;
+function renderGrid(){
+  const list=C.filter(c=>curF==='all'||(curF==='client')===c.client), n=ncols(); lastN=n;
+  const cols=Array.from({length:n},()=>[]); list.forEach((c,i)=>cols[i%n].push(card(c)));
+  $('#grid').innerHTML=cols.map(h=>`<div class="gcol">${h.join('')}</div>`).join('');
+  observeReveals($('#grid'));
+}
+renderGrid();
+addEventListener('resize',()=>{ if(ncols()!==lastN) renderGrid(); });
+
+/* survol : la carte feuillette le projet */
+(function(){
+  let t=null;
+  $('#grid').addEventListener('mouseover',e=>{
+    const a=e.target.closest('.card'); if(!a || a.dataset.on) return;
+    document.querySelectorAll('.card[data-on]').forEach(x=>stop(x)); a.dataset.on=1;
+    const c=C.find(c=>c.slug===a.dataset.slug), im=c.imgs.slice(0,5); if(im.length<2) return;
+    const base=a.querySelector('.media img'), bars=a.querySelectorAll('.bars i'); let k=0;
+    t=setInterval(()=>{k=(k+1)%im.length; base.src=A+im[k]; bars.forEach((b,j)=>b.classList.toggle('on',j===k));},700);
+    a.addEventListener('mouseleave',()=>stop(a),{once:true});
+  });
+  function stop(a){clearInterval(t); delete a.dataset.on; const c=C.find(c=>c.slug===a.dataset.slug);
+    a.querySelector('.media img').src=A+c.cover; a.querySelectorAll('.bars i').forEach((b,j)=>b.classList.toggle('on',!j));}
+})();
+
+/* parallaxe : chaque colonne glisse à sa vitesse */
+(function(){
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const sp=[0,-.09,.05,-.14];
+  (function loop(){
+    if(document.body.classList.contains('show-grid') && innerWidth>900){
+      const g=$('#grid'), r=g.getBoundingClientRect(), p=Math.max(-innerHeight, Math.min(r.height, -r.top+innerHeight*.3));
+      g.querySelectorAll('.gcol').forEach((c,i)=>c.style.transform=`translate3d(0,${(p*sp[i%4]).toFixed(1)}px,0)`);
+    }
+    requestAnimationFrame(loop);
+  })();
+})();
+
+/* filtres */
+const F=[['all','Tous',C.length],['client','Clients',C.filter(c=>c.client).length],['rd','Explorations R&D',C.filter(c=>!c.client).length]];
+$('#filters').innerHTML=F.map(([k,l,n],i)=>`<button class="chip ${i?'':'on'}" data-f="${k}">${l} <i>${String(n).padStart(2,'0')}</i></button>`).join('');
+$('#filters').addEventListener('click',e=>{const b=e.target.closest('[data-f]'); if(!b) return;
+  $('#filters').querySelectorAll('.chip').forEach(x=>x.classList.toggle('on',x===b));
+  curF=b.dataset.f;
+  document.querySelectorAll('.row').forEach((el,i)=>{
+    const show=curF==='all'||el.dataset.k===curF;
+    el.classList.toggle('hide',!show);
+    if(show){ el.animate([{opacity:0,transform:'translateY(18px)'},{opacity:1,transform:'none'}],{duration:600,delay:(i%24)*25,easing:'cubic-bezier(.16,1,.3,1)',fill:'backwards'}); }
+  });
+  renderGrid();
+  $('#grid').querySelectorAll('.card').forEach((el,i)=>{el.classList.add('in-view'); el.animate([{opacity:0,transform:'translateY(30px)'},{opacity:1,transform:'none'}],{duration:700,delay:i*30,easing:'cubic-bezier(.16,1,.3,1)',fill:'backwards'});});
+});
+/* vues */
+document.querySelectorAll('[data-v]').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('[data-v]').forEach(x=>x.classList.toggle('on',x===b));
+  document.body.classList.toggle('show-grid',b.dataset.v==='grid');
+  observeReveals($('#grid'));
+});
+
+/* aperçu flottant (diaporama du projet) */
+(function(){
+  const pk=$('#peek'); let x=0,y=0,tx=0,ty=0,timer=null;
+  $('#rows').addEventListener('mouseover',e=>{
+    const r=e.target.closest('.row'); if(!r || r.dataset.slug===pk.dataset.slug) return;
+    const c=C.find(c=>c.slug===r.dataset.slug); pk.dataset.slug=c.slug; clearInterval(timer);
+    const im=c.imgs.slice(0,6); let k=0;
+    pk.innerHTML=`<img src="${A}${c.cover}" alt="">${IA}<span class="ct">01 / ${String(im.length).padStart(2,'0')}</span>`;
+    pk.classList.add('on');
+    timer=setInterval(()=>{k=(k+1)%im.length; pk.querySelector('img').src=A+im[k]; pk.querySelector('.ct').textContent=`${String(k+1).padStart(2,'0')} / ${String(im.length).padStart(2,'0')}`;},650);
+  });
+  $('#rows').addEventListener('mouseleave',()=>{pk.classList.remove('on'); pk.dataset.slug=''; clearInterval(timer);});
+  addEventListener('mousemove',e=>{tx=e.clientX;ty=e.clientY;});
+  (function loop(){x+=(tx-x)*.14;y+=(ty-y)*.14;pk.style.transform=`translate(${x-pk.offsetWidth-40}px,${y-pk.offsetHeight/2}px)`;requestAnimationFrame(loop);})();
+})();
+
+/* mur des clients */
+const groups={};C.filter(c=>c.client).forEach(c=>{const k=['Poivre Blanc','Paris FC','Paris Basketball'].find(b=>c.name.startsWith(b))||c.name; (groups[k]=groups[k]||[]).push(c);});
+$('#wall').innerHTML=Object.entries(groups).map(([k,v])=>`<a href="/case/${v[0].slug}.html">${k}<span class="mono">${String(v.length).padStart(2,'0')} projet${v.length>1?'s':''} →</span></a>`).join('');
+
+renderFooter();
+</script>
+</body>
+</html>

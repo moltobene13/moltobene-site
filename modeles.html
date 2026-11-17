@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Casting · Molto Bene</title>
+<meta name="description" content="Le casting Molto Bene : 27 mannequins numériques, femmes, hommes, enfants et duo. Des visages fictifs, cohérents d'une campagne à l'autre, sans droits à l'image.">
+<meta name="theme-color" content="#0A0A09">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://moltobene.ai/modeles.html">
+<meta property="og:title" content="Casting · Molto Bene">
+<meta property="og:description" content="Le casting Molto Bene : 27 mannequins numériques, femmes, hommes, enfants et duo. Des visages fictifs, cohérents d'une campagne à l'autre, sans droits à l'image.">
+<meta property="og:image" content="https://moltobene.ai/assets/og-cover.jpg">
+<meta property="og:site_name" content="Molto Bene">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Casting · Molto Bene">
+<meta name="twitter:description" content="Le casting Molto Bene : 27 mannequins numériques, femmes, hommes, enfants et duo. Des visages fictifs, cohérents d'une campagne à l'autre, sans droits à l'image.">
+<meta name="twitter:image" content="https://moltobene.ai/assets/og-cover.jpg">
+<link rel="canonical" href="https://moltobene.ai/modeles.html">
+<link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/mb/mb.css?v=6">
+<style>
+.ph{padding:150px var(--gut) 50px;position:relative}
+.ph h1{font-size:clamp(80px,17.5vw,330px);line-height:.78;letter-spacing:-.05em}
+.ph-row{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-top:34px}
+.ph-row p.serif{font-size:clamp(28px,3.2vw,54px);line-height:1}
+.ph-row p.d{font-size:16px;line-height:1.55;color:rgba(238,234,226,.75);max-width:44ch;justify-self:end;font-variation-settings:"wdth" 92}
+.ph-row p.d strong{color:var(--paper)}
+
+.fbar{position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:14px var(--gut);background:rgba(10,10,9,.8);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.fbar .g{display:flex;gap:6px;flex-wrap:wrap}
+.chip{height:34px;padding:0 14px;border:1px solid var(--line);font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:inline-flex;align-items:center;gap:8px;transition:all .3s}
+.chip i{font-style:normal;color:var(--muted)}
+.chip:hover{border-color:var(--paper)}
+.chip.on{background:var(--mustard);color:var(--ink);border-color:var(--mustard)}
+.chip.on i{color:var(--ink)}
+
+.board{display:grid;grid-template-columns:repeat(4,1fr);gap:40px 14px;padding:40px var(--gut) 80px}
+.mc{position:relative;cursor:pointer;text-align:left}
+.mc .media{aspect-ratio:9/16}
+.mc .media img{position:absolute;inset:0;transition:transform 1.2s var(--ease)}
+.mc:hover .media img{transform:scale(1.03)}
+.mc .scrub{position:absolute;left:10px;right:10px;bottom:10px;z-index:3;display:flex;gap:3px;opacity:0;transition:opacity .3s}
+.mc:hover .scrub{opacity:1}
+.mc .scrub i{flex:1;height:2px;background:rgba(255,255,255,.35)}
+.mc .scrub i.on{background:var(--mustard)}
+.mc .row{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:baseline;margin-top:12px}
+.mc .row b{font-family:var(--f-serif);font-style:italic;font-weight:400;font-size:clamp(30px,2.6vw,44px);line-height:.9}
+.mc .row .mono{color:var(--muted)}
+.mc.hide{display:none}
+.mc:nth-child(8n+3){margin-top:60px}.mc:nth-child(8n+6){margin-top:-60px}
+@media(max-width:1000px){.board{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.board{grid-template-columns:1fr 1fr}.mc:nth-child(n){margin-top:0}}
+
+/* comp card (tiroir) */
+.cc-veil{position:fixed;inset:0;z-index:100;background:rgba(10,10,9,.6);opacity:0;pointer-events:none;transition:opacity .5s}
+.cc{position:fixed;top:0;right:0;bottom:0;max-width:96vw;z-index:101;background:var(--paper);color:var(--ink);transform:translateX(102%);transition:transform .9s var(--ease);display:grid;grid-template-columns:auto minmax(340px,440px);overflow:hidden}
+.open .cc{transform:none}.open .cc-veil{opacity:1;pointer-events:auto}
+.cc-img{position:relative;overflow:hidden;background:#000;height:100svh;aspect-ratio:9/16;max-width:calc(96vw - 340px)}
+.cc-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.cc-body{padding:26px 26px 30px;display:flex;flex-direction:column;overflow-y:auto;overscroll-behavior:contain;min-height:0;height:100svh}
+.cc-top{display:flex;justify-content:space-between;align-items:center}
+.cc-top button{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--line-ink);padding:9px 12px}
+.cc-top button:hover{background:var(--ink);color:var(--paper)}
+.cc h2{font-size:96px;line-height:.82;margin:30px 0 8px;overflow-wrap:normal;word-break:normal}
+.cc .sig{font-family:var(--f-serif);font-style:italic;font-size:28px;color:#8a6a04}
+.attrs{margin:22px 0;border-top:1px solid var(--ink)}
+.attrs div{display:flex;justify-content:space-between;gap:14px;padding:8px 0;border-bottom:1px solid var(--line-ink)}
+.attrs span:last-child{text-align:right}
+.attrs span:first-child{color:#8a857c}
+.thumbs{display:grid;grid-template-columns:repeat(8,1fr);gap:4px}
+.thumbs button{position:relative;aspect-ratio:9/16;overflow:hidden;outline:1px solid transparent;outline-offset:2px}
+.thumbs button.on{outline-color:var(--ink)}
+.thumbs img{width:100%;height:100%;object-fit:cover}
+.cc-btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.cc .btn{color:var(--ink)}
+.cc .btn.solid{color:var(--ink)}
+@media(max-width:760px){.cc{width:100vw;max-width:100vw;grid-template-columns:1fr;grid-template-rows:48svh 1fr}.cc-img{height:auto;aspect-ratio:auto;max-width:none}.cc-body{height:auto}}
+</style>
+</head>
+<body data-page="modeles">
+
+<section class="ph">
+  <div class="eyebrow" style="margin-bottom:24px">Notre casting · <span id="tot">27</span> visages</div>
+  <h1 class="wide" data-fit><span class="line-mask"><span>Casting</span></span></h1>
+  <div class="ph-row">
+    <p class="serif fade">Des visages qui n'existent pas. <span class="mustard">Et qui portent vos couleurs.</span></p>
+    <p class="d fade">Femmes, hommes, enfants. Joueurs, supporters, égéries : un casting de mannequins numériques, cohérents d'une campagne à l'autre, <strong>sans agence, sans planning, sans droits à renégocier.</strong> Aucune photographie de personne réelle.</p>
+  </div>
+</section>
+
+<div class="fbar">
+  <div class="g" id="filters"></div>
+  <span class="mono muted">Survolez un visage · glissez pour feuilleter son book</span>
+</div>
+
+<main class="board" id="main"></main>
+
+<div class="cc-veil" id="veil"></div>
+<aside class="cc" id="cc" aria-hidden="true">
+  <div class="cc-img" id="ccimg"></div>
+  <div class="cc-body" data-lenis-prevent>
+    <div class="cc-top"><span class="mono" id="ccn"></span><button id="ccx">Fermer ✕</button></div>
+    <h2 class="wide" id="ccname"></h2>
+    <span class="sig" id="ccsig"></span>
+    <div class="attrs mono" id="ccattrs"></div>
+    <div class="thumbs" id="ccth"></div>
+    <div class="cc-btns"><a class="btn solid" id="cccta" href="#">Caster ce visage →</a><a class="btn" id="ccbook" href="#">Le book complet →</a></div>
+  </div>
+</aside>
+
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="/assets/mb/site-data.js?v=14"></script>
+<script src="/assets/mb/mb.js?v=7"></script>
+<script>
+const $=s=>document.querySelector(s);
+const CAT={femme:'Femmes',homme:'Hommes',enfant:'Enfants',duo:'Duo'};
+const CAT1={femme:'Femme',homme:'Homme',enfant:'Enfant',duo:'Duo'};
+const M=MB.models.map((m,i)=>({...m,n:i+1,book:[m.img,...m.media]}));
+$('#tot').textContent=M.length;
+
+$('#main').innerHTML=M.map(m=>`<button class="mc fade" data-slug="${m.slug}" data-k="${m.cat}" data-cursor="Book">
+  <div class="media"><img src="${A}${m.img}" alt="${m.name}, mannequin numérique Molto Bene" loading="lazy">${IA}
+    <div class="scrub">${m.book.slice(0,8).map((_,j)=>`<i class="${j?'':'on'}"></i>`).join('')}</div></div>
+  <div class="row"><span class="mono">${String(m.n).padStart(2,'0')}</span><b>${m.name}</b><span class="mono">${CAT1[m.cat]}</span></div>
+  <span class="mono muted" style="display:block;margin-top:4px">${m.tag}</span></button>`).join('');
+observeReveals($('#main'));
+
+/* feuilleter le book au survol (position horizontale de la souris) */
+document.querySelectorAll('.mc').forEach(card=>{
+  const m=M.find(x=>x.slug===card.dataset.slug), b=m.book.slice(0,8), img=card.querySelector('img'), bars=card.querySelectorAll('.scrub i');
+  b.forEach(f=>{const p=new Image(); card.addEventListener('mouseenter',()=>p.src=A+f,{once:true});});
+  card.addEventListener('mousemove',e=>{const r=card.getBoundingClientRect(); const j=Math.min(b.length-1,Math.floor((e.clientX-r.left)/r.width*b.length));
+    if(img.dataset.j!=j){img.dataset.j=j; img.src=A+b[j]; bars.forEach((x,k)=>x.classList.toggle('on',k===j));}});
+  card.addEventListener('mouseleave',()=>{img.src=A+b[0]; img.dataset.j=0; bars.forEach((x,k)=>x.classList.toggle('on',k===0));});
+  card.addEventListener('click',()=>openCC(m.slug));
+});
+
+/* filtres */
+const F=[['all','Tous',M.length],...Object.entries(CAT).map(([k,l])=>[k,l,M.filter(m=>m.cat===k).length])];
+$('#filters').innerHTML=F.map(([k,l,n])=>`<button class="chip" data-f="${k}">${l} <i>${String(n).padStart(2,'0')}</i></button>`).join('');
+function filt(k){
+  $('#filters').querySelectorAll('.chip').forEach(x=>x.classList.toggle('on',x.dataset.f===k));
+  let d=0; document.querySelectorAll('.mc').forEach(el=>{const s=k==='all'||el.dataset.k===k; el.classList.toggle('hide',!s);
+    if(s) el.animate([{opacity:0,transform:'translateY(24px)'},{opacity:1,transform:'none'}],{duration:700,delay:(d++)*35,easing:'cubic-bezier(.16,1,.3,1)',fill:'backwards'});});
+}
+$('#filters').addEventListener('click',e=>{const b=e.target.closest('[data-f]'); if(b) filt(b.dataset.f);});
+filt(new URLSearchParams(location.search).get('cat')||'all');
+
+/* comp card */
+function openCC(slug){
+  const m=M.find(x=>x.slug===slug); if(!m) return;
+  history.replaceState(null,'','#'+slug);
+  $('#ccn').textContent=`N° ${String(m.n).padStart(2,'0')} / ${M.length} · Molto Bene Casting`;
+  $('#ccname').textContent=m.name; fitName(); $('#ccsig').textContent=m.tag;
+  $('#ccimg').innerHTML=`<img src="${A}${m.book[0]}" alt="${m.name}">${IA}`;
+  $('#ccattrs').innerHTML=[['Catégorie',CAT1[m.cat]],['Type',m.type],['Signature',m.tag],['Statut',m.statut],['Book',String(m.book.length).padStart(2,'0')+' images'],['Cast-lock','✓ Même visage, chaque saison'],['Droits à l\'image','Aucun, visage fictif']].map(([a,b])=>`<div><span>${a}</span><span>${b}</span></div>`).join('');
+  $('#ccth').innerHTML=m.book.slice(0,8).map((f,j)=>`<button class="${j?'':'on'}" data-f="${f}"><img src="${A}${f}" alt="" loading="lazy"></button>`).join('');
+  $('#cccta').href=`mailto:hello@moltobene.ai?subject=${encodeURIComponent('Casting Molto Bene : '+m.name)}`;
+  $('#cccta').textContent=`Caster ${m.name} →`; $('#ccbook').href=`/modele/${m.slug}.html`;
+  document.body.classList.add('open'); window.lenis&&lenis.stop();
+}
+$('#ccth').addEventListener('click',e=>{const b=e.target.closest('button'); if(!b) return;
+  $('#ccth').querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));
+  const im=$('#ccimg img'); im.animate([{clipPath:'inset(0 0 100% 0)'},{clipPath:'inset(0 0 0 0)'}],{duration:700,easing:'cubic-bezier(.77,0,.18,1)'}); im.src=A+b.dataset.f;});
+/* le nom tient toujours dans la colonne : on réduit la taille jusqu'à ce qu'il ne dépasse plus */
+function fitName(){const h=$('#ccname'); let fs=96; h.style.whiteSpace='nowrap'; h.style.fontSize=fs+'px';
+  while(fs>34 && h.scrollWidth>h.clientWidth+1){fs-=2; h.style.fontSize=fs+'px';}
+  if(h.scrollWidth>h.clientWidth+1) h.style.whiteSpace='normal';
+}
+addEventListener('resize',()=>{ if(document.body.classList.contains('open')) fitName(); });
+function closeCC(){document.body.classList.remove('open'); history.replaceState(null,'',location.pathname+location.search); window.lenis&&lenis.start();}
+$('#ccx').onclick=closeCC; $('#veil').onclick=closeCC;
+addEventListener('keydown',e=>{if(e.key==='Escape')closeCC();});
+if(location.hash) setTimeout(()=>openCC(location.hash.slice(1)),700);
+
+renderFooter();
+</script>
+</body>
+</html>
