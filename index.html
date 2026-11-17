@@ -33,7 +33,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
 <link rel="canonical" href="https://moltobene.ai/">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/mb/mb.css?v=15">
+<link rel="stylesheet" href="/assets/mb/mb.css?v=17">
 <style>
 /* ═══ HERO TRIPTYQUE ═══ */
 .hero{position:relative;height:100svh;min-height:600px;overflow:hidden;background:var(--ink)}
@@ -44,7 +44,12 @@
 .ready .trip .media video{transform:scale(1.04)}
 .trip .media:nth-child(2){transition-delay:.12s}.trip .media:nth-child(2) video{transition-delay:.12s}
 .trip .media:nth-child(3){transition-delay:.24s}.trip .media:nth-child(3) video{transition-delay:.24s}
-.trip .lab{position:absolute;left:12px;top:86px;z-index:3;color:rgba(238,234,226,.75)}
+.trip .media .v{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.trip .media .v:not(.in){clip-path:inset(100% 0 0 0)}
+.trip .media .v.in{clip-path:inset(0 0 0 0)}
+.trip .media .v.wipe{transition:clip-path 1s var(--ease)}
+.trip .lab{position:absolute;left:12px;top:92px;z-index:6;color:rgba(238,234,226,.85);font-size:10px;transition:opacity .4s,transform .4s;text-shadow:0 1px 8px rgba(0,0,0,.5)}
+.trip .lab.out{opacity:0;transform:translateY(-6px)}
 .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,9,.45) 0%,rgba(10,10,9,0) 30%,rgba(10,10,9,0) 45%,rgba(10,10,9,.88) 100%);pointer-events:none}
 .hero-in{position:absolute;left:var(--gut);right:var(--gut);bottom:calc(var(--gut) + 46px);z-index:5;display:grid;grid-template-columns:1fr 340px;gap:28px 40px;align-items:end}
 .hero h1{font-size:clamp(46px,8.4vw,168px);grid-column:1 / -1;grid-row:2}
@@ -68,6 +73,7 @@
 /* ═══ RAIL CHAPITRES (fixe) ═══ */
 .rail{position:fixed;right:var(--gut);bottom:var(--gut);z-index:84;display:flex;align-items:center;gap:12px;mix-blend-mode:difference;color:#fff;opacity:0;transition:opacity .5s}
 .rail.on{opacity:1}
+@media(max-width:860px){.rail{display:none}}
 .rail .n{font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;height:12px;overflow:hidden}
 .rail .n div{transition:transform .6s var(--ease)}
 .rail .n span{display:block;height:12px;line-height:12px}
@@ -105,7 +111,7 @@
 .pillars .mono{color:#6b665e}
 .pillars h3{font-size:clamp(24px,2.2vw,34px);margin:40px 0 10px}
 .pillars p{font-size:15px;line-height:1.45;font-variation-settings:"wdth" 92;max-width:24ch}
-@media(max-width:560px){.pillars{grid-template-columns:1fr!important}.pillars div{border-right:0}.nums-grid{grid-template-columns:1fr!important}.nums-grid > div{border-right:0}}
+@media(max-width:560px){.pillars{grid-template-columns:1fr!important}.pillars div{border-right:0}}
 @media(max-width:860px){.mani-grid{grid-template-columns:1fr}.mani-grid .q{position:static}.pillars{grid-template-columns:1fr 1fr;row-gap:40px}}
 
 /* ═══ MÉTHODE : scroll horizontal épinglé ═══ */
@@ -126,10 +132,21 @@
 .step .col .media{flex:0 1 calc(62vh * 9 / 16);min-width:0;aspect-ratio:9/16}
 .step .col .media:nth-child(2){transform:translateY(-12%)}
 .step .col .media:nth-child(3){transform:translateY(-4%)}
+.step > div:first-child{transition:opacity .6s,transform .8s var(--ease-out)}
+.step .col .media{transition:opacity .7s,filter .7s}
+.step:not(.on) > div:first-child{opacity:.25;transform:translateX(30px)}
+.step:not(.on) .col .media{opacity:.45;filter:grayscale(1)}
 @media(max-width:860px){
-  .how{height:auto}.how-pin{position:relative;height:auto}.how-track{flex-direction:column;transform:none!important}
-  .step{flex:none;grid-template-columns:1fr;padding:40px var(--gut)}.step .col{justify-content:flex-start}.step .col .media{flex:1 1 0}
-  .how-prog{display:none}
+  .how{height:380vh}
+  .how-head{padding:84px var(--gut) 0;gap:12px}
+  .how-head h2{font-size:clamp(28px,8vw,44px)}
+  .how-prog .bar{width:56px}
+  .step{grid-template-columns:1fr;grid-template-rows:auto 1fr;gap:14px;padding:18px var(--gut) calc(var(--gut) + 8px);align-items:start}
+  .step .num{font-size:24vw}
+  .step h3{font-size:clamp(28px,8.4vw,44px);margin:10px 0 8px}
+  .step p{font-size:15px}
+  .step .col{align-self:end;justify-content:space-between;gap:6px}
+  .step .col .media{flex:1 1 0;max-height:46svh}
 }
 
 /* ═══ CASTING : accordéon de visages ═══ */
@@ -155,6 +172,7 @@
 .acc .big-nm{position:absolute;left:20px;right:20px;bottom:18px;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;opacity:0;transform:translateY(16px);transition:all .6s .15s var(--ease-out)}
 .acc .big-nm b{font-family:var(--f-serif);font-style:italic;font-weight:400;font-size:clamp(40px,4.6vw,76px);line-height:.9}
 .acc a:hover .big-nm,.acc a.act .big-nm{opacity:1;transform:none}
+.acc .big-nm .go{background:var(--mustard);color:var(--ink);padding:9px 12px;white-space:nowrap;align-self:flex-end}
 .acc a:hover .nm,.acc a.act .nm{opacity:0}
 .acc a::after{content:'';position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(10,10,9,.7));pointer-events:none}
 .cast-cats{display:flex;gap:0;margin:26px var(--gut) 0;border-top:1px solid var(--line)}
@@ -178,16 +196,49 @@
 .idx-float img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .25s}
 .idx-float img.on{opacity:1}
 .idx-more{display:flex;justify-content:center;margin-top:60px}
+.idx-m{display:none}
+@media(max-width:860px){
+  .idx-list,.idx-float{display:none}
+  .idx-top{flex-direction:column;align-items:flex-start;margin-bottom:36px}
+  /* pile de cartes : chaque projet vient se poser sur le précédent */
+  .idx-m{display:block;padding-bottom:4svh}
+  .idx-m a{position:sticky;top:calc(76px + var(--i) * 9px);display:block;height:66svh;margin-bottom:7svh;overflow:hidden;background:var(--ink);color:#fff;transform-origin:50% 0;box-shadow:0 -14px 40px rgba(10,10,9,.28);will-change:transform}
+  .idx-m a .media{position:absolute;inset:0}
+  .idx-m a .media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .7s,transform 6s linear;transform:scale(1.06)}
+  .idx-m a .media img.on{opacity:1;transform:scale(1)}
+  .idx-m a::after{content:'';position:absolute;inset:0;background:linear-gradient(transparent 45%,rgba(10,10,9,.82));z-index:2;pointer-events:none}
+  .idx-m .cap{position:absolute;left:16px;right:16px;bottom:16px;z-index:3;display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
+  .idx-m .n{font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;color:var(--mustard);display:block;margin-bottom:8px}
+  .idx-m b{display:block;font-family:var(--f-wide);font-variation-settings:"wdth" 125;font-weight:800;text-transform:uppercase;font-size:clamp(26px,8vw,38px);line-height:.9;letter-spacing:-.02em}
+  .idx-m b .serif{color:var(--mustard)}
+  .idx-m .mono{color:rgba(255,255,255,.7);font-size:10px;display:block;margin-top:8px}
+  .idx-m .bars{position:absolute;left:16px;right:16px;top:14px;z-index:3;display:flex;gap:3px}
+  .idx-m .bars i{flex:1;height:2px;background:rgba(255,255,255,.3)}
+  .idx-m .bars i.on{background:#fff}
+  .idx-m .arw{width:40px;height:40px;border-radius:50%;background:var(--mustard);color:var(--ink);display:grid;place-items:center;flex:none}
+}
 .idx-more .btn{color:var(--ink)}
 
 /* ═══ REEL VIDÉO ═══ */
 .reel{padding:130px 0 110px}
 .reel-head{display:flex;justify-content:space-between;align-items:flex-end;padding:0 var(--gut);margin-bottom:34px;gap:20px}
 .reel-head h2{font-size:clamp(40px,6vw,110px)}
-.reel-ctrl{display:flex;gap:8px}
-.reel-ctrl button{width:48px;height:48px;border:1px solid var(--line);font-family:var(--f-mono);transition:background .3s,color .3s}
-.reel-ctrl button:hover{background:var(--mustard);color:var(--ink);border-color:var(--mustard)}
-.reel-row{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 var(--gut);scrollbar-width:none}
+.reel-wrap{position:relative}
+.reel-row{display:flex;gap:10px;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;padding:0 var(--gut);scrollbar-width:none;cursor:grab;-webkit-overflow-scrolling:touch}
+.reel-row.drag{cursor:grabbing;scroll-snap-type:none}
+@media(hover:none){.reel-row{scroll-snap-type:x proximity}}
+.reel-row.drag *{pointer-events:none}
+/* flèche animée en bord d'écran : invite à glisser */
+.reel-arw{position:absolute;top:0;bottom:34px;z-index:5;width:clamp(64px,8vw,120px);display:flex;align-items:center;transition:opacity .4s}
+.reel-arw span{width:54px;height:54px;border-radius:50%;background:var(--mustard);color:var(--ink);display:grid;place-items:center;font-size:20px;box-shadow:0 8px 30px rgba(0,0,0,.35)}
+.reel-arw.nx{right:0;justify-content:flex-end;padding-right:var(--gut);background:linear-gradient(90deg,transparent,rgba(10,10,9,.75))}
+.reel-arw.pv{left:0;justify-content:flex-start;padding-left:var(--gut);background:linear-gradient(-90deg,transparent,rgba(10,10,9,.75))}
+.reel-arw.nx span{animation:nudge 1.6s var(--ease-out) infinite}
+.reel-arw.pv span{animation:nudgeL 1.6s var(--ease-out) infinite}
+@keyframes nudge{0%,100%{transform:translateX(0)}45%{transform:translateX(10px)}}
+@keyframes nudgeL{0%,100%{transform:translateX(0)}45%{transform:translateX(-10px)}}
+.reel-arw.off{opacity:0;pointer-events:none}
+@media(max-width:860px){.reel-arw{width:56px}.reel-arw span{width:42px;height:42px;font-size:16px}}
 .reel-row::-webkit-scrollbar{display:none}
 .reel-item{flex:0 0 clamp(220px,22vw,340px);scroll-snap-align:start}
 .reel-item .media{aspect-ratio:9/16}
@@ -199,19 +250,21 @@
 .nums{padding:130px var(--gut);border-top:1px solid var(--line)}
 .nums h2{font-size:clamp(40px,6vw,110px);margin:24px 0 70px;max-width:14ch}
 .nums h2 .serif{color:var(--mustard)}
-.nums-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
-.nums-grid > div{padding:24px 24px 0 0;border-right:1px solid var(--line);margin-right:24px}
-.nums-grid > div:last-child{border:0}
+.nums-grid{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+.nums-grid > div{padding:24px 24px 30px 0;margin-right:24px}
+.nums-grid > div:nth-child(odd){border-right:1px solid var(--line)}
+.nums-grid > div:nth-child(n+3){border-top:1px solid var(--line)}
+
 .nums-grid .v{font-size:clamp(54px,6.4vw,118px);margin:40px 0 6px;display:flex;align-items:baseline;gap:.08em}
 .nums-grid .v small{font-size:.32em;letter-spacing:0}
-.nums-grid .was{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--mustard)}
+.nums-grid .was{color:rgba(238,234,226,.72);font-size:12px;text-decoration:line-through;text-decoration-color:rgba(229,186,32,.5);text-decoration-thickness:1px}
 .nums-note{margin-top:34px;color:var(--muted)}
-@media(max-width:860px){.nums-grid{grid-template-columns:1fr 1fr;row-gap:40px}}
+@media(max-width:560px){.nums-grid > div{padding:18px 12px 22px 0;margin-right:12px}.nums-grid > div:nth-child(even){padding-left:0}.nums-grid .v{font-size:clamp(34px,10.5vw,54px);margin:22px 0 6px}.nums-grid .was{font-size:10px}}
 
 .nums-lead{font-size:clamp(17px,1.35vw,21px);line-height:1.5;font-variation-settings:"wdth" 92;max-width:62ch;margin:80px 0 40px;color:rgba(238,234,226,.8)}
 .vs > div{display:grid;grid-template-columns:1.1fr 1fr 1.3fr;gap:20px;padding:16px 0;border-top:1px solid var(--line);align-items:baseline}
 .vs .vs-h{border-top:1px solid var(--paper);color:var(--muted)}
-.vs span[role=cell]{color:var(--muted);text-decoration:line-through;text-decoration-color:rgba(229,186,32,.6);font-size:17px}
+.vs span[role=cell]{color:rgba(238,234,226,.74);font-size:17px}
 .vs b{font-weight:700;font-size:clamp(18px,1.6vw,24px);font-variation-settings:"wdth" 110;letter-spacing:-.01em}
 .vs b i{color:var(--mustard);font-size:1.1em;margin-left:6px}
 .vs .tot span[role=cell],.vs .tot b{text-decoration:none;color:var(--paper)}
@@ -233,13 +286,16 @@
 .vol.go .vol-b .t{animation:tIn .6s var(--ease-out) forwards;animation-delay:calc(var(--i) * 28ms)}
 @keyframes tIn{to{opacity:1;transform:none}}
 @media(max-width:900px){.vol-b-g{grid-template-columns:repeat(12,1fr)}.vol-b .t:nth-child(n+37){display:none}}
-@media(max-width:700px){.vol{grid-template-columns:1fr}.vol-a{display:none!important}.vol-b-g{grid-template-columns:repeat(10,1fr)}.vol-b .t:nth-child(n+31){display:none}}
+@media(max-width:700px){.vol{grid-template-columns:1fr;gap:22px}
+  .vol-a{display:grid!important;grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:14px;align-items:center}
+  .vol-a > span{grid-column:1/-1}
+  .vol-a-g{width:72px}
+  .vol-b-g{grid-template-columns:repeat(10,1fr)}.vol-b .t:nth-child(n+31){display:none}}
 .vs > div{opacity:0;transform:translateY(16px);transition:opacity .7s var(--ease-out),transform .7s var(--ease-out);transition-delay:calc(var(--i,0) * 70ms)}
 .vs.go > div{opacity:1;transform:none}
-.vs span[role=cell]{text-decoration:none!important;position:relative;display:inline-block;justify-self:start}
-.vs span[role=cell]::after{content:'';position:absolute;left:0;right:0;top:55%;height:1px;background:var(--mustard);transform:scaleX(0);transform-origin:left;transition:transform .8s var(--ease);transition-delay:calc(var(--i,0) * 70ms + .4s)}
-.vs.go span[role=cell]::after{transform:scaleX(1)}
-.vs .tot span[role=cell]::after{display:none}
+.vs span[role=cell]{text-decoration:line-through;text-decoration-thickness:1px;text-decoration-color:transparent;transition:text-decoration-color .8s;transition-delay:calc(var(--i,0) * 70ms + .4s)}
+.vs.go span[role=cell]{text-decoration-color:rgba(229,186,32,.55)}
+.vs .tot span[role=cell]{text-decoration:none}
 
 /* ═══ TARIFS ═══ */
 .tarifs{padding:130px var(--gut);border-top:1px solid var(--line);background:var(--ink-2);position:relative;overflow:hidden;isolation:isolate}
@@ -290,9 +346,9 @@
 .trust-rows .tv{position:relative;align-self:center}
 .tv.media{aspect-ratio:4/3}
 .tv-ia img{object-position:50% 30%}
-.ia-big{position:absolute;right:14px;top:14px;z-index:4;display:inline-flex;align-items:center;gap:8px;font-family:var(--f-mono);font-weight:700;font-size:clamp(18px,1.8vw,28px);letter-spacing:.14em;color:#EEEAE2;background:rgba(10,10,9,.5);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.3);padding:8px 12px;border-radius:3px;transform:scale(.4);opacity:0;transition:transform .9s .5s var(--ease-out),opacity .5s .5s}
-.ia-big::before{content:'';width:.8em;height:.8em;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23E5BA20' d='M12 0C13 7 17 11 24 12C17 13 13 17 12 24C11 17 7 13 0 12C7 11 11 7 12 0Z'/%3E%3C/svg%3E") center/contain no-repeat}
-.tv-ia.in-view .ia-big{transform:none;opacity:1}
+.ia-big{position:absolute;right:12px;top:12px;z-index:4;display:inline-flex;align-items:center;gap:5px;font-family:var(--f-mono);font-weight:700;font-size:clamp(11px,1vw,15px);letter-spacing:.14em;color:#fff;background:rgba(10,10,9,.2);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.3);padding:5px 8px;border-radius:2px;transform:scale(.6);opacity:0;transition:transform .9s .5s var(--ease-out),opacity .5s .5s}
+.ia-big::before{content:'';width:.8em;height:.8em;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23FFFFFF' d='M12 0C13 7 17 11 24 12C17 13 13 17 12 24C11 17 7 13 0 12C7 11 11 7 12 0Z'/%3E%3C/svg%3E") center/contain no-repeat}
+.tv-ia.in-view .ia-big{transform:none;opacity:.75}
 .tv-tag{position:absolute;left:10px;bottom:10px;z-index:4;background:var(--paper);color:var(--ink);padding:5px 8px;font-size:10px}
 .tv-lock{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
 .tv-lock .media{aspect-ratio:3/4}
@@ -309,13 +365,18 @@
 @media(max-width:860px){.trust-top{grid-template-columns:1fr}.trust-top p{justify-self:start}.trust-rows > div{grid-template-columns:1fr;gap:10px}.trust-rows .tv{margin-top:10px}}
 
 /* ═══ BANDE MANIFESTE : image qui s'ouvre ═══ */
-.band{position:relative;height:220vh}
+.band{position:relative;height:260vh}
 .band-pin{position:sticky;top:0;height:100svh;display:grid;place-items:center;overflow:hidden}
 .band-img{position:absolute;inset:0;clip-path:inset(30% 34% 30% 34%);will-change:clip-path}
 .band-img img{width:100%;height:100%;object-fit:cover;transform:scale(1.3);will-change:transform}
-.band-txt{position:relative;z-index:3;text-align:center;font-size:clamp(40px,7vw,130px);mix-blend-mode:difference;color:#fff;padding:0 var(--gut)}
-.band-txt .serif{display:block;font-size:1.05em}
-.band-link{position:absolute;bottom:calc(var(--gut) + 20px);left:50%;transform:translateX(-50%);z-index:4;color:#fff;background:rgba(10,10,9,.35);backdrop-filter:blur(8px)}
+.band-img::after{content:'';position:absolute;inset:0;background:linear-gradient(rgba(10,10,9,.25),rgba(10,10,9,.5))}
+.band-in{position:relative;z-index:3;text-align:center;padding:0 var(--gut);max-width:1500px}
+.band-eb{justify-content:center;margin-bottom:28px;color:rgba(238,234,226,.7)}
+.band-txt{font-size:clamp(34px,6.2vw,118px);line-height:.92;color:#fff;text-shadow:0 2px 40px rgba(0,0,0,.35)}
+.band-txt .w{color:rgba(255,255,255,.16);transition:color .3s}
+.band-txt .w.lit{color:#fff}
+.band-txt .w.s{font-family:var(--f-serif);font-style:italic;font-weight:400;text-transform:none;letter-spacing:-.01em;font-variation-settings:normal;font-size:1.06em}
+.band-txt .w.s.lit{color:var(--mustard)}
 </style>
 </head>
 <body data-page="home">
@@ -337,9 +398,9 @@
 <!-- 00 HERO -->
 <section class="hero" id="hero" data-ch="Ouverture">
   <div class="trip">
-    <div class="media"><video src="/assets/use1-video3.mp4" autoplay muted loop playsinline></video><span class="ia-mark">IA</span></div>
-    <div class="media"><video src="/assets/pbvieuxport-danse.mp4" autoplay muted loop playsinline></video><span class="ia-mark">IA</span></div>
-    <div class="media"><video src="/assets/roseanna-video.mp4" autoplay muted loop playsinline></video><span class="ia-mark">IA</span></div>
+    <div class="media"><video class="v in" src="/assets/pfc/pfc-rose-jeanbouin.mp4" autoplay muted loop playsinline preload="auto"></video><span class="lab mono">Paris FC · Maillots officiels</span><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div>
+    <div class="media"><video class="v in" src="/assets/pbvieuxport-danse.mp4" autoplay muted loop playsinline preload="auto"></video><span class="lab mono">Poivre Blanc · Vieux-Port</span><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div>
+    <div class="media"><video class="v in" src="/assets/pbwimbledon-film.mp4" autoplay muted loop playsinline preload="auto"></video><span class="lab mono">Poivre Blanc · Wimbledon</span><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div>
   </div>
   <div class="hero-in">
     <h1 class="wide" id="h1">
@@ -356,7 +417,7 @@
   </div>
   <div class="hero-bar mono">
     <span class="prompt"><b>Prompt ›</b><span id="ptxt"></span><span class="caret"></span></span>
-    <span class="r"><span id="tc">TC 00:00:00:00</span><span>Seed <span id="seed">41 317</span></span><span>Based in Marseille</span></span>
+    <span class="r"><span id="tc">TC 00:00:00:00</span><span>Showreel <span id="srn">01 / 14</span></span><span>Based in Marseille</span></span>
   </div>
 </section>
 
@@ -393,6 +454,17 @@
     <div class="fade"><span class="mono">02</span><h3 class="wide">Budget maîtrisé.</h3><p>De A à Z, sans mauvaise surprise.</p></div>
     <div class="fade"><span class="mono">03</span><h3 class="wide">Imagination.</h3><p>La seule limite créative.</p></div>
     <div class="fade"><span class="mono">04</span><h3 class="wide">Le regard.</h3><p>Une direction artistique tenue par plus de 20 ans de métier.</p></div>
+  </div>
+</section>
+
+<!-- MANIFESTE : l'image s'ouvre, les mots s'allument -->
+<section class="band" id="manifeste" data-ch="Manifeste" aria-label="Notre manifeste">
+  <div class="band-pin">
+    <div class="band-img" id="bimg"><img src="/assets/px-sienna.jpg" alt="" loading="lazy"><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div>
+    <div class="band-in">
+      <p class="eyebrow band-eb">Manifeste · Molto Bene</p>
+      <p class="band-txt wide" id="btxt" aria-label="Le futur de l'image de mode n'est pas de produire plus. C'est d'oser plus, et de décider mieux.">Le futur de l'image de mode n'est pas de produire plus. <em>C'est d'oser plus, et de décider mieux.</em></p>
+    </div>
   </div>
 </section>
 
@@ -436,6 +508,7 @@
     <span class="mono" style="color:#6b665e">Sélection · 08 / <span id="ncase">21</span></span>
   </div>
   <ul class="idx-list wide" id="idx"></ul>
+  <div class="idx-m" id="idxm"></div>
   <div class="idx-more"><a class="btn" href="/clients.html">Index complet →</a></div>
   <div class="idx-float" id="ifl"></div>
 </section>
@@ -447,9 +520,12 @@
       <div class="eyebrow" style="margin-bottom:18px">05 · Move your brand</div>
       <h2 class="wide">En <span class="serif mustard">mouvement.</span></h2>
     </div>
-    <div class="reel-ctrl"><button id="rp" aria-label="Précédent">←</button><button id="rn" aria-label="Suivant">→</button></div>
   </div>
-  <div class="reel-row" id="reel"></div>
+  <div class="reel-wrap">
+    <div class="reel-row" id="reel" data-lenis-prevent></div>
+    <button class="reel-arw nx" id="rn" type="button" aria-label="Vidéos suivantes"><span>→</span></button>
+    <button class="reel-arw pv" id="rp" type="button" aria-label="Vidéos précédentes"><span>←</span></button>
+  </div>
 </section>
 
 <!-- 06 CHIFFRES -->
@@ -539,17 +615,8 @@
   <div class="trust-rows">
     <div class="fade"><span class="mono">01</span><h3>L'IA assumée, et conforme.</h3><p>Nous ne cachons pas l'IA : nous la signons. Dès le 2 août 2026, l'AI Act impose de marquer les visuels générés par IA. Nous l'intégrons par défaut, et nous vous aidons à le formuler avec justesse, sans casser le désir.</p><div class="tv tv-ia media clip"><img src="/assets/pfc/pfc-mai-02.jpg" alt="Visuel Paris FC avec sa mention IA" loading="lazy"><span class="ia-big" aria-hidden="true">IA</span></div></div>
     <div class="fade"><span class="mono">02</span><h3>Vos visuels vous appartiennent.</h3><p>Les images et vidéos produites vous sont cédées : usage commercial illimité, sur tous vos supports. Nous ne conservons que l'ADN numérique, le modèle qui garantit que votre casting reste identique d'une saison à l'autre.</p><div class="tv media clip"><img src="/assets/dfco-02.jpg" alt="Visuel livré au DFCO" loading="lazy"><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="tv-tag mono">Cédé · usage illimité</span></div></div>
-    <div class="fade"><span class="mono">03</span><h3>La continuité, saison après saison.</h3><p>Votre casting reste le même d'une campagne à l'autre : même visage, même univers. Là où un shooting repart de zéro, nous tenons une cohérence. C'est notre cast-lock.</p><div class="tv tv-lock" id="lock"><div class="media"><img src="/assets/models/freja/cast-01.jpg" alt="Freja, book casting" loading="lazy"><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div><div class="media"><img src="/assets/models/freja/cast-05-pfc.jpg" alt="Freja pour Paris FC" loading="lazy"><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div><div class="media"><img src="/assets/models/freja/cast-08-mpg.jpg" alt="Freja pour MPG" loading="lazy"><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div><span class="tv-tag mono">Freja · Casting · Paris FC · MPG</span></div></div>
+    <div class="fade"><span class="mono">03</span><h3>La continuité, saison après saison.</h3><p>Votre casting reste le même d'une campagne à l'autre : même visage, même univers. Là où un shooting repart de zéro, nous tenons une cohérence. C'est notre cast-lock.</p><div class="tv tv-lock" id="lock"><div class="media"><img src="/assets/models/freja/cast-01.jpg" alt="Freja, book casting" loading="lazy"><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div><div class="media"><img src="/assets/models/freja/cast-05-pfc.jpg" alt="Freja pour Paris FC" loading="lazy"><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div><div class="media"><img src="/assets/pfc/pfc-mai-04.jpg" alt="Freja pour Paris FC, maillot rose" loading="lazy"><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div><span class="tv-tag mono">Freja · Casting · Paris FC</span></div></div>
     <div class="fade"><span class="mono">04</span><h3>Des mannequins fictifs.</h3><p>Nos mannequins sont entièrement générés par nos soins : aucune photographie de personne réelle, aucun droit à l'image tiers. Nous refusons la standardisation, morphologies et carnations variées, par choix de direction.</p><div class="tv tv-faces" id="faces"></div></div>
-  </div>
-</section>
-
-<!-- BANDE MANIFESTE -->
-<section class="band" id="band" data-ch="Manifeste" aria-label="Notre manifeste">
-  <div class="band-pin">
-    <div class="band-img" id="bimg"><img src="/assets/px-sienna.jpg" alt=""><span class="ia-mark">IA</span></div>
-    <p class="band-txt wide">Le futur de l'image n'est pas de produire plus.<span class="serif">C'est d'oser plus.</span></p>
-    <a class="band-link btn" href="/manifeste.html">Lire le manifeste →</a>
   </div>
 </section>
 
@@ -559,7 +626,7 @@
 
 <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
 <script src="/assets/mb/site-data.js?v=14"></script>
-<script src="/assets/mb/mb.js?v=7"></script>
+<script src="/assets/mb/mb.js?v=16"></script>
 <script>
 const $ = s => document.querySelector(s);
 
@@ -586,7 +653,61 @@ const $ = s => document.querySelector(s);
   requestAnimationFrame(tick);
 })();
 
-/* ── PROMPT tapé à la machine + timecode + seed ── */
+/* ── SHOWREEL : les 3 panneaux font défiler toutes les vidéos verticales du site ── */
+(function(){
+  // [fichier, légende, début, fin] : chaque extrait s'arrête avant les logos et cartons de marque
+  const REEL=[
+    ['pfc/pfc-rose-jeanbouin.mp4','Paris FC · Maillots officiels',3,8],['pbvieuxport-danse.mp4','Poivre Blanc · Vieux-Port',2.5,7.5],['pbwimbledon-film.mp4','Poivre Blanc · Wimbledon',0,2.9],
+    ['pfc/pfc-bts-film.mp4','Paris FC · Back-to-School',2.4,7.8],['mpg/mpg-15-ans.mp4','MPG · 15 ans',0.5,5.7],['pbb/pbb-veste-tour.mp4','Paris Basketball · Mike',0,4.9],
+    ['indies-amalfi.mp4','Indies · Amalfi',0,2.5],['tennis-video.mp4','Poivre Blanc · Tennis',0,4.2],['roseanna-video.mp4','Roseanna',0,5.8],
+    ['av-video.mp4','American Vintage · Diner',0,5.8],['lb04-head-wink.mp4','Poivre Blanc · Ski',0,4.6],['indies-portrait.mp4','Indies · Portrait',0,5],
+    ['move-av-b6.mp4','American Vintage · Motion',0,5.8],['lb08-gants.mp4','Poivre Blanc · Ski',0,5.8],
+  ];
+  const clip=(v,j)=>{ v._in=REEL[j][2]; v._out=REEL[j][3]; const go=()=>{ try{ v.currentTime=v._in; }catch(e){} };
+    v.readyState>0 ? go() : v.addEventListener('loadedmetadata',go,{once:true});
+    if(!v._seg){ v._seg=1; v.loop=false; v.removeAttribute('loop');
+      const chk=()=>{ if(v.currentTime>=v._out-.05 || v.ended){ v.currentTime=v._in; v.play().catch(()=>{}); } };
+      v.addEventListener('timeupdate',chk); v.addEventListener('ended',chk);
+      (function frame(){ if(v.requestVideoFrameCallback) v.requestVideoFrameCallback(()=>{ chk(); frame(); }); })(); } };
+  const holdOf=j=>Math.min(5200,(REEL[j][3]-REEL[j][2])*1000);
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const panels=[...document.querySelectorAll('.trip .media')], srn=$('#srn'), N=REEL.length;
+  const mobile=matchMedia('(max-width:860px)').matches;
+  // ordinateur : chaque panneau a sa propre liste ; mobile : seul le panneau central, avec toutes les vidéos
+  const lists=mobile ? [null,REEL.map((_,i)=>i),null] : [0,1,2].map(p=>REEL.map((_,i)=>i).filter(i=>i%3===p));
+  const HOLD=5200, OFFS=[0,1700,3400];
+  let running=true, timers=[];
+  const fmt=i=>`${String(i+1).padStart(2,'0')} / ${String(N).padStart(2,'0')}`;
+  panels.forEach((pan,p)=>{
+    const list=lists[p]; if(!list) return;
+    let k=0, z=2;
+    const lab=pan.querySelector('.lab');
+    if(mobile){ pan.querySelector('.v').src=A+REEL[list[0]][0]; lab.textContent=REEL[list[0]][1]; }
+    clip(pan.querySelector('.v'), list[0]);
+    const nxt=document.createElement('video'); nxt.className='v'; nxt.muted=true; nxt.loop=true; nxt.playsInline=true; nxt.setAttribute('playsinline',''); nxt.preload='auto';
+    pan.insertBefore(nxt, lab);
+    let cur=pan.querySelector('.v'), back=nxt;
+    const prep=()=>{ const j=list[(k+1)%list.length]; back.src=A+REEL[j][0]; back.load(); };
+    const swap=()=>{
+      if(!running) return;
+      k=(k+1)%list.length; const j=list[k];
+      back.style.zIndex=++z; back.classList.remove('in'); clip(back,j); back.play().catch(()=>{});
+      void back.offsetWidth; back.classList.add('wipe','in');
+      lab.classList.add('out'); setTimeout(()=>{ lab.textContent=REEL[j][1]; lab.classList.remove('out'); },400);
+      srn.textContent=fmt(j);
+      const old=cur; cur=back; back=old;
+      setTimeout(()=>{ old.pause(); old.classList.remove('wipe','in'); prep(); },1100);
+    };
+    prep();
+    const loop=()=>{ swap(); timers[p]=setTimeout(loop,holdOf(list[k])); };
+    timers[p]=setTimeout(loop,holdOf(list[0])+(mobile?0:OFFS[p]));
+  });
+  // pause quand le hero n'est plus à l'écran ou l'onglet masqué
+  const hero=$('#hero');
+  new IntersectionObserver(es=>es.forEach(e=>{ running=e.isIntersecting; hero.querySelectorAll('video.in').forEach(v=>running?v.play().catch(()=>{}):v.pause()); }),{threshold:.05}).observe(hero);
+})();
+
+/* ── PROMPT tapé à la machine + timecode ── */
 (function(){
   const P=["tee navy porté de dos, tour Eiffel au petit matin · Paris FC","une veste coupe-vent rouge, nuit, reflets de néon · DFCO","polo blanc sur gazon, lumière rasante · Wimbledon","maillot vert profond, salon boisé, or · MPG","Pointe Rouge, windsurf et Land Cruiser · Poivre Blanc Vintage","votre prochaine collection. avant de la produire."];
   const el=$('#ptxt'); let i=0,j=0,del=false;
@@ -596,11 +717,10 @@ const $ = s => document.querySelector(s);
     else { el.textContent=s.slice(0,--j); if(j===0){del=false;i=(i+1)%P.length;} }
     setTimeout(type, del?18:42+Math.random()*40);
   })();
-  const tc=$('#tc'), sd=$('#seed'), t0=performance.now(); let f=0;
+  const tc=$('#tc'), t0=performance.now();
   setInterval(()=>{ const s=(performance.now()-t0)/1000, fr=Math.floor((s%1)*25);
     const p=n=>String(n).padStart(2,'0');
     tc.textContent=`TC 00:${p(Math.floor(s/60)%60)}:${p(Math.floor(s)%60)}:${p(fr)}`;
-    if(++f%40===0) sd.textContent=(10000+Math.floor(Math.random()*89999)).toLocaleString('fr-FR');
   },40);
 })();
 
@@ -609,7 +729,7 @@ const $ = s => document.querySelector(s);
   const t=$('#mq'); let x=0, v=0, last=scrollY;
   (function loop(){
     const d=scrollY-last; last=scrollY; v+= (d*.6 - v)*.1;
-    x-= .6 + Math.abs(v)*.5; const w=t.scrollWidth/2; if(-x>w) x+=w;
+    x-= 1.5 + Math.abs(v)*.6; const w=t.scrollWidth/2; if(-x>w) x+=w;
     t.style.transform=`translateX(${x}px) skewX(${Math.max(-12,Math.min(12,-v*.4))}deg)`;
     requestAnimationFrame(loop);
   })();
@@ -642,13 +762,16 @@ const $ = s => document.querySelector(s);
     <div class="col">${m.map(f=>`<div class="media">${f.endsWith('.mp4')?`<video src="${A}${f}" muted loop playsinline autoplay></video>`:`<img src="${A}${f}" alt="" loading="lazy">`}${IA}</div>`).join('')}</div>
   </div>`).join('');
   const sec=$('.how'), bar=$('#hbar'), st=$('#hstep');
-  addEventListener('scroll',()=>{
-    if(innerWidth<=860) return;
+  const steps=tr.querySelectorAll('.step');
+  const upd=()=>{
     const r=sec.getBoundingClientRect(); const max=sec.offsetHeight-innerHeight;
     const p=Math.min(1,Math.max(0,-r.top/max));
     tr.style.transform=`translateX(${-p*(tr.scrollWidth-innerWidth)}px)`;
-    bar.style.width=(25+p*75)+'%'; st.textContent=`0${Math.min(4,1+Math.floor(p*3.999))} / 04`;
-  },{passive:true});
+    const k=Math.min(3,Math.round(p*3));
+    bar.style.width=(25+p*75)+'%'; st.textContent=`0${k+1} / 04`;
+    steps.forEach((s,i)=>s.classList.toggle('on',i===k));
+  };
+  addEventListener('scroll',upd,{passive:true}); addEventListener('resize',upd); upd();
 })();
 
 /* ── CASTING accordéon ── */
@@ -659,8 +782,14 @@ const $ = s => document.querySelector(s);
   acc.innerHTML=M.map((m,i)=>`<a href="/modele/${m.slug}.html" class="${i===0?'act':''}" data-cursor="Book">
      <img src="${A}${m.img}" alt="${m.name}, mannequin numérique Molto Bene" loading="lazy">${IA}
      <span class="nm">${String(i+1).padStart(2,'0')} · ${m.name}</span>
-     <span class="big-nm"><b>${m.name}</b><span class="mono">${m.tag}</span></span></a>`).join('');
-  acc.addEventListener('mouseover',e=>{const a=e.target.closest('a'); if(!a) return; acc.querySelectorAll('a').forEach(x=>x.classList.toggle('act',x===a));});
+     <span class="big-nm"><span><b>${m.name}</b><span class="mono">${m.tag}</span></span><span class="go mono">Voir la fiche →</span></span></a>`).join('');
+  const open=a=>{ if(a.classList.contains('act')) return; acc.querySelectorAll('a').forEach(x=>{x.classList.toggle('act',x===a); x.dataset.cursor=x===a?'Fiche':'Ouvrir';}); a._t=Date.now(); };
+  acc.querySelectorAll('a').forEach((a,i)=>{a.dataset.cursor=i?'Ouvrir':'Fiche'; a._t=0;});
+  acc.addEventListener('mouseover',e=>{const a=e.target.closest('a'); if(a) open(a);});
+  // un visage encore gris (ou à peine ouvert) s'ouvre d'abord en couleur ; seul un clic sur le visage déjà ouvert mène à la fiche
+  acc.addEventListener('click',e=>{const a=e.target.closest('a'); if(!a) return;
+    if(!a.classList.contains('act') || Date.now()-a._t<700){ e.preventDefault(); e.stopPropagation(); open(a); a._t=Date.now()-400; /* un second clic, même rapide (>300 ms), ouvrira la fiche */ }
+  });
   const c={femme:'Femmes',homme:'Hommes',enfant:'Enfants',duo:'Duo'};
   $('#cats').innerHTML=Object.entries(c).map(([k,l])=>`<a href="/modeles.html?cat=${k}"><span>${l}</span><span>${String(MB.models.filter(m=>m.cat===k).length).padStart(2,'0')}</span></a>`).join('')+`<a href="/modeles.html"><span>Tout le casting</span><span>→</span></a>`;
 })();
@@ -672,6 +801,27 @@ const $ = s => document.querySelector(s);
   $('#ncase').textContent=MB.cases.length;
   const short=c=>c.name.replace('Poivre Blanc ','PB ');
   $('#idx').innerHTML=C.map((c,i)=>`<li><a href="/case/${c.slug}.html" data-i="${i}" data-cursor="Ouvrir">${c.name}<sup>${c.meta.Status==='Client'?'Client':'R&D'}</sup></a></li>`).join('');
+  const nm=n=>{const p=n.split(' '); return p.length>1?p.slice(0,-1).join(' ')+' <span class="serif">'+p.slice(-1)+'</span>':n;};
+  const imgsOf=c=>[c.cover,...c.media.filter(m=>m[0]==='img'&&m[1]!==c.cover).map(m=>m[1])].slice(0,4);
+  $('#idxm').innerHTML=C.map((c,i)=>`<a href="/case/${c.slug}.html" style="--i:${i}"><div class="media">${imgsOf(c).map((f,j)=>`<img src="${A}${f}" alt="${j?'':c.name}" loading="lazy" class="${j?'':'on'}">`).join('')}</div>${IA}
+    <span class="bars">${imgsOf(c).map((_,j)=>`<i class="${j?'':'on'}"></i>`).join('')}</span>
+    <span class="cap"><span><span class="n">${String(i+1).padStart(2,'0')} / ${String(C.length).padStart(2,'0')}</span><b>${nm(c.name)}</b><span class="mono">${c.meta.Status==='Client'?'Client':'R&D'} · ${c.tag}</span></span><span class="arw">→</span></span></a>`).join('');
+  // la carte du dessus fait défiler ses images ; celles recouvertes reculent
+  (function(){
+    if(!matchMedia('(max-width:860px)').matches) return;
+    const cards=[...document.querySelectorAll('#idxm a')]; let top=null, t=null;
+    const cycle=a=>{ clearInterval(t); const ims=a.querySelectorAll('img'), bs=a.querySelectorAll('.bars i'); if(ims.length<2) return; let k=0;
+      t=setInterval(()=>{ k=(k+1)%ims.length; ims.forEach((im,j)=>im.classList.toggle('on',j===k)); bs.forEach((b,j)=>b.classList.toggle('on',j===k)); },1400); };
+    const upd=()=>{
+      let cur=null;
+      cards.forEach((a,i)=>{ const nx=cards[i+1]; const r=a.getBoundingClientRect();
+        let p=0; if(nx){ const nr=nx.getBoundingClientRect(); p=Math.min(1,Math.max(0,(r.bottom-nr.top)/r.height)); }
+        a.style.transform=`scale(${(1-p*.07).toFixed(3)})`; a.style.filter=p>0?`brightness(${(1-p*.45).toFixed(2)})`:'';
+        if(r.top<innerHeight*.6 && p<.5) cur=a; });
+      if(cur!==top){ top=cur; if(cur) cycle(cur); else clearInterval(t); }
+    };
+    addEventListener('scroll',upd,{passive:true}); upd();
+  })();
   const fl=$('#ifl'); fl.innerHTML=C.map(c=>`<img src="${A}${c.cover}" alt="">`).join('')+IA;
   const imgs=fl.querySelectorAll('img'); let x=0,y=0,tx=0,ty=0;
   $('#idx').addEventListener('mouseover',e=>{const a=e.target.closest('a'); if(!a) return; fl.classList.add('on'); imgs.forEach((im,i)=>im.classList.toggle('on',i==a.dataset.i));});
@@ -688,8 +838,18 @@ const $ = s => document.querySelector(s);
   const vio=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target; if(e.isIntersecting){ if(!v.src) v.src=v.dataset.src; v.play().catch(()=>{});} else v.pause();}),{threshold:.3});
   row.querySelectorAll('video').forEach(v=>vio.observe(v));
   const step=()=>row.querySelector('.reel-item').offsetWidth+10;
-  $('#rn').onclick=()=>row.scrollBy({left:step()*2,behavior:'smooth'});
-  $('#rp').onclick=()=>row.scrollBy({left:-step()*2,behavior:'smooth'});
+  const nx=$('#rn'), pv=$('#rp');
+  nx.onclick=()=>row.scrollBy({left:step()*2,behavior:'smooth'});
+  pv.onclick=()=>row.scrollBy({left:-step()*2,behavior:'smooth'});
+  const arrows=()=>{ pv.classList.toggle('off',row.scrollLeft<20); nx.classList.toggle('off',row.scrollLeft>row.scrollWidth-row.clientWidth-20); };
+  row.addEventListener('scroll',arrows,{passive:true}); arrows();
+  // glissement verrouillé : un geste horizontal fait défiler le reel, jamais la page
+  row.addEventListener('wheel',e=>{ if(Math.abs(e.deltaX)>Math.abs(e.deltaY)*.6){ e.preventDefault(); row.scrollLeft+=e.deltaX; } },{passive:false});
+  // à la souris : attraper et glisser
+  let down=false,sx=0,sl=0,moved=0;
+  row.addEventListener('mousedown',e=>{down=true;moved=0;sx=e.pageX;sl=row.scrollLeft;});
+  addEventListener('mouseup',()=>{down=false;row.classList.remove('drag');});
+  row.addEventListener('mousemove',e=>{if(!down)return; moved=Math.abs(e.pageX-sx); if(moved>4) row.classList.add('drag'); row.scrollLeft=sl-(e.pageX-sx);});
   observeReveals(row);
 })();
 
@@ -724,12 +884,17 @@ const $ = s => document.querySelector(s);
 
 /* ── BANDE : l'image s'ouvre au scroll ── */
 (function(){
-  const sec=$('#band'), im=$('#bimg'), img=im.querySelector('img');
-  addEventListener('scroll',()=>{
+  const sec=$('#manifeste'), im=$('#bimg'), img=im.querySelector('img'), t=$('#btxt');
+  // mots : la fin de phrase (en italique) passe en serif moutarde
+  t.innerHTML=[...t.childNodes].flatMap(n=>{const s=n.nodeType!==3; return n.textContent.trim().split(/\s+/).filter(Boolean).map(w=>`<span class="w${s?' s':''}" aria-hidden="true">${w}</span>`);}).join(' ');
+  const ws=t.querySelectorAll('.w');
+  const upd=()=>{
     const r=sec.getBoundingClientRect(); const p=Math.min(1,Math.max(0,-r.top/(sec.offsetHeight-innerHeight)));
-    const e=1-Math.pow(1-p,2); const v=30*(1-e), h=34*(1-e);
+    const e=1-Math.pow(1-Math.min(1,p*1.6),2); const v=30*(1-e), h=34*(1-e);
     im.style.clipPath=`inset(${v}% ${h}% ${v}% ${h}%)`; img.style.transform=`scale(${1.3-.3*e})`;
-  },{passive:true});
+    const n=Math.ceil(Math.max(0,(p-.15)/.7)*ws.length); ws.forEach((w,i)=>w.classList.toggle('lit',i<n));
+  };
+  addEventListener('scroll',upd,{passive:true}); upd();
 })();
 
 /* ── RAIL chapitres ── */

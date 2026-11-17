@@ -14,7 +14,7 @@ const links = [
   ['/clients.html','Clients','clients',nCases],
   ['/modeles.html','Modèles','modeles',nModels],
   ['/#comparatif','Tarifs','tarifs',''],
-  ['/manifeste.html','Manifeste','manifeste',''],
+  ['/#manifeste','Manifeste','manifeste',''],
 ];
 const nav = document.createElement('header');
 nav.className = 'nav';

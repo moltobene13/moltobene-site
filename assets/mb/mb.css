@@ -44,11 +44,11 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-4%,3%)}40%{transform:translate(3%,-5%)}60%{transform:translate(-2%,6%)}80%{transform:translate(5%,-2%)}100%{transform:translate(0,0)}}
 
 /* ── badge IA (repris du site actuel, plus lisible) ──────── */
-.ia-mark{position:absolute;top:10px;right:10px;z-index:4;display:inline-flex;align-items:center;gap:3px;
-  font-family:var(--f-mono);font-size:8px;font-weight:700;letter-spacing:.14em;line-height:1;color:#EEEAE2;
-  background:rgba(10,10,9,.45);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
-  padding:3px 5px;border-radius:2px;border:1px solid rgba(255,255,255,.2);pointer-events:none;user-select:none;opacity:.7}
-.ia-mark::before{content:'';width:7px;height:7px;flex:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23E5BA20' d='M12 0C13 7 17 11 24 12C17 13 13 17 12 24C11 17 7 13 0 12C7 11 11 7 12 0Z'/%3E%3C/svg%3E") center/contain no-repeat}
+.ia-mark{position:absolute;top:8px;right:8px;z-index:4;display:inline-flex;align-items:center;gap:2px;
+  font-family:var(--f-mono);font-size:6.5px;font-weight:700;letter-spacing:.12em;line-height:1;color:#fff;
+  background:rgba(10,10,9,.18);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);
+  padding:2px 4px;border-radius:2px;border:1px solid rgba(255,255,255,.22);pointer-events:none;user-select:none;opacity:.5}
+.ia-mark::before{content:'';width:5px;height:5px;flex:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23FFFFFF' d='M12 0C13 7 17 11 24 12C17 13 13 17 12 24C11 17 7 13 0 12C7 11 11 7 12 0Z'/%3E%3C/svg%3E") center/contain no-repeat}
 
 /* ── NAV : grille à cellules (clin d'œil Versus) ─────────── */
 .nav{position:fixed;top:var(--gut);left:var(--gut);right:var(--gut);z-index:80;display:flex;height:52px;

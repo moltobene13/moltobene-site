@@ -106,4 +106,4 @@
 .bespoke-band p{font-size:16px;line-height:1.55;color:rgba(238,234,226,.78);max-width:46ch;font-variation-settings:"wdth" 92;margin-bottom:24px}
 .bespoke-band .btns{display:flex;gap:10px;flex-wrap:wrap}
 @media(max-width:860px){.bespoke-band{grid-template-columns:1fr}}
-@media(max-width:860px){.mcov{grid-template-columns:1fr}.mcov .cov-r{height:auto;aspect-ratio:9/16;max-height:88svh}}
+@media(max-width:860px){.mcov{grid-template-columns:1fr}.mcov .cov-r{width:100%;height:78svh;aspect-ratio:auto}.mcov .cov-r img{object-position:50% 20%}}
