@@ -2,6 +2,8 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
+<style>html{background:#0A0A09}html.mb-arrive{background:#E5BA20}</style>
+<script>try{if(sessionStorage.getItem('mb-nav'))document.documentElement.classList.add('mb-arrive')}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Molto Bene, Studio IA × Direction Artistique</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
@@ -32,9 +34,11 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
 <link rel="canonical" href="https://moltobene.ai/">
-<link rel="preload" as="image" href="/assets/reel/pfc-maillots.jpg?v=4" fetchpriority="high">
+<link rel="preload" as="image" href="/assets/reel/pfc-maillots.jpg?v=5" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/mb/mb.css?v=19">
+<link rel="stylesheet" href="/assets/mb/mb.css?v=33">
+<script>try{if(sessionStorage.getItem('mb-loader'))document.documentElement.classList.add('no-loader')}catch(e){}</script>
+<style>.no-loader #loader{display:none}</style>
 <style>
 /* ═══ HERO TRIPTYQUE ═══ */
 .hero{position:relative;height:100svh;min-height:600px;overflow:hidden;background:var(--ink)}
@@ -86,14 +90,14 @@
 .mq .eyebrow{padding:0 var(--gut);margin-bottom:22px}
 .mq-track{display:flex;white-space:nowrap;will-change:transform}
 .mq-track span{font-size:clamp(46px,7.5vw,130px);padding-right:.45em;display:inline-flex;align-items:center;gap:.45em}
-.mq-track span::after{content:'';width:.32em;height:.32em;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23E5BA20' d='M12 0C13 7 17 11 24 12C17 13 13 17 12 24C11 17 7 13 0 12C7 11 11 7 12 0Z'/%3E%3C/svg%3E") center/contain no-repeat}
+.mq-track span::after{content:'';width:.95em;height:.31em;background:var(--mustard);-webkit-mask:var(--star) center/contain no-repeat;mask:var(--star) center/contain no-repeat}
 .mq-track .o{-webkit-text-stroke:1.5px var(--paper);color:transparent}
 
 /* ═══ SERVICES ═══ */
 .svc{overflow:hidden;border-bottom:1px solid var(--line);padding:14px 0;color:var(--muted)}
 .svc-track{display:flex;width:max-content;animation:svc 60s linear infinite}
 .svc-track span{display:inline-flex;align-items:center;gap:18px;padding-right:18px;white-space:nowrap}
-.svc-track span::after{content:'✦';color:var(--mustard)}
+.svc-track span::after{content:'';width:24px;height:8px;background:var(--mustard);-webkit-mask:var(--star) center/contain no-repeat;mask:var(--star) center/contain no-repeat}
 @keyframes svc{to{transform:translateX(-50%)}}
 
 /* ═══ MANIFESTE (papier) ═══ */
@@ -226,7 +230,7 @@
   .idx-m .bars{position:absolute;left:16px;right:16px;top:14px;z-index:3;display:flex;gap:3px}
   .idx-m .bars i{flex:1;height:2px;background:rgba(255,255,255,.3)}
   .idx-m .bars i.on{background:#fff}
-  .idx-m .arw{width:40px;height:40px;border-radius:50%;background:var(--mustard);color:var(--ink);display:grid;place-items:center;flex:none}
+  .idx-m .arw{width:58px;height:34px;border-radius:50%;background:var(--mustard);color:var(--ink);display:grid;place-items:center;flex:none}
 }
 .idx-more .btn{color:var(--paper);background:var(--ink);border-color:var(--ink);height:64px;padding:0 34px;font-size:13px;gap:18px}
 .idx-more .btn::before{background:var(--mustard)}
@@ -247,8 +251,8 @@
 @media(hover:none){.reel-row{scroll-snap-type:x proximity}}
 .reel-row.drag *{pointer-events:none}
 /* flèche animée en bord d'écran : invite à glisser */
-.reel-arw{position:absolute;top:0;bottom:34px;z-index:5;width:clamp(64px,8vw,120px);display:flex;align-items:center;transition:opacity .4s}
-.reel-arw span{width:54px;height:54px;border-radius:50%;background:var(--mustard);color:var(--ink);display:grid;place-items:center;font-size:20px;box-shadow:0 8px 30px rgba(0,0,0,.35)}
+.reel-arw{position:absolute;top:0;bottom:34px;z-index:5;width:clamp(100px,10vw,140px);display:flex;align-items:center;transition:opacity .4s}
+.reel-arw span{flex:none;width:78px;height:46px;border-radius:50%;background:var(--mustard);color:var(--ink);display:grid;place-items:center;font-size:20px;box-shadow:0 8px 30px rgba(0,0,0,.35)}
 .reel-arw.nx{right:0;justify-content:flex-end;padding-right:var(--gut);background:linear-gradient(90deg,transparent,rgba(10,10,9,.75))}
 .reel-arw.pv{left:0;justify-content:flex-start;padding-left:var(--gut);background:linear-gradient(-90deg,transparent,rgba(10,10,9,.75))}
 .reel-arw.nx span{animation:nudge 1.6s var(--ease-out) infinite}
@@ -258,7 +262,7 @@
 .reel-arw.off{opacity:0;pointer-events:none}
 /* une fois qu'on a glissé, plus de flèches : seule la première invite à glisser */
 .reel-wrap.used .reel-arw{opacity:0;pointer-events:none}
-@media(max-width:860px){.reel-arw{width:56px}.reel-arw span{width:42px;height:42px;font-size:16px}}
+@media(max-width:860px){.reel-arw{width:76px}.reel-arw span{width:60px;height:36px;font-size:16px}}
 .reel-row::-webkit-scrollbar{display:none}
 .reel-item{flex:0 0 clamp(220px,22vw,340px);scroll-snap-align:start}
 .reel-item .media{aspect-ratio:9/16}
@@ -352,7 +356,7 @@
 .plan .rows .p{font-family:var(--f-wide);font-variation-settings:"wdth" 120;font-weight:800;font-size:20px;white-space:nowrap}
 .plan .incl{list-style:none;display:grid;gap:8px;font-size:14px;line-height:1.45;color:rgba(238,234,226,.78);font-variation-settings:"wdth" 92;flex:1}
 .plan .incl li{padding-left:18px;position:relative}
-.plan .incl li::before{content:'✦';position:absolute;left:0;color:var(--mustard);font-size:10px;top:3px}
+.plan .incl li::before{content:'';position:absolute;left:0;top:6px;width:13px;height:5px;background:var(--mustard);-webkit-mask:var(--star) center/contain no-repeat;mask:var(--star) center/contain no-repeat}
 .plan .btn{align-self:flex-start}
 .tarifs-foot{margin-top:34px;color:var(--muted);line-height:1.7;max-width:110ch;text-transform:none;letter-spacing:.02em}
 .tarifs-more{display:inline-block;margin-top:18px;color:var(--mustard)}
@@ -404,7 +408,7 @@
 <!-- LOADER -->
 <div class="loader" id="loader">
   <div class="lw">
-    <img src="/assets/logo-molto-bene.png" alt="">
+    <span id="lsig"></span>
     <div class="steps mono"><div><span>Casting en cours</span><span>Stylisme</span><span>Lumière</span><span>Moteur…</span></div></div>
   </div>
   <div class="bot">
@@ -418,9 +422,9 @@
 <!-- 00 HERO -->
 <section class="hero" id="hero" data-ch="Ouverture">
   <div class="trip">
-    <div class="media"><video class="v in" poster="/assets/reel/pfc-bts.jpg?v=4" muted loop playsinline preload="none"></video><span class="lab mono">Paris FC · Back-to-School</span><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div>
-    <div class="media"><video class="v in" poster="/assets/reel/pfc-maillots.jpg?v=4" muted loop playsinline preload="none"></video><span class="lab mono">Paris FC · Maillots officiels</span><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div>
-    <div class="media"><video class="v in" poster="/assets/reel/pbb-mike.jpg?v=4" muted loop playsinline preload="none"></video><span class="lab mono">Paris Basketball · Mike</span><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div>
+    <div class="media"><video class="v in" poster="/assets/reel/pfc-bts.jpg?v=5" muted loop playsinline preload="none"></video><span class="lab mono">Paris FC · Back-to-School</span><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div>
+    <div class="media"><video class="v in" poster="/assets/reel/pfc-maillots.jpg?v=5" muted loop playsinline preload="none"></video><span class="lab mono">Paris FC · Maillots officiels</span><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div>
+    <div class="media"><video class="v in" poster="/assets/reel/pbb-mike.jpg?v=5" muted loop playsinline preload="none"></video><span class="lab mono">Paris Basketball · Mike</span><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div>
   </div>
   <div class="hero-in">
     <h1 class="wide" id="h1">
@@ -465,7 +469,7 @@
       <p class="fade">Nous habillons vos pièces sur les mannequins de notre casting, dans des univers qui n'existent que pour elles. Même celles qui ne justifient pas un shooting. <strong>Surtout celles-là.</strong></p>
       <p class="fade">Une campagne impossible à monter, un drop encore à l'état d'idée, une saison qui dort sur fond blanc : on les fait porter, et on regarde. Une idée se juge mieux sur une image que sur un moodboard.</p>
       <p class="fade"><strong>Imaginons ensemble.</strong> Vous voulez voir votre prochaine collection à l'autre bout du monde avant d'y envoyer une équipe de shooting ? On la teste d'abord en image. On peut même vous emmener sur la Lune.</p>
-      <p class="fade">Les marques ne manquent pas d'idées, mais de budget pour les porter. Le shooting reste pour les images qui comptent. Pour tout le reste, il y a Molto Bene.</p>
+      <p class="fade">Les marques ne manquent pas d'idées, mais de budget pour les porter. Le shooting garde sa place. Molto Bene vous donne les moyens d'aller plus loin et plus vite.</p>
       <p class="fade"><strong>Le regard reste humain. L'IA élargit le champ des possibles.</strong></p>
     </div>
   </div>
@@ -645,16 +649,19 @@
 <div class="rail" id="rail"><span class="n"><div id="rn-list"></div></span><span class="bar"><i id="rbar"></i></span></div>
 
 <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
-<script src="/assets/mb/site-data.js?v=20"></script>
-<script src="/assets/mb/mb.js?v=19"></script>
+<script src="/assets/mb/site-data.js?v=21"></script>
+<script src="/assets/mb/mb.js?v=31"></script>
 <script>
 const $ = s => document.querySelector(s);
 
 /* ── LOADER → reveal du hero ── */
 (function(){
+  $('#lsig').outerHTML=mbSig('white'); requestAnimationFrame(()=>$('#loader .sig').classList.add('play'));
   const L=$('#loader'), C=$('#count'), B=$('#lbar');
   const seen = sessionStorage.getItem('mb-loader');
-  const dur = seen ? 500 : 2100, t0=performance.now();
+  // l'écran de chargement ne joue qu'à la première visite : ensuite, seul le rideau jaune fait la transition
+  if (seen){ L.remove(); document.body.classList.add('ready'); document.querySelectorAll('.hero .line-mask').forEach(l=>l.classList.add('in-view')); return; }
+  const dur = 2100, t0=performance.now();
   if (window.lenis) lenis.stop();
   let finished=false;
   setTimeout(()=>{ if(!finished) tick(t0+dur); }, dur+1200); // filet de sécurité si l'onglet est en arrière-plan
@@ -679,16 +686,17 @@ const $ = s => document.querySelector(s);
 (function(){
   const REEL=[
     ['pfc-bts','Paris FC · Back-to-School',5.4],['pfc-maillots','Paris FC · Maillots officiels',5],['pbb-mike','Paris Basketball · Mike',4.9],
-    ['mpg-15-ans','MPG · 15 ans',5.2],['pb-vieux-port','Poivre Blanc · Vieux-Port',5],['pb-wimbledon','Poivre Blanc · Wimbledon',2.9],
+    ['mpg-15-ans','MPG · 15 ans',5.2],['palace-nike','Nike × Palace',3.8],['carhartt','Carhartt · The Other Side',4.5],
+    ['pb-vieux-port','Poivre Blanc · Vieux-Port',5],['pb-wimbledon','Poivre Blanc · Wimbledon',2.9],
     ['indies-amalfi','Indies · Amalfi',2.5],['pb-tennis','Poivre Blanc · Tennis',4.2],['roseanna-garage','Roseanna · Garage',5],
     ['av-diner','American Vintage · Diner',5.8],['pb-ski','Poivre Blanc · Ski',4.6],['indies-portrait','Indies · Portrait',5],
     ['av-motion','American Vintage · Motion',5.8],['pb-ski-gants','Poivre Blanc · Ski',5.8],
   ];
-  const RV='4'; // version des extraits : à incrémenter si on réencode
+  const RV='5'; // version des extraits : à incrémenter si on réencode
   const V=n=>`${A}reel/${n}.mp4?v=${RV}`, P=n=>`${A}reel/${n}.jpg?v=${RV}`;
   const panels=[...document.querySelectorAll('.trip .media')], srn=$('#srn'), N=REEL.length;
   const mobile=matchMedia('(max-width:860px)').matches, still=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const lists=mobile ? [null,REEL.map((_,i)=>(i+1)%REEL.length),null] : [0,1,2].map(p=>REEL.map((_,i)=>i).filter(i=>i%3===p));
+  const lists=mobile ? [null,[1,0,...REEL.map((_,i)=>i).slice(2)],null] : [0,1,2].map(p=>REEL.map((_,i)=>i).filter(i=>i%3===p));
   const holdOf=j=>Math.max(1300,Math.min(4200,REEL[j][2]*1000-1300)), OFFS=[0,1400,2800];
   const fmt=i=>`${String(i+1).padStart(2,'0')} / ${String(N).padStart(2,'0')}`;
   let running=true;

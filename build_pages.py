@@ -13,7 +13,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 SITE = 'https://moltobene.ai'
-V = '20'  # cache-busting des fichiers partagés (assets/mb/*)
+V = '33'  # cache-busting des fichiers partagés (assets/mb/*)
 
 raw = (ROOT / 'assets/mb/site-data.js').read_text()
 DATA = json.loads(raw[raw.index('{'):raw.rindex('}') + 1])
@@ -43,6 +43,8 @@ def head(title, desc, path, img, og_type='article'):
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
+<style>html{{background:#0A0A09}}html.mb-arrive{{background:#E5BA20}}</style>
+<script>try{{if(sessionStorage.getItem('mb-nav'))document.documentElement.classList.add('mb-arrive')}}catch(e){{}}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{e(title)}</title>
 <meta name="description" content="{e(desc)}">

@@ -2,6 +2,8 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
+<style>html{background:#0A0A09}html.mb-arrive{background:#E5BA20}</style>
+<script>try{if(sessionStorage.getItem('mb-nav'))document.documentElement.classList.add('mb-arrive')}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Clients & réalisations · Molto Bene</title>
 <meta name="description" content="Index des réalisations Molto Bene : commandes de marques (Paris FC, DFCO, MPG, Paris Basketball, Poivre Blanc) et explorations R&amp;D. Tous les visuels sont générés par IA et signés comme tels.">
@@ -24,7 +26,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/mb/mb.css?v=19">
+<link rel="stylesheet" href="/assets/mb/mb.css?v=33">
 <style>
 body{background:var(--paper);color:var(--ink)}
 .nav{border-color:var(--line-ink);background:rgba(238,234,226,.6);color:var(--ink)}
@@ -123,10 +125,16 @@ body{background:var(--paper);color:var(--ink)}
 .wall .names{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);margin-top:40px}
 .wall .names a{display:flex;justify-content:space-between;align-items:center;padding:26px 0;border-bottom:1px solid var(--line);font-size:clamp(34px,5vw,90px);transition:padding .5s var(--ease),color .3s}
 .wall .names a:nth-child(odd){border-right:1px solid var(--line);padding-right:30px}
+.wall .names .conf{display:flex;justify-content:space-between;align-items:center;padding:26px 0;border-bottom:1px solid var(--line);font-size:clamp(34px,5vw,90px);color:var(--muted)}
+.wall .names .conf .serif{color:var(--mustard);margin-left:.2em}
+.wall .names .conf span.mono{font-size:11px;color:var(--muted);white-space:nowrap;margin-left:16px}
+.wall .names > :nth-child(odd).conf{border-right:1px solid var(--line);padding-right:30px}
+.wall .names > :nth-child(even).conf{padding-left:30px}
+.wall .anon{display:flex;gap:12px;margin-top:34px;max-width:80ch;line-height:1.7;color:var(--muted);text-transform:none;letter-spacing:.02em}
 .wall .names a:nth-child(even){padding-left:30px}
 .wall .names a:hover{color:var(--mustard)}
 .wall .names a span.mono{font-size:11px;color:var(--muted);white-space:nowrap;margin-left:16px}
-@media(max-width:700px){.wall .names{grid-template-columns:1fr}.wall .names a:nth-child(n){border-right:0;padding-left:0;padding-right:0;font-size:clamp(24px,7.4vw,40px);min-width:0}}
+@media(max-width:700px){.wall .names{grid-template-columns:1fr}.wall .names a:nth-child(n),.wall .names .conf{border-right:0;padding-left:0;padding-right:0;font-size:clamp(24px,7.4vw,40px);min-width:0}}
 </style>
 </head>
 <body data-page="clients" class="show-grid">
@@ -154,18 +162,19 @@ body{background:var(--paper);color:var(--ink)}
 </main>
 </div>
 
-<p class="disc mono"><span class="mustard">✦</span><span><b>Clients</b> = commandes réelles, livrées. <b>R&amp;D</b> = explorations libres du studio : les marques citées n'ont pas commandé ces images et les co-brandings sont fictifs. Tous les visuels sont générés par IA et signés comme tels (AI Act, art. 50).</span></p>
+<p class="disc mono"><span class="mb-star" style="width:22px;height:7px;margin-top:5px"></span><span><b>Clients</b> = commandes réelles, livrées. <b>R&amp;D</b> = explorations libres du studio : les marques citées n'ont pas commandé ces images et les co-brandings sont fictifs. Tous les visuels sont générés par IA et signés comme tels (AI Act, art. 50).</span></p>
 
 <section class="wall">
   <div class="eyebrow">Ils nous ont confié leurs pièces</div>
   <div class="names wide" id="wall"></div>
+  <p class="anon mono"><span class="mb-star" style="width:22px;height:7px;margin-top:5px"></span><span>Certains clients souhaitent rester anonymes : le travail réalisé pour eux ne peut pas être montré ici. Nous en parlons volontiers de vive voix, dans le respect de leur confidentialité.</span></p>
 </section>
 
 <div class="peek" id="peek"></div>
 
 <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
-<script src="/assets/mb/site-data.js?v=20"></script>
-<script src="/assets/mb/mb.js?v=19"></script>
+<script src="/assets/mb/site-data.js?v=21"></script>
+<script src="/assets/mb/mb.js?v=31"></script>
 <script>
 const $=s=>document.querySelector(s);
 const C=MB.cases.map((c,i)=>({...c,n:i+1,client:c.meta.Status==='Client',season:c.meta['Saison']||c.meta['Season']||c.meta['Concept']||'·',mood:c.meta.Mood||'·',imgs:c.media.filter(m=>m[0]==='img').map(m=>m[1])}));
@@ -271,7 +280,8 @@ document.querySelectorAll('[data-v]').forEach(b=>b.onclick=()=>{
 
 /* mur des clients */
 const groups={};C.filter(c=>c.client).forEach(c=>{const k=['Poivre Blanc','Paris FC','Paris Basketball'].find(b=>c.name.startsWith(b))||c.name; (groups[k]=groups[k]||[]).push(c);});
-$('#wall').innerHTML=Object.entries(groups).map(([k,v])=>`<a href="/case/${v[0].slug}.html">${k}<span class="mono">${String(v.length).padStart(2,'0')} projet${v.length>1?'s':''} →</span></a>`).join('');
+$('#wall').innerHTML=Object.entries(groups).map(([k,v])=>`<a href="/case/${v[0].slug}.html">${k}<span class="mono">${String(v.length).padStart(2,'0')} projet${v.length>1?'s':''} →</span></a>`).join('')
+  +`<span class="conf">Clients <span class="serif">confidentiels</span><span class="mono">Sous confidentialité</span></span>`;
 
 renderFooter();
 </script>

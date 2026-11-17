@@ -22,7 +22,7 @@
 @keyframes covZ{to{transform:scale(1)}}
 .cov-r .scroll{position:absolute;right:16px;bottom:16px;z-index:3;font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;color:#fff;writing-mode:vertical-rl;mix-blend-mode:difference}
 .rd-note{margin-top:18px;color:var(--muted);text-transform:none;letter-spacing:.02em;line-height:1.6;max-width:56ch;display:flex;gap:10px}
-.rd-note::before{content:'✦';color:var(--mustard)}
+.rd-note::before{content:'';width:22px;height:7px;margin-top:6px;background:var(--mustard);-webkit-mask:var(--star) center/contain no-repeat;mask:var(--star) center/contain no-repeat}
 @media(max-width:860px){.cov{grid-template-columns:1fr}.cov-r{height:80svh;order:-1}.cov-l{padding-top:40px}}
 
 /* chapeau */

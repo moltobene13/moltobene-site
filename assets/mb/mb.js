@@ -7,6 +7,8 @@ const page = document.body.dataset.page || '';
 const IA = '<span class="ia-mark" aria-label="Visuel généré par IA">IA</span>';
 window.IA = IA;
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* signature Molto Bene : l'étoile jaillit dans le B, le logotype se dévoile depuis elle */
+window.mbSig = (tone='white') => `<span class="sig" role="img" aria-label="Molto Bene"><img class="l" src="${A}mb/brand/wm-${tone}.png" alt="" width="1006" height="136"><span class="s"></span><span class="g"></span></span>`;
 
 /* ── NAV ── */
 const nCases = (window.MB && MB.cases.length) || '', nModels = (window.MB && MB.models.length) || '';
@@ -32,12 +34,12 @@ mm.setAttribute('aria-label','Menu');
 mm.innerHTML = [['/','Accueil'],...links].map(([h,t])=>`<a class="wide" href="${h}">${t}</a>`).join('') + `<a class="wide mustard" href="https://meet.moltobene.ai" target="_blank" rel="noopener">On se parle →</a>`;
 document.body.append(mm);
 const burger = nav.querySelector('.burger');
-burger.onclick = () => { const o = mm.classList.toggle('open'); burger.setAttribute('aria-expanded', o); burger.textContent = o ? 'Fermer' : 'Menu'; };
+burger.onclick = () => { const o = mm.classList.toggle('open'); document.body.classList.toggle('menu-open', o); burger.setAttribute('aria-expanded', o); burger.textContent = o ? 'Fermer' : 'Menu'; };
 
 /* grain + curseur + rideau */
 document.body.insertAdjacentHTML('beforeend',`<div class="grain" aria-hidden="true"></div>
   <div class="cur" aria-hidden="true"><b>Voir</b></div>
-  <div class="curtain" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><div class="lbl wide" style="font-size:clamp(40px,8vw,120px)">Molto Bene</div></div>`);
+  <div class="curtain" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><div class="lbl">${mbSig('white')}</div></div>`);
 
 /* ── scroll fluide (Lenis) ── */
 let lenis = null;
@@ -65,7 +67,7 @@ addEventListener('scroll', () => {
 /* ── curseur ── */
 const cur = document.querySelector('.cur');
 let cx=innerWidth/2, cy=innerHeight/2, tx=cx, ty=cy;
-addEventListener('mousemove', e=>{ tx=e.clientX; ty=e.clientY; }, {passive:true});
+addEventListener('mousemove', e=>{ tx=e.clientX; ty=e.clientY; if(!cur.classList.contains('on')){ cx=tx; cy=ty; cur.classList.add('on'); } }, {passive:true});
 (function loop(){ cx+=(tx-cx)*.22; cy+=(ty-cy)*.22; cur.style.transform=`translate(${cx}px,${cy}px)`; requestAnimationFrame(loop); })();
 document.addEventListener('mouseover', e=>{
   const t = e.target.closest('[data-cursor]');
@@ -95,27 +97,32 @@ document.addEventListener('click', e=>{
   if (url.origin !== location.origin) return;
   // ancre sur la page courante : défilement fluide, pas de rideau
   if (url.pathname.replace(/index\.html$/,'') === location.pathname.replace(/index\.html$/,'') && url.hash){
-    e.preventDefault(); mm.classList.remove('open'); burger.textContent='Menu';
+    e.preventDefault(); mm.classList.remove('open'); document.body.classList.remove('menu-open'); burger.textContent='Menu';
     if (scrollToHash(url.hash)) history.replaceState(null,'',url.hash);
     return;
   }
   if (reduce) return;
   e.preventDefault();
-  curtain.classList.remove('out'); curtain.classList.add('in');
-  setTimeout(()=>location.href=url.href, 750);
+  const sig = curtain.querySelector('.sig');
+  curtain.classList.remove('out','arrive'); sig.classList.remove('play'); void curtain.offsetWidth;
+  curtain.classList.add('in'); sig.classList.add('play');
+  setTimeout(()=>location.href=url.href, 1100);   // l'étoile révèle le logotype puis s'efface dans sa découpe
 });
 // arrivée : le rideau se lève (setTimeout, pas rAF : continue même en arrière-plan)
 if (sessionStorage.getItem('mb-nav') && !reduce){
-  curtain.classList.add('in');
+  curtain.classList.add('in','arrive');
   curtain.querySelectorAll('i').forEach(i=>i.style.transition='none');
+  document.documentElement.classList.remove('mb-arrive');   // le rideau a pris le relais du jaune posé dès le chargement
   setTimeout(()=>{
     void curtain.offsetWidth;
     curtain.querySelectorAll('i').forEach(i=>i.style.transition='');
     curtain.classList.add('out'); curtain.classList.remove('in');
-  }, 60);
+    setTimeout(()=>curtain.classList.remove('arrive'), 1200);
+  }, 380);   // la signature reste un instant avant que le rideau se lève
 }
+if (!sessionStorage.getItem('mb-nav') || reduce) document.documentElement.classList.remove('mb-arrive');
 addEventListener('pagehide', ()=>sessionStorage.setItem('mb-nav','1'));
-addEventListener('pageshow', e=>{ if(e.persisted){ curtain.classList.remove('in'); curtain.classList.add('out'); }});
+addEventListener('pageshow', e=>{ if(e.persisted){ curtain.classList.remove('in','arrive'); curtain.classList.add('out'); }});
 
 /* ── pied de page partagé ── */
 window.renderFooter = (target) => {
@@ -135,7 +142,7 @@ window.renderFooter = (target) => {
     </div>
     <div class="giant-mask" aria-hidden="true"><div class="giant wide">${'ALLORA'.split('').map(c=>`<span>${c}</span>`).join('')}<span class="serif mustard" style="font-size:.5em;align-self:flex-start">?</span></div></div>
     <div class="meta mono">
-      <span>Molto Bene Studio<br><span class="muted">Studio IA × Direction artistique</span></span>
+      <span><span class="mb-star" style="width:34px;height:11px;display:block;margin-bottom:10px"></span>Molto Bene Studio<br><span class="muted">Studio IA × Direction artistique</span></span>
       <span>Marseille, FR<br><span class="muted">Based in Marseille</span></span>
       <span><a href="mailto:hello@moltobene.ai">hello@moltobene.ai</a><br><a class="muted" href="tel:+33661685841">+33 6 61 68 58 41</a></span>
       <span><a href="https://www.linkedin.com/company/moltobenestudio" target="_blank" rel="noopener noreferrer">LinkedIn</a> · <a href="https://www.instagram.com/studiomoltobene" target="_blank" rel="noopener noreferrer">Instagram</a><br><span class="muted">© 2026 · Visuels IA signés (AI Act, art. 50)</span></span>

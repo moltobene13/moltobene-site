@@ -916,6 +916,10 @@ window.MB={
    },
    "media": [
     [
+     "video",
+     "palace-nike-film.mp4"
+    ],
+    [
      "img",
      "palace-nike-01.jpg"
     ],
@@ -962,6 +966,78 @@ window.MB={
     [
      "img",
      "palace-nike-14.jpg"
+    ]
+   ]
+  },
+  {
+   "slug": "carhartt",
+   "name": "Carhartt",
+   "tag": "Campagne",
+   "cover": "carhartt/carhartt-01.jpg",
+   "title": "Molto Bene × Carhartt.",
+   "desc": "« The Other Side » : une campagne Carhartt imaginée sur la Lune. Une Porsche 964 rose, la Terre à l'horizon et le workwear en apesanteur, en images et en film.",
+   "meta": {
+    "Status": "R&D",
+    "Concept": "The Other Side",
+    "Mood": "Sur la Lune, Porsche 964 rose",
+    "Références": "Workwear · Lune · Porsche 964"
+   },
+   "media": [
+    [
+     "video",
+     "carhartt/carhartt-film.mp4"
+    ],
+    [
+     "img",
+     "carhartt/carhartt-01.jpg"
+    ],
+    [
+     "img",
+     "carhartt/carhartt-02.jpg"
+    ],
+    [
+     "img",
+     "carhartt/carhartt-03.jpg"
+    ],
+    [
+     "img",
+     "carhartt/carhartt-04.jpg"
+    ],
+    [
+     "img",
+     "carhartt/carhartt-05.jpg"
+    ],
+    [
+     "img",
+     "carhartt/carhartt-06.jpg"
+    ],
+    [
+     "img",
+     "carhartt/carhartt-07.jpg"
+    ],
+    [
+     "img",
+     "carhartt/carhartt-08.jpg"
+    ],
+    [
+     "img",
+     "carhartt/carhartt-09.jpg"
+    ],
+    [
+     "img",
+     "carhartt/carhartt-10.jpg"
+    ],
+    [
+     "img",
+     "carhartt/carhartt-11.jpg"
+    ],
+    [
+     "img",
+     "carhartt/carhartt-12.jpg"
+    ],
+    [
+     "img",
+     "carhartt/carhartt-13.jpg"
     ]
    ]
   },
