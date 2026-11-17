@@ -32,7 +32,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
 <link rel="canonical" href="https://moltobene.ai/">
-<link rel="preload" as="image" href="/assets/reel/pb-vieux-port.jpg?v=3" fetchpriority="high">
+<link rel="preload" as="image" href="/assets/reel/pfc-maillots.jpg?v=4" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/mb/mb.css?v=19">
 <style>
@@ -42,7 +42,7 @@
 .trip .media{clip-path:inset(100% 0 0 0);transition:clip-path 1.4s var(--ease)}
 .trip .media video{transform:scale(1.35);transition:transform 2.4s var(--ease)}
 .ready .trip .media{clip-path:inset(0 0 0 0)}
-.ready .trip .media video{transform:scale(1.04)}
+.ready .trip .media video{transform:none}
 .trip .media:nth-child(2){transition-delay:.12s}.trip .media:nth-child(2) video{transition-delay:.12s}
 .trip .media:nth-child(3){transition-delay:.24s}.trip .media:nth-child(3) video{transition-delay:.24s}
 .trip .media .v{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -418,9 +418,9 @@
 <!-- 00 HERO -->
 <section class="hero" id="hero" data-ch="Ouverture">
   <div class="trip">
-    <div class="media"><video class="v in" poster="/assets/reel/mpg-15-ans.jpg?v=3" muted loop playsinline preload="none"></video><span class="lab mono">MPG · 15 ans</span><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div>
-    <div class="media"><video class="v in" poster="/assets/reel/pb-vieux-port.jpg?v=3" muted loop playsinline preload="none"></video><span class="lab mono">Poivre Blanc · Vieux-Port</span><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div>
-    <div class="media"><video class="v in" poster="/assets/reel/pb-wimbledon.jpg?v=3" muted loop playsinline preload="none"></video><span class="lab mono">Poivre Blanc · Wimbledon</span><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div>
+    <div class="media"><video class="v in" poster="/assets/reel/pfc-bts.jpg?v=4" muted loop playsinline preload="none"></video><span class="lab mono">Paris FC · Back-to-School</span><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div>
+    <div class="media"><video class="v in" poster="/assets/reel/pfc-maillots.jpg?v=4" muted loop playsinline preload="none"></video><span class="lab mono">Paris FC · Maillots officiels</span><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div>
+    <div class="media"><video class="v in" poster="/assets/reel/pbb-mike.jpg?v=4" muted loop playsinline preload="none"></video><span class="lab mono">Paris Basketball · Mike</span><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div>
   </div>
   <div class="hero-in">
     <h1 class="wide" id="h1">
@@ -678,13 +678,13 @@ const $ = s => document.querySelector(s);
    chargement limité aux panneaux visibles, vidéo suivante préchargée une fois la courante lancée. */
 (function(){
   const REEL=[
-    ['mpg-15-ans','MPG · 15 ans',5.2],['pb-vieux-port','Poivre Blanc · Vieux-Port',5],['pb-wimbledon','Poivre Blanc · Wimbledon',2.9],
     ['pfc-bts','Paris FC · Back-to-School',5.4],['pfc-maillots','Paris FC · Maillots officiels',5],['pbb-mike','Paris Basketball · Mike',4.9],
+    ['mpg-15-ans','MPG · 15 ans',5.2],['pb-vieux-port','Poivre Blanc · Vieux-Port',5],['pb-wimbledon','Poivre Blanc · Wimbledon',2.9],
     ['indies-amalfi','Indies · Amalfi',2.5],['pb-tennis','Poivre Blanc · Tennis',4.2],['roseanna-garage','Roseanna · Garage',5],
     ['av-diner','American Vintage · Diner',5.8],['pb-ski','Poivre Blanc · Ski',4.6],['indies-portrait','Indies · Portrait',5],
     ['av-motion','American Vintage · Motion',5.8],['pb-ski-gants','Poivre Blanc · Ski',5.8],
   ];
-  const RV='3'; // version des extraits : à incrémenter si on réencode
+  const RV='4'; // version des extraits : à incrémenter si on réencode
   const V=n=>`${A}reel/${n}.mp4?v=${RV}`, P=n=>`${A}reel/${n}.jpg?v=${RV}`;
   const panels=[...document.querySelectorAll('.trip .media')], srn=$('#srn'), N=REEL.length;
   const mobile=matchMedia('(max-width:860px)').matches, still=matchMedia('(prefers-reduced-motion: reduce)').matches;
