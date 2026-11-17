@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <style>html{background:#0A0A09}html.mb-arrive{background:#E5BA20}</style>
-<script>try{if(sessionStorage.getItem('mb-nav'))document.documentElement.classList.add('mb-arrive')}catch(e){}</script>
+<script>try{if(sessionStorage.getItem('mb-go'))document.documentElement.classList.add('mb-arrive')}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Molto Bene, Studio IA × Direction Artistique</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
@@ -36,8 +36,8 @@
 <link rel="canonical" href="https://moltobene.ai/">
 <link rel="preload" as="image" href="/assets/reel/pfc-maillots.jpg?v=5" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/mb/mb.css?v=33">
-<script>try{if(sessionStorage.getItem('mb-loader'))document.documentElement.classList.add('no-loader')}catch(e){}</script>
+<link rel="stylesheet" href="/assets/mb/mb.css?v=34">
+<script>try{var n=performance.getEntriesByType('navigation')[0];if(sessionStorage.getItem('mb-go')||(n&&n.type==='back_forward'))document.documentElement.classList.add('no-loader')}catch(e){}</script>
 <style>.no-loader #loader{display:none}</style>
 <style>
 /* ═══ HERO TRIPTYQUE ═══ */
@@ -650,7 +650,7 @@
 
 <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
 <script src="/assets/mb/site-data.js?v=21"></script>
-<script src="/assets/mb/mb.js?v=31"></script>
+<script src="/assets/mb/mb.js?v=34"></script>
 <script>
 const $ = s => document.querySelector(s);
 
@@ -658,8 +658,8 @@ const $ = s => document.querySelector(s);
 (function(){
   $('#lsig').outerHTML=mbSig('white'); requestAnimationFrame(()=>$('#loader .sig').classList.add('play'));
   const L=$('#loader'), C=$('#count'), B=$('#lbar');
-  const seen = sessionStorage.getItem('mb-loader');
-  // l'écran de chargement ne joue qu'à la première visite : ensuite, seul le rideau jaune fait la transition
+  // le compteur 000→100 joue à chaque arrivée directe ou rechargement ; après un clic interne, seul le rideau jaune fait la transition
+  const seen = document.documentElement.classList.contains('no-loader');
   if (seen){ L.remove(); document.body.classList.add('ready'); document.querySelectorAll('.hero .line-mask').forEach(l=>l.classList.add('in-view')); return; }
   const dur = 2100, t0=performance.now();
   if (window.lenis) lenis.stop();
@@ -673,7 +673,6 @@ const $ = s => document.querySelector(s);
     finished=true;
     L.classList.add('done'); document.body.classList.add('ready');
     document.querySelectorAll('.hero .line-mask').forEach(l=>l.classList.add('in-view'));
-    sessionStorage.setItem('mb-loader','1');
     if (window.lenis) lenis.start();
     setTimeout(()=>L.remove(),1200);
   }

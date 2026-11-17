@@ -39,7 +39,7 @@ burger.onclick = () => { const o = mm.classList.toggle('open'); document.body.cl
 /* grain + curseur + rideau */
 document.body.insertAdjacentHTML('beforeend',`<div class="grain" aria-hidden="true"></div>
   <div class="cur" aria-hidden="true"><b>Voir</b></div>
-  <div class="curtain" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><div class="lbl">${mbSig('white')}</div></div>`);
+  <div class="curtain" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><div class="lbl">${mbSig('white')}</div><div class="cbot"><span class="mono">Studio IA × Direction artistique<br>Marseille, 2026</span><span class="ccount">000</span></div><div class="cbar"></div></div>`);
 
 /* ── scroll fluide (Lenis) ── */
 let lenis = null;
@@ -106,22 +106,36 @@ document.addEventListener('click', e=>{
   const sig = curtain.querySelector('.sig');
   curtain.classList.remove('out','arrive'); sig.classList.remove('play'); void curtain.offsetWidth;
   curtain.classList.add('in'); sig.classList.add('play');
+  runCount(0, 72, 1050);   // le compteur démarre au départ et finit à l'arrivée
+  try{sessionStorage.setItem('mb-go','72')}catch(_){}
   setTimeout(()=>location.href=url.href, 1100);   // l'étoile révèle le logotype puis s'efface dans sa découpe
 });
-// arrivée : le rideau se lève (setTimeout, pas rAF : continue même en arrière-plan)
-if (sessionStorage.getItem('mb-nav') && !reduce){
+// compteur 000→100 + barre, comme l'écran de chargement (setTimeout, pas rAF : continue même en arrière-plan)
+const cc = curtain.querySelector('.ccount'), cb = curtain.querySelector('.cbar');
+function runCount(from, to, dur, done){
+  const t0 = performance.now();
+  (function f(){
+    const p = Math.min(1,(performance.now()-t0)/dur), v = from+(to-from)*(1-Math.pow(1-p,3));
+    cc.textContent = String(Math.round(v)).padStart(3,'0'); cb.style.width = v+'%';
+    if (p<1) setTimeout(f,16); else if (done) done();
+  })();
+}
+// arrivée : après un clic interne le compteur reprend où il s'était arrêté ; au chargement direct il part de 000.
+// (le jaune est posé dès la première ligne de la page ; l'accueil a son propre écran de chargement noir)
+const mbGo = sessionStorage.getItem('mb-go'); sessionStorage.removeItem('mb-go');
+const arrive = document.documentElement.classList.contains('mb-arrive') && !reduce;
+if (arrive){
   curtain.classList.add('in','arrive');
   curtain.querySelectorAll('i').forEach(i=>i.style.transition='none');
   document.documentElement.classList.remove('mb-arrive');   // le rideau a pris le relais du jaune posé dès le chargement
-  setTimeout(()=>{
+  const from = mbGo ? (parseInt(mbGo,10)||72) : 0;
+  runCount(from, 100, mbGo ? 480 : 950, ()=>setTimeout(()=>{
     void curtain.offsetWidth;
     curtain.querySelectorAll('i').forEach(i=>i.style.transition='');
     curtain.classList.add('out'); curtain.classList.remove('in');
     setTimeout(()=>curtain.classList.remove('arrive'), 1200);
-  }, 380);   // la signature reste un instant avant que le rideau se lève
-}
-if (!sessionStorage.getItem('mb-nav') || reduce) document.documentElement.classList.remove('mb-arrive');
-addEventListener('pagehide', ()=>sessionStorage.setItem('mb-nav','1'));
+  }, 120));
+} else document.documentElement.classList.remove('mb-arrive');
 addEventListener('pageshow', e=>{ if(e.persisted){ curtain.classList.remove('in','arrive'); curtain.classList.add('out'); }});
 
 /* ── pied de page partagé ── */

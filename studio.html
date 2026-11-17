@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <style>html{background:#0A0A09}html.mb-arrive{background:#E5BA20}</style>
-<script>try{if(sessionStorage.getItem('mb-nav'))document.documentElement.classList.add('mb-arrive')}catch(e){}</script>
+<script>try{var n=performance.getEntriesByType('navigation')[0];if(sessionStorage.getItem('mb-go')||!(n&&n.type==='back_forward'))document.documentElement.classList.add('mb-arrive')}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Le studio · Molto Bene</title>
 <meta name="description" content="Molto Bene, studio IA × direction artistique fondé par Christian Lemaire à Marseille. Photographes, stylistes, graphistes, réalisateurs : plus de 20 ans d'expérience de l'image de mode au service des marques.">
@@ -26,7 +26,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/mb/mb.css?v=33">
+<link rel="stylesheet" href="/assets/mb/mb.css?v=34">
 <style>
 /* EN-TÊTE */
 .sh{padding:150px var(--gut) 90px}
@@ -161,7 +161,7 @@
 </main>
 <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
 <script src="/assets/mb/site-data.js?v=21"></script>
-<script src="/assets/mb/mb.js?v=31"></script>
+<script src="/assets/mb/mb.js?v=34"></script>
 <script>
 /* compteur 20+ */
 (function(){

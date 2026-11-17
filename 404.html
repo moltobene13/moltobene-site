@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <style>html{background:#0A0A09}html.mb-arrive{background:#E5BA20}</style>
-<script>try{if(sessionStorage.getItem('mb-nav'))document.documentElement.classList.add('mb-arrive')}catch(e){}</script>
+<script>try{var n=performance.getEntriesByType('navigation')[0];if(sessionStorage.getItem('mb-go')||!(n&&n.type==='back_forward'))document.documentElement.classList.add('mb-arrive')}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Page introuvable · Molto Bene</title>
 <meta name="robots" content="noindex">
@@ -14,7 +14,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/mb/mb.css?v=33">
+<link rel="stylesheet" href="/assets/mb/mb.css?v=34">
 <style>
 .e404{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:120px var(--gut) var(--gut);gap:28px}
 .e404 .big{font-size:clamp(120px,30vw,520px);line-height:.75;letter-spacing:-.05em;-webkit-text-stroke:1.5px var(--mustard);color:transparent}
@@ -33,6 +33,6 @@
 </main>
 <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
 <script src="/assets/mb/site-data.js?v=21"></script>
-<script src="/assets/mb/mb.js?v=31"></script>
+<script src="/assets/mb/mb.js?v=34"></script>
 </body>
 </html>

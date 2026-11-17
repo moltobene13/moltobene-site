@@ -119,6 +119,15 @@ body.menu-open .nav .brand img{filter:none!important}
 .curtain.arrive .sig{opacity:1}
 .curtain.arrive .sig .l{clip-path:circle(100% at var(--sx) var(--sy))}
 .curtain.arrive.out .sig{opacity:0;transform:translateY(-10px);transition:opacity .35s,transform .6s var(--ease)}
+/* compteur et barre du rideau, comme l'écran de chargement */
+.curtain .cbot{position:fixed;left:var(--gut);right:var(--gut);bottom:var(--gut);display:flex;justify-content:space-between;align-items:flex-end;color:#fff;opacity:0;transition:opacity .3s}
+.curtain .cbot .mono{opacity:.85}
+.curtain .ccount{font-family:var(--f-wide);font-variation-settings:"wdth" 125;font-weight:800;font-size:clamp(64px,13vw,200px);line-height:.8;letter-spacing:-.04em}
+.curtain .cbar{position:fixed;left:0;bottom:0;height:3px;background:#fff;width:0;opacity:0;transition:opacity .3s}
+.curtain.in .cbot,.curtain.in .cbar,.curtain.arrive .cbot,.curtain.arrive .cbar{opacity:1}
+.curtain.in .cbot{transition-delay:.25s}
+.curtain.arrive:not(.out) .cbot,.curtain.arrive:not(.out) .cbar{transition:none}
+.curtain.arrive.out .cbot,.curtain.arrive.out .cbar{opacity:0;transition:opacity .25s}
 
 /* ── SIGNATURE ──
    1. l'étoile jaillit à sa place dans le B (avec un éclat)

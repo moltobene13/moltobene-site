@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <style>html{background:#0A0A09}html.mb-arrive{background:#E5BA20}</style>
-<script>try{if(sessionStorage.getItem('mb-nav'))document.documentElement.classList.add('mb-arrive')}catch(e){}</script>
+<script>try{var n=performance.getEntriesByType('navigation')[0];if(sessionStorage.getItem('mb-go')||!(n&&n.type==='back_forward'))document.documentElement.classList.add('mb-arrive')}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Molto Bene × Le Temps des Cerises · Case 04 · Molto Bene</title>
 <meta name="description" content="Interprétation créative Molto Bene pour Le Temps des Cerises. Rock Couture, denim, studio, attitude.">
@@ -26,8 +26,8 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/mb/mb.css?v=33">
-<link rel="stylesheet" href="/assets/mb/pages.css?v=33">
+<link rel="stylesheet" href="/assets/mb/mb.css?v=34">
+<link rel="stylesheet" href="/assets/mb/pages.css?v=34">
 </head>
 <body data-page="cas">
 <main id="main">
@@ -71,9 +71,9 @@
   <div class="lb-bot"><button id="lbp" type="button">← Préc.</button><span class="mono muted">Visuel généré par IA · Molto Bene</span><button id="lbnx" type="button">Suiv. →</button></div>
 </div>
 <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
-<script src="/assets/mb/site-data.js?v=33"></script>
-<script src="/assets/mb/mb.js?v=33"></script>
-<script src="/assets/mb/pages.js?v=33"></script>
+<script src="/assets/mb/site-data.js?v=34"></script>
+<script src="/assets/mb/mb.js?v=34"></script>
+<script src="/assets/mb/pages.js?v=34"></script>
 <script>renderFooter();</script>
 </body>
 </html>
