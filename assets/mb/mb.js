@@ -11,6 +11,7 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 /* ── NAV ── */
 const nCases = (window.MB && MB.cases.length) || '', nModels = (window.MB && MB.models.length) || '';
 const links = [
+  ['/studio.html','Studio','studio',''],
   ['/clients.html','Clients','clients',nCases],
   ['/modeles.html','Modèles','modeles',nModels],
   ['/#comparatif','Tarifs','tarifs',''],
@@ -28,7 +29,7 @@ document.body.insertAdjacentHTML('afterbegin','<a class="skip" href="#main">Alle
 const mm = document.createElement('nav');
 mm.className = 'menu-m';
 mm.setAttribute('aria-label','Menu');
-mm.innerHTML = [['/','Studio'],...links].map(([h,t])=>`<a class="wide" href="${h}">${t}</a>`).join('') + `<a class="wide mustard" href="https://meet.moltobene.ai" target="_blank" rel="noopener">On se parle →</a>`;
+mm.innerHTML = [['/','Accueil'],...links].map(([h,t])=>`<a class="wide" href="${h}">${t}</a>`).join('') + `<a class="wide mustard" href="https://meet.moltobene.ai" target="_blank" rel="noopener">On se parle →</a>`;
 document.body.append(mm);
 const burger = nav.querySelector('.burger');
 burger.onclick = () => { const o = mm.classList.toggle('open'); burger.setAttribute('aria-expanded', o); burger.textContent = o ? 'Fermer' : 'Menu'; };

@@ -32,8 +32,9 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
 <link rel="canonical" href="https://moltobene.ai/">
+<link rel="preload" as="image" href="/assets/reel/pb-vieux-port.jpg" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/mb/mb.css?v=17">
+<link rel="stylesheet" href="/assets/mb/mb.css?v=19">
 <style>
 /* ═══ HERO TRIPTYQUE ═══ */
 .hero{position:relative;height:100svh;min-height:600px;overflow:hidden;background:var(--ink)}
@@ -172,13 +173,23 @@
 .acc .big-nm{position:absolute;left:20px;right:20px;bottom:18px;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;opacity:0;transform:translateY(16px);transition:all .6s .15s var(--ease-out)}
 .acc .big-nm b{font-family:var(--f-serif);font-style:italic;font-weight:400;font-size:clamp(40px,4.6vw,76px);line-height:.9}
 .acc a:hover .big-nm,.acc a.act .big-nm{opacity:1;transform:none}
-.acc .big-nm .go{background:var(--mustard);color:var(--ink);padding:9px 12px;white-space:nowrap;align-self:flex-end}
+.acc .big-nm .go{background:var(--mustard);color:var(--ink);padding:9px 12px;white-space:nowrap;align-self:flex-end;font-weight:700}
 .acc a:hover .nm,.acc a.act .nm{opacity:0}
 .acc a::after{content:'';position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(10,10,9,.7));pointer-events:none}
 .cast-cats{display:flex;gap:0;margin:26px var(--gut) 0;border-top:1px solid var(--line)}
 .cast-cats a{flex:1;padding:16px 0;display:flex;justify-content:space-between;border-right:1px solid var(--line);padding-right:18px;margin-right:18px}
 .cast-cats a:last-child{border:0;margin:0}
 .cast-cats a:hover{color:var(--mustard)}
+@media(max-width:860px){
+  .acc{height:62vh}
+  .acc a:nth-child(n+5){display:none}
+  .acc a:hover,.acc a.act{flex:6}
+  .acc .big-nm{left:12px;right:12px;bottom:12px;flex-direction:column;align-items:stretch;gap:12px;transition:opacity .45s .55s,transform .6s .55s var(--ease-out)}
+  .acc .big-nm b{font-size:clamp(28px,8.6vw,38px);display:block}
+  .acc .big-nm .mono{display:block;margin-top:4px;font-size:10px;color:rgba(255,255,255,.75)}
+  .acc .big-nm .go.mono{align-self:stretch;text-align:center;padding:11px 8px;font-size:10px;letter-spacing:.1em;color:var(--ink);margin-top:0;font-weight:700}
+  .acc a::after{background:linear-gradient(transparent 40%,rgba(10,10,9,.85))}
+}
 @media(max-width:860px){.acc{height:60vh}.acc a:nth-child(n+6){display:none}.cast-head{grid-template-columns:1fr}.cast-cats{flex-wrap:wrap}.cast-cats a{flex:1 1 40%}}
 
 /* ═══ INDEX TYPO DES PROJETS (papier) ═══ */
@@ -204,7 +215,7 @@
   .idx-m{display:block;padding-bottom:4svh}
   .idx-m a{position:sticky;top:calc(76px + var(--i) * 9px);display:block;height:66svh;margin-bottom:7svh;overflow:hidden;background:var(--ink);color:#fff;transform-origin:50% 0;box-shadow:0 -14px 40px rgba(10,10,9,.28);will-change:transform}
   .idx-m a .media{position:absolute;inset:0}
-  .idx-m a .media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .7s,transform 6s linear;transform:scale(1.06)}
+  .idx-m a .media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s,transform 4s linear;transform:scale(1.06)}
   .idx-m a .media img.on{opacity:1;transform:scale(1)}
   .idx-m a::after{content:'';position:absolute;inset:0;background:linear-gradient(transparent 45%,rgba(10,10,9,.82));z-index:2;pointer-events:none}
   .idx-m .cap{position:absolute;left:16px;right:16px;bottom:16px;z-index:3;display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
@@ -217,7 +228,14 @@
   .idx-m .bars i.on{background:#fff}
   .idx-m .arw{width:40px;height:40px;border-radius:50%;background:var(--mustard);color:var(--ink);display:grid;place-items:center;flex:none}
 }
-.idx-more .btn{color:var(--ink)}
+.idx-more .btn{color:var(--paper);background:var(--ink);border-color:var(--ink);height:64px;padding:0 34px;font-size:13px;gap:18px}
+.idx-more .btn::before{background:var(--mustard)}
+.idx-more .btn:hover{color:var(--ink)}
+.idx-more .btn .c{color:var(--mustard);transition:color .3s}
+.idx-more .btn:hover .c{color:var(--ink)}
+.idx-more .btn .ar{display:inline-block;transition:transform .5s var(--ease)}
+.idx-more .btn:hover .ar{transform:translateX(6px)}
+@media(max-width:860px){.idx-more{margin-top:10px}.idx-more .btn{width:100%;justify-content:space-between;height:58px;padding:0 20px}}
 
 /* ═══ REEL VIDÉO ═══ */
 .reel{padding:130px 0 110px}
@@ -238,6 +256,8 @@
 @keyframes nudge{0%,100%{transform:translateX(0)}45%{transform:translateX(10px)}}
 @keyframes nudgeL{0%,100%{transform:translateX(0)}45%{transform:translateX(-10px)}}
 .reel-arw.off{opacity:0;pointer-events:none}
+/* une fois qu'on a glissé, plus de flèches : seule la première invite à glisser */
+.reel-wrap.used .reel-arw{opacity:0;pointer-events:none}
 @media(max-width:860px){.reel-arw{width:56px}.reel-arw span{width:42px;height:42px;font-size:16px}}
 .reel-row::-webkit-scrollbar{display:none}
 .reel-item{flex:0 0 clamp(220px,22vw,340px);scroll-snap-align:start}
@@ -398,9 +418,9 @@
 <!-- 00 HERO -->
 <section class="hero" id="hero" data-ch="Ouverture">
   <div class="trip">
-    <div class="media"><video class="v in" src="/assets/pfc/pfc-rose-jeanbouin.mp4" autoplay muted loop playsinline preload="auto"></video><span class="lab mono">Paris FC · Maillots officiels</span><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div>
-    <div class="media"><video class="v in" src="/assets/pbvieuxport-danse.mp4" autoplay muted loop playsinline preload="auto"></video><span class="lab mono">Poivre Blanc · Vieux-Port</span><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div>
-    <div class="media"><video class="v in" src="/assets/pbwimbledon-film.mp4" autoplay muted loop playsinline preload="auto"></video><span class="lab mono">Poivre Blanc · Wimbledon</span><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div>
+    <div class="media"><video class="v in" poster="/assets/reel/pfc-maillots.jpg" muted loop playsinline autoplay preload="none"></video><span class="lab mono">Paris FC · Maillots officiels</span><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div>
+    <div class="media"><video class="v in" poster="/assets/reel/pb-vieux-port.jpg" muted loop playsinline autoplay preload="none"></video><span class="lab mono">Poivre Blanc · Vieux-Port</span><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div>
+    <div class="media"><video class="v in" poster="/assets/reel/pb-wimbledon.jpg" muted loop playsinline autoplay preload="none"></video><span class="lab mono">Poivre Blanc · Wimbledon</span><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div>
   </div>
   <div class="hero-in">
     <h1 class="wide" id="h1">
@@ -509,7 +529,7 @@
   </div>
   <ul class="idx-list wide" id="idx"></ul>
   <div class="idx-m" id="idxm"></div>
-  <div class="idx-more"><a class="btn" href="/clients.html">Index complet →</a></div>
+  <div class="idx-more"><a class="btn" href="/clients.html" data-cursor="Index"><span>Index complet</span><span class="c" id="ncase2">24 projets</span><span class="ar">→</span></a></div>
   <div class="idx-float" id="ifl"></div>
 </section>
 
@@ -625,8 +645,8 @@
 <div class="rail" id="rail"><span class="n"><div id="rn-list"></div></span><span class="bar"><i id="rbar"></i></span></div>
 
 <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
-<script src="/assets/mb/site-data.js?v=14"></script>
-<script src="/assets/mb/mb.js?v=16"></script>
+<script src="/assets/mb/site-data.js?v=19"></script>
+<script src="/assets/mb/mb.js?v=19"></script>
 <script>
 const $ = s => document.querySelector(s);
 
@@ -653,56 +673,50 @@ const $ = s => document.querySelector(s);
   requestAnimationFrame(tick);
 })();
 
-/* ── SHOWREEL : les 3 panneaux font défiler toutes les vidéos verticales du site ── */
+/* ── SHOWREEL : les 3 panneaux font défiler toutes les vidéos verticales du site ──
+   Extraits légers pré-coupés (assets/reel/, sans logos), image d'attente immédiate,
+   chargement limité aux panneaux visibles, vidéo suivante préchargée une fois la courante lancée. */
 (function(){
-  // [fichier, légende, début, fin] : chaque extrait s'arrête avant les logos et cartons de marque
   const REEL=[
-    ['pfc/pfc-rose-jeanbouin.mp4','Paris FC · Maillots officiels',3,8],['pbvieuxport-danse.mp4','Poivre Blanc · Vieux-Port',2.5,7.5],['pbwimbledon-film.mp4','Poivre Blanc · Wimbledon',0,2.9],
-    ['pfc/pfc-bts-film.mp4','Paris FC · Back-to-School',2.4,7.8],['mpg/mpg-15-ans.mp4','MPG · 15 ans',0.5,5.7],['pbb/pbb-veste-tour.mp4','Paris Basketball · Mike',0,4.9],
-    ['indies-amalfi.mp4','Indies · Amalfi',0,2.5],['tennis-video.mp4','Poivre Blanc · Tennis',0,4.2],['roseanna-video.mp4','Roseanna',0,5.8],
-    ['av-video.mp4','American Vintage · Diner',0,5.8],['lb04-head-wink.mp4','Poivre Blanc · Ski',0,4.6],['indies-portrait.mp4','Indies · Portrait',0,5],
-    ['move-av-b6.mp4','American Vintage · Motion',0,5.8],['lb08-gants.mp4','Poivre Blanc · Ski',0,5.8],
+    ['pfc-maillots','Paris FC · Maillots officiels',5],['pb-vieux-port','Poivre Blanc · Vieux-Port',5],['pb-wimbledon','Poivre Blanc · Wimbledon',2.9],
+    ['pfc-bts','Paris FC · Back-to-School',5.4],['mpg-15-ans','MPG · 15 ans',5.2],['pbb-mike','Paris Basketball · Mike',4.9],
+    ['indies-amalfi','Indies · Amalfi',2.5],['pb-tennis','Poivre Blanc · Tennis',4.2],['roseanna','Roseanna',5.8],
+    ['av-diner','American Vintage · Diner',5.8],['pb-ski','Poivre Blanc · Ski',4.6],['indies-portrait','Indies · Portrait',5],
+    ['av-motion','American Vintage · Motion',5.8],['pb-ski-gants','Poivre Blanc · Ski',5.8],
   ];
-  const clip=(v,j)=>{ v._in=REEL[j][2]; v._out=REEL[j][3]; const go=()=>{ try{ v.currentTime=v._in; }catch(e){} };
-    v.readyState>0 ? go() : v.addEventListener('loadedmetadata',go,{once:true});
-    if(!v._seg){ v._seg=1; v.loop=false; v.removeAttribute('loop');
-      const chk=()=>{ if(v.currentTime>=v._out-.05 || v.ended){ v.currentTime=v._in; v.play().catch(()=>{}); } };
-      v.addEventListener('timeupdate',chk); v.addEventListener('ended',chk);
-      (function frame(){ if(v.requestVideoFrameCallback) v.requestVideoFrameCallback(()=>{ chk(); frame(); }); })(); } };
-  const holdOf=j=>Math.min(5200,(REEL[j][3]-REEL[j][2])*1000);
-  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const V=n=>`${A}reel/${n}.mp4`, P=n=>`${A}reel/${n}.jpg`;
   const panels=[...document.querySelectorAll('.trip .media')], srn=$('#srn'), N=REEL.length;
-  const mobile=matchMedia('(max-width:860px)').matches;
-  // ordinateur : chaque panneau a sa propre liste ; mobile : seul le panneau central, avec toutes les vidéos
-  const lists=mobile ? [null,REEL.map((_,i)=>i),null] : [0,1,2].map(p=>REEL.map((_,i)=>i).filter(i=>i%3===p));
-  const HOLD=5200, OFFS=[0,1700,3400];
-  let running=true, timers=[];
+  const mobile=matchMedia('(max-width:860px)').matches, still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const lists=mobile ? [null,REEL.map((_,i)=>(i+1)%REEL.length),null] : [0,1,2].map(p=>REEL.map((_,i)=>i).filter(i=>i%3===p));
+  const holdOf=j=>Math.min(5200,REEL[j][2]*1000), OFFS=[0,1700,3400];
   const fmt=i=>`${String(i+1).padStart(2,'0')} / ${String(N).padStart(2,'0')}`;
+  let running=true;
+  const mk=()=>{ const v=document.createElement('video'); v.className='v'; v.muted=true; v.loop=true; v.playsInline=true; v.setAttribute('playsinline',''); v.setAttribute('muted',''); v.preload='none'; return v; };
   panels.forEach((pan,p)=>{
-    const list=lists[p]; if(!list) return;
-    let k=0, z=2;
+    const list=lists[p]; if(!list) return;           // panneau masqué (mobile) : rien n'est chargé
     const lab=pan.querySelector('.lab');
-    if(mobile){ pan.querySelector('.v').src=A+REEL[list[0]][0]; lab.textContent=REEL[list[0]][1]; }
-    clip(pan.querySelector('.v'), list[0]);
-    const nxt=document.createElement('video'); nxt.className='v'; nxt.muted=true; nxt.loop=true; nxt.playsInline=true; nxt.setAttribute('playsinline',''); nxt.preload='auto';
-    pan.insertBefore(nxt, lab);
-    let cur=pan.querySelector('.v'), back=nxt;
-    const prep=()=>{ const j=list[(k+1)%list.length]; back.src=A+REEL[j][0]; back.load(); };
+    let cur=pan.querySelector('.v'), back=mk(); pan.insertBefore(back,lab);
+    const j0=list[0];
+    cur.poster=P(REEL[j0][0]); cur.preload='auto'; cur.src=V(REEL[j0][0]); lab.textContent=REEL[j0][1];
+    cur.play().catch(()=>{});
+    if(still) return;
+    let k=0, z=2, ready=false;
+    const prep=()=>{ const j=list[(k+1)%list.length]; back.poster=P(REEL[j][0]); back.preload='auto'; back.src=V(REEL[j][0]); back.load(); };
+    // on ne précharge la suivante qu'une fois la vidéo courante lancée (priorité au premier affichage)
+    cur.addEventListener('playing',()=>{ if(!ready){ ready=true; setTimeout(prep, 900+p*500); } },{once:true});
     const swap=()=>{
       if(!running) return;
       k=(k+1)%list.length; const j=list[k];
-      back.style.zIndex=++z; back.classList.remove('in'); clip(back,j); back.play().catch(()=>{});
+      back.style.zIndex=++z; back.classList.remove('in'); back.currentTime=0; back.play().catch(()=>{});
       void back.offsetWidth; back.classList.add('wipe','in');
       lab.classList.add('out'); setTimeout(()=>{ lab.textContent=REEL[j][1]; lab.classList.remove('out'); },400);
       srn.textContent=fmt(j);
       const old=cur; cur=back; back=old;
       setTimeout(()=>{ old.pause(); old.classList.remove('wipe','in'); prep(); },1100);
     };
-    prep();
-    const loop=()=>{ swap(); timers[p]=setTimeout(loop,holdOf(list[k])); };
-    timers[p]=setTimeout(loop,holdOf(list[0])+(mobile?0:OFFS[p]));
+    const loop=()=>{ swap(); setTimeout(loop,holdOf(list[k])); };
+    setTimeout(loop,holdOf(j0)+(mobile?0:OFFS[p]));
   });
-  // pause quand le hero n'est plus à l'écran ou l'onglet masqué
   const hero=$('#hero');
   new IntersectionObserver(es=>es.forEach(e=>{ running=e.isIntersecting; hero.querySelectorAll('video.in').forEach(v=>running?v.play().catch(()=>{}):v.pause()); }),{threshold:.05}).observe(hero);
 })();
@@ -759,10 +773,13 @@ const $ = s => document.querySelector(s);
   const tr=$('#htrack');
   tr.innerHTML=S.map(([n,a,b,d,m])=>`<div class="step">
     <div><div class="num wide">${n}</div><h3 class="wide">${a} <span class="serif">${b}</span></h3><p>${d}</p></div>
-    <div class="col">${m.map(f=>`<div class="media">${f.endsWith('.mp4')?`<video src="${A}${f}" muted loop playsinline autoplay></video>`:`<img src="${A}${f}" alt="" loading="lazy">`}${IA}</div>`).join('')}</div>
+    <div class="col">${m.map(f=>`<div class="media">${f.endsWith('.mp4')?`<video data-src="${A}${f}" muted loop playsinline preload="none"></video>`:`<img src="${A}${f}" alt="" loading="lazy">`}${IA}</div>`).join('')}</div>
   </div>`).join('');
   const sec=$('.how'), bar=$('#hbar'), st=$('#hstep');
   const steps=tr.querySelectorAll('.step');
+  // les vidéos de l'étape 4 ne se chargent qu'à l'approche de la section (le showreel passe d'abord)
+  const vio=new IntersectionObserver(es=>es.forEach(e=>{ if(!e.isIntersecting) return; tr.querySelectorAll('video[data-src]').forEach(v=>{ v.src=v.dataset.src; v.removeAttribute('data-src'); v.play().catch(()=>{}); }); vio.disconnect(); }),{rootMargin:'600px 0px'});
+  vio.observe(sec);
   const upd=()=>{
     const r=sec.getBoundingClientRect(); const max=sec.offsetHeight-innerHeight;
     const p=Math.min(1,Math.max(0,-r.top/max));
@@ -798,7 +815,7 @@ const $ = s => document.querySelector(s);
 (function(){
   const sel=['paris-fc-back-to-school','poivre-blanc-wimbledon','dfco','paris-fc-maillots','paris-basketball','mpg','poivre-blanc-vintage','indies'];
   const C=sel.map(s=>MB.cases.find(c=>c.slug===s));
-  $('#ncase').textContent=MB.cases.length;
+  $('#ncase').textContent=MB.cases.length; $('#ncase2').textContent=MB.cases.length+' projets';
   const short=c=>c.name.replace('Poivre Blanc ','PB ');
   $('#idx').innerHTML=C.map((c,i)=>`<li><a href="/case/${c.slug}.html" data-i="${i}" data-cursor="Ouvrir">${c.name}<sup>${c.meta.Status==='Client'?'Client':'R&D'}</sup></a></li>`).join('');
   const nm=n=>{const p=n.split(' '); return p.length>1?p.slice(0,-1).join(' ')+' <span class="serif">'+p.slice(-1)+'</span>':n;};
@@ -811,7 +828,7 @@ const $ = s => document.querySelector(s);
     if(!matchMedia('(max-width:860px)').matches) return;
     const cards=[...document.querySelectorAll('#idxm a')]; let top=null, t=null;
     const cycle=a=>{ clearInterval(t); const ims=a.querySelectorAll('img'), bs=a.querySelectorAll('.bars i'); if(ims.length<2) return; let k=0;
-      t=setInterval(()=>{ k=(k+1)%ims.length; ims.forEach((im,j)=>im.classList.toggle('on',j===k)); bs.forEach((b,j)=>b.classList.toggle('on',j===k)); },1400); };
+      t=setInterval(()=>{ k=(k+1)%ims.length; ims.forEach((im,j)=>im.classList.toggle('on',j===k)); bs.forEach((b,j)=>b.classList.toggle('on',j===k)); },1000); };
     const upd=()=>{
       let cur=null;
       cards.forEach((a,i)=>{ const nx=cards[i+1]; const r=a.getBoundingClientRect();
@@ -841,7 +858,8 @@ const $ = s => document.querySelector(s);
   const nx=$('#rn'), pv=$('#rp');
   nx.onclick=()=>row.scrollBy({left:step()*2,behavior:'smooth'});
   pv.onclick=()=>row.scrollBy({left:-step()*2,behavior:'smooth'});
-  const arrows=()=>{ pv.classList.toggle('off',row.scrollLeft<20); nx.classList.toggle('off',row.scrollLeft>row.scrollWidth-row.clientWidth-20); };
+  const wrap=row.parentElement;
+  const arrows=()=>{ if(row.scrollLeft>20) wrap.classList.add('used'); pv.classList.toggle('off',row.scrollLeft<20); nx.classList.toggle('off',row.scrollLeft>row.scrollWidth-row.clientWidth-20); };
   row.addEventListener('scroll',arrows,{passive:true}); arrows();
   // glissement verrouillé : un geste horizontal fait défiler le reel, jamais la page
   row.addEventListener('wheel',e=>{ if(Math.abs(e.deltaX)>Math.abs(e.deltaY)*.6){ e.preventDefault(); row.scrollLeft+=e.deltaX; } },{passive:false});
