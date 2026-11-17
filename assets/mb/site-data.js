@@ -1018,6 +1018,10 @@ window.MB={
     [
      "video",
      "roseanna-video.mp4"
+    ],
+    [
+     "video",
+     "animate-roseanna.mp4"
     ]
    ]
   },

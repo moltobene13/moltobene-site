@@ -32,7 +32,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
 <link rel="canonical" href="https://moltobene.ai/">
-<link rel="preload" as="image" href="/assets/reel/pb-vieux-port.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="/assets/reel/pb-vieux-port.jpg?v=3" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/mb/mb.css?v=19">
 <style>
@@ -418,9 +418,9 @@
 <!-- 00 HERO -->
 <section class="hero" id="hero" data-ch="Ouverture">
   <div class="trip">
-    <div class="media"><video class="v in" poster="/assets/reel/pfc-maillots.jpg" muted loop playsinline autoplay preload="none"></video><span class="lab mono">Paris FC · Maillots officiels</span><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div>
-    <div class="media"><video class="v in" poster="/assets/reel/pb-vieux-port.jpg" muted loop playsinline autoplay preload="none"></video><span class="lab mono">Poivre Blanc · Vieux-Port</span><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div>
-    <div class="media"><video class="v in" poster="/assets/reel/pb-wimbledon.jpg" muted loop playsinline autoplay preload="none"></video><span class="lab mono">Poivre Blanc · Wimbledon</span><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div>
+    <div class="media"><video class="v in" poster="/assets/reel/mpg-15-ans.jpg?v=3" muted loop playsinline preload="none"></video><span class="lab mono">MPG · 15 ans</span><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div>
+    <div class="media"><video class="v in" poster="/assets/reel/pb-vieux-port.jpg?v=3" muted loop playsinline preload="none"></video><span class="lab mono">Poivre Blanc · Vieux-Port</span><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div>
+    <div class="media"><video class="v in" poster="/assets/reel/pb-wimbledon.jpg?v=3" muted loop playsinline preload="none"></video><span class="lab mono">Poivre Blanc · Wimbledon</span><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div>
   </div>
   <div class="hero-in">
     <h1 class="wide" id="h1">
@@ -462,11 +462,11 @@
   <div class="mani-grid">
     <p class="q fade">Sur fond blanc, une pièce existe. <span class="mustard" style="color:#B38B06">Portée, elle se désire.</span></p>
     <div class="t">
-      <p class="fade">Nous habillons vos pièces, une par une, sur des mannequins de notre casting, dans des univers qui n'existent que pour elles. Même celles qui ne justifient pas un shooting. <strong>Surtout celles-là.</strong></p>
-      <p class="fade">Une campagne impossible à monter ? Un drop encore à l'état d'idée ? Une saison qui dort sur fond blanc ? On en fait un sample, un packshot, on le fait porter, et on regarde. Parce qu'une idée se juge plus justement sur une image que sur un moodboard.</p>
-      <p class="fade">Les marques n'ont jamais manqué d'idées. Elles manquent de budget pour les porter. Le shooting reste pour les images qui comptent. Pour tout le reste, il y a Molto Bene… et même pour le shooting hero.</p>
-      <p class="fade">Imaginons ensemble les campagnes que personne n'oserait financer. Des univers pour vos drops, vos capsules, votre prochaine collection, même si elle n'a pas encore vu le jour.</p>
-      <p class="fade"><strong>Le regard reste humain. L'IA ne fait qu'étendre le champ des possibles.</strong></p>
+      <p class="fade">Nous habillons vos pièces sur les mannequins de notre casting, dans des univers qui n'existent que pour elles. Même celles qui ne justifient pas un shooting. <strong>Surtout celles-là.</strong></p>
+      <p class="fade">Une campagne impossible à monter, un drop encore à l'état d'idée, une saison qui dort sur fond blanc : on les fait porter, et on regarde. Une idée se juge mieux sur une image que sur un moodboard.</p>
+      <p class="fade"><strong>Imaginons ensemble.</strong> Vous voulez voir votre prochaine collection à l'autre bout du monde avant d'y envoyer une équipe de shooting ? On la teste d'abord en image. On peut même vous emmener sur la Lune.</p>
+      <p class="fade">Les marques ne manquent pas d'idées, mais de budget pour les porter. Le shooting reste pour les images qui comptent. Pour tout le reste, il y a Molto Bene.</p>
+      <p class="fade"><strong>Le regard reste humain. L'IA élargit le champ des possibles.</strong></p>
     </div>
   </div>
   <div class="pillars">
@@ -645,7 +645,7 @@
 <div class="rail" id="rail"><span class="n"><div id="rn-list"></div></span><span class="bar"><i id="rbar"></i></span></div>
 
 <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
-<script src="/assets/mb/site-data.js?v=19"></script>
+<script src="/assets/mb/site-data.js?v=20"></script>
 <script src="/assets/mb/mb.js?v=19"></script>
 <script>
 const $ = s => document.querySelector(s);
@@ -678,17 +678,18 @@ const $ = s => document.querySelector(s);
    chargement limité aux panneaux visibles, vidéo suivante préchargée une fois la courante lancée. */
 (function(){
   const REEL=[
-    ['pfc-maillots','Paris FC · Maillots officiels',5],['pb-vieux-port','Poivre Blanc · Vieux-Port',5],['pb-wimbledon','Poivre Blanc · Wimbledon',2.9],
-    ['pfc-bts','Paris FC · Back-to-School',5.4],['mpg-15-ans','MPG · 15 ans',5.2],['pbb-mike','Paris Basketball · Mike',4.9],
-    ['indies-amalfi','Indies · Amalfi',2.5],['pb-tennis','Poivre Blanc · Tennis',4.2],['roseanna','Roseanna',5.8],
+    ['mpg-15-ans','MPG · 15 ans',5.2],['pb-vieux-port','Poivre Blanc · Vieux-Port',5],['pb-wimbledon','Poivre Blanc · Wimbledon',2.9],
+    ['pfc-bts','Paris FC · Back-to-School',5.4],['pfc-maillots','Paris FC · Maillots officiels',5],['pbb-mike','Paris Basketball · Mike',4.9],
+    ['indies-amalfi','Indies · Amalfi',2.5],['pb-tennis','Poivre Blanc · Tennis',4.2],['roseanna-garage','Roseanna · Garage',5],
     ['av-diner','American Vintage · Diner',5.8],['pb-ski','Poivre Blanc · Ski',4.6],['indies-portrait','Indies · Portrait',5],
     ['av-motion','American Vintage · Motion',5.8],['pb-ski-gants','Poivre Blanc · Ski',5.8],
   ];
-  const V=n=>`${A}reel/${n}.mp4`, P=n=>`${A}reel/${n}.jpg`;
+  const RV='3'; // version des extraits : à incrémenter si on réencode
+  const V=n=>`${A}reel/${n}.mp4?v=${RV}`, P=n=>`${A}reel/${n}.jpg?v=${RV}`;
   const panels=[...document.querySelectorAll('.trip .media')], srn=$('#srn'), N=REEL.length;
   const mobile=matchMedia('(max-width:860px)').matches, still=matchMedia('(prefers-reduced-motion: reduce)').matches;
   const lists=mobile ? [null,REEL.map((_,i)=>(i+1)%REEL.length),null] : [0,1,2].map(p=>REEL.map((_,i)=>i).filter(i=>i%3===p));
-  const holdOf=j=>Math.min(5200,REEL[j][2]*1000), OFFS=[0,1700,3400];
+  const holdOf=j=>Math.max(1300,Math.min(4200,REEL[j][2]*1000-1300)), OFFS=[0,1400,2800];
   const fmt=i=>`${String(i+1).padStart(2,'0')} / ${String(N).padStart(2,'0')}`;
   let running=true;
   const mk=()=>{ const v=document.createElement('video'); v.className='v'; v.muted=true; v.loop=true; v.playsInline=true; v.setAttribute('playsinline',''); v.setAttribute('muted',''); v.preload='none'; return v; };
@@ -698,7 +699,9 @@ const $ = s => document.querySelector(s);
     let cur=pan.querySelector('.v'), back=mk(); pan.insertBefore(back,lab);
     const j0=list[0];
     cur.poster=P(REEL[j0][0]); cur.preload='auto'; cur.src=V(REEL[j0][0]); lab.textContent=REEL[j0][1];
-    cur.play().catch(()=>{});
+    const off=mobile?0:OFFS[p];
+    // départs décalés : chaque panneau lance sa première vidéo à son tour (l'image d'attente patiente)
+    setTimeout(()=>{ cur._go=1; cur.play().catch(()=>{}); }, off);
     if(still) return;
     let k=0, z=2, ready=false;
     const prep=()=>{ const j=list[(k+1)%list.length]; back.poster=P(REEL[j][0]); back.preload='auto'; back.src=V(REEL[j][0]); back.load(); };
@@ -707,7 +710,7 @@ const $ = s => document.querySelector(s);
     const swap=()=>{
       if(!running) return;
       k=(k+1)%list.length; const j=list[k];
-      back.style.zIndex=++z; back.classList.remove('in'); back.currentTime=0; back.play().catch(()=>{});
+      back.style.zIndex=++z; back.classList.remove('in'); back.currentTime=0; back._go=1; back.play().catch(()=>{});
       void back.offsetWidth; back.classList.add('wipe','in');
       lab.classList.add('out'); setTimeout(()=>{ lab.textContent=REEL[j][1]; lab.classList.remove('out'); },400);
       srn.textContent=fmt(j);
@@ -715,10 +718,10 @@ const $ = s => document.querySelector(s);
       setTimeout(()=>{ old.pause(); old.classList.remove('wipe','in'); prep(); },1100);
     };
     const loop=()=>{ swap(); setTimeout(loop,holdOf(list[k])); };
-    setTimeout(loop,holdOf(j0)+(mobile?0:OFFS[p]));
+    setTimeout(loop,holdOf(j0)+off);
   });
   const hero=$('#hero');
-  new IntersectionObserver(es=>es.forEach(e=>{ running=e.isIntersecting; hero.querySelectorAll('video.in').forEach(v=>running?v.play().catch(()=>{}):v.pause()); }),{threshold:.05}).observe(hero);
+  new IntersectionObserver(es=>es.forEach(e=>{ running=e.isIntersecting; hero.querySelectorAll('video.in').forEach(v=>running?(v._go&&v.play().catch(()=>{})):v.pause()); }),{threshold:.05}).observe(hero);
 })();
 
 /* ── PROMPT tapé à la machine + timecode ── */
