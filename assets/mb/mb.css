@@ -154,7 +154,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .foot .giant span{display:inline-block;transform:translateY(100%);transition:transform 1.2s var(--ease)}
 .foot.in-view .giant span{transform:none}
 .foot .giant span:nth-child(2){transition-delay:.04s}.foot .giant span:nth-child(3){transition-delay:.08s}.foot .giant span:nth-child(4){transition-delay:.12s}.foot .giant span:nth-child(5){transition-delay:.16s}.foot .giant span:nth-child(6){transition-delay:.2s}.foot .giant span:nth-child(7){transition-delay:.24s}
-.foot .giant-mask{overflow:hidden}
+.foot .giant-mask{overflow:hidden;padding-top:4.5vw;margin-top:-4.5vw}
+.foot .giant{padding-right:2.4vw}
 .foot .meta{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;border-top:1px solid var(--line);padding-top:18px;margin-top:28px}
 .foot .meta a:hover{color:var(--mustard)}
 @media(max-width:760px){.foot .ask{grid-template-columns:1fr}.foot .ask .btns{justify-content:flex-start}.foot .meta{grid-template-columns:1fr 1fr}}
