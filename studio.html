@@ -38,19 +38,37 @@
 .sh-row p.d + p.d{margin-top:1em}
 @media(max-width:860px){.sh-row{grid-template-columns:1fr;gap:26px}}
 
-/* FONDATEUR */
+/* FONDATEUR : présenté comme une fiche du casting */
+.fcov{min-height:100svh;display:grid;grid-template-columns:minmax(0,1fr) min(44vw, calc(100svh * 9 / 16));border-top:1px solid var(--line)}
+.fcov-l{display:flex;flex-direction:column;justify-content:space-between;gap:40px;padding:110px var(--gut) var(--gut)}
+.fcov h2{font-size:clamp(80px,12vw,230px);margin:30px 0 0}
+.fcov .sig{font-family:var(--f-serif);font-style:italic;font-size:clamp(26px,2.6vw,40px);color:var(--mustard);margin-top:14px;display:block}
+.fcov .meta{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+.fcov .meta div{padding:14px 14px 14px 0;border-bottom:1px solid var(--line)}
+.fcov .meta div:nth-child(odd){border-right:1px solid var(--line)}
+.fcov .meta div:nth-child(even){padding-left:14px}
+.fcov .meta span{display:block;color:var(--muted);margin-bottom:6px}
+.fcov .meta b{font-family:var(--f-wide);font-variation-settings:"wdth" 100;font-weight:500;font-size:15px;text-transform:none;letter-spacing:0}
+.fcov-r{position:relative;overflow:hidden;background:var(--ink-2)}
+.fcov-r img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;filter:grayscale(1);transition:filter 1.4s var(--ease),transform 2.6s var(--ease);transform:scale(1.12)}
+.fcov-r.in-view img{filter:grayscale(0);transform:none}
+/* vidéo : la photo reste 2 s, la vidéo joue une fois puis on revient sur la photo ; rectangle jaune « Lire la vidéo » pour la relancer */
+.fcov-r video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 0%;opacity:0;transition:opacity .7s var(--ease);z-index:1}
+.fcov-r.vid video{opacity:1}
+.fplay{position:absolute;left:22px;bottom:22px;z-index:4;height:40px;padding:0 18px;border-radius:0;border:0;background:var(--mustard);color:var(--ink);display:flex;align-items:center;justify-content:center;gap:10px;cursor:pointer;
+  font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;opacity:0;transform:translateY(8px) scale(.9);pointer-events:none;transition:opacity .4s,transform .5s var(--ease)}
+.fplay.on{opacity:1;transform:none;pointer-events:auto}
+.fplay em{font-style:normal}
+.fplay i{width:0;height:0;border-style:solid;border-width:5px 0 5px 8px;border-color:transparent transparent transparent var(--ink)}
+.fplay.pl i{width:8px;height:10px;border:0;border-left:3px solid var(--ink);border-right:3px solid var(--ink)}
+.fcov-r .scroll{position:absolute;right:16px;bottom:16px;z-index:3;font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;color:#fff;writing-mode:vertical-rl;text-transform:uppercase}
+@media(max-width:860px){.fcov{grid-template-columns:minmax(0,1fr);min-height:0}.fcov-r{width:100%;height:auto;aspect-ratio:9/16;order:-1}.fcov-l{padding-top:40px}.fcov-r img{object-position:66% 30%}}
 .fd{background:var(--paper);color:var(--ink);padding:130px var(--gut)}
 .fd-g{display:grid;grid-template-columns:minmax(260px,5fr) 7fr;gap:6vw;align-items:start}
-.fd-ph{position:sticky;top:110px}
-.fd-ph .media{aspect-ratio:4/5;background:#d8d3c8}
-.fd-ph .media img{object-position:50% 30%;filter:grayscale(1);transition:filter 1.4s var(--ease)}
-.fd-ph .media.in-view img{filter:grayscale(0)}
-.fd-ph figcaption{display:flex;justify-content:space-between;margin-top:12px;color:#6b665e}
+.fd-side{position:sticky;top:110px}
 .fd .eyebrow{color:#6b665e}
-.fd h2{font-size:clamp(46px,6.4vw,120px);margin:24px 0 10px}
-.fd h2 .serif{color:#B38B06}
-.fd .role{font-family:var(--f-serif);font-style:italic;font-size:clamp(24px,2.2vw,34px);color:#6b665e}
-.fd .txt{margin-top:46px;border-top:1px solid var(--ink);padding-top:30px}
+.fd .big20{margin-top:30px}
+.fd .txt{border-top:1px solid var(--ink);padding-top:30px}
 .fd .txt p{font-size:clamp(18px,1.45vw,23px);line-height:1.5;font-variation-settings:"wdth" 92;max-width:46ch;margin-bottom:1em}
 .fd .txt strong{font-weight:700}
 .metiers{display:flex;flex-wrap:wrap;gap:8px;margin:34px 0 0;list-style:none}
@@ -60,11 +78,11 @@
 .metiers + p{margin-top:34px}
 .big20{display:flex;align-items:baseline;gap:18px;margin:60px 0 0;border-top:1px solid var(--line-ink);padding-top:26px}
 .big20 b{font-family:var(--f-wide);font-variation-settings:"wdth" 125;font-weight:800;font-size:clamp(80px,10vw,180px);line-height:.8;letter-spacing:-.04em}
-.big20 span{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#6b665e;max-width:20ch;line-height:1.5}
+.big20 > span{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#6b665e;max-width:20ch;line-height:1.5}
 .quote{margin-top:70px;font-size:clamp(34px,4.4vw,78px);line-height:.95}
 .quote .serif{color:#B38B06}
 .quote cite{display:block;margin-top:22px;font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-style:normal;color:#6b665e}
-@media(max-width:860px){.fd-g{grid-template-columns:1fr}.fd-ph{position:relative;top:0}.fd{padding:90px var(--gut)}}
+@media(max-width:860px){.fd-g{grid-template-columns:1fr;gap:50px}.fd-side{position:static}.fd{padding:90px var(--gut)}}
 
 /* PARTI PRIS (repris de l'accueil) */
 .pp{padding:130px var(--gut)}
@@ -107,16 +125,25 @@
   </div>
 </section>
 
-<section class="fd" id="fondateur">
-  <div class="fd-g">
-    <figure class="fd-ph">
-      <div class="media clip"><img src="/assets/studio/christian-lemaire.jpg" alt="Christian Lemaire, fondateur de Molto Bene" loading="lazy"></div>
-      <figcaption class="mono"><span>Christian Lemaire</span><span>Fondateur</span></figcaption>
-    </figure>
+<section class="fcov" id="fondateur">
+  <div class="fcov-l">
     <div>
-      <div class="eyebrow">Le fondateur</div>
-      <h2 class="wide"><span class="line-mask"><span>Christian</span></span><span class="line-mask"><span class="serif">Lemaire</span></span></h2>
-      <p class="role">Fondateur et directeur artistique</p>
+      <div class="eyebrow">Le fondateur · N° 00</div>
+      <h2 class="wide" data-fit><span class="line-mask"><span>Chris<span class="mustard">.</span></span></span></h2>
+      <span class="sig">Le regard derrière chaque image</span>
+    </div>
+    <div class="meta mono"><div><span>Nom</span><b>Christian Lemaire</b></div><div><span>Rôle</span><b>Fondateur · DA</b></div><div><span>Type</span><b>Humain, bien réel</b></div><div><span>Base</span><b>Marseille</b></div><div><span>Parcours</span><b>DA · Brand · Com · Event</b></div><div><span>Langage</span><b>Le même que le vôtre</b></div></div>
+  </div>
+  <div class="fcov-r clip"><img src="/assets/studio/christian-lemaire.jpg?v=2" alt="Christian Lemaire, fondateur de Molto Bene" loading="lazy"><video src="/assets/studio/christian-lemaire.mp4?v=1" muted playsinline preload="none" aria-hidden="true"></video><button class="fplay" type="button" aria-label="Lire la vidéo"><i aria-hidden="true"></i><em>Lire la vidéo</em></button><span class="scroll" aria-hidden="true">Le parcours ↓</span></div>
+</section>
+
+<section class="fd">
+  <div class="fd-g">
+    <div class="fd-side">
+      <div class="eyebrow">Le parcours</div>
+      <div class="big20 fade"><b><span data-n="20">0</span>+</b><span>ans d'expérience cumulée de l'image de mode</span></div>
+    </div>
+    <div>
       <div class="txt">
         <p class="fade">J'ai créé Molto Bene après de nombreuses années passées <strong>auprès des marques</strong> : directeur artistique, brand manager, communication, création de contenu, shootings, événements. Je connais les besoins du secteur de l'intérieur.</p>
         <ul class="metiers fade" aria-label="Mon parcours auprès des marques">
@@ -128,7 +155,6 @@
           <li class="lab">Autour du studio</li><li class="y">Direction artistique</li><li>Photographie</li><li>Stylisme</li><li>Graphisme</li><li>Réalisation</li><li>Production IA</li>
         </ul>
       </div>
-      <div class="big20 fade"><b><span data-n="20">0</span>+</b><span>ans d'expérience cumulée de l'image de mode</span></div>
       <blockquote class="quote wide fade">On vient du même secteur, on a la même vision et <span class="serif">on parle le même langage !</span><cite>Christian Lemaire · Fondateur</cite></blockquote>
     </div>
   </div>
@@ -169,6 +195,32 @@
   const io=new IntersectionObserver(es=>es.forEach(e=>{ if(!e.isIntersecting) return; const n=+el.dataset.n, t0=performance.now();
     (function t(now){const p=Math.min(1,(now-t0)/1400); el.textContent=Math.round((1-Math.pow(1-p,4))*n); if(p<1) requestAnimationFrame(t);})(t0); io.disconnect(); }),{threshold:.6});
   io.observe(el);
+})();
+/* vidéo du fondateur : 2 s de photo, une lecture, retour à la photo */
+(function(){
+  const box=document.querySelector('.fcov-r'), v=box.querySelector('video'), b=box.querySelector('.fplay'), em=b.querySelector('em');
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const set=pl=>{ b.classList.toggle('pl',pl); em.textContent=pl?'Pause':'Lire la vidéo'; b.setAttribute('aria-label',pl?'Mettre la vidéo en pause':'Lire la vidéo'); };
+  function play(fromStart){
+    if (fromStart) try{ v.currentTime=0; }catch(_){}
+    box.classList.add('vid'); b.classList.add('on'); set(true);
+    const p=v.play(); if (p && p.catch) p.catch(()=>{ box.classList.remove('vid'); set(false); });
+  }
+  v.addEventListener('ended', ()=>{ box.classList.remove('vid'); set(false); });
+  b.addEventListener('click', ()=>{
+    if (!v.paused && !v.ended){ v.pause(); set(false); }
+    else play(v.ended || !box.classList.contains('vid'));
+  });
+  let timer=null, done=false;
+  const io=new IntersectionObserver(es=>es.forEach(e=>{
+    if (done) return;
+    if (e.isIntersecting){
+      if (v.preload!=='auto'){ v.preload='auto'; v.load(); }
+      if (reduce){ b.classList.add('on'); done=true; io.disconnect(); return; }
+      if (!timer) timer=setTimeout(()=>{ done=true; io.disconnect(); play(true); }, 2000);
+    } else { clearTimeout(timer); timer=null; }
+  }), {threshold:.5});
+  io.observe(box);
 })();
 renderFooter();
 </script>
