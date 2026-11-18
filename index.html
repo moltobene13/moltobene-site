@@ -353,7 +353,9 @@
 .plan .rows b{font-weight:700;font-size:16px}
 .plan .rows em,.plan .incl em{font-style:normal;color:var(--mustard);font-family:var(--f-mono);font-size:11px;letter-spacing:.06em}
 .plan .rows i{font-style:normal;color:var(--muted);font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase}
-.plan .rows .p{font-family:var(--f-wide);font-variation-settings:"wdth" 120;font-weight:800;font-size:20px;white-space:nowrap}
+.plan .rows .p{font-family:var(--f-wide);font-variation-settings:"wdth" 120;font-weight:800;font-size:20px;white-space:nowrap;display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+.plan .rows .p small{font-family:var(--f-mono);font-variation-settings:normal;font-weight:400;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--mustard)}
+.plan .rows li.best u{text-decoration:none;background:var(--mustard);color:var(--ink);font-size:9px;letter-spacing:.12em;text-transform:uppercase;padding:3px 7px}
 .plan .incl{list-style:none;display:grid;gap:8px;font-size:14px;line-height:1.45;color:rgba(238,234,226,.78);font-variation-settings:"wdth" 92;flex:1}
 .plan .incl li{padding-left:18px;position:relative}
 .plan .incl li::before{content:'';position:absolute;left:0;top:6px;width:13px;height:5px;background:var(--mustard);-webkit-mask:var(--star) center/contain no-repeat;mask:var(--star) center/contain no-repeat}
@@ -605,9 +607,9 @@
       <div class="big wide">50 €<small class="mono">le crédit, à partir de</small></div>
       <ul class="rows">
         <li><span><b>10 crédits</b><i>valables 2 mois</i></span><span class="p">500 €</span></li>
-        <li><span><b>25 crédits</b><em>+ 1 crédit offert</em><i>valables 4 mois</i></span><span class="p">1 250 €</span></li>
-        <li><span><b>50 crédits</b><em>+ 3 crédits offerts</em><i>valables 8 mois</i></span><span class="p">2 500 €</span></li>
-        <li><span><b>100 crédits</b><em>+ 10 crédits offerts</em><i>valables 12 mois</i></span><span class="p">5 000 €</span></li>
+        <li><span><b>25 crédits</b><em>+ 2 crédits offerts</em><i>valables 4 mois</i></span><span class="p">1 250 €<small>valeur 1 350 €</small></span></li>
+        <li><span><b>50 crédits</b><em>+ 5 crédits offerts</em><i>valables 8 mois</i></span><span class="p">2 500 €<small>valeur 2 750 €</small></span></li>
+        <li class="best"><span><b>100 crédits</b><em>+ 12 crédits offerts</em><i>valables 12 mois</i><u class="mono">Le plus généreux</u></span><span class="p">5 000 €<small>valeur 5 600 €</small></span></li>
       </ul>
       <ul class="incl"><li>Sans engagement : vous rechargez quand vous voulez</li><li>Stylisme inclus : nous composons la tenue autour de vos pièces</li><li>Mannequin de notre casting inclus</li><li>1 aller-retour de retouches inclus par visuel</li><li>Crédits valables de 2 à 12 mois selon le pack</li><li>Besoin de plus ? Un nouveau pack, ou 50 € le crédit à l'unité</li><li>Livraison en 5 à 7 jours ouvrés</li></ul>
       <a class="btn" href="mailto:hello@moltobene.ai?subject=Pack%20de%20cr%C3%A9dits%20-%20Molto%20Bene">Choisir une recharge →</a>
@@ -638,7 +640,7 @@
   </div>
   <div class="trust-rows">
     <div class="fade"><span class="mono">01</span><h3>L'IA assumée, et conforme.</h3><p>Nous ne cachons pas l'IA : nous la signons. Dès le 2 août 2026, l'AI Act impose de marquer les visuels générés par IA. Nous l'intégrons par défaut, et nous vous aidons à le formuler avec justesse, sans casser le désir.</p><div class="tv tv-ia media clip"><img src="/assets/pfc/pfc-mai-02.jpg" alt="Visuel Paris FC avec sa mention IA" loading="lazy"><span class="ia-big" aria-hidden="true">IA</span></div></div>
-    <div class="fade"><span class="mono">02</span><h3>Vos visuels vous appartiennent.</h3><p>Les images et vidéos produites vous sont cédées : usage commercial illimité, sur tous vos supports. Nous ne conservons que l'ADN numérique, le modèle qui garantit que votre casting reste identique d'une saison à l'autre.</p><div class="tv media clip"><img src="/assets/dfco-02.jpg" alt="Visuel livré au DFCO" loading="lazy"><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="tv-tag mono">Cédé · usage illimité</span></div></div>
+    <div class="fade"><span class="mono">02</span><h3>Vos visuels vous appartiennent.</h3><p>Les images et vidéos produites vous sont cédées : usage commercial illimité, sur tous vos supports. Nous ne conservons que l'ADN numérique, le modèle qui garantit que votre casting reste identique d'une saison à l'autre.</p><div class="tv media clip"><img src="/assets/pfc/pfc-mai-05.jpg" alt="Freja en maillot officiel Paris FC, visuel livré au club" loading="lazy"><span class="ia-mark" aria-label="Visuel généré par IA">IA</span><span class="tv-tag mono">Cédé · usage illimité</span></div></div>
     <div class="fade"><span class="mono">03</span><h3>La continuité, saison après saison.</h3><p>Votre casting reste le même d'une campagne à l'autre : même visage, même univers. Là où un shooting repart de zéro, nous tenons une cohérence. C'est notre cast-lock.</p><div class="tv tv-lock" id="lock"><div class="media"><img src="/assets/models/freja/cast-01.jpg" alt="Freja, book casting" loading="lazy"><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div><div class="media"><img src="/assets/models/freja/cast-05-pfc.jpg" alt="Freja pour Paris FC" loading="lazy"><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div><div class="media"><img src="/assets/pfc/pfc-mai-04.jpg" alt="Freja pour Paris FC, maillot rose" loading="lazy"><span class="ia-mark" aria-label="Visuel généré par IA">IA</span></div><span class="tv-tag mono">Freja · Casting · Paris FC</span></div></div>
     <div class="fade"><span class="mono">04</span><h3>Des mannequins fictifs.</h3><p>Nos mannequins sont entièrement générés par nos soins : aucune photographie de personne réelle, aucun droit à l'image tiers. Nous refusons la standardisation, morphologies et carnations variées, par choix de direction.</p><div class="tv tv-faces" id="faces"></div></div>
   </div>

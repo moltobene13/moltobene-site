@@ -301,9 +301,9 @@ main{max-width:none;padding:0}
         <tbody>
           <tr><th scope="row">Prix du crédit</th><td class="r"><span class="price">50 €</span></td><td class="f"><span class="price">45 à 35 €</span></td></tr>
           <tr><th scope="row">10 crédits</th><td class="r"><b>500 €</b><span class="valid">valables 2 mois</span></td><td class="f"><b>450 €</b><span class="tname">Essentiel</span><span class="valid f">report 1 mois</span></td></tr>
-          <tr><th scope="row">25 crédits</th><td class="r"><b>1 250 €</b><br>+ 1 crédit offert<span class="valid">valables 4 mois</span></td><td class="f"><b>1 000 €</b><span class="tname">Studio</span><span class="valid f">report 1 mois</span></td></tr>
-          <tr><th scope="row">50 crédits</th><td class="r"><b>2 500 €</b><br>+ 3 crédits offerts<span class="valid">valables 8 mois</span></td><td class="f"><b>1 875 €</b><span class="tname">Agence</span><span class="valid f">report 2 mois</span></td></tr>
-          <tr><th scope="row">100 crédits</th><td class="r"><b>5 000 €</b><br>+ 10 crédits offerts<span class="valid">valables 12 mois</span></td><td class="f"><b>3 500 €</b><span class="tname">Partenaire</span><span class="valid f">report 3 mois, mannequin exclusif inclus</span></td></tr>
+          <tr><th scope="row">25 crédits</th><td class="r"><b>1 250 €</b><br>+ 2 crédits offerts<span class="valid">valables 4 mois</span></td><td class="f"><b>1 000 €</b><span class="tname">Studio</span><span class="valid f">report 1 mois</span></td></tr>
+          <tr><th scope="row">50 crédits</th><td class="r"><b>2 500 €</b><br>+ 5 crédits offerts<span class="valid">valables 8 mois</span></td><td class="f"><b>1 875 €</b><span class="tname">Agence</span><span class="valid f">report 2 mois</span></td></tr>
+          <tr><th scope="row">100 crédits</th><td class="r"><b>5 000 €</b><br>+ 12 crédits offerts<span class="valid">valables 12 mois</span></td><td class="f"><b>3 500 €</b><span class="tname">Partenaire</span><span class="valid f">report 3 mois, mannequin exclusif inclus</span></td></tr>
           <tr class="grp"><th scope="rowgroup" colspan="3">Suppléments <a class="more inline" href="#supplements">En savoir plus</a></th></tr>
           <tr><th scope="row">Stylisme</th><td class="r">inclus</td><td class="f">inclus</td></tr>
           <tr><th scope="row">Première commande pour votre marque</th><td class="r">+1 crédit</td><td class="f">offerte</td></tr>
@@ -417,7 +417,7 @@ main{max-width:none;padding:0}
   var pl=function(n,w){return n+' '+w+(n>1?'s':'')};
 
   /* volume */
-  var LEV=[[10,500,0,2,'Essentiel',450,1],[25,1250,1,4,'Studio',1000,1],[50,2500,3,8,'Agence',1875,2],[100,5000,10,12,'Partenaire',3500,3],null];
+  var LEV=[[10,500,0,2,'Essentiel',450,1],[25,1250,2,4,'Studio',1000,1],[50,2500,5,8,'Agence',1875,2],[100,5000,12,12,'Partenaire',3500,3],null];
   var li=0;
   var pc=function(v){return (Math.round(v*100)/100).toFixed(v%1?2:0).replace('.',',')+'\u00a0€'};
   function what(tot){
@@ -450,7 +450,7 @@ main{max-width:none;padding:0}
   $('bp').addEventListener('click',function(){li=Math.min(LEV.length-1,li+1);budget()});
 
   /* recharge la moins chère pour au moins n crédits */
-  var PACKS=[[1,50,null,0,9999,1],[26,1250,'pack 25',1,4,25],[53,2500,'pack 50',3,8,50],[110,5000,'pack 100',10,12,100]];
+  var PACKS=[[1,50,null,0,9999,1],[27,1250,'pack 25',2,4,25],[55,2500,'pack 50',5,8,50],[112,5000,'pack 100',12,12,100]];
   /* recharge la moins chère pour n crédits consommés régulièrement sur M mois : un pack ne sert que pendant sa validité */
   function buy(n,M){
     if(n<=0) return {cost:0,label:''};
