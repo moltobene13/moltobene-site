@@ -1942,9 +1942,8 @@ window.MB={
    "statut": "Sur accord",
    "droits": "Modèle réel · sur accord",
    "media": [
-    "models/laura/cast-01.jpg",
     "models/laura/cast-02.jpg",
-    "models/laura/cast-03.jpg",
+    "models/laura/cast-07.jpg",
     "models/laura/cast-04.jpg",
     "models/laura/cast-05.jpg",
     "models/laura/cast-06.jpg"
