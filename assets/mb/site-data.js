@@ -1520,55 +1520,59 @@ window.MB={
   },
   {
    "cat": "homme",
-   "slug": "colin",
-   "img": "model-colin.jpg",
-   "name": "Colin",
-   "tag": "Ligne classique",
+   "slug": "ezra",
+   "img": "model-ezra.jpg",
+   "name": "Ezra",
+   "tag": "Taches de son",
    "type": "Mannequin numérique",
    "statut": "Exclusif · cessible",
    "media": [
-    "models/colin/cast-01.jpg",
-    "models/colin/cast-02.jpg",
-    "models/colin/cast-03.jpg",
-    "models/colin/cast-04.jpg",
-    "models/colin/camp/shot-01.jpg",
-    "models/colin/camp/shot-02.jpg",
-    "models/colin/camp/shot-03.jpg",
-    "models/colin/camp/shot-04.jpg"
+    "models/ezra/cast-01.jpg",
+    "models/ezra/cast-02.jpg",
+    "models/ezra/cast-03.jpg",
+    "models/ezra/cast-04.jpg",
+    "models/ezra/cast-05-pfc.jpg",
+    "models/ezra/cast-08-pfc.jpg",
+    "models/ezra/cast-07-pfc.jpg",
+    "models/ezra/cast-08-polo.jpg"
    ]
   },
   {
-   "cat": "enfant",
-   "slug": "ambre",
-   "img": "model-ambre.jpg",
-   "name": "Ambre",
-   "tag": "Blond miel",
-   "type": "Mannequin numérique enfant",
+   "cat": "duo",
+   "slug": "jalen-imani",
+   "img": "model-jalen-imani.jpg",
+   "name": "Jalen & Imani",
+   "tag": "Duo tressé",
+   "type": "Duo numérique",
    "statut": "Exclusif · cessible",
    "media": [
-    "models/ambre/cast-01.jpg",
-    "models/ambre/cast-02.jpg",
-    "models/ambre/cast-03.jpg",
-    "models/ambre/cast-04.jpg"
+    "models/jalen-imani/cast-01.jpg",
+    "models/jalen-imani/cast-02.jpg",
+    "models/jalen-imani/cast-03.jpg",
+    "models/jalen-imani/cast-04.jpg",
+    "models/jalen-imani/cast-05.jpg",
+    "models/jalen-imani/cast-06.jpg",
+    "models/jalen-imani/cast-07.jpg",
+    "models/jalen-imani/cast-08.jpg"
    ]
   },
   {
    "cat": "femme",
-   "slug": "freja",
-   "img": "model-freja.jpg",
-   "name": "Freja",
-   "tag": "Blond polaire",
+   "slug": "astrid",
+   "img": "model-astrid.jpg",
+   "name": "Astrid",
+   "tag": "Feu vénitien",
    "type": "Mannequin numérique",
    "statut": "Exclusif · cessible",
    "media": [
-    "models/freja/cast-01.jpg",
-    "models/freja/cast-02.jpg",
-    "models/freja/cast-03.jpg",
-    "models/freja/cast-04.jpg",
-    "models/freja/cast-05-pfc.jpg",
-    "models/freja/cast-06.jpg",
-    "models/freja/cast-07.jpg",
-    "models/freja/cast-08-mpg.jpg"
+    "models/astrid/cast-01.jpg",
+    "models/astrid/cast-02.jpg",
+    "models/astrid/cast-03.jpg",
+    "models/astrid/cast-04.jpg",
+    "models/astrid/cast-05.jpg",
+    "models/astrid/cast-06.jpg",
+    "models/astrid/cast-07.jpg",
+    "models/astrid/cast-08.jpg"
    ]
   },
   {
@@ -1592,6 +1596,116 @@ window.MB={
   },
   {
    "cat": "femme",
+   "slug": "naomi",
+   "img": "model-naomi.jpg",
+   "name": "Naomi",
+   "tag": "Grâce solaire",
+   "type": "Mannequin numérique",
+   "statut": "Exclusif · cessible",
+   "media": [
+    "models/naomi/cast-01.jpg",
+    "models/naomi/cast-02.jpg",
+    "models/naomi/cast-03.jpg",
+    "models/naomi/cast-04.jpg",
+    "models/naomi/camp/shot-01.jpg",
+    "models/naomi/camp/shot-02.jpg",
+    "models/naomi/camp/shot-03.jpg",
+    "models/naomi/camp/shot-04.jpg"
+   ]
+  },
+  {
+   "cat": "homme",
+   "slug": "colin",
+   "img": "model-colin.jpg",
+   "name": "Colin",
+   "tag": "Ligne classique",
+   "type": "Mannequin numérique",
+   "statut": "Exclusif · cessible",
+   "media": [
+    "models/colin/cast-01.jpg",
+    "models/colin/cast-02.jpg",
+    "models/colin/cast-03.jpg",
+    "models/colin/cast-04.jpg",
+    "models/colin/camp/shot-01.jpg",
+    "models/colin/camp/shot-02.jpg",
+    "models/colin/camp/shot-03.jpg",
+    "models/colin/camp/shot-04.jpg"
+   ]
+  },
+  {
+   "cat": "enfant",
+   "slug": "lou",
+   "img": "model-lou.jpg",
+   "name": "Lou",
+   "tag": "Rire solaire",
+   "type": "Mannequin numérique enfant",
+   "statut": "Exclusif · cessible",
+   "media": [
+    "models/lou/cast-01.jpg",
+    "models/lou/cast-02.jpg",
+    "models/lou/cast-03.jpg",
+    "models/lou/cast-04.jpg"
+   ]
+  },
+  {
+   "cat": "femme",
+   "slug": "imani",
+   "img": "model-imani.jpg",
+   "name": "Imani",
+   "tag": "Locks dorées",
+   "type": "Mannequin numérique",
+   "statut": "Exclusif · cessible",
+   "media": [
+    "models/imani/cast-01.jpg",
+    "models/imani/cast-02.jpg",
+    "models/imani/cast-03.jpg",
+    "models/imani/cast-04.jpg",
+    "models/imani/cast-05.jpg",
+    "models/imani/cast-06.jpg",
+    "models/imani/cast-07.jpg",
+    "models/imani/cast-08.jpg"
+   ]
+  },
+  {
+   "cat": "homme",
+   "slug": "paul",
+   "img": "model-paul.jpg",
+   "name": "Paul",
+   "tag": "Lunettes écaille",
+   "type": "Mannequin numérique",
+   "statut": "Exclusif · cessible",
+   "media": [
+    "models/paul/cast-01.jpg?v=20261015c",
+    "models/paul/cast-02.jpg?v=20261015c",
+    "models/paul/cast-03.jpg?v=20261015c",
+    "models/paul/cast-04.jpg?v=20261015c",
+    "models/paul/cast-05.jpg?v=20261015c",
+    "models/paul/cast-06.jpg?v=20261015c",
+    "models/paul/cast-07.jpg?v=20261015c",
+    "models/paul/cast-08.jpg?v=20261015c"
+   ]
+  },
+  {
+   "cat": "femme",
+   "slug": "freja",
+   "img": "model-freja.jpg",
+   "name": "Freja",
+   "tag": "Blond polaire",
+   "type": "Mannequin numérique",
+   "statut": "Exclusif · cessible",
+   "media": [
+    "models/freja/cast-01.jpg",
+    "models/freja/cast-02.jpg",
+    "models/freja/cast-03.jpg",
+    "models/freja/cast-04.jpg",
+    "models/freja/cast-05-pfc.jpg",
+    "models/freja/cast-06.jpg",
+    "models/freja/cast-07.jpg",
+    "models/freja/cast-08-mpg.jpg"
+   ]
+  },
+  {
+   "cat": "femme",
    "slug": "sara",
    "img": "model-sara.jpg",
    "name": "Sara",
@@ -1611,55 +1725,37 @@ window.MB={
   },
   {
    "cat": "enfant",
-   "slug": "nolan",
-   "img": "model-nolan.jpg",
-   "name": "Nolan",
-   "tag": "Sourire timide",
+   "slug": "gabin",
+   "img": "model-gabin.jpg",
+   "name": "Gabin",
+   "tag": "Regard vif",
    "type": "Mannequin numérique enfant",
    "statut": "Exclusif · cessible",
    "media": [
-    "models/nolan/cast-01.jpg",
-    "models/nolan/cast-02.jpg",
-    "models/nolan/cast-03.jpg",
-    "models/nolan/cast-04.jpg"
-   ]
-  },
-  {
-   "cat": "homme",
-   "slug": "idris",
-   "img": "model-idris.jpg",
-   "name": "Idris",
-   "tag": "Regard franc",
-   "type": "Mannequin numérique",
-   "statut": "Exclusif · cessible",
-   "media": [
-    "models/idris/cast-01.jpg",
-    "models/idris/cast-02.jpg",
-    "models/idris/cast-03.jpg",
-    "models/idris/cast-04.jpg",
-    "models/idris/camp/shot-01-v2.jpg",
-    "models/idris/camp/shot-02.jpg",
-    "models/idris/camp/shot-03-pfc.jpg",
-    "models/idris/camp/shot-04.jpg"
+    "models/gabin/cast-01.jpg",
+    "models/gabin/cast-02.jpg",
+    "models/gabin/cast-03.jpg",
+    "models/gabin/cast-04.jpg"
    ]
   },
   {
    "cat": "femme",
-   "slug": "astrid",
-   "img": "model-astrid.jpg",
-   "name": "Astrid",
-   "tag": "Feu vénitien",
+   "slug": "livia",
+   "img": "model-livia.jpg",
+   "name": "Livia",
+   "tag": "Brune solaire",
    "type": "Mannequin numérique",
    "statut": "Exclusif · cessible",
    "media": [
-    "models/astrid/cast-01.jpg",
-    "models/astrid/cast-02.jpg",
-    "models/astrid/cast-03.jpg",
-    "models/astrid/cast-04.jpg",
-    "models/astrid/cast-05.jpg",
-    "models/astrid/cast-06.jpg",
-    "models/astrid/cast-07.jpg",
-    "models/astrid/cast-08.jpg"
+    "models/livia/cast-01.jpg",
+    "models/livia/cast-02.jpg",
+    "models/livia/cast-03.jpg",
+    "models/livia/cast-04.jpg",
+    "models/livia/cast-05.jpg",
+    "models/livia/cast-06.jpg",
+    "models/livia/camp/shot-01.jpg",
+    "models/livia/camp/shot-02.jpg",
+    "models/livia/camp/shot-03.jpg"
    ]
   },
   {
@@ -1701,75 +1797,105 @@ window.MB={
    ]
   },
   {
-   "cat": "enfant",
-   "slug": "lou",
-   "img": "model-lou.jpg",
-   "name": "Lou",
-   "tag": "Rire solaire",
-   "type": "Mannequin numérique enfant",
+   "cat": "femme",
+   "slug": "olia",
+   "img": "model-olia.jpg",
+   "name": "Olia",
+   "tag": "Trait pur",
+   "type": "Mannequin numérique",
    "statut": "Exclusif · cessible",
    "media": [
-    "models/lou/cast-01.jpg",
-    "models/lou/cast-02.jpg",
-    "models/lou/cast-03.jpg",
-    "models/lou/cast-04.jpg"
+    "models/olia/cast-01.jpg",
+    "models/olia/cast-02.jpg",
+    "models/olia/cast-03.jpg",
+    "models/olia/cast-04.jpg",
+    "models/olia/camp/shot-01.jpg",
+    "models/olia/camp/shot-02.jpg",
+    "models/olia/camp/shot-03.jpg",
+    "models/olia/camp/shot-04.jpg"
    ]
   },
   {
    "cat": "homme",
-   "slug": "ezra",
-   "img": "model-ezra.jpg",
-   "name": "Ezra",
-   "tag": "Taches de son",
+   "slug": "zane",
+   "img": "model-zane.jpg",
+   "name": "Zane",
+   "tag": "Encre et platine",
    "type": "Mannequin numérique",
    "statut": "Exclusif · cessible",
    "media": [
-    "models/ezra/cast-01.jpg",
-    "models/ezra/cast-02.jpg",
-    "models/ezra/cast-03.jpg",
-    "models/ezra/cast-04.jpg",
-    "models/ezra/cast-05-pfc.jpg",
-    "models/ezra/cast-08-pfc.jpg",
-    "models/ezra/cast-07-pfc.jpg",
-    "models/ezra/cast-08-polo.jpg"
-   ]
-  },
-  {
-   "cat": "duo",
-   "slug": "jalen-imani",
-   "img": "model-jalen-imani.jpg",
-   "name": "Jalen & Imani",
-   "tag": "Duo tressé",
-   "type": "Duo numérique",
-   "statut": "Exclusif · cessible",
-   "media": [
-    "models/jalen-imani/cast-01.jpg",
-    "models/jalen-imani/cast-02.jpg",
-    "models/jalen-imani/cast-03.jpg",
-    "models/jalen-imani/cast-04.jpg",
-    "models/jalen-imani/cast-05.jpg",
-    "models/jalen-imani/cast-06.jpg",
-    "models/jalen-imani/cast-07.jpg",
-    "models/jalen-imani/cast-08.jpg"
+    "models/zane/cast-01.jpg",
+    "models/zane/cast-02.jpg",
+    "models/zane/cast-03.jpg",
+    "models/zane/cast-04.jpg"
    ]
   },
   {
    "cat": "femme",
-   "slug": "imani",
-   "img": "model-imani.jpg",
-   "name": "Imani",
-   "tag": "Locks dorées",
+   "slug": "maria",
+   "img": "model-maria.jpg",
+   "name": "Maria",
+   "tag": "Allure libre",
    "type": "Mannequin numérique",
    "statut": "Exclusif · cessible",
    "media": [
-    "models/imani/cast-01.jpg",
-    "models/imani/cast-02.jpg",
-    "models/imani/cast-03.jpg",
-    "models/imani/cast-04.jpg",
-    "models/imani/cast-05.jpg",
-    "models/imani/cast-06.jpg",
-    "models/imani/cast-07.jpg",
-    "models/imani/cast-08.jpg"
+    "models/maria/cast-01.jpg",
+    "models/maria/cast-02.jpg",
+    "models/maria/cast-03.jpg",
+    "models/maria/cast-04.jpg",
+    "models/maria/camp/shot-01.jpg",
+    "models/maria/camp/shot-02.jpg",
+    "models/maria/camp/shot-03.jpg",
+    "models/maria/camp/shot-04.jpg"
+   ]
+  },
+  {
+   "cat": "enfant",
+   "slug": "nolan",
+   "img": "model-nolan.jpg",
+   "name": "Nolan",
+   "tag": "Sourire timide",
+   "type": "Mannequin numérique enfant",
+   "statut": "Exclusif · cessible",
+   "media": [
+    "models/nolan/cast-01.jpg",
+    "models/nolan/cast-02.jpg",
+    "models/nolan/cast-03.jpg",
+    "models/nolan/cast-04.jpg"
+   ]
+  },
+  {
+   "cat": "homme",
+   "slug": "pescador",
+   "img": "model-pescador-portrait.jpg",
+   "name": "Pescador",
+   "tag": "Sel et poivre",
+   "type": "Mannequin numérique",
+   "statut": "Exclusif · cessible",
+   "media": [
+    "models/pescador/cast-01.jpg",
+    "models/pescador/cast-02.jpg",
+    "models/pescador/cast-03.jpg",
+    "models/pescador/cast-04.jpg",
+    "models/pescador/cast-05.jpg",
+    "models/pescador/cast-06.jpg",
+    "models/pescador/cast-07.jpg",
+    "models/pescador/cast-08.jpg"
+   ]
+  },
+  {
+   "cat": "enfant",
+   "slug": "ambre",
+   "img": "model-ambre.jpg",
+   "name": "Ambre",
+   "tag": "Blond miel",
+   "type": "Mannequin numérique enfant",
+   "statut": "Exclusif · cessible",
+   "media": [
+    "models/ambre/cast-01.jpg",
+    "models/ambre/cast-02.jpg",
+    "models/ambre/cast-03.jpg",
+    "models/ambre/cast-04.jpg"
    ]
   },
   {
@@ -1793,22 +1919,17 @@ window.MB={
   },
   {
    "cat": "femme",
-   "slug": "livia",
-   "img": "model-livia.jpg",
-   "name": "Livia",
-   "tag": "Brune solaire",
+   "slug": "alba",
+   "img": "model-alba.jpg",
+   "name": "Alba",
+   "tag": "Regard vert",
    "type": "Mannequin numérique",
    "statut": "Exclusif · cessible",
    "media": [
-    "models/livia/cast-01.jpg",
-    "models/livia/cast-02.jpg",
-    "models/livia/cast-03.jpg",
-    "models/livia/cast-04.jpg",
-    "models/livia/cast-05.jpg",
-    "models/livia/cast-06.jpg",
-    "models/livia/camp/shot-01.jpg",
-    "models/livia/camp/shot-02.jpg",
-    "models/livia/camp/shot-03.jpg"
+    "models/alba/cast-01.jpg",
+    "models/alba/cast-02.jpg",
+    "models/alba/cast-03.jpg",
+    "models/alba/cast-04.jpg"
    ]
   },
   {
@@ -1827,25 +1948,6 @@ window.MB={
     "models/laura/cast-04.jpg",
     "models/laura/cast-05.jpg",
     "models/laura/cast-06.jpg"
-   ]
-  },
-  {
-   "cat": "femme",
-   "slug": "aria",
-   "img": "model-aria.jpg",
-   "name": "Aria",
-   "tag": "Brune ambrée",
-   "type": "Mannequin numérique",
-   "statut": "Exclusif · cessible",
-   "media": [
-    "models/aria/cast-01.jpg",
-    "models/aria/cast-02.jpg",
-    "models/aria/cast-03.jpg",
-    "models/aria/cast-04.jpg",
-    "models/aria/camp/shot-01.jpg",
-    "models/aria/camp/shot-02.jpg",
-    "models/aria/camp/shot-03.jpg",
-    "models/aria/camp/shot-04.jpg"
    ]
   },
   {
@@ -1869,78 +1971,6 @@ window.MB={
   },
   {
    "cat": "enfant",
-   "slug": "gabin",
-   "img": "model-gabin.jpg",
-   "name": "Gabin",
-   "tag": "Regard vif",
-   "type": "Mannequin numérique enfant",
-   "statut": "Exclusif · cessible",
-   "media": [
-    "models/gabin/cast-01.jpg",
-    "models/gabin/cast-02.jpg",
-    "models/gabin/cast-03.jpg",
-    "models/gabin/cast-04.jpg"
-   ]
-  },
-  {
-   "cat": "femme",
-   "slug": "sophia",
-   "img": "model-sophia.jpg",
-   "name": "Sophia",
-   "tag": "Carré graphique",
-   "type": "Mannequin numérique",
-   "statut": "Exclusif · cessible",
-   "media": [
-    "models/sophia/cast-01.jpg",
-    "models/sophia/cast-02.jpg",
-    "models/sophia/cast-03.jpg",
-    "models/sophia/cast-04.jpg",
-    "models/sophia/cast-05.jpg",
-    "models/sophia/cast-06.jpg",
-    "models/sophia/cast-07.jpg",
-    "models/sophia/cast-08.jpg"
-   ]
-  },
-  {
-   "cat": "homme",
-   "slug": "paul",
-   "img": "model-paul.jpg",
-   "name": "Paul",
-   "tag": "Lunettes écaille",
-   "type": "Mannequin numérique",
-   "statut": "Exclusif · cessible",
-   "media": [
-    "models/paul/cast-01.jpg?v=20261015c",
-    "models/paul/cast-02.jpg?v=20261015c",
-    "models/paul/cast-03.jpg?v=20261015c",
-    "models/paul/cast-04.jpg?v=20261015c",
-    "models/paul/cast-05.jpg?v=20261015c",
-    "models/paul/cast-06.jpg?v=20261015c",
-    "models/paul/cast-07.jpg?v=20261015c",
-    "models/paul/cast-08.jpg?v=20261015c"
-   ]
-  },
-  {
-   "cat": "femme",
-   "slug": "olia",
-   "img": "model-olia.jpg",
-   "name": "Olia",
-   "tag": "Trait pur",
-   "type": "Mannequin numérique",
-   "statut": "Exclusif · cessible",
-   "media": [
-    "models/olia/cast-01.jpg",
-    "models/olia/cast-02.jpg",
-    "models/olia/cast-03.jpg",
-    "models/olia/cast-04.jpg",
-    "models/olia/camp/shot-01.jpg",
-    "models/olia/camp/shot-02.jpg",
-    "models/olia/camp/shot-03.jpg",
-    "models/olia/camp/shot-04.jpg"
-   ]
-  },
-  {
-   "cat": "enfant",
    "slug": "raya",
    "img": "model-raya.jpg",
    "name": "Raya",
@@ -1956,55 +1986,40 @@ window.MB={
   },
   {
    "cat": "homme",
-   "slug": "pescador",
-   "img": "model-pescador-portrait.jpg",
-   "name": "Pescador",
-   "tag": "Sel et poivre",
+   "slug": "idris",
+   "img": "model-idris.jpg",
+   "name": "Idris",
+   "tag": "Regard franc",
    "type": "Mannequin numérique",
    "statut": "Exclusif · cessible",
    "media": [
-    "models/pescador/cast-01.jpg",
-    "models/pescador/cast-02.jpg",
-    "models/pescador/cast-03.jpg",
-    "models/pescador/cast-04.jpg",
-    "models/pescador/cast-05.jpg",
-    "models/pescador/cast-06.jpg",
-    "models/pescador/cast-07.jpg",
-    "models/pescador/cast-08.jpg"
+    "models/idris/cast-01.jpg",
+    "models/idris/cast-02.jpg",
+    "models/idris/cast-03.jpg",
+    "models/idris/cast-04.jpg",
+    "models/idris/camp/shot-01-v2.jpg",
+    "models/idris/camp/shot-02.jpg",
+    "models/idris/camp/shot-03-pfc.jpg",
+    "models/idris/camp/shot-04.jpg"
    ]
   },
   {
    "cat": "femme",
-   "slug": "maria",
-   "img": "model-maria.jpg",
-   "name": "Maria",
-   "tag": "Allure libre",
+   "slug": "aria",
+   "img": "model-aria.jpg",
+   "name": "Aria",
+   "tag": "Brune ambrée",
    "type": "Mannequin numérique",
    "statut": "Exclusif · cessible",
    "media": [
-    "models/maria/cast-01.jpg",
-    "models/maria/cast-02.jpg",
-    "models/maria/cast-03.jpg",
-    "models/maria/cast-04.jpg",
-    "models/maria/camp/shot-01.jpg",
-    "models/maria/camp/shot-02.jpg",
-    "models/maria/camp/shot-03.jpg",
-    "models/maria/camp/shot-04.jpg"
-   ]
-  },
-  {
-   "cat": "homme",
-   "slug": "zane",
-   "img": "model-zane.jpg",
-   "name": "Zane",
-   "tag": "Encre et platine",
-   "type": "Mannequin numérique",
-   "statut": "Exclusif · cessible",
-   "media": [
-    "models/zane/cast-01.jpg",
-    "models/zane/cast-02.jpg",
-    "models/zane/cast-03.jpg",
-    "models/zane/cast-04.jpg"
+    "models/aria/cast-01.jpg",
+    "models/aria/cast-02.jpg",
+    "models/aria/cast-03.jpg",
+    "models/aria/cast-04.jpg",
+    "models/aria/camp/shot-01.jpg",
+    "models/aria/camp/shot-02.jpg",
+    "models/aria/camp/shot-03.jpg",
+    "models/aria/camp/shot-04.jpg"
    ]
   },
   {
@@ -2024,36 +2039,21 @@ window.MB={
   },
   {
    "cat": "femme",
-   "slug": "naomi",
-   "img": "model-naomi.jpg",
-   "name": "Naomi",
-   "tag": "Grâce solaire",
+   "slug": "sophia",
+   "img": "model-sophia.jpg",
+   "name": "Sophia",
+   "tag": "Carré graphique",
    "type": "Mannequin numérique",
    "statut": "Exclusif · cessible",
    "media": [
-    "models/naomi/cast-01.jpg",
-    "models/naomi/cast-02.jpg",
-    "models/naomi/cast-03.jpg",
-    "models/naomi/cast-04.jpg",
-    "models/naomi/camp/shot-01.jpg",
-    "models/naomi/camp/shot-02.jpg",
-    "models/naomi/camp/shot-03.jpg",
-    "models/naomi/camp/shot-04.jpg"
-   ]
-  },
-  {
-   "cat": "femme",
-   "slug": "alba",
-   "img": "model-alba.jpg",
-   "name": "Alba",
-   "tag": "Regard vert",
-   "type": "Mannequin numérique",
-   "statut": "Exclusif · cessible",
-   "media": [
-    "models/alba/cast-01.jpg",
-    "models/alba/cast-02.jpg",
-    "models/alba/cast-03.jpg",
-    "models/alba/cast-04.jpg"
+    "models/sophia/cast-01.jpg",
+    "models/sophia/cast-02.jpg",
+    "models/sophia/cast-03.jpg",
+    "models/sophia/cast-04.jpg",
+    "models/sophia/cast-05.jpg",
+    "models/sophia/cast-06.jpg",
+    "models/sophia/cast-07.jpg",
+    "models/sophia/cast-08.jpg"
    ]
   }
  ]
