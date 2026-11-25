@@ -1747,15 +1747,13 @@ window.MB={
    "type": "Mannequin numérique",
    "statut": "Exclusif · cessible",
    "media": [
-    "models/livia/cast-01.jpg",
-    "models/livia/cast-02.jpg",
-    "models/livia/cast-03.jpg",
-    "models/livia/cast-04.jpg",
-    "models/livia/cast-05.jpg",
-    "models/livia/cast-06.jpg",
     "models/livia/camp/shot-01.jpg",
     "models/livia/camp/shot-02.jpg",
-    "models/livia/camp/shot-03.jpg"
+    "models/livia/camp/shot-03.jpg",
+    "models/livia/cast-02.jpg",
+    "models/livia/cast-04.jpg",
+    "models/livia/cast-05.jpg",
+    "models/livia/cast-06.jpg"
    ]
   },
   {
