@@ -1755,6 +1755,82 @@ window.MB={
   },
   {
    "cat": "femme",
+   "slug": "imani",
+   "img": "model-imani.jpg",
+   "name": "Imani",
+   "tag": "Locks dorées",
+   "type": "Mannequin numérique",
+   "statut": "Exclusif · cessible",
+   "media": [
+    "models/imani/cast-01.jpg",
+    "models/imani/cast-02.jpg",
+    "models/imani/cast-03.jpg",
+    "models/imani/cast-04.jpg",
+    "models/imani/cast-05.jpg",
+    "models/imani/cast-06.jpg",
+    "models/imani/cast-07.jpg",
+    "models/imani/cast-08.jpg"
+   ]
+  },
+  {
+   "cat": "homme",
+   "slug": "jalen",
+   "img": "model-jalen.jpg",
+   "name": "Jalen",
+   "tag": "Locks blondes",
+   "type": "Mannequin numérique",
+   "statut": "Exclusif · cessible",
+   "media": [
+    "models/jalen/cast-01.jpg",
+    "models/jalen/cast-02.jpg",
+    "models/jalen/cast-03.jpg",
+    "models/jalen/cast-04.jpg",
+    "models/jalen/cast-05.jpg",
+    "models/jalen/cast-06.jpg",
+    "models/jalen/cast-07.jpg",
+    "models/jalen/cast-08.jpg"
+   ]
+  },
+  {
+   "cat": "femme",
+   "slug": "livia",
+   "img": "model-livia.jpg",
+   "name": "Livia",
+   "tag": "Brune solaire",
+   "type": "Mannequin numérique",
+   "statut": "Exclusif · cessible",
+   "media": [
+    "models/livia/cast-01.jpg",
+    "models/livia/cast-02.jpg",
+    "models/livia/cast-03.jpg",
+    "models/livia/cast-04.jpg",
+    "models/livia/cast-05.jpg",
+    "models/livia/cast-06.jpg",
+    "models/livia/camp/shot-01.jpg",
+    "models/livia/camp/shot-02.jpg",
+    "models/livia/camp/shot-03.jpg"
+   ]
+  },
+  {
+   "cat": "femme",
+   "slug": "laura",
+   "img": "model-laura.jpg",
+   "name": "Laura",
+   "tag": "Carré brun",
+   "type": "Double numérique",
+   "statut": "Sur accord",
+   "droits": "Modèle réel · sur accord",
+   "media": [
+    "models/laura/cast-01.jpg",
+    "models/laura/cast-02.jpg",
+    "models/laura/cast-03.jpg",
+    "models/laura/cast-04.jpg",
+    "models/laura/cast-05.jpg",
+    "models/laura/cast-06.jpg"
+   ]
+  },
+  {
+   "cat": "femme",
    "slug": "aria",
    "img": "model-aria.jpg",
    "name": "Aria",

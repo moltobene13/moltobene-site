@@ -13,7 +13,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 SITE = 'https://moltobene.ai'
-V = '34'  # cache-busting des fichiers partagés (assets/mb/*)
+V = '35'  # cache-busting des fichiers partagés (assets/mb/*)
 
 raw = (ROOT / 'assets/mb/site-data.js').read_text()
 DATA = json.loads(raw[raw.index('{'):raw.rindex('}') + 1])
@@ -198,11 +198,12 @@ def case_page(i, c):
 def model_page(i, m):
     path = f'modele/{m["slug"]}.html'
     t_live, d_live = live_meta(path)
-    title = t_live or f'{m["name"]}, mannequin numérique · Molto Bene'
-    desc = d_live or f'{m["name"]}, mannequin numérique du casting Molto Bene. Signature : {m["tag"]}. Visage fictif, cohérent d\'une campagne à l\'autre.'
+    title = t_live or f'{m["name"]}, {"double" if m.get("droits") else "mannequin"} numérique · Molto Bene'
+    droits = m.get('droits')  # renseigné quand le modèle est le double numérique d'une personne réelle
+    desc = d_live or (f'{m["name"]}, double numérique du casting Molto Bene. Signature : {m["tag"]}. Même visage, cohérent d\'une campagne à l\'autre.' if droits else f'{m["name"]}, mannequin numérique du casting Molto Bene. Signature : {m["tag"]}. Visage fictif, cohérent d\'une campagne à l\'autre.')
     book = m['media']
     attrs = [('Catégorie', CAT1.get(m['cat'], m['cat'])), ('Type', m['type']), ('Signature', m['tag']), ('Statut', m['statut']),
-             ('Book', f'{len(book):02d} images'), ('Droits à l\'image', 'Aucun · visage fictif')]
+             ('Book', f'{len(book):02d} images'), ('Droits à l\'image', droits or 'Aucun · visage fictif')]
     attrs_html = ''.join(f'<div><span>{e(k)}</span><b>{e(v)}</b></div>' for k, v in attrs)
     figs = ''.join(f'<figure><div class="media clip"><img src="/assets/{e(f)}" alt="{e(m["name"])}, mannequin numérique Molto Bene, image {j+1}" loading="lazy" decoding="async" data-lb="/assets/{e(f)}">{IA}</div><figcaption class="cap mono"><span>{j+1:02d} / {len(book):02d}</span><span>{e(m["name"])}</span></figcaption></figure>' for j, f in enumerate(book))
     others = [MODELS[(i + k) % len(MODELS)] for k in range(1, 6)]
