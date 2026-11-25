@@ -26,7 +26,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/mb/mb.css?v=40">
+<link rel="stylesheet" href="/assets/mb/mb.css?v=41">
 <style>
 body{background:var(--paper);color:var(--ink)}
 .nav{border-color:var(--line-ink);background:rgba(238,234,226,.6);color:var(--ink)}
@@ -173,8 +173,8 @@ body{background:var(--paper);color:var(--ink)}
 <div class="peek" id="peek"></div>
 
 <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
-<script src="/assets/mb/site-data.js?v=40"></script>
-<script src="/assets/mb/mb.js?v=40"></script>
+<script src="/assets/mb/site-data.js?v=41"></script>
+<script src="/assets/mb/mb.js?v=41"></script>
 <script>
 const $=s=>document.querySelector(s);
 const C=MB.cases.map((c,i)=>({...c,n:i+1,client:c.meta.Status==='Client',season:c.meta['Saison']||c.meta['Season']||c.meta['Concept']||'·',mood:c.meta.Mood||'·',imgs:c.media.filter(m=>m[0]==='img').map(m=>m[1])}));
