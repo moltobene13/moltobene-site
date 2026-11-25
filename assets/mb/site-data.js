@@ -1517,7 +1517,8 @@ window.MB={
     "models/awa/cast-06.jpg",
     "models/awa/cast-07.jpg",
     "models/awa/cast-08.jpg"
-   ]
+   ],
+   "new": true
   },
   {
    "cat": "homme",
@@ -1557,7 +1558,8 @@ window.MB={
     "models/mame/cast-06.jpg",
     "models/mame/cast-07.jpg",
     "models/mame/cast-08.jpg"
-   ]
+   ],
+   "new": true
   },
   {
    "cat": "homme",
@@ -1577,7 +1579,8 @@ window.MB={
     "models/sami/cast-06.jpg",
     "models/sami/cast-07.jpg",
     "models/sami/cast-08.jpg"
-   ]
+   ],
+   "new": true
   },
   {
    "cat": "duo",
@@ -1643,7 +1646,8 @@ window.MB={
     "models/ren/cast-06.jpg",
     "models/ren/cast-07.jpg",
     "models/ren/cast-08.jpg"
-   ]
+   ],
+   "new": true
   },
   {
    "cat": "femme",
@@ -1704,7 +1708,8 @@ window.MB={
     "models/anjali/cast-06.jpg",
     "models/anjali/cast-07.jpg",
     "models/anjali/cast-08.jpg"
-   ]
+   ],
+   "new": true
   },
   {
    "cat": "homme",
@@ -1826,7 +1831,8 @@ window.MB={
     "models/idir/cast-06.jpg",
     "models/idir/cast-07.jpg",
     "models/idir/cast-08.jpg"
-   ]
+   ],
+   "new": true
   },
   {
    "cat": "femme",
@@ -1846,7 +1852,8 @@ window.MB={
     "models/diane/cast-06.jpg",
     "models/diane/cast-07.jpg",
     "models/diane/cast-08.jpg"
-   ]
+   ],
+   "new": true
   },
   {
    "cat": "enfant",
@@ -1941,7 +1948,8 @@ window.MB={
     "models/joaquin/cast-06.jpg",
     "models/joaquin/cast-07.jpg",
     "models/joaquin/cast-08.jpg"
-   ]
+   ],
+   "new": true
   },
   {
    "cat": "femme",
@@ -2001,7 +2009,8 @@ window.MB={
     "models/leila/cast-06.jpg",
     "models/leila/cast-07.jpg",
     "models/leila/cast-08.jpg"
-   ]
+   ],
+   "new": true
   },
   {
    "cat": "enfant",
@@ -2097,7 +2106,8 @@ window.MB={
     "models/zoya/cast-06.jpg",
     "models/zoya/cast-07.jpg",
     "models/zoya/cast-08.jpg"
-   ]
+   ],
+   "new": true
   },
   {
    "cat": "femme",
@@ -2186,7 +2196,8 @@ window.MB={
     "models/elio/cast-06.jpg",
     "models/elio/cast-07.jpg",
     "models/elio/cast-08.jpg"
-   ]
+   ],
+   "new": true
   },
   {
    "cat": "femme",
