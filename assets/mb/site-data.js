@@ -1855,6 +1855,10 @@ window.MB={
     "models/zane/cast-01.jpg",
     "models/zane/cast-02.jpg",
     "models/zane/cast-03.jpg",
+    "models/zane/mb80-01.jpg",
+    "models/zane/mb80-02.jpg",
+    "models/zane/mb80-03.jpg",
+    "models/zane/mb80-04.jpg",
     "models/zane/cast-04.jpg"
    ]
   },
