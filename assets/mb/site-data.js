@@ -1972,26 +1972,6 @@ window.MB={
    ]
   },
   {
-   "cat": "homme",
-   "slug": "zane",
-   "img": "model-zane.jpg",
-   "cover": "models/zane/cast-02.jpg",
-   "name": "Zane",
-   "tag": "Encre et platine",
-   "type": "Mannequin numérique",
-   "statut": "Exclusif · cessible",
-   "media": [
-    "models/zane/cast-01.jpg",
-    "models/zane/cast-02.jpg",
-    "models/zane/cast-03.jpg",
-    "models/zane/mb80-05.jpg",
-    "models/zane/mb80-06.jpg",
-    "models/zane/mb80-07.jpg",
-    "models/zane/mb80-08.jpg",
-    "models/zane/cast-04.jpg"
-   ]
-  },
-  {
    "cat": "femme",
    "slug": "diane",
    "img": "model-diane.jpg",
@@ -2009,6 +1989,27 @@ window.MB={
     "models/diane/cast-06.jpg",
     "models/diane/cast-07.jpg",
     "models/diane/cast-08.jpg"
+   ],
+   "new": true
+  },
+  {
+   "cat": "homme",
+   "slug": "zane",
+   "img": "model-zane.jpg",
+   "cover": "models/zane/cast-02.jpg",
+   "name": "Zane",
+   "tag": "Encre et platine",
+   "type": "Mannequin numérique",
+   "statut": "Exclusif · cessible",
+   "media": [
+    "models/zane/cast-01.jpg",
+    "models/zane/cast-02.jpg",
+    "models/zane/cast-03.jpg",
+    "models/zane/mb80-05.jpg",
+    "models/zane/mb80-06.jpg",
+    "models/zane/mb80-07.jpg",
+    "models/zane/mb80-08.jpg",
+    "models/zane/cast-04.jpg"
    ],
    "new": true
   },
