@@ -1577,11 +1577,11 @@ window.MB={
     "models/astrid/cast-01.jpg",
     "models/astrid/cast-02.jpg",
     "models/astrid/cast-03.jpg",
+    "models/astrid/cast-08-pbb.jpg",
     "models/astrid/cast-04.jpg",
     "models/astrid/cast-05.jpg",
     "models/astrid/cast-06.jpg",
-    "models/astrid/cast-07.jpg",
-    "models/astrid/cast-08.jpg"
+    "models/astrid/cast-07.jpg"
    ]
   },
   {
