@@ -13,7 +13,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 SITE = 'https://moltobene.ai'
-V = '42'  # cache-busting des fichiers partagés (assets/mb/*)
+V = '43'  # cache-busting des fichiers partagés (assets/mb/*)
 
 raw = (ROOT / 'assets/mb/site-data.js').read_text()
 DATA = json.loads(raw[raw.index('{'):raw.rindex('}') + 1])

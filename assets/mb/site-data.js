@@ -1511,6 +1511,8 @@ window.MB={
     "models/milena/cast-01.jpg",
     "models/milena/cast-02.jpg",
     "models/milena/cast-03.jpg",
+    "models/milena/pfc-noel-01.jpg",
+    "models/milena/pfc-noel-02.jpg",
     "models/milena/cast-04.jpg",
     "models/milena/camp/shot-01.jpg",
     "models/milena/camp/shot-02.jpg",
@@ -1697,6 +1699,8 @@ window.MB={
     "models/paul/cast-01.jpg?v=20261015c",
     "models/paul/cast-02.jpg?v=20261015c",
     "models/paul/cast-03.jpg?v=20261015c",
+    "models/paul/pfc-noel-01.jpg",
+    "models/paul/pfc-noel-02.jpg",
     "models/paul/cast-04.jpg?v=20261015c",
     "models/paul/cast-05.jpg?v=20261015c",
     "models/paul/cast-06.jpg?v=20261015c",
@@ -1756,6 +1760,8 @@ window.MB={
     "models/gabin/cast-01.jpg",
     "models/gabin/cast-02.jpg",
     "models/gabin/cast-03.jpg",
+    "models/gabin/pfc-noel-01.jpg",
+    "models/gabin/pfc-noel-02.jpg",
     "models/gabin/cast-04.jpg"
    ]
   },
