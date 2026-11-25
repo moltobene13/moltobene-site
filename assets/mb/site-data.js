@@ -1501,23 +1501,22 @@ window.MB={
  "models": [
   {
    "cat": "femme",
-   "slug": "milena",
-   "img": "model-milena.jpg",
-   "name": "Milena",
-   "tag": "Brune intense",
+   "slug": "awa",
+   "img": "model-awa.jpg",
+   "cover": "models/awa/cast-01.jpg",
+   "name": "Awa",
+   "tag": "Port altier",
    "type": "Mannequin numérique",
    "statut": "Exclusif · cessible",
    "media": [
-    "models/milena/cast-01.jpg",
-    "models/milena/cast-02.jpg",
-    "models/milena/cast-03.jpg",
-    "models/milena/pfc-noel-01.jpg",
-    "models/milena/pfc-noel-02.jpg",
-    "models/milena/cast-04.jpg",
-    "models/milena/camp/shot-01.jpg",
-    "models/milena/camp/shot-02.jpg",
-    "models/milena/camp/shot-03.jpg",
-    "models/milena/camp/shot-04.jpg"
+    "models/awa/cast-01.jpg",
+    "models/awa/cast-02.jpg",
+    "models/awa/cast-03.jpg",
+    "models/awa/cast-04.jpg",
+    "models/awa/cast-05.jpg",
+    "models/awa/cast-06.jpg",
+    "models/awa/cast-07.jpg",
+    "models/awa/cast-08.jpg"
    ]
   },
   {
@@ -1538,6 +1537,46 @@ window.MB={
     "models/ezra/cast-08-pfc.jpg",
     "models/ezra/cast-07-pfc.jpg",
     "models/ezra/cast-08-polo.jpg"
+   ]
+  },
+  {
+   "cat": "femme",
+   "slug": "mame",
+   "img": "model-mame.jpg",
+   "cover": "models/mame/cast-01.jpg",
+   "name": "Mame",
+   "tag": "Argent long",
+   "type": "Mannequin numérique",
+   "statut": "Exclusif · cessible",
+   "media": [
+    "models/mame/cast-01.jpg",
+    "models/mame/cast-02.jpg",
+    "models/mame/cast-03.jpg",
+    "models/mame/cast-04.jpg",
+    "models/mame/cast-05.jpg",
+    "models/mame/cast-06.jpg",
+    "models/mame/cast-07.jpg",
+    "models/mame/cast-08.jpg"
+   ]
+  },
+  {
+   "cat": "homme",
+   "slug": "sami",
+   "img": "model-sami.jpg",
+   "cover": "models/sami/cast-01.jpg",
+   "name": "Sami",
+   "tag": "Boucles noires",
+   "type": "Mannequin numérique",
+   "statut": "Exclusif · cessible",
+   "media": [
+    "models/sami/cast-01.jpg",
+    "models/sami/cast-02.jpg",
+    "models/sami/cast-03.jpg",
+    "models/sami/cast-04.jpg",
+    "models/sami/cast-05.jpg",
+    "models/sami/cast-06.jpg",
+    "models/sami/cast-07.jpg",
+    "models/sami/cast-08.jpg"
    ]
   },
   {
@@ -1588,6 +1627,47 @@ window.MB={
   },
   {
    "cat": "homme",
+   "slug": "ren",
+   "img": "model-ren.jpg",
+   "cover": "models/ren/cast-01.jpg",
+   "name": "Ren",
+   "tag": "Ligne épurée",
+   "type": "Mannequin numérique",
+   "statut": "Exclusif · cessible",
+   "media": [
+    "models/ren/cast-01.jpg",
+    "models/ren/cast-02.jpg",
+    "models/ren/cast-03.jpg",
+    "models/ren/cast-04.jpg",
+    "models/ren/cast-05.jpg",
+    "models/ren/cast-06.jpg",
+    "models/ren/cast-07.jpg",
+    "models/ren/cast-08.jpg"
+   ]
+  },
+  {
+   "cat": "femme",
+   "slug": "milena",
+   "img": "model-milena.jpg",
+   "name": "Milena",
+   "tag": "Brune intense",
+   "type": "Mannequin numérique",
+   "statut": "Exclusif · cessible",
+   "media": [
+    "models/milena/cast-01.jpg",
+    "models/milena/cast-02.jpg",
+    "models/milena/cast-03.jpg",
+    "models/milena/pfc-noel-01.jpg",
+    "models/milena/pfc-noel-02.jpg",
+    "models/milena/cast-04.jpg",
+    "models/milena/camp/shot-01.jpg",
+    "models/milena/camp/shot-02.jpg",
+    "models/milena/camp/shot-03.jpg",
+    "models/milena/camp/shot-04.jpg"
+   ]
+  },
+  {
+   "cat": "homme",
    "slug": "lars",
    "img": "model-lars.jpg",
    "cover": "models/lars/cast-01.jpg",
@@ -1608,22 +1688,22 @@ window.MB={
   },
   {
    "cat": "femme",
-   "slug": "naomi",
-   "img": "model-naomi.jpg",
-   "cover": "models/naomi/cast-04.jpg",
-   "name": "Naomi",
-   "tag": "Grâce solaire",
+   "slug": "anjali",
+   "img": "model-anjali.jpg",
+   "cover": "models/anjali/cast-01.jpg",
+   "name": "Anjali",
+   "tag": "Carré d'ébène",
    "type": "Mannequin numérique",
    "statut": "Exclusif · cessible",
    "media": [
-    "models/naomi/cast-01.jpg",
-    "models/naomi/cast-02.jpg",
-    "models/naomi/cast-03.jpg",
-    "models/naomi/cast-04.jpg",
-    "models/naomi/camp/shot-01.jpg",
-    "models/naomi/camp/shot-02.jpg",
-    "models/naomi/camp/shot-03.jpg",
-    "models/naomi/camp/shot-04.jpg"
+    "models/anjali/cast-01.jpg",
+    "models/anjali/cast-02.jpg",
+    "models/anjali/cast-03.jpg",
+    "models/anjali/cast-04.jpg",
+    "models/anjali/cast-05.jpg",
+    "models/anjali/cast-06.jpg",
+    "models/anjali/cast-07.jpg",
+    "models/anjali/cast-08.jpg"
    ]
   },
   {
@@ -1729,22 +1809,43 @@ window.MB={
    ]
   },
   {
-   "cat": "femme",
-   "slug": "sara",
-   "img": "model-sara.jpg",
-   "name": "Sara",
-   "tag": "Braise latine",
+   "cat": "homme",
+   "slug": "idir",
+   "img": "model-idir.jpg",
+   "cover": "models/idir/cast-01.jpg",
+   "name": "Idir",
+   "tag": "Barbe nette",
    "type": "Mannequin numérique",
    "statut": "Exclusif · cessible",
    "media": [
-    "models/sara/cast-01.jpg",
-    "models/sara/cast-02.jpg",
-    "models/sara/cast-03.jpg",
-    "models/sara/cast-04.jpg",
-    "models/sara/camp/shot-01.jpg",
-    "models/sara/camp/shot-02.jpg",
-    "models/sara/camp/shot-03.jpg",
-    "models/sara/camp/shot-04.jpg"
+    "models/idir/cast-01.jpg",
+    "models/idir/cast-02.jpg",
+    "models/idir/cast-03.jpg",
+    "models/idir/cast-04.jpg",
+    "models/idir/cast-05.jpg",
+    "models/idir/cast-06.jpg",
+    "models/idir/cast-07.jpg",
+    "models/idir/cast-08.jpg"
+   ]
+  },
+  {
+   "cat": "femme",
+   "slug": "diane",
+   "img": "model-diane.jpg",
+   "cover": "models/diane/cast-01.jpg",
+   "name": "Diane",
+   "tag": "Naturel assumé",
+   "type": "Mannequin numérique",
+   "statut": "Exclusif · cessible",
+   "media": [
+    "models/diane/cast-01.jpg",
+    "models/diane/cast-02.jpg",
+    "models/diane/cast-03.jpg",
+    "models/diane/cast-04.jpg",
+    "models/diane/cast-05.jpg",
+    "models/diane/cast-06.jpg",
+    "models/diane/cast-07.jpg",
+    "models/diane/cast-08.jpg"
    ]
   },
   {
@@ -1823,6 +1924,26 @@ window.MB={
    ]
   },
   {
+   "cat": "homme",
+   "slug": "joaquin",
+   "img": "model-joaquin.jpg",
+   "cover": "models/joaquin/cast-01.jpg",
+   "name": "Joaquin",
+   "tag": "Sourire large",
+   "type": "Mannequin numérique",
+   "statut": "Exclusif · cessible",
+   "media": [
+    "models/joaquin/cast-01.jpg",
+    "models/joaquin/cast-02.jpg",
+    "models/joaquin/cast-03.jpg",
+    "models/joaquin/cast-04.jpg",
+    "models/joaquin/cast-05.jpg",
+    "models/joaquin/cast-06.jpg",
+    "models/joaquin/cast-07.jpg",
+    "models/joaquin/cast-08.jpg"
+   ]
+  },
+  {
    "cat": "femme",
    "slug": "olia",
    "img": "model-olia.jpg",
@@ -1864,22 +1985,22 @@ window.MB={
   },
   {
    "cat": "femme",
-   "slug": "maria",
-   "img": "model-maria.jpg",
-   "cover": "models/maria/cast-04.jpg",
-   "name": "Maria",
-   "tag": "Allure libre",
+   "slug": "leila",
+   "img": "model-leila.jpg",
+   "cover": "models/leila/cast-01.jpg",
+   "name": "Leila",
+   "tag": "Boucles libres",
    "type": "Mannequin numérique",
    "statut": "Exclusif · cessible",
    "media": [
-    "models/maria/cast-01.jpg",
-    "models/maria/cast-02.jpg",
-    "models/maria/cast-03.jpg",
-    "models/maria/cast-04.jpg",
-    "models/maria/camp/shot-01.jpg",
-    "models/maria/camp/shot-02.jpg",
-    "models/maria/camp/shot-03.jpg",
-    "models/maria/camp/shot-04.jpg"
+    "models/leila/cast-01.jpg",
+    "models/leila/cast-02.jpg",
+    "models/leila/cast-03.jpg",
+    "models/leila/cast-04.jpg",
+    "models/leila/cast-05.jpg",
+    "models/leila/cast-06.jpg",
+    "models/leila/cast-07.jpg",
+    "models/leila/cast-08.jpg"
    ]
   },
   {
@@ -1960,18 +2081,22 @@ window.MB={
   },
   {
    "cat": "femme",
-   "slug": "alba",
-   "img": "model-alba.jpg",
-   "cover": "models/alba/cast-02.jpg",
-   "name": "Alba",
-   "tag": "Regard vert",
+   "slug": "zoya",
+   "img": "model-zoya.jpg",
+   "cover": "models/zoya/cast-01.jpg",
+   "name": "Zoya",
+   "tag": "Ondes brunes",
    "type": "Mannequin numérique",
    "statut": "Exclusif · cessible",
    "media": [
-    "models/alba/cast-01.jpg",
-    "models/alba/cast-02.jpg",
-    "models/alba/cast-03.jpg",
-    "models/alba/cast-04.jpg"
+    "models/zoya/cast-01.jpg",
+    "models/zoya/cast-02.jpg",
+    "models/zoya/cast-03.jpg",
+    "models/zoya/cast-04.jpg",
+    "models/zoya/cast-05.jpg",
+    "models/zoya/cast-06.jpg",
+    "models/zoya/cast-07.jpg",
+    "models/zoya/cast-08.jpg"
    ]
   },
   {
@@ -2012,6 +2137,22 @@ window.MB={
    ]
   },
   {
+   "cat": "femme",
+   "slug": "alba",
+   "img": "model-alba.jpg",
+   "cover": "models/alba/cast-02.jpg",
+   "name": "Alba",
+   "tag": "Regard vert",
+   "type": "Mannequin numérique",
+   "statut": "Exclusif · cessible",
+   "media": [
+    "models/alba/cast-01.jpg",
+    "models/alba/cast-02.jpg",
+    "models/alba/cast-03.jpg",
+    "models/alba/cast-04.jpg"
+   ]
+  },
+  {
    "cat": "enfant",
    "slug": "raya",
    "img": "model-raya.jpg",
@@ -2025,6 +2166,46 @@ window.MB={
     "models/raya/cast-02.jpg",
     "models/raya/cast-03.jpg",
     "models/raya/cast-04.jpg"
+   ]
+  },
+  {
+   "cat": "homme",
+   "slug": "elio",
+   "img": "model-elio.jpg",
+   "cover": "models/elio/cast-01.jpg",
+   "name": "Elio",
+   "tag": "Riviera argentée",
+   "type": "Mannequin numérique",
+   "statut": "Exclusif · cessible",
+   "media": [
+    "models/elio/cast-01.jpg",
+    "models/elio/cast-02.jpg",
+    "models/elio/cast-03.jpg",
+    "models/elio/cast-04.jpg",
+    "models/elio/cast-05.jpg",
+    "models/elio/cast-06.jpg",
+    "models/elio/cast-07.jpg",
+    "models/elio/cast-08.jpg"
+   ]
+  },
+  {
+   "cat": "femme",
+   "slug": "aria",
+   "img": "model-aria.jpg",
+   "cover": "models/aria/cast-01.jpg",
+   "name": "Aria",
+   "tag": "Brune ambrée",
+   "type": "Mannequin numérique",
+   "statut": "Exclusif · cessible",
+   "media": [
+    "models/aria/cast-01.jpg",
+    "models/aria/cast-02.jpg",
+    "models/aria/cast-03.jpg",
+    "models/aria/cast-04.jpg",
+    "models/aria/camp/shot-01.jpg",
+    "models/aria/camp/shot-02.jpg",
+    "models/aria/camp/shot-03.jpg",
+    "models/aria/camp/shot-04.jpg"
    ]
   },
   {
@@ -2049,22 +2230,22 @@ window.MB={
   },
   {
    "cat": "femme",
-   "slug": "aria",
-   "img": "model-aria.jpg",
-   "cover": "models/aria/cast-01.jpg",
-   "name": "Aria",
-   "tag": "Brune ambrée",
+   "slug": "maria",
+   "img": "model-maria.jpg",
+   "cover": "models/maria/cast-04.jpg",
+   "name": "Maria",
+   "tag": "Allure libre",
    "type": "Mannequin numérique",
    "statut": "Exclusif · cessible",
    "media": [
-    "models/aria/cast-01.jpg",
-    "models/aria/cast-02.jpg",
-    "models/aria/cast-03.jpg",
-    "models/aria/cast-04.jpg",
-    "models/aria/camp/shot-01.jpg",
-    "models/aria/camp/shot-02.jpg",
-    "models/aria/camp/shot-03.jpg",
-    "models/aria/camp/shot-04.jpg"
+    "models/maria/cast-01.jpg",
+    "models/maria/cast-02.jpg",
+    "models/maria/cast-03.jpg",
+    "models/maria/cast-04.jpg",
+    "models/maria/camp/shot-01.jpg",
+    "models/maria/camp/shot-02.jpg",
+    "models/maria/camp/shot-03.jpg",
+    "models/maria/camp/shot-04.jpg"
    ]
   },
   {
@@ -2101,6 +2282,45 @@ window.MB={
     "models/sophia/cast-06.jpg",
     "models/sophia/cast-07.jpg",
     "models/sophia/cast-08.jpg"
+   ]
+  },
+  {
+   "cat": "femme",
+   "slug": "sara",
+   "img": "model-sara.jpg",
+   "name": "Sara",
+   "tag": "Braise latine",
+   "type": "Mannequin numérique",
+   "statut": "Exclusif · cessible",
+   "media": [
+    "models/sara/cast-01.jpg",
+    "models/sara/cast-02.jpg",
+    "models/sara/cast-03.jpg",
+    "models/sara/cast-04.jpg",
+    "models/sara/camp/shot-01.jpg",
+    "models/sara/camp/shot-02.jpg",
+    "models/sara/camp/shot-03.jpg",
+    "models/sara/camp/shot-04.jpg"
+   ]
+  },
+  {
+   "cat": "femme",
+   "slug": "naomi",
+   "img": "model-naomi.jpg",
+   "cover": "models/naomi/cast-04.jpg",
+   "name": "Naomi",
+   "tag": "Grâce solaire",
+   "type": "Mannequin numérique",
+   "statut": "Exclusif · cessible",
+   "media": [
+    "models/naomi/cast-01.jpg",
+    "models/naomi/cast-02.jpg",
+    "models/naomi/cast-03.jpg",
+    "models/naomi/cast-04.jpg",
+    "models/naomi/camp/shot-01.jpg",
+    "models/naomi/camp/shot-02.jpg",
+    "models/naomi/camp/shot-03.jpg",
+    "models/naomi/camp/shot-04.jpg"
    ]
   }
  ]
