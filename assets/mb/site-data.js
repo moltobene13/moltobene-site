@@ -1544,7 +1544,7 @@ window.MB={
    "slug": "mame",
    "img": "model-mame.jpg",
    "cover": "models/mame/cast-01.jpg",
-   "name": "Mame",
+   "name": "Mamé",
    "tag": "Argent long",
    "type": "Mannequin numérique",
    "statut": "Exclusif · cessible",
